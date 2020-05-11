@@ -45,11 +45,12 @@ body {
 /* Change background color of buttons on hover */
 .tab button:hover {
   background-color: #f1f1f1;
+  border-top: 5px solid #f1f1f1;
 }
 
 /* Create an active/current tablink class */
 .tab button.active {
-  background-color: #f1f1f1;
+  background-color: white;
   border-top: 5px solid rgb(26,35,126);
 }
 

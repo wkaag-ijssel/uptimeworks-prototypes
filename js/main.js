@@ -46,6 +46,21 @@ let chart1 = new Chart(ctx, {
                 radius: 0 //hide data point indicators
             }
         },
+        scales: {
+            xAxes: [{
+                gridLines: {
+                    display: false
+                },
+                ticks: {
+                    maxTicksLimit: 15
+                }
+            }],
+            yAxes: [{
+                gridLines: {
+                    display:true
+                }   
+            }]
+        }
     }
 });
 
