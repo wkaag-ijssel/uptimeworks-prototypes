@@ -49,16 +49,20 @@ let chart1 = new Chart(ctx, {
         scales: {
             xAxes: [{
                 gridLines: {
-                    display: false
+                    display: false,
                 },
                 ticks: {
-                    maxTicksLimit: 15
+                    maxTicksLimit: 15,
+                    autoSkip: true, //!important
+                    maxRotation: 0, 
+                    minRotation: 0
                 }
             }],
             yAxes: [{
                 gridLines: {
-                    display:true
-                }   
+                    display:true,
+                },
+                position: 'right',
             }]
         }
     }

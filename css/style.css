@@ -27,6 +27,7 @@ body {
   overflow: hidden;
   /* border: 1px solid #ccc; */
   background-color: white;
+  padding-left: 40px;
 }
 
 /* Style the buttons inside the tab */
