@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+
+<body class="dashboard">
+    <div class="col-md-12 row">
+        <div class="col-md-2">
+            <div>
+                <p>test</p>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="col-md-12 row">
+                <div class="col-md-12">
+                    <h1>Dashboard prototypes</h1>
+                </div>
+            </div>
+            
+            <div class="col-md-12 row">
+                <div class="dashboard-item col-md-7">
+                    <div class="dashboard-content">
+                        <div class="tab">
+                            <button class="tablinks active" onclick="changeChartType(event, chart1, workorders)">Workorders</button>
+                            <button class="tablinks" onclick="changeChartType(event, chart1, readings)">Readings</button>
+                            <button class="tablinks" onclick="changeChartType(event, chart1, reports)">Reports</button>
+                            <button class="tablinks" onclick="changeChartType(event, chart1, totalCosts)">Total costs</button>
+                            <button class="tablinks" onclick="changeChartType(event, chart1, totalSavings)">Total savings</button>
+                        </div>
+
+                        <div class="chart">
+                            <canvas id="myChart_1"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-item col-md-5">
+                    <div class="dashboard-content">
+                        <div class="chart">
+                            <canvas id="myChart_2"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
+
+<footer>
+    <script src="node_modules/chart.js/dist/Chart.js"></script>
+    <script src="js/main.js"></script>
+</footer>
