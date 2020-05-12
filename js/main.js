@@ -6,7 +6,7 @@ let pMain = "#1a237e"; //'rgb(26,35,126)';
     sLight = "#ffdd4b";
     sDark = "#c67c00";
 
-// Dummy data - metrics
+// Dummy data
 let date_range = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'September', 'October', 'November', 'December'];
 let workorders = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
 let readings = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
@@ -14,12 +14,29 @@ let reports = Array.from({length: date_range.length}, () => Math.floor(Math.rand
 let totalCosts = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
 let totalSavings = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
 
-// Dummy data - thresholds / references
-let _workorders = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 20));
+data = [workorders, readings, reports, totalCosts, totalSavings]
+
+// Dummy thresholds / references
+let _workorders = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
 let _readings = [30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30];
-let _reports = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 10));
-let _totalCosts = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 25));
+let _reports = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
+let _totalCosts = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
 let _totalSavings = [30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30];
+
+ref = [_workorders, _readings, _reports, _totalCosts, _totalSavings]
+
+let dataMetric = document.getElementsByClassName('tab-metric');
+let dataDiff = document.getElementsByClassName('tab-diff');
+
+//
+for(i = 0; i<dataMetric.length; i++){
+    let dataSum = data[i].reduce((a, b) => a + b, 0);
+    let refSum = ref[i].reduce((a,b) => a + b, 0);
+
+    dataMetric[i].innerHTML += dataSum;
+    console.log(dataSum, refSum);
+    dataDiff[i].innerHTML = parseInt(((100*dataSum)/refSum)-100) + "%";
+}
 
 // Line graph
 let ctx = document.getElementById('myChart_1').getContext('2d');
@@ -38,7 +55,7 @@ let chart1 = new Chart(ctx, {
             pointStyle: 'line'
         },
         {
-            label: "Last week",
+            label: "Last year",
             fill: false,
             borderColor: pMain,
             borderDash: [5,2],
@@ -123,7 +140,7 @@ let chart2 = new Chart(ctx2, {
     }
 });
 
-function changeChartType(evt, chartName, dataInput, refInput='None') {
+function changeTab(evt, chartName, dataInput, refInput='None') {
     let i, tabcontent, tablinks;
   
     tablinks = document.getElementsByClassName("tablinks");
@@ -131,15 +148,12 @@ function changeChartType(evt, chartName, dataInput, refInput='None') {
       tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
 
-    // chartName.data.datasets.forEach((dataset) => {
-    //     dataset.labels = date_range;
-    //     dataset.data = dataInput;
-    // });
+    // change metric data
     chartName.data.datasets[0].data = dataInput;
-    chartName.data.datasets[0].label = 'n. of ' + evt.currentTarget.getElementsByClassName("chart-title")[0].innerText;
+    chartName.data.datasets[0].label = 'n. of ' + evt.currentTarget.getElementsByClassName("tab-title")[0].innerText.toLowerCase();
 
+    // change ref/threshold data
     chartName.data.datasets[1].data = refInput;
-    // chartName.data.datasets[0].data = dataInput;
 
     chart1.update();
     evt.currentTarget.className += " active";

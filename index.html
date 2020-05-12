@@ -21,7 +21,7 @@
         <div class="col-md-10">
             <div class="col-md-12 row">
                 <div class="col-md-12">
-                    <h1>Dashboard prototypes</h1>
+                    <h1 class="dashboard-title">Dashboard prototypes</h1>
                 </div>
             </div>
             
@@ -29,30 +29,58 @@
                 <div class="dashboard-item col-md-7">
                     <div class="dashboard-content">
                         <div class="tab">
-                            <button class="tablinks active" onclick="changeChartType(event, chart1, workorders, _workorders)">
-                                <h6 class="chart-title">Workorders</h6>
-                                <p class="chart-metric">400</p>
+                            <button class="tablinks active" onclick="changeTab(event, chart1, workorders, _workorders)">
+                                <h6 class="tab-title">Workorders</h6>
+                                <p class="tab-metric"></p>
+                                <p class="tab-diff"></p>
                             </button>
-                            <button class="tablinks" onclick="changeChartType(event, chart1, readings, _readings)">
-                                <h6 class="chart-title">Readings</h6>
-                                <p class="chart-metric">1000</p>
+                            <button class="tablinks" onclick="changeTab(event, chart1, readings, _readings)">
+                                <h6 class="tab-title">Readings</h6>
+                                <p class="tab-metric"></p>
+                                <p class="tab-diff"></p>
                             </button>
-                            <button class="tablinks" onclick="changeChartType(event, chart1, reports, _reports)">
-                                <h6 class="chart-title">Reports</h6>
-                                <p class="chart-metric">20</p>
+                            <button class="tablinks" onclick="changeTab(event, chart1, reports, _reports)">
+                                <h6 class="tab-title">Reports</h6>
+                                <p class="tab-metric"></p>
+                                <p class="tab-diff"></p>
                             </button>
-                            <button class="tablinks" onclick="changeChartType(event, chart1, totalCosts, _totalCosts)">
-                                <h6 class="chart-title">Costs</h6>
-                                <p class="chart-metric">$ 329,00</p>
+                            <button class="tablinks" onclick="changeTab(event, chart1, totalCosts, _totalCosts)">
+                                <h6 class="tab-title">Costs</h6>
+                                <p class="tab-metric">$ </p>
+                                <p class="tab-diff"></p>
                             </button>
-                            <button class="tablinks" onclick="changeChartType(event, chart1, totalSavings, _totalSavings)">
-                                <h6 class="chart-title">Savings</h6>
-                                <p class="chart-metric">$ 415,00</p>
+                            <button class="tablinks" onclick="changeTab(event, chart1, totalSavings, _totalSavings)">
+                                <h6 class="tab-title">Savings</h6>
+                                <p class="tab-metric">$ </p>
+                                <p class="tab-diff"></p>
                             </button>
                         </div>
 
                         <div class="chart">
-                            <canvas id="myChart_1"></canvas>
+                            <canvas id="myChart_1" height="100px"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-item col-md-5">
+                    <div class="dashboard-content">
+                        <div class="scatter-plot">
+                            <h6 class="tab-title">Costs and Savings per Month</h6>
+                        </div>
+
+                        <div class="chart">
+                            <canvas id="myChart_2" height="200px"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-12 row">
+                <div class="dashboard-item col-md-7">
+                    <div class="dashboard-content">
+                        <div class="chart">
+                            <canvas id="myChart_3"></canvas>
                         </div>
                     </div>
                 </div>
@@ -60,7 +88,7 @@
                 <div class="dashboard-item col-md-5">
                     <div class="dashboard-content">
                         <div class="chart">
-                            <canvas id="myChart_2"></canvas>
+                            <canvas id="myChart_4"></canvas>
                         </div>
                     </div>
                 </div>

@@ -7,8 +7,14 @@ body {
   padding: 20px 20px 20px 20px;
 }
 
-.chart-metric {
+.tab-metric {
   margin: 0px!important;
+}
+
+.tab-diff {
+  font-size: 12px;
+  margin: 0px!important;
+  display: inline;
 }
 
 .dashboard {
@@ -19,11 +25,19 @@ body {
   padding: 20px 20px 20px 20px;
 }
 
+.dashboard-title {
+  margin-top: 30px;
+}
+
 .dashboard-content {
   padding: 0px 20px 20px 20px;
   background-color: white;
   border: none; /*1px solid black;*/
   border-radius: 15px;
+}
+
+.scatter-plot {
+  padding: 20px 0px 0px 30px;
 }
 
 /* Style the tab */
