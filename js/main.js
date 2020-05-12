@@ -27,6 +27,17 @@ ref = [_workorders, _readings, _reports, _totalCosts, _totalSavings]
 
 let dataMetric = document.getElementsByClassName('tab-metric');
 let dataDiff = document.getElementsByClassName('tab-diff');
+let scatterArray = [];
+
+totalCosts.forEach((cost, index) => {
+    let saving = totalSavings[index];
+    scatterArray.push({
+        x: cost, 
+        y: saving
+    });
+});
+
+console.log(scatterArray);
 
 //
 for(i = 0; i<dataMetric.length; i++){
@@ -112,29 +123,30 @@ let chart2 = new Chart(ctx2, {
     data: {
         datasets: [{
             label: 'Scatter Dataset',
-            data: [{
-                x: -10,
-                y: 0
-            }, {
-                x: 0,
-                y: 10
-            }, {
-                x: 10,
-                y: -5
-            },{
-                x: 7,
-                y: -2
-            },{
-                x: 1,
-                y: 4
-            }]
+            borderColor: pMain,
+            data: scatterArray
         }]
     },
     options: {
+        legend: {
+            display: false,
+        },
         scales: {
             xAxes: [{
                 type: 'linear',
-                position: 'bottom'
+                position: 'bottom',
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Costs'
+                }
+            }],
+            yAxes: [{
+                type: 'linear',
+                position: 'left',
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Savings'
+                }
             }]
         }
     }
