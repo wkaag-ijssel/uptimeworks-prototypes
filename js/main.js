@@ -17,6 +17,13 @@ let reports = Array.from({length: date_range.length}, () => Math.floor(Math.rand
 let totalCosts = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
 let totalSavings = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
 
+
+let _workorders = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 20));
+let _readings = [30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30];
+let _reports = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 10));
+let _totalCosts = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 25));
+let _totalSavings = [30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30];
+
 let ctx = document.getElementById('myChart_1').getContext('2d');
 let chart1 = new Chart(ctx, {
     // The type of chart we want to create
@@ -30,6 +37,13 @@ let chart1 = new Chart(ctx, {
             fill: false,
             borderColor: pMain,
             data: workorders
+        },
+        {
+            label: "ref",
+            fill: false,
+            borderColor: pMain,
+            borderDash: [5,2],
+            data: _workorders
         }]
     },
 
@@ -40,7 +54,8 @@ let chart1 = new Chart(ctx, {
         },
         elements: {
             line: {
-                tension: 0 // disables bezier curves
+                tension: 0, // disables bezier curves
+                borderWidth: 2
             },
             point:{
                 radius: 0 //hide data point indicators
@@ -96,7 +111,7 @@ let chart2 = new Chart(ctx2, {
     }
 });
 
-function changeChartType(evt, chartName, dataInput) {
+function changeChartType(evt, chartName, dataInput, refInput='None') {
     let i, tabcontent, tablinks;
   
     tablinks = document.getElementsByClassName("tablinks");
@@ -104,10 +119,12 @@ function changeChartType(evt, chartName, dataInput) {
       tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
 
-    chartName.data.datasets.forEach((dataset) => {
-        dataset.labels = date_range;
-        dataset.data = dataInput;
-    });
+    // chartName.data.datasets.forEach((dataset) => {
+    //     dataset.labels = date_range;
+    //     dataset.data = dataInput;
+    // });
+    chartName.data.datasets[0].data = dataInput;
+    chartName.data.datasets[1].data = refInput;
 
     chart1.update();
     evt.currentTarget.className += " active";
