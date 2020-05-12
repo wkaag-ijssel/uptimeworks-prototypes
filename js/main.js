@@ -1,15 +1,12 @@
-/*const pallete = {
-    pMain = "#1a237e",
-    pLight = "#534bae",
-    pDark = "#000051",
-    sMain = "#ffab00",
-    sLight = "#ffdd4b",
-    sDark = "#c67c00"
-};*/
+// Color scheme
+let pMain = "#1a237e"; //'rgb(26,35,126)';
+    pLight = "#534bae";
+    pDark = "#000051";
+    sMain = "#ffab00";
+    sLight = "#ffdd4b";
+    sDark = "#c67c00";
 
-let pMain = 'rgb(26,35,126)';
-
-// import { zip } from "d3";
+// Dummy data - metrics
 let date_range = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'September', 'October', 'November', 'December'];
 let workorders = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
 let readings = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
@@ -17,13 +14,14 @@ let reports = Array.from({length: date_range.length}, () => Math.floor(Math.rand
 let totalCosts = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
 let totalSavings = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
 
-
+// Dummy data - thresholds / references
 let _workorders = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 20));
 let _readings = [30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30];
 let _reports = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 10));
 let _totalCosts = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 25));
 let _totalSavings = [30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30];
 
+// Line graph
 let ctx = document.getElementById('myChart_1').getContext('2d');
 let chart1 = new Chart(ctx, {
     // The type of chart we want to create
@@ -33,24 +31,31 @@ let chart1 = new Chart(ctx, {
     data: {
         labels: date_range,
         datasets: [{
-            label: 'n',
+            label: 'n. of workorders',
             fill: false,
             borderColor: pMain,
-            data: workorders
+            data: workorders,
+            pointStyle: 'line'
         },
         {
-            label: "ref",
+            label: "Last week",
             fill: false,
             borderColor: pMain,
             borderDash: [5,2],
-            data: _workorders
+            data: _workorders,
+            pointStyle: 'line'
         }]
     },
 
     // Configuration options go here
     options: {
         legend: {
-            display: false
+            display: true,
+            position: 'bottom',
+            align: 'end',
+            labels: {
+                usePointStyle: true
+            }
         },
         elements: {
             line: {
@@ -83,6 +88,7 @@ let chart1 = new Chart(ctx, {
     }
 });
 
+//Scatter plot
 let ctx2 = document.getElementById('myChart_2').getContext('2d');
 let chart2 = new Chart(ctx2, {
     type: 'scatter',
@@ -97,7 +103,13 @@ let chart2 = new Chart(ctx2, {
                 y: 10
             }, {
                 x: 10,
-                y: 5
+                y: -5
+            },{
+                x: 7,
+                y: -2
+            },{
+                x: 1,
+                y: 4
             }]
         }]
     },
@@ -124,7 +136,10 @@ function changeChartType(evt, chartName, dataInput, refInput='None') {
     //     dataset.data = dataInput;
     // });
     chartName.data.datasets[0].data = dataInput;
+    chartName.data.datasets[0].label = 'n. of ' + evt.currentTarget.getElementsByClassName("chart-title")[0].innerText;
+
     chartName.data.datasets[1].data = refInput;
+    // chartName.data.datasets[0].data = dataInput;
 
     chart1.update();
     evt.currentTarget.className += " active";

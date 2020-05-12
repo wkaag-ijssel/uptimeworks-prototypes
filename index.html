@@ -29,11 +29,26 @@
                 <div class="dashboard-item col-md-7">
                     <div class="dashboard-content">
                         <div class="tab">
-                            <button class="tablinks active" onclick="changeChartType(event, chart1, workorders, _workorders)">Workorders</button>                        </button>
-                            <button class="tablinks" onclick="changeChartType(event, chart1, readings, _readings)">Readings</button>
-                            <button class="tablinks" onclick="changeChartType(event, chart1, reports, _reports)">Reports</button>
-                            <button class="tablinks" onclick="changeChartType(event, chart1, totalCosts, _totalCosts)">Costs</button>
-                            <button class="tablinks" onclick="changeChartType(event, chart1, totalSavings, _totalSavings)">Savings</button>
+                            <button class="tablinks active" onclick="changeChartType(event, chart1, workorders, _workorders)">
+                                <h6 class="chart-title">Workorders</h6>
+                                <p class="chart-metric">400</p>
+                            </button>
+                            <button class="tablinks" onclick="changeChartType(event, chart1, readings, _readings)">
+                                <h6 class="chart-title">Readings</h6>
+                                <p class="chart-metric">1000</p>
+                            </button>
+                            <button class="tablinks" onclick="changeChartType(event, chart1, reports, _reports)">
+                                <h6 class="chart-title">Reports</h6>
+                                <p class="chart-metric">20</p>
+                            </button>
+                            <button class="tablinks" onclick="changeChartType(event, chart1, totalCosts, _totalCosts)">
+                                <h6 class="chart-title">Costs</h6>
+                                <p class="chart-metric">$ 329,00</p>
+                            </button>
+                            <button class="tablinks" onclick="changeChartType(event, chart1, totalSavings, _totalSavings)">
+                                <h6 class="chart-title">Savings</h6>
+                                <p class="chart-metric">$ 415,00</p>
+                            </button>
                         </div>
 
                         <div class="chart">
