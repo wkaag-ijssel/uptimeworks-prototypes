@@ -168,7 +168,6 @@ let chart3 = new Chart(ctx3, {
     options: {
         legend: {
             display: false,
-            position: 'right'
         },
         scales: {
             xAxes: [{
@@ -180,12 +179,7 @@ let chart3 = new Chart(ctx3, {
                 // }
             }],
             yAxes: [{
-                // type: 'linear',
-                // position: 'left',
-                // scaleLabel: {
-                //     display: true,
-                //     labelString: 'Savings'
-                // }
+                position: 'right'
             }]
         }
     }
