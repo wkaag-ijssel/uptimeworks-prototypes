@@ -29,6 +29,14 @@ body {
   margin-top: 30px;
 }
 
+.fa-long-arrow-alt-up {
+  color: green;
+}
+
+.fa-long-arrow-alt-down {
+  color: red;
+}
+
 .dashboard-content {
   padding: 0px 20px 20px 20px;
   background-color: white;

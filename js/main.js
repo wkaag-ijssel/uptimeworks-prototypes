@@ -57,6 +57,7 @@ console.log(assetsCosts);
 
 ref = [_workorders, _readings, _reports, _totalCosts, _totalSavings]
 
+let tabs = document.getElementsByClassName('tablinks');
 let dataMetric = document.getElementsByClassName('tab-metric');
 let dataDiff = document.getElementsByClassName('tab-diff');
 let scatterArray = [];
@@ -73,10 +74,19 @@ totalCosts.forEach((cost, index) => {
 for(i = 0; i<dataMetric.length; i++){
     let dataSum = data[i].reduce((a, b) => a + b, 0);
     let refSum = ref[i].reduce((a,b) => a + b, 0);
+    let diff = parseInt(((100*dataSum)/refSum)-100);
 
+    let icon = tabs[i].getElementsByClassName('fas');
+
+    if(diff > 0){
+        icon[0].className += " fa-long-arrow-alt-up";
+        console.log(icon);
+    } else if (diff < 0){
+        icon[0].className += " fa-long-arrow-alt-down";
+        diff = Math.abs(diff);
+    }
     dataMetric[i].innerHTML += dataSum;
-    console.log(dataSum, refSum);
-    dataDiff[i].innerHTML = parseInt(((100*dataSum)/refSum)-100) + "%";
+    dataDiff[i].innerHTML = diff  + "%";
 }
 
 // Line graph
