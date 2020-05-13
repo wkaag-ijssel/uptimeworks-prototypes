@@ -10,17 +10,17 @@ let pMain = "#1a237e"; //'rgb(26,35,126)';
 let date_range = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'September', 'October', 'November', 'December'];
 let workorders = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
 let readings = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
-let reports = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
-let totalCosts = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
-let totalSavings = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
-
+let reports = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 20));
+let totalCosts = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 30));
+let totalSavings = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 30));
+let uptimeRatio = Array.from({length: date_range.length}, () => Math.random());
 data = [workorders, readings, reports, totalCosts, totalSavings]
 
 // Dummy thresholds / references
 let _workorders = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
 let _readings = [30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30];
-let _reports = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
-let _totalCosts = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
+let _reports = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 20));
+let _totalCosts = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 30));
 let _totalSavings = [30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30];
 
 ref = [_workorders, _readings, _reports, _totalCosts, _totalSavings]
@@ -37,9 +37,7 @@ totalCosts.forEach((cost, index) => {
     });
 });
 
-console.log(scatterArray);
-
-//
+// Init
 for(i = 0; i<dataMetric.length; i++){
     let dataSum = data[i].reduce((a, b) => a + b, 0);
     let refSum = ref[i].reduce((a,b) => a + b, 0);
@@ -147,6 +145,47 @@ let chart2 = new Chart(ctx2, {
                     display: true,
                     labelString: 'Savings'
                 }
+            }]
+        }
+    }
+});
+
+//Bar plot
+let ctx3 = document.getElementById('myChart_3').getContext('2d');
+let chart3 = new Chart(ctx3, {
+    type: 'bar',
+    data: { 
+        labels: date_range,
+        datasets: [{
+            backgroundColor: pMain,
+            barPercentage: 0.5,
+            barThickness: 6,
+            maxBarThickness: 8,
+            minBarLength: 2,
+            data: uptimeRatio
+        }]
+    },
+    options: {
+        legend: {
+            display: false,
+            position: 'right'
+        },
+        scales: {
+            xAxes: [{
+                // type: 'linear',
+                // position: 'bottom',
+                // scaleLabel: {
+                //     display: true,
+                //     labelString: 'Costs'
+                // }
+            }],
+            yAxes: [{
+                // type: 'linear',
+                // position: 'left',
+                // scaleLabel: {
+                //     display: true,
+                //     labelString: 'Savings'
+                // }
             }]
         }
     }
