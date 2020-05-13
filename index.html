@@ -14,8 +14,14 @@
 <body class="dashboard">
     <div class="col-md-12 row">
         <div class="col-md-2">
-            <div>
-                <p>[Navigation bar]</p>
+            <div class="navigation-menu">
+                <nav class="nav fixed-top flex-column">
+                    <a class="nav-link active" href="#">Homepage</a>
+                    <a class="nav-link" href="#">Financial</a>
+                    <a class="nav-link" href="#">Work</a>
+                    <a class="nav-link disabled" href="#">Users</a>
+                    <a class="nav-link disabled" href="#">Settings</a>
+                  </nav>
             </div>
         </div>
         <div class="col-md-10">
@@ -79,8 +85,40 @@
             <div class="col-md-12 row">
                 <div class="dashboard-item col-md-6">
                     <div class="dashboard-content">
-                        <div class="chart">
-                            <canvas id="myChart_4"></canvas>
+                        <div class="table-plot">
+                            <h6 class="tab-title">Uptime and Costs ratio per Month</h6>
+                            <table style="width:100%">
+                                <tr>
+                                    <th>Asset</th>
+                                    <th>Costs</th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <td>Asset #4</td>
+                                    <td>32,00</td>
+                                    <td>5%</td>
+                                </tr>
+                                <tr>
+                                    <td>Asset #1</td>
+                                    <td>28,00</td>
+                                    <td>-2.5%</td>
+                                </tr>
+                                <tr>
+                                    <td>Asset #20</td>
+                                    <td>20,14</td>
+                                    <td>1.8%</td>
+                                </tr>
+                                <tr>
+                                    <td>Asset #14</td>
+                                    <td>5,09</td>
+                                    <td>-0.4%</td>
+                                </tr>
+                                <tr>
+                                    <td>Asset #2</td>
+                                    <td>5,00</td>
+                                    <td>--</td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                 </div>

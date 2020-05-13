@@ -23,6 +23,38 @@ let _reports = Array.from({length: date_range.length}, () => Math.floor(Math.ran
 let _totalCosts = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 30));
 let _totalSavings = [30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30];
 
+let assetsCosts = [{
+    asset: 'Asset #1',
+    costs: Math.floor(Math.random() * 30),
+    diff: Math.floor(Math.random() * 5)
+},{
+    asset: 'Asset #2',
+    costs: Math.floor(Math.random() * 30),
+    diff: Math.floor(Math.random() * 5)
+},{
+    asset: 'Asset #3',
+    costs: Math.floor(Math.random() * 30),
+    diff: Math.floor(Math.random() * 5)
+},{
+    asset: 'Asset #4',
+    costs: Math.floor(Math.random() * 30),
+    diff: Math.floor(Math.random() * 5)
+},{
+    asset: 'Asset #5',
+    costs: Math.floor(Math.random() * 30),
+    diff: Math.floor(Math.random() * 5)
+},{
+    asset: 'Asset #6',
+    costs: Math.floor(Math.random() * 30),
+    diff: Math.floor(Math.random() * 5)
+},{
+    asset: 'Asset #7',
+    costs: Math.floor(Math.random() * 30),
+    diff: Math.floor(Math.random() * 5)
+}];
+
+console.log(assetsCosts);
+
 ref = [_workorders, _readings, _reports, _totalCosts, _totalSavings]
 
 let dataMetric = document.getElementsByClassName('tab-metric');
@@ -37,7 +69,7 @@ totalCosts.forEach((cost, index) => {
     });
 });
 
-// Init
+// Initilize line graph
 for(i = 0; i<dataMetric.length; i++){
     let dataSum = data[i].reduce((a, b) => a + b, 0);
     let refSum = ref[i].reduce((a,b) => a + b, 0);
@@ -149,6 +181,9 @@ let chart2 = new Chart(ctx2, {
         }
     }
 });
+
+//Initialize plot
+
 
 //Bar plot
 let ctx3 = document.getElementById('myChart_3').getContext('2d');

@@ -44,6 +44,14 @@ body {
   padding: 20px 0px 0px 50px;
 }
 
+.table-plot {
+  padding: 20px 0px 0px 50px;
+}
+
+.nav-link {
+  
+}
+
 /* Style the tab */
 .tab {
   overflow: hidden;
