@@ -34,7 +34,6 @@ let barChartData = {
         ]
     }, {
         label: 'Not executed',
-        backgroundColor: pDark,
         data: [
             Math.floor(Math.random() * 5),
             Math.floor(Math.random() * 5),
@@ -81,6 +80,7 @@ var myDoughnutChart = new Chart(ctx4, {
         ]
     },
     options: {
+        cutoutPercentage: 70,
         responsive: true,
         legend: {
             display: false
@@ -89,7 +89,7 @@ var myDoughnutChart = new Chart(ctx4, {
             center: {
                 text: '95%',
                 fontStyle: 'Arial', // Default is Arial
-                sidePadding: 30, // Default is 20 (as a percentage)
+                sidePadding: 50, // Default is 20 (as a percentage)
                 minFontSize: 10, // Default is 20 (in px), set to false and text will not wrap.
                 lineHeight: 10 // Default is 25 (in px), used for when text wraps
             }
@@ -115,6 +115,8 @@ var myDoughnutChart = new Chart(ctx2, {
         ]
     },
     options: {
+        cutoutPercentage: 70,
+        responsive: true,
         legend: {
             display: false
         },
@@ -122,13 +124,16 @@ var myDoughnutChart = new Chart(ctx2, {
             center: {
                 text: '82%',
                 fontStyle: 'Arial', // Default is Arial
-                sidePadding: 30, // Default is 20 (as a percentage)
+                sidePadding: 50, // Default is 20 (as a percentage)
                 minFontSize: 10, // Default is 20 (in px), set to false and text will not wrap.
                 lineHeight: 10 // Default is 25 (in px), used for when text wraps
             }
         }
     }
 });
+
+
+Chart.defaults.doughnut.cutoutPercentage  = 0.7;
 
 Chart.pluginService.register({
     beforeDraw: function(chart) {
@@ -141,7 +146,7 @@ Chart.pluginService.register({
         var fontStyle = centerConfig.fontStyle || 'Arial';
         var txt = centerConfig.text;
         var color = centerConfig.color || '#000';
-        var maxFontSize = centerConfig.maxFontSize || 75;
+        var maxFontSize = centerConfig.maxFontSize || 40;
         var sidePadding = centerConfig.sidePadding || 20;
         var sidePaddingCalculated = (sidePadding / 100) * (chart.innerRadius * 2)
         // Start with a base font of 30px
@@ -239,19 +244,26 @@ let myBar = new Chart(ctx, {
     }
 });
 
-//Bar plot
+//Line graph
 let ctx3 = document.getElementById('taskCompletion').getContext('2d');
 let chart3 = new Chart(ctx3, {
-    type: 'bar',
+    type: 'line',
     data: { 
         labels: date_range,
         datasets: [{
-            backgroundColor: pMain,
-            barPercentage: 0.5,
-            barThickness: 6,
-            maxBarThickness: 8,
-            minBarLength: 2,
-            data: [0.4, 0.2, 1.3, 1.2, 1.1, 2.1, 0.7]
+            label: 'Lubrication',
+            data: Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40)),
+            fill: false,
+            borderColor: pMain,
+            pointStyle: 'line'
+            },
+            {
+            label: "Inspection",
+            fill: false,
+            borderColor: pMain,
+            borderDash: [5,2],
+            data: Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40)),
+            pointStyle: 'line'
         }]
     },
     options: {
