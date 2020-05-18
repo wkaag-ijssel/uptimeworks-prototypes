@@ -2,6 +2,15 @@ body {
   font-family: Arial;
 }
 
+.margin-top-10 { margin-top: 10px;}
+.margin-top-20 { margin-top: 20px;}
+.margin-top-30 { margin-top: 30px;}
+.margin-top-40 { margin-top: 40px;}
+.margin-bottom-10 { margin-bottom: 10px;}
+.margin-bottom-20 { margin-bottom: 20px;}
+.margin-bottom-30 { margin-bottom: 30px;}
+.margin-bottom-40 { margin-bottom: 40px;}
+
 /* Chart Style */
 .chart {
   padding: 20px 20px 20px 20px;
@@ -25,8 +34,17 @@ body {
   padding: 20px 20px 20px 20px;
 }
 
-.dashboard-title {
+#dashboard-title {
   margin-top: 30px;
+}
+
+#dashboard-functions {
+  margin-top: 30px;
+  background-color: white;
+  padding: 20px;
+  float: right;
+  /* align-self: flex-end; */
+  border-radius: 15px;
 }
 
 .fa-long-arrow-alt-up {
@@ -54,6 +72,19 @@ body {
 
 .table-plot {
   padding: 20px 0px 0px 50px;
+}
+
+.summary {
+  padding: 20px 0px 0px 0px;
+  margin-left: 10px;
+}
+
+.summary-item {
+  margin: 10px 0px 10px 0px;
+}
+
+.center {
+  text-align: center;
 }
 
 .vertical-menu {

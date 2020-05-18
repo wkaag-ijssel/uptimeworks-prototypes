@@ -20,115 +20,95 @@
         </div>
         <div class="col-md-10">
             <div class="col-md-12 row">
-                <div class="col-md-12">
-                    <h1 class="dashboard-title">Dashboard prototypes</h1>
+                <div class="col-md-9">
+                    <h3 id="dashboard-title">Homepage</h3>
+                    <p> Company > site X</p>
+                </div>
+                <div class="col-md-2" id="dashboard-functions">
+                    <div>
+                        <p>select time period</p> 
+                    </div>
                 </div>
             </div>
             
             <div class="col-md-12 row">
-                <div class="dashboard-item col-md-7">
+                <div class="dashboard-item col-md-6">
                     <div class="dashboard-content">
-                        <div class="tab">
-                            <button class="tablinks active" onclick="changeTab(event, chart1, workorders, _workorders)">
-                                <h6 class="tab-title">Workorders</h6>
-                                <p class="tab-metric"></p>
-                                <i class="fas"></i>
-                                <p class="tab-diff"></p>
-                            </button>
-                            <button class="tablinks" onclick="changeTab(event, chart1, readings, _readings)">
-                                <h6 class="tab-title">Readings</h6>
-                                <p class="tab-metric"></p>
-                                <i class="fas"></i>
-                                <p class="tab-diff"></p>
-                            </button>
-                            <button class="tablinks" onclick="changeTab(event, chart1, reports, _reports)">
-                                <h6 class="tab-title">Reports</h6>
-                                <p class="tab-metric"></p>
-                                <i class="fas"></i>
-                                <p class="tab-diff"></p>
-                            </button>
-                            <button class="tablinks" onclick="changeTab(event, chart1, totalCosts, _totalCosts)">
-                                <h6 class="tab-title">Costs</h6>
-                                <p class="tab-metric">$ </p>
-                                <i class="fas"></i>
-                                <p class="tab-diff"></p>
-                            </button>
-                            <button class="tablinks" onclick="changeTab(event, chart1, totalSavings, _totalSavings)">
-                                <h6 class="tab-title">Savings</h6>
-                                <p class="tab-metric">$ </p>
-                                <i class="fas"></i>
-                                <p class="tab-diff"></p>
-                            </button>
-                        </div>
-
-                        <div class="chart">
-                            <canvas id="myChart_1" height="100px"></canvas>
+                        <div class="summary col-md-12 row">
+                            <div class="summary-item center col-md-4">
+                                <h6 class="tab-title">Facilities</h6>
+                                <p>4</p>
+                            </div>
+                            <div class="summary-item center col-md-4">
+                                <h6 class="tab-title">Machines</h6>
+                                <p>30</p>
+                            </div>
+                            <div class="summary-item center col-md-4">
+                                <h6 class="tab-title">Components</h6>
+                                <p>120</p>
+                            </div>
+                            <div class="summary-item center col-md-4">
+                                <h6 class="tab-title">Devices</h6>
+                                <p>20</p>
+                            </div>
+                            <div class="summary-item center col-md-4">
+                                <h6 class="tab-title">Channels</h6>
+                                <p>55</p>
+                            </div>
+                            <div class="summary-item center col-md-4">
+                                <h6 class="tab-title">Tasks</h6>
+                                <p>340</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="dashboard-item col-md-5">
+                <div class="dashboard-item col-md-3">
                     <div class="dashboard-content">
                         <div class="scatter-plot">
-                            <h6 class="tab-title">Estimated Uptime and Costs per Month</h6>
+                            <h6 class="tab-title">Asset Health</h6>
                         </div>
 
                         <div class="chart">
-                            <canvas id="myChart_2" height="200px"></canvas>
+                            <canvas id="assetHealth"></canvas>
                         </div>
                     </div>
                 </div>
+                
+                <div class="dashboard-item col-md-3">
+                    <div class="dashboard-content">
+                        <div class="scatter-plot">
+                            <h6 class="tab-title">Estimated Uptime</h6>
+                        </div>
+
+                        <div class="chart">
+                            <canvas id="estimatedUptime"></canvas>
+                        </div>
+                    </div>
+                </div>'
             </div>
 
 
             <div class="col-md-12 row">
                 <div class="dashboard-item col-md-6">
                     <div class="dashboard-content">
-                        <div class="table-plot">
-                            <h6 class="tab-title">Costs per Asset</h6>
-                            <table style="width:100%">
-                                <tr>
-                                    <th>Asset</th>
-                                    <th>Costs</th>
-                                    <th></th>
-                                </tr>
-                                <tr>
-                                    <td>Asset #4</td>
-                                    <td>32,00</td>
-                                    <td>5%</td>
-                                </tr>
-                                <tr>
-                                    <td>Asset #1</td>
-                                    <td>28,00</td>
-                                    <td>-2.5%</td>
-                                </tr>
-                                <tr>
-                                    <td>Asset #20</td>
-                                    <td>20,14</td>
-                                    <td>1.8%</td>
-                                </tr>
-                                <tr>
-                                    <td>Asset #14</td>
-                                    <td>5,09</td>
-                                    <td>-0.4%</td>
-                                </tr>
-                                <tr>
-                                    <td>Asset #2</td>
-                                    <td>5,00</td>
-                                    <td>--</td>
-                                </tr>
-                            </table>
+                        <div class="scatter-plot">
+                            <h6 class="tab-title">Job compliance per type of Task</h6>
+                        </div>
+
+                        <div class="chart">
+                            <canvas id="jobCompliance"></canvas>
                         </div>
                     </div>
                 </div>
                 <div class="dashboard-item col-md-6">
                     <div class="dashboard-content">
                         <div class="bar-plot">
-                            <h6 class="tab-title">Estimated Uptime and Costs ratio per Month</h6>
+                            <h6 class="tab-title">Task completion over time</h6>
                         </div>
 
                         <div class="chart">
-                            <canvas id="myChart_3"></canvas>
+                            <canvas id="taskCompletion"></canvas>
                         </div>
                     </div>
                 </div>
@@ -140,5 +120,6 @@
 
 <footer>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    
     <script src="js/main.js"></script>
 </footer>

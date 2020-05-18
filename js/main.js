@@ -6,197 +6,241 @@ let pMain = "#1a237e"; //'rgb(26,35,126)';
     sLight = "#ffdd4b";
     sDark = "#c67c00";
 
-// Dummy data
+// Job compliance
 let date_range = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'September', 'October', 'November', 'December'];
-let workorders = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
-let readings = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
-let reports = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 20));
-let totalCosts = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 30));
-let totalSavings = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 30));
-let uptimeRatio = Array.from({length: date_range.length}, () => Math.random());
-data = [workorders, readings, reports, totalCosts, totalSavings]
+let barChartData = {
+    labels: ['General', 'Lubrication', 'Inspection', 'Process', 'Vibration', 'Thermographic'],
+    datasets: [{
+        label: 'Executed on time',
+        backgroundColor: pMain,
+        data: [
+            Math.floor(Math.random() * 85),
+            Math.floor(Math.random() * 85),
+            Math.floor(Math.random() * 85),
+            Math.floor(Math.random() * 85),
+            Math.floor(Math.random() * 85),
+            Math.floor(Math.random() * 85)
+        ]
+    }, {
+        label: 'Executed too late',
+        backgroundColor: pLight,
+        data: [
+            Math.floor(Math.random() * 10),
+            Math.floor(Math.random() * 10),
+            Math.floor(Math.random() * 10),
+            Math.floor(Math.random() * 10),
+            Math.floor(Math.random() * 10),
+            Math.floor(Math.random() * 10)
+        ]
+    }, {
+        label: 'Not executed',
+        backgroundColor: pDark,
+        data: [
+            Math.floor(Math.random() * 5),
+            Math.floor(Math.random() * 5),
+            Math.floor(Math.random() * 5),
+            Math.floor(Math.random() * 5),
+            Math.floor(Math.random() * 5),
+            Math.floor(Math.random() * 5)
+        ]
+    }]
 
-// Dummy thresholds / references
-let _workorders = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
-let _readings = [30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30];
-let _reports = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 20));
-let _totalCosts = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 30));
-let _totalSavings = [30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30];
+};
 
-let assetsCosts = [{
-    asset: 'Asset #1',
-    costs: Math.floor(Math.random() * 30),
-    diff: Math.floor(Math.random() * 5)
-},{
-    asset: 'Asset #2',
-    costs: Math.floor(Math.random() * 30),
-    diff: Math.floor(Math.random() * 5)
-},{
-    asset: 'Asset #3',
-    costs: Math.floor(Math.random() * 30),
-    diff: Math.floor(Math.random() * 5)
-},{
-    asset: 'Asset #4',
-    costs: Math.floor(Math.random() * 30),
-    diff: Math.floor(Math.random() * 5)
-},{
-    asset: 'Asset #5',
-    costs: Math.floor(Math.random() * 30),
-    diff: Math.floor(Math.random() * 5)
-},{
-    asset: 'Asset #6',
-    costs: Math.floor(Math.random() * 30),
-    diff: Math.floor(Math.random() * 5)
-},{
-    asset: 'Asset #7',
-    costs: Math.floor(Math.random() * 30),
-    diff: Math.floor(Math.random() * 5)
-}];
+data = {
+    datasets: [{
+        data: [95, 5],
+        backgroundColor: [
+            pMain
+        ]
+    }],
 
-console.log(assetsCosts);
+    // These labels appear in the legend and in the tooltips when hovering different arcs
+    labels: [
+        'healthy assets (%)',
+        'failing assets (%)'
+    ]
+};
 
-ref = [_workorders, _readings, _reports, _totalCosts, _totalSavings]
-
-let tabs = document.getElementsByClassName('tablinks');
-let dataMetric = document.getElementsByClassName('tab-metric');
-let dataDiff = document.getElementsByClassName('tab-diff');
-let scatterArray = [];
-
-totalCosts.forEach((cost, index) => {
-    let saving = totalSavings[index];
-    scatterArray.push({
-        x: cost, 
-        y: saving
-    });
-});
-
-// Initilize line graph
-for(i = 0; i<dataMetric.length; i++){
-    let dataSum = data[i].reduce((a, b) => a + b, 0);
-    let refSum = ref[i].reduce((a,b) => a + b, 0);
-    let diff = parseInt(((100*dataSum)/refSum)-100);
-
-    let icon = tabs[i].getElementsByClassName('fas');
-
-    if(diff > 0){
-        icon[0].className += " fa-long-arrow-alt-up";
-        console.log(icon);
-    } else if (diff < 0){
-        icon[0].className += " fa-long-arrow-alt-down";
-        diff = Math.abs(diff);
-    }
-    dataMetric[i].innerHTML += dataSum;
-    dataDiff[i].innerHTML = diff  + "%";
-}
-
-// Line graph
-let ctx = document.getElementById('myChart_1').getContext('2d');
-let chart1 = new Chart(ctx, {
-    // The type of chart we want to create
-    type: 'line',
-
-    // The data for our dataset
+//donut chart(s)
+let ctx4 = document.getElementById('assetHealth').getContext('2d');
+var myDoughnutChart = new Chart(ctx4, {
+    type: 'doughnut',
     data: {
-        labels: date_range,
         datasets: [{
-            label: 'n. of workorders',
-            fill: false,
-            borderColor: pMain,
-            data: workorders,
-            pointStyle: 'line'
-        },
-        {
-            label: "Last year",
-            fill: false,
-            borderColor: pMain,
-            borderDash: [5,2],
-            data: _workorders,
-            pointStyle: 'line'
-        }]
+            data: [95, 5],
+            backgroundColor: [
+                pMain
+            ]
+        }],
+    
+        // These labels appear in the legend and in the tooltips when hovering different arcs
+        labels: [
+            'healthy assets (%)',
+            'failing assets (%)'
+        ]
     },
-
-    // Configuration options go here
     options: {
+        responsive: true,
         legend: {
-            display: true,
-            position: 'bottom',
-            align: 'end',
-            labels: {
-                usePointStyle: true
-            }
+            display: false
         },
         elements: {
-            line: {
-                tension: 0, // disables bezier curves
-                borderWidth: 2
-            },
-            point:{
-                radius: 0 //hide data point indicators
+            center: {
+                text: '95%',
+                fontStyle: 'Arial', // Default is Arial
+                sidePadding: 30, // Default is 20 (as a percentage)
+                minFontSize: 10, // Default is 20 (in px), set to false and text will not wrap.
+                lineHeight: 10 // Default is 25 (in px), used for when text wraps
             }
-        },
-        scales: {
-            xAxes: [{
-                gridLines: {
-                    display: false,
-                },
-                ticks: {
-                    maxTicksLimit: 15,
-                    autoSkip: true, //!important
-                    maxRotation: 0, 
-                    minRotation: 0
-                }
-            }],
-            yAxes: [{
-                gridLines: {
-                    display:true,
-                },
-                position: 'right',
-            }]
         }
     }
 });
 
-//Scatter plot
-let ctx2 = document.getElementById('myChart_2').getContext('2d');
-let chart2 = new Chart(ctx2, {
-    type: 'scatter',
-    data: {
+let ctx2 = document.getElementById('estimatedUptime').getContext('2d');
+var myDoughnutChart = new Chart(ctx2, {
+    type: 'doughnut',
+    data:  {
         datasets: [{
-            label: 'Scatter Dataset',
-            borderColor: pMain,
-            data: scatterArray
-        }]
+            data: [82, 18],
+            backgroundColor: [
+                pMain
+            ]
+        }],
+    
+        // These labels appear in the legend and in the tooltips when hovering different arcs
+        labels: [
+            'healthy assets (%)',
+            'failing assets (%)'
+        ]
     },
     options: {
         legend: {
-            display: false,
+            display: false
         },
-        scales: {
-            xAxes: [{
-                type: 'linear',
-                position: 'bottom',
-                scaleLabel: {
-                    display: true,
-                    labelString: 'Costs'
-                }
-            }],
-            yAxes: [{
-                type: 'linear',
-                position: 'left',
-                scaleLabel: {
-                    display: true,
-                    labelString: 'Savings'
-                }
-            }]
+        elements: {
+            center: {
+                text: '82%',
+                fontStyle: 'Arial', // Default is Arial
+                sidePadding: 30, // Default is 20 (as a percentage)
+                minFontSize: 10, // Default is 20 (in px), set to false and text will not wrap.
+                lineHeight: 10 // Default is 25 (in px), used for when text wraps
+            }
         }
     }
 });
 
-//Initialize plot
+Chart.pluginService.register({
+    beforeDraw: function(chart) {
+      if (chart.config.options.elements.center) {
+        // Get ctx from string
+        var ctx = chart.chart.ctx;
 
+        // Get options from the center object in options
+        var centerConfig = chart.config.options.elements.center;
+        var fontStyle = centerConfig.fontStyle || 'Arial';
+        var txt = centerConfig.text;
+        var color = centerConfig.color || '#000';
+        var maxFontSize = centerConfig.maxFontSize || 75;
+        var sidePadding = centerConfig.sidePadding || 20;
+        var sidePaddingCalculated = (sidePadding / 100) * (chart.innerRadius * 2)
+        // Start with a base font of 30px
+        ctx.font = "30px " + fontStyle;
+
+        // Get the width of the string and also the width of the element minus 10 to give it 5px side padding
+        var stringWidth = ctx.measureText(txt).width;
+        var elementWidth = (chart.innerRadius * 2) - sidePaddingCalculated;
+
+        // Find out how much the font can grow in width.
+        var widthRatio = elementWidth / stringWidth;
+        var newFontSize = Math.floor(30 * widthRatio);
+        var elementHeight = (chart.innerRadius * 2);
+
+        // Pick a new font size so it will not be larger than the height of label.
+        var fontSizeToUse = Math.min(newFontSize, elementHeight, maxFontSize);
+        var minFontSize = centerConfig.minFontSize;
+        var lineHeight = centerConfig.lineHeight || 25;
+        var wrapText = false;
+
+        if (minFontSize === undefined) {
+          minFontSize = 20;
+        }
+
+        if (minFontSize && fontSizeToUse < minFontSize) {
+          fontSizeToUse = minFontSize;
+          wrapText = true;
+        }
+
+        // Set font settings to draw it correctly.
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        var centerX = ((chart.chartArea.left + chart.chartArea.right) / 2);
+        var centerY = ((chart.chartArea.top + chart.chartArea.bottom) / 2);
+        ctx.font = fontSizeToUse + "px " + fontStyle;
+        ctx.fillStyle = color;
+
+        if (!wrapText) {
+          ctx.fillText(txt, centerX, centerY);
+          return;
+        }
+
+        var words = txt.split(' ');
+        var line = '';
+        var lines = [];
+
+        // Break words up into multiple lines if necessary
+        for (var n = 0; n < words.length; n++) {
+          var testLine = line + words[n] + ' ';
+          var metrics = ctx.measureText(testLine);
+          var testWidth = metrics.width;
+          if (testWidth > elementWidth && n > 0) {
+            lines.push(line);
+            line = words[n] + ' ';
+          } else {
+            line = testLine;
+          }
+        }
+
+        // Move the center up depending on line height and number of lines
+        centerY -= (lines.length / 2) * lineHeight;
+
+        for (var n = 0; n < lines.length; n++) {
+          ctx.fillText(lines[n], centerX, centerY);
+          centerY += lineHeight;
+        }
+        //Draw text in center
+        ctx.fillText(line, centerX, centerY);
+      }
+    }
+  });
 
 //Bar plot
-let ctx3 = document.getElementById('myChart_3').getContext('2d');
+let ctx = document.getElementById('jobCompliance').getContext('2d');
+let myBar = new Chart(ctx, {
+    type: 'bar',
+    data: barChartData,
+    options: {
+        tooltips: {
+            mode: 'index',
+            intersect: false
+        },
+        responsive: true,
+        scales: {
+            xAxes: [{
+                stacked: true,
+            }],
+            yAxes: [{
+                stacked: true
+            }]
+        },
+        legend: {
+            position: 'bottom'
+        }
+    }
+});
+
+//Bar plot
+let ctx3 = document.getElementById('taskCompletion').getContext('2d');
 let chart3 = new Chart(ctx3, {
     type: 'bar',
     data: { 
@@ -207,7 +251,7 @@ let chart3 = new Chart(ctx3, {
             barThickness: 6,
             maxBarThickness: 8,
             minBarLength: 2,
-            data: uptimeRatio
+            data: [0.4, 0.2, 1.3, 1.2, 1.1, 2.1, 0.7]
         }]
     },
     options: {
@@ -229,62 +273,3 @@ let chart3 = new Chart(ctx3, {
         }
     }
 });
-
-function changeTab(evt, chartName, dataInput, refInput='None') {
-    let i, tabcontent, tablinks;
-  
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-
-    // change metric data
-    chartName.data.datasets[0].data = dataInput;
-    chartName.data.datasets[0].label = 'n. of ' + evt.currentTarget.getElementsByClassName("tab-title")[0].innerText.toLowerCase();
-
-    // change ref/threshold data
-    chartName.data.datasets[1].data = refInput;
-
-    chart1.update();
-    evt.currentTarget.className += " active";
-}
-  
-// Get the element with id="defaultOpen" and click on it
-// document.getElementById("defaultOpen").click();
-function addData(data, index) {
-    console.log(data, index)
-    chart1.data.labels.push("new");
-    chart1.data.datasets.forEach((dataset) => {
-        dataset.data.push(data);
-    });
-    chart1.update();
-}
-
-function removeData(chart) {
-    chart.data.labels.pop();
-    chart.data.datasets.forEach((dataset) => {
-        dataset.data.pop();
-    });
-    chart.update();
-}
-
-function updateScales(chart) {
-    var xScale = chart.scales['x-axis-0'];
-    var yScale = chart.scales['y-axis-0'];
-
-    chart.options.scales = {
-        xAxes: [{
-            id: 'newId',
-            display: true
-        }],
-        yAxes: [{
-            display: true,
-            type: 'logarithmic'
-        }]
-    };
-
-    chart.update();
-    // need to update the reference
-    xScale = chart.scales['newId'];
-    yScale = chart.scales['y-axis-0'];
-}
