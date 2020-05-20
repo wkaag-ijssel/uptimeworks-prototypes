@@ -11,7 +11,21 @@ let ctx = document.getElementById('workLoadChart').getContext('2d');
 let resourcesChart = new Chart(ctx, {
     type: 'bar',
     data: { 
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Sep', 'Oct', 'Nov', 'Dec'],
+        labels: [
+            ['Jan', '2020'],
+            ['Feb', ''],
+            ['Mar', ''],
+            ['Apr', ''],
+            ['May', ''],
+            ['Jun', ''],
+            ['Jul', ''],
+            ['Aug', ''],
+            ['Sep', ''],
+            ['Oct', ''],
+            ['Nov', ''],
+            ['Dec', ''],
+            ['Jan', '2021'],
+        ],
         datasets: [{
             label: 'workload',
             backgroundColor: pLight,
@@ -19,7 +33,7 @@ let resourcesChart = new Chart(ctx, {
             barThickness: 6,
             maxBarThickness: 8,
             minBarLength: 2,
-            data: Array.from({length: 12}, () => Math.random())
+            data: Array.from({length: 13}, () => Math.random())
         },{
             label: 'resources',
             backgroundColor: pDark,
@@ -27,10 +41,10 @@ let resourcesChart = new Chart(ctx, {
             barThickness: 6,
             maxBarThickness: 8,
             minBarLength: 2,
-            data: Array.from({length: 12}, () => Math.random())
+            data: Array.from({length: 13}, () => Math.random())
         },{
             label: 'average',
-            data: [.5, .5, .5, .5, .5, .5, .5, .5, .5, .5, .5, .5],
+            data: [.5, .5, .5, .5, .5, .5, .5, .5, .5, .5, .5, .5, .5],
             fill: false,
             type: 'line'
         }]

@@ -88,8 +88,8 @@ body {
 
 .vertical-menu {
   margin-top: 80px;
-  margin-left: 30px;
-  width: 100px; /* Set a width if you like */
+  /*margin-left: 30px;
+  width: 100px; Set a width if you like */
 }
 
 .vertical-menu a {
@@ -102,11 +102,14 @@ body {
 .vertical-menu a:hover {
   background-color: #ccc; /* Dark grey background on mouse-over */
   text-decoration: none; /* Remove underline from links */
+  color: black; /* Black text color */
+  border-radius: 7px;
 }
 
 .vertical-menu a.active {
   background-color: #1a237e;
   color: white;
+  border-radius: 7px;
 }
 
 /* Style the tab */
