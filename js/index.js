@@ -9,7 +9,7 @@ let pMain = "#1a237e"; //'rgb(26,35,126)';
 // Job compliance
 let date_range = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'September', 'October', 'November', 'December'];
 let barChartData = {
-    labels: ['General', 'Lubrication', 'Inspection', 'Process', 'Vibration', 'Thermographic'],
+    labels: ['Lubrication', 'Inspection', 'Process', 'Vibration', 'Thermographic', 'Other'],
     datasets: [{
         label: 'Executed on time',
         backgroundColor: pMain,
@@ -43,7 +43,6 @@ let barChartData = {
             Math.floor(Math.random() * 5)
         ]
     }]
-
 };
 
 data = {
@@ -255,6 +254,9 @@ let chart3 = new Chart(ctx3, {
             data: Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40)),
             fill: false,
             borderColor: pMain,
+            hoverBackgroundColor: "rgba(255,99,132,0.4)",
+            hoverBorderColor: "rgba(255,99,132,1)",
+            borderWidth: 2,
             pointStyle: 'line'
             },
             {
@@ -263,6 +265,9 @@ let chart3 = new Chart(ctx3, {
             borderColor: pMain,
             borderDash: [5,2],
             data: Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40)),
+            hoverBackgroundColor: "rgba(255,99,132,0.4)",
+            hoverBorderColor: "rgba(255,99,132,1)",
+            borderWidth: 2,
             pointStyle: 'line'
         }]
     },
@@ -270,17 +275,66 @@ let chart3 = new Chart(ctx3, {
         legend: {
             display: false,
         },
+        elements: {
+            line: {
+                tension: 0
+            }
+        },
         scales: {
             xAxes: [{
-                // type: 'linear',
-                // position: 'bottom',
-                // scaleLabel: {
-                //     display: true,
-                //     labelString: 'Costs'
-                // }
             }],
             yAxes: [{
                 position: 'right'
+            }]
+        },
+        onHover: function(evt) {
+            let item = chart3.getElementAtEvent(evt);
+            console.log(item);
+            if (item.length) {
+                console.log("onHover",item, evt.type);
+                console.log(">data", item[0]._index, data.datasets[0].data[item[0]._index]);
+            }
+        }
+    }
+});
+
+let x = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
+let t = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
+
+console.log(x);
+console.log(t);
+
+//Line graph
+let ctx5 = document.getElementById('deviceActivity').getContext('2d');
+let chart5 = new Chart(ctx5, {
+    type: 'horizontalBar',
+    data: { 
+        labels: date_range,
+        datasets: [{
+            label: 'data',
+            data: x,
+            fill: true,
+            borderColor: pMain,
+            pointStyle: 'line'
+        },{
+            label: 'label',
+            data: t,
+            fill: false,
+            borderColor: pDark,
+            pointStyle: 'line'
+        }], 
+
+    },
+    options: {
+        legend: {
+            display: false,
+        },
+        scales: {
+            xAxes: [{
+                stacked: true,
+            }],
+            yAxes: [{
+                stacked: true
             }]
         }
     }

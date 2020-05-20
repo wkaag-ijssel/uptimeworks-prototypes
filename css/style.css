@@ -42,8 +42,7 @@ body {
   margin-top: 30px;
   background-color: white;
   padding: 20px;
-  float: right;
-  /* align-self: flex-end; */
+  align-self: flex-end;
   border-radius: 15px;
 }
 

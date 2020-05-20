@@ -192,8 +192,7 @@ let chart2 = new Chart(ctx2, {
     }
 });
 
-//Initialize plot
-
+console.log(uptimeRatio);
 
 //Bar plot
 let ctx3 = document.getElementById('myChart_3').getContext('2d');

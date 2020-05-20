@@ -5,6 +5,12 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/3d92c0de9b.js" crossorigin="anonymous"></script>
+
+    <!--Datapicker-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 </head>
 
 <body class="dashboard">
@@ -13,15 +19,19 @@
             <div class="vertical-menu">
                 <a class="" href="index.html">Homepage</a>
                 <a class="active" href="#">Financial</a>
-                <a class="" href="#">Work</a>
+                <a class="" href="work.html">Work</a>
                 <a class="" href="#">Users</a>
                 <a class="" href="#">Settings</a>
             </div>
         </div>
         <div class="col-md-10">
             <div class="col-md-12 row">
-                <div class="col-md-12">
+                <div class="col-md-10">
                     <h3 id="dashboard-title">Financial</h3>
+                    <p> Company > site X</p>
+                </div>
+                <div class="col-md-2" id="dashboard-functions">
+                    <input type="text" name="dates"></input>
                 </div>
             </div>
             
@@ -141,4 +151,5 @@
 <footer>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="js/financial.js"></script>
+    <script src="js/functions.js"></script>
 </footer>
