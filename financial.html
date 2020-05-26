@@ -11,17 +11,23 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+    <!--Google material design-->
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet" />
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 </head>
 
 <body class="dashboard">
     <div class="col-md-12 row">
         <div class="col-md-2">
-            <div class="vertical-menu">
+            <div class="vertical-menu"  style='position: fixed;'>
                 <a class="" href="index.html">Homepage</a>
-                <a class="active" href="#">Financial</a>
                 <a class="" href="work.html">Work</a>
-                <a class="" href="#">Users</a>
-                <a class="" href="#">Settings</a>
+                <a class="active" href="#">Financial</a>
+                <!-- <a class="disabled" href="#">Maintenance</a>
+                <a class="" href="#">Technology</a>
+                <a class="" href="#">Users</a> -->
             </div>
         </div>
         <div class="col-md-10">
@@ -74,6 +80,11 @@
                         <div class="chart">
                             <canvas id="myChart_1" height="100px"></canvas>
                         </div>
+                        <button class="mdc-button" style="float: right; margin: 5px 15px 10px 0px;">
+                            <div class="mdc-button__ripple"></div>
+                            <span class="mdc-button__label">View transactions</span>
+                            <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
+                        </button>
                     </div>
                 </div>
 

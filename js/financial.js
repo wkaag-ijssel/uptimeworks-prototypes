@@ -197,7 +197,7 @@ console.log(uptimeRatio);
 //Bar plot
 let ctx3 = document.getElementById('myChart_3').getContext('2d');
 let chart3 = new Chart(ctx3, {
-    type: 'bar',
+    type: 'horizontalBar',
     data: { 
         labels: date_range,
         datasets: [{
@@ -223,7 +223,7 @@ let chart3 = new Chart(ctx3, {
                 // }
             }],
             yAxes: [{
-                position: 'right'
+                position: 'left'
             }]
         }
     }

@@ -7,7 +7,7 @@ let pMain = "#1a237e"; //'rgb(26,35,126)';
     sDark = "#c67c00";
 
 // Job compliance
-let date_range = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'September', 'October', 'November', 'December'];
+let date_range = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 let barChartData = {
     labels: ['Lubrication', 'Inspection', 'Process', 'Vibration', 'Thermographic', 'Other'],
     datasets: [{
@@ -221,7 +221,7 @@ Chart.pluginService.register({
 //Bar plot
 let ctx = document.getElementById('jobCompliance').getContext('2d');
 let myBar = new Chart(ctx, {
-    type: 'bar',
+    type: 'horizontalBar',
     data: barChartData,
     options: {
         tooltips: {
