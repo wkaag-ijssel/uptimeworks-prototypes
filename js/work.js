@@ -7,8 +7,8 @@ let pMain = "#1a237e"; //'rgb(26,35,126)';
     sDark = "#c67c00";
 
 // Event listeners
-document.getElementById('button-routes').addEventListener('click', function(event){ window.location.href = "work/routes.html"});
-document.getElementById('button-tasks').addEventListener('click', function(event){ window.location.href = "work/routes.html"});
+// document.getElementById('button-routes').addEventListener('click', function(event){ window.location.href = "work/routes.html"});
+// document.getElementById('button-tasks').addEventListener('click', function(event){ window.location.href = "work/routes.html"});
 document.getElementById('intervalSelector').addEventListener('change', function(event){
     if(event.target.value == "week"){
         changeChartData(resourcesChart, weeklyData, weeklyLabels);
@@ -124,7 +124,7 @@ weeklyData = [{
     minBarLength: 2,
     data: Array.from({length: 13}, () => Math.random())
 }];
-weeklyLabels = [
+weeklyLabels = [ //To do: week-bins instead of month-bins, add months to the 'major' ticks instead of jan/year indicator
     ['Jan', '2020'],
     ['Feb', ''],
     ['Mar', ''],

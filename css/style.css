@@ -49,7 +49,7 @@ body {
 
 #dashboard-functions {
   margin-top: 30px;
-  background-color: white;
+  /* background-color: white; */
   padding: 20px;
   align-self: flex-end;
   border-radius: 15px;
