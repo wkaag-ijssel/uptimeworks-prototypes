@@ -36,8 +36,12 @@
                 </div>
                 <div class="col-md-4 dashboard-item">
                     <div class="" id="dashboard-functions">
-                        <label for="rangePicker"><h6 class="tab-title">Period: </h6></label>
-                        <input id="rangePicker" type="text" name="whyDoesThisNotWork" style="display: inline-block;"></input>
+                        <!-- <label for="rangePicker"><h6 id="rangeTag" class="tab-title">Period: </h6></label>
+                        <input id="rangePicker" type="text" name="fixedRangeDatePicker" style="display: inline-block;"></input> -->
+                        <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+                            <i class="fa fa-calendar"></i>&nbsp;
+                            <span></span> <i class="fa fa-caret-down"></i>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -74,7 +78,7 @@
                                 <option value="month">Compliance</option>
                                 <option value="week">Completion</option>
                             </select>
-                            <label for="complianceSelector"><h6 class="tab-title"> per Task Type</h6></label>
+                            <label for="complianceSelector"><h6 class="tab-title"> of Tasks per Task Type</h6></label>
                         </div>
 
                         <div class="chart" style="height: 300px;">
@@ -117,7 +121,7 @@
                 <div class="dashboard-item col-md-6">
                     <div class="dashboard-content">
                         <div class="scatter-plot" style="padding-left: 20px;">
-                            <select id="interval" name="cars">
+                            <select id="interval">
                                 <option value="month">Resources</option>
                                 <option value="week">Workload</option>
                             </select>
@@ -126,6 +130,40 @@
 
                         <div class="chart">
                             <canvas id="resourcesChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Third row -->
+            <div class="col-md-12 row">
+                <!-- item 5 -->
+                <div class="dashboard-item col-md-6">
+                    <div class="dashboard-content">
+                        <div class="scatter-plot" style="padding-left: 20px;">
+                            <label for="taskPerRoute"><h6 class="tab-title">Task Completion for </h6></label>
+                            <select id="taskPerRoute">
+                                <option value="month">Route #1</option>
+                                <option value="week">Route #2</option>
+                            </select>
+                            <label for="taskPerRoute"><h6 class="tab-title"> per Engineer</h6></label>
+                        </div>
+
+                        <!-- <div class="chart">
+                            <canvas id="resourcesChart"></canvas>
+                        </div> -->
+                    </div>
+                </div>
+
+                <!-- item 6 -->
+                <div class="dashboard-item col-md-6">
+                    <div class="dashboard-content">
+                        <div class="scatter-plot" style="padding-left: 20px;">
+                            <label for="workEquipment"><h6 class="tab-title">Executed and Not Executed Work per Equipment</h6></label>
+                        </div>
+                        
+                        <div class="chart">
+                            <canvas id="executedWorkChart" ></canvas>
                         </div>
                     </div>
                 </div>

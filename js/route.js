@@ -17,15 +17,14 @@ document.getElementById('intervalSelector').addEventListener('change', function(
     } else {
         console.log("warning: unknown selector option");
     }
-});
-
+})
 
 
 /**Workload-resources chart 
  * 
  * Monthly data:
  */
-let monthlyData = [{
+monthlyData = [{
     label: 'workload',
     backgroundColor: pLight,
     barPercentage: 0.5,
@@ -42,7 +41,7 @@ let monthlyData = [{
     minBarLength: 2,
     data: Array.from({length: 13}, () => Math.random())
 }];
-let monthlyLabels = [
+monthlyLabels = [
     ['Jan', '2020'],
     ['Feb', ''],
     ['Mar', ''],
@@ -59,14 +58,14 @@ let monthlyLabels = [
 ];
 
 /** Weekly data */
-let weeklyData = [{
+weeklyData = [{
     label: 'workload',
     backgroundColor: pLight,
     barPercentage: 0.5,
     barThickness: 6,
     maxBarThickness: 8,
     minBarLength: 2,
-    data: Array.from({length: 52}, () => Math.random())
+    data: Array.from({length: 13}, () => Math.random())
 },{
     label: 'resources',
     backgroundColor: pDark,
@@ -74,61 +73,71 @@ let weeklyData = [{
     barThickness: 6,
     maxBarThickness: 8,
     minBarLength: 2,
-    data: Array.from({length: 52}, () => Math.random())
+    data: Array.from({length: 13}, () => Math.random())
+},
+{
+    label: 'workload',
+    backgroundColor: pLight,
+    barPercentage: 0.5,
+    barThickness: 6,
+    maxBarThickness: 8,
+    minBarLength: 2,
+    data: Array.from({length: 13}, () => Math.random())
+},{
+    label: 'resources',
+    backgroundColor: pDark,
+    barPercentage: 0.5,
+    barThickness: 6,
+    maxBarThickness: 8,
+    minBarLength: 2,
+    data: Array.from({length: 13}, () => Math.random())
+},{
+    label: 'workload',
+    backgroundColor: pLight,
+    barPercentage: 0.5,
+    barThickness: 6,
+    maxBarThickness: 8,
+    minBarLength: 2,
+    data: Array.from({length: 13}, () => Math.random())
+},{
+    label: 'resources',
+    backgroundColor: pDark,
+    barPercentage: 0.5,
+    barThickness: 6,
+    maxBarThickness: 8,
+    minBarLength: 2,
+    data: Array.from({length: 13}, () => Math.random())
+},{
+    label: 'workload',
+    backgroundColor: pLight,
+    barPercentage: 0.5,
+    barThickness: 6,
+    maxBarThickness: 8,
+    minBarLength: 2,
+    data: Array.from({length: 13}, () => Math.random())
+},{
+    label: 'resources',
+    backgroundColor: pDark,
+    barPercentage: 0.5,
+    barThickness: 6,
+    maxBarThickness: 8,
+    minBarLength: 2,
+    data: Array.from({length: 13}, () => Math.random())
 }];
-let weeklyLabels = [
-    [1, "Jan"],
-    ["", ""],
-    ["", ""],
-    ["", ""],
-    ["", ""],
-    [6, "Feb"],
-    ["", ""],
-    ["", ""],
-    ["", ""],
-    [10, "Mar"],
-    ["", ""],
-    ["", ""],
-    ["", ""],
-    [14, "Apr"],
-    ["", ""],
-    ["", ""],
-    ["", ""],
-    ["", ""], 
-    [19, "May"],
-    ["", ""],
-    ["", ""],
-    ["", ""],
-    [23, "Jun"],
-    ["", ""],
-    ["", ""],
-    ["", ""],
-    [27, "Jul"],
-    ["", ""],
-    ["", ""],
-    ["", ""],
-    ["", ""],
-    [32, "Aug"],
-    ["", ""],
-    ["", ""],
-    ["", ""],
-    [36, "Sep"],
-    ["", ""],
-    ["", ""],
-    ["", ""],
-    ["", ""],
-    [41, "Oct"],
-    ["", ""],
-    ["", ""],
-    ["", ""],
-    [45, "Nov"],
-    ["", ""],
-    ["", ""],
-    ["", ""],
-    [49, "Dec"],
-    ["", ""],
-    ["", ""],
-    ["", ""]
+weeklyLabels = [ //To do: week-bins instead of month-bins, add months to the 'major' ticks instead of jan/year indicator
+    ['Jan', '2020'],
+    ['Feb', ''],
+    ['Mar', ''],
+    ['Apr', ''],
+    ['May', ''],
+    ['Jun', ''],
+    ['Jul', ''],
+    ['Aug', ''],
+    ['Sep', ''],
+    ['Oct', ''],
+    ['Nov', ''],
+    ['Dec', ''],
+    ['Jan', '2021'],
 ];
 
 /**Chart 1: Workload vs. resources*/
@@ -156,14 +165,6 @@ let resourcesChart = new Chart(ctx, {
         },
         scales: {
             xAxes: [{
-                ticks: {
-                    autoSkip: false,
-                    maxRotation: 0,
-                    minRotation: 0,
-                    minorTick: {
-                        fontSize: 7
-                    }
-                }
             }],
             yAxes: [{
                 position: 'right'
@@ -173,9 +174,9 @@ let resourcesChart = new Chart(ctx, {
 });
 
 /**
- * @param {string} chartName The chart variable name
- * @param {array} data The new dataset 
- * @param {array} label  The new labels
+ * @param {*} chartName The chart variable name
+ * @param {*} dataInput The new dataset 
+ * @param {*} refInput  The new labels
  */
 function changeChartData(chartName, data, label) {
     chartName.data.datasets = data;
@@ -183,12 +184,9 @@ function changeChartData(chartName, data, label) {
     chartName.update();
 }
 
-/**
- * Sort data 
- * @param {array} data 
- * @param {array} labels 
- */
 function sortByData(data, labels){
+
+    console.log(data, labels);
   //1) combine the arrays:
     var list = [];
     for (var j = 0; j < data.length; j++) 
@@ -197,6 +195,8 @@ function sortByData(data, labels){
     //2) sort:
     list.sort(function(a, b) {
         return ((a.value < b.value) ? -1 : ((a.value == b.value) ? 0 : 1));
+        //Sort could be modified to, for example, sort on the age 
+        // if the name is the same.
     });
 
     //3) separate them back out:
@@ -208,7 +208,7 @@ function sortByData(data, labels){
     return data, labels;
 }
 
-// Chart 4: Resources estimation per function
+// Line plot
 let ctx2 = document.getElementById('resourcesChart').getContext('2d');
 let workLoadChart = new Chart(ctx2, {
     type: 'line',
@@ -271,7 +271,6 @@ let workLoadChart = new Chart(ctx2, {
     }
 });
 
-//Chart 3: task compliance per route
 let routeDataPromise = new Promise((resolve) => {
     let data = Array.from({length: 12}, () => Math.random());
     let labels = [
@@ -302,6 +301,7 @@ let routeDataPromise = new Promise((resolve) => {
 
 // horizontalBar chart - styled
 function horizontalBarChart(chartElem, data, labels){
+    console.log(labels);
     return new Chart(chartElem, {
         type: 'horizontalBar',
         data: { 
@@ -344,7 +344,13 @@ function horizontalBarChart(chartElem, data, labels){
     });
 };
 
-//Chart 2: Job compliance bar plot
+
+
+//Create bar graph
+// let ctx4 = document.getElementById('jobCompliance').getContext('2d');
+// let jobComplianceChart = horizontalBarChart(ctx4, route[0], route[1]);
+
+//Job compliance bar plot
 let ctx4 = document.getElementById('jobCompliance').getContext('2d');
 let jobComplianceChart = new Chart(ctx4, {
     type: 'horizontalBar',
@@ -401,57 +407,4 @@ let jobComplianceChart = new Chart(ctx4, {
             position: 'bottom'
         }
     }
-});
-
-//Chart 5: Level of Completed and Not Completed Work per Asset 
-let getDataPromise = new Promise((resolve) => {
-    let array1 = Array.from({length: 20}, () => Math.floor(Math.random() * 30));
-    let array2 = Array.from({length: 20}, () => Math.floor(Math.random() * 30));
-
-    let scatterArray = [];
-    //Create a array of objects, required input format for scatter plot.
-    array1.forEach((item_x, index) => {
-        let item_y = array2[index];
-        scatterArray.push({
-            x : item_x, 
-            y : item_y
-        });
-    });
-    resolve(scatterArray);
-}).then(data => {   
-    console.log(data);
-    let ctx5 = document.getElementById('executedWorkChart').getContext('2d');
-    let executedWorkChart = new Chart(ctx5, {
-        type: 'scatter',
-        data: {
-            datasets: [{
-                label: 'Scatter Dataset',
-                borderColor: pMain,
-                data: data
-            }]
-        },
-        options: {
-            legend: {
-                display: false,
-            },
-            scales: {
-                xAxes: [{
-                    type: 'linear',
-                    position: 'bottom',
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'not executed'
-                    }
-                }],
-                yAxes: [{
-                    type: 'linear',
-                    position: 'left',
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'executed'
-                    }
-                }]
-            }
-        }
-    });
 });
