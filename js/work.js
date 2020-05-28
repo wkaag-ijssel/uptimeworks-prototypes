@@ -32,6 +32,7 @@ let monthlyData = [{
     barThickness: 6,
     maxBarThickness: 8,
     minBarLength: 2,
+    fill: false,
     data: Array.from({length: 13}, () => Math.random())
 },{
     label: 'resources',
@@ -40,6 +41,7 @@ let monthlyData = [{
     barThickness: 6,
     maxBarThickness: 8,
     minBarLength: 2,
+    fill: false,
     data: Array.from({length: 13}, () => Math.random())
 }];
 let monthlyLabels = [
@@ -66,6 +68,7 @@ let weeklyData = [{
     barThickness: 6,
     maxBarThickness: 8,
     minBarLength: 2,
+    fill: false,
     data: Array.from({length: 52}, () => Math.random())
 },{
     label: 'resources',
@@ -74,6 +77,7 @@ let weeklyData = [{
     barThickness: 6,
     maxBarThickness: 8,
     minBarLength: 2,
+    fill: false,
     data: Array.from({length: 52}, () => Math.random())
 }];
 let weeklyLabels = [
@@ -134,7 +138,7 @@ let weeklyLabels = [
 /**Chart 1: Workload vs. resources*/
 let ctx = document.getElementById('workLoadChart').getContext('2d');
 let resourcesChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'line',
     data: { 
         labels: monthlyLabels,
         datasets: monthlyData
@@ -405,58 +409,116 @@ let jobComplianceChart = new Chart(ctx4, {
 
 //Chart 5: Expected workload vs. actual work duration
 let ctx5 = document.getElementById('estimatedWorkLoad').getContext('2d');
-let chart3 = new Chart(ctx5, {
+let workloadPerIndividual = new Chart(ctx5, {
     type: 'line',
     data: { 
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         datasets: [{
-            label: 'Estimated workload',
+            label: 'Person X',
             data: Array.from({length: 12}, () => Math.floor(Math.random() * 40)),
             fill: false,
             borderColor: pMain,
-            hoverBackgroundColor: "rgba(255,99,132,0.4)",
-            hoverBorderColor: "rgba(255,99,132,1)",
-            borderWidth: 2,
-            pointStyle: 'line'
+            borderWidth: 1,
+            pointStyle: 'line',
+            pointStrokeColor: "rgba(255, 255, 255, 0)"
             },
             {
-            label: "Actual workload",
+            label: "Person Y",
             fill: false,
             borderColor: pMain,
-            borderDash: [5,2],
             data: Array.from({length: 12}, () => Math.floor(Math.random() * 30)),
-            hoverBackgroundColor: "rgba(255,99,132,0.4)",
-            hoverBorderColor: "rgba(255,99,132,1)",
-            borderWidth: 2,
-            pointStyle: 'line'
+            borderWidth: 1,
+            pointStyle: 'line',
+            pointStrokeColor: "rgba(255, 255, 255, 0)"
+            },
+            {
+            label: "Person Z",
+            fill: false,
+            borderColor: pMain,
+            data: Array.from({length: 12}, () => Math.floor(Math.random() * 30)),
+            borderWidth: 1,
+            pointStyle: 'line',
+            pointStrokeColor: "rgba(255, 255, 255, 0)"
+            },
+            {
+            label: "Person A",
+            fill: false,
+            borderColor: pMain,
+            data: Array.from({length: 12}, () => Math.floor(Math.random() * 30)),
+            borderWidth: 1,
+            pointStyle: 'line',
+            pointStrokeColor: "rgba(255, 255, 255, 0)"
+            },
+            {
+            label: "Person B",
+            fill: false,
+            borderColor: pMain,
+            data: Array.from({length: 12}, () => Math.floor(Math.random() * 30)),
+            borderWidth: 1,
+            pointStyle: 'line',
+            pointStrokeColor: "rgba(255, 255, 255, 0)"
+            },
+            {
+            label: "Person C",
+            fill: false,
+            borderColor: pMain,
+            data: Array.from({length: 12}, () => Math.floor(Math.random() * 30)),
+            borderWidth: 1,
+            pointStyle: 'line',
+            pointStrokeColor: "rgba(255, 255, 255, 0)"
+            },
+            {
+            label: "Person D",
+            fill: false,
+            borderColor: pMain,
+            data: Array.from({length: 12}, () => Math.floor(Math.random() * 30)),
+            borderWidth: 1,
+            pointStyle: 'line',
+            pointStrokeColor: "rgba(255, 255, 255, 0)"
         }]
     },
     options: {
         legend: {
-            display: true,
+            display: false,
             position: 'bottom',
             align: 'start'
         },
         elements: {
             line: {
                 tension: 0
+            },
+            point: {
+                radius: 1
             }
+        },
+        tooltips: {
+            mode: 'nearest',
+            intersect: false
+        },
+        hover: {
+            mode: 'dataset',
+            intersect: false
         },
         scales: {
             xAxes: [{
+                gridLines: {
+                    display: false,
+                },
             }],
             yAxes: [{
                 position: 'right'
             }]
         },
-        onHover: function(evt) {
-            let item = chart3.getElementAtEvent(evt);
-            console.log(item);
-            if (item.length) {
-                console.log("onHover",item, evt.type);
-                console.log(">data", item[0]._index, data.datasets[0].data[item[0]._index]);
-            }
-        }
+        onHover: function onHover (evt, activeElements) {
+            if (!activeElements || !activeElements.length) return; 
+            let activeIndex = activeElements[0]._datasetIndex;
+            this.data.datasets.forEach((dataset, index) => {
+                (index == activeIndex) ? setActive() : setFade();
+                function setActive(){ dataset.borderColor = 'red'; } //to do: prevent showing pointer on hover
+                function setFade(){ dataset.borderColor = "rgb(200, 200, 200)"; }
+            });
+            this.update();
+        },
     }
 });
 
