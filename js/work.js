@@ -403,12 +403,69 @@ let jobComplianceChart = new Chart(ctx4, {
     }
 });
 
-//Chart 5: Level of Completed and Not Completed Work per Asset 
+//Chart 5: Expected workload vs. actual work duration
+let ctx5 = document.getElementById('estimatedWorkLoad').getContext('2d');
+let chart3 = new Chart(ctx5, {
+    type: 'line',
+    data: { 
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        datasets: [{
+            label: 'Estimated workload',
+            data: Array.from({length: 12}, () => Math.floor(Math.random() * 40)),
+            fill: false,
+            borderColor: pMain,
+            hoverBackgroundColor: "rgba(255,99,132,0.4)",
+            hoverBorderColor: "rgba(255,99,132,1)",
+            borderWidth: 2,
+            pointStyle: 'line'
+            },
+            {
+            label: "Actual workload",
+            fill: false,
+            borderColor: pMain,
+            borderDash: [5,2],
+            data: Array.from({length: 12}, () => Math.floor(Math.random() * 30)),
+            hoverBackgroundColor: "rgba(255,99,132,0.4)",
+            hoverBorderColor: "rgba(255,99,132,1)",
+            borderWidth: 2,
+            pointStyle: 'line'
+        }]
+    },
+    options: {
+        legend: {
+            display: true,
+            position: 'bottom',
+            align: 'start'
+        },
+        elements: {
+            line: {
+                tension: 0
+            }
+        },
+        scales: {
+            xAxes: [{
+            }],
+            yAxes: [{
+                position: 'right'
+            }]
+        },
+        onHover: function(evt) {
+            let item = chart3.getElementAtEvent(evt);
+            console.log(item);
+            if (item.length) {
+                console.log("onHover",item, evt.type);
+                console.log(">data", item[0]._index, data.datasets[0].data[item[0]._index]);
+            }
+        }
+    }
+});
+
+//Chart 6: Level of Completed and Not Completed Work per Asset 
 let getDataPromise = new Promise((resolve) => {
     let array1 = Array.from({length: 20}, () => Math.floor(Math.random() * 30));
     let array2 = Array.from({length: 20}, () => Math.floor(Math.random() * 30));
-
     let scatterArray = [];
+
     //Create a array of objects, required input format for scatter plot.
     array1.forEach((item_x, index) => {
         let item_y = array2[index];
@@ -420,8 +477,8 @@ let getDataPromise = new Promise((resolve) => {
     resolve(scatterArray);
 }).then(data => {   
     console.log(data);
-    let ctx5 = document.getElementById('executedWorkChart').getContext('2d');
-    let executedWorkChart = new Chart(ctx5, {
+    let ctx6 = document.getElementById('executedWorkChart').getContext('2d');
+    let executedWorkChart = new Chart(ctx6, {
         type: 'scatter',
         data: {
             datasets: [{
