@@ -415,7 +415,7 @@ let workloadPerIndividual = new Chart(ctx5, {
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         datasets: [{
             label: 'Person X',
-            data: Array.from({length: 12}, () => Math.floor(Math.random() * 40)),
+            data: Array.from({length: 12}, () => Math.floor(Math.random() * 10)+20),
             fill: false,
             borderColor: pMain,
             borderWidth: 1,
@@ -426,7 +426,7 @@ let workloadPerIndividual = new Chart(ctx5, {
             label: "Person Y",
             fill: false,
             borderColor: pMain,
-            data: Array.from({length: 12}, () => Math.floor(Math.random() * 30)),
+            data: Array.from({length: 12}, () => Math.floor(Math.random() * 20)+10),
             borderWidth: 1,
             pointStyle: 'line',
             pointStrokeColor: "rgba(255, 255, 255, 0)"
@@ -435,7 +435,7 @@ let workloadPerIndividual = new Chart(ctx5, {
             label: "Person Z",
             fill: false,
             borderColor: pMain,
-            data: Array.from({length: 12}, () => Math.floor(Math.random() * 30)),
+            data: Array.from({length: 12}, () => Math.floor(Math.random() * 10)+20),
             borderWidth: 1,
             pointStyle: 'line',
             pointStrokeColor: "rgba(255, 255, 255, 0)"
@@ -444,7 +444,7 @@ let workloadPerIndividual = new Chart(ctx5, {
             label: "Person A",
             fill: false,
             borderColor: pMain,
-            data: Array.from({length: 12}, () => Math.floor(Math.random() * 30)),
+            data: Array.from({length: 12}, () => Math.floor(Math.random() * 10)+20),
             borderWidth: 1,
             pointStyle: 'line',
             pointStrokeColor: "rgba(255, 255, 255, 0)"
@@ -453,7 +453,7 @@ let workloadPerIndividual = new Chart(ctx5, {
             label: "Person B",
             fill: false,
             borderColor: pMain,
-            data: Array.from({length: 12}, () => Math.floor(Math.random() * 30)),
+            data: Array.from({length: 12}, () => Math.floor(Math.random() * 10)+20),
             borderWidth: 1,
             pointStyle: 'line',
             pointStrokeColor: "rgba(255, 255, 255, 0)"
@@ -462,7 +462,7 @@ let workloadPerIndividual = new Chart(ctx5, {
             label: "Person C",
             fill: false,
             borderColor: pMain,
-            data: Array.from({length: 12}, () => Math.floor(Math.random() * 30)),
+            data: Array.from({length: 12}, () => Math.floor(Math.random() * 10)+20),
             borderWidth: 1,
             pointStyle: 'line',
             pointStrokeColor: "rgba(255, 255, 255, 0)"
@@ -471,7 +471,7 @@ let workloadPerIndividual = new Chart(ctx5, {
             label: "Person D",
             fill: false,
             borderColor: pMain,
-            data: Array.from({length: 12}, () => Math.floor(Math.random() * 30)),
+            data: Array.from({length: 12}, () => Math.floor(Math.random() * 10)+20),
             borderWidth: 1,
             pointStyle: 'line',
             pointStrokeColor: "rgba(255, 255, 255, 0)"
@@ -488,7 +488,7 @@ let workloadPerIndividual = new Chart(ctx5, {
                 tension: 0
             },
             point: {
-                radius: 1
+                radius: 0
             }
         },
         tooltips: {
@@ -506,18 +506,27 @@ let workloadPerIndividual = new Chart(ctx5, {
                 },
             }],
             yAxes: [{
-                position: 'right'
+                position: 'right',
+                ticks: {
+                    beginAtZero: true
+                }
             }]
         },
         onHover: function onHover (evt, activeElements) {
-            if (!activeElements || !activeElements.length) return; 
-            let activeIndex = activeElements[0]._datasetIndex;
-            this.data.datasets.forEach((dataset, index) => {
-                (index == activeIndex) ? setActive() : setFade();
-                function setActive(){ dataset.borderColor = 'red'; } //to do: prevent showing pointer on hover
-                function setFade(){ dataset.borderColor = "rgb(200, 200, 200)"; }
-            });
+            if (!activeElements || !activeElements.length) {
+                this.data.datasets.forEach((dataset) => {
+                    dataset.borderColor = pMain;
+                });
+            } else {
+                let activeIndex = activeElements[0]._datasetIndex;
+                this.data.datasets.forEach((dataset, index) => {
+                    (index == activeIndex) ? setActive() : setFade();
+                    function setActive(){ dataset.borderColor = 'red'; } //to do: prevent showing pointer on hover
+                    function setFade(){ dataset.borderColor = "rgb(200, 200, 200)"; }
+                });
+            }
             this.update();
+            return;
         },
     }
 });
