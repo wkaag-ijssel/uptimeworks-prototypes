@@ -142,6 +142,9 @@ let resourcesChart = new Chart(ctx, {
         },
         scales: {
             xAxes: [{
+                gridLines: {
+                    display: false,
+                },
                 ticks: {
                     autoSkip: false,
                     maxRotation: 0,
@@ -248,6 +251,9 @@ let workLoadChart = new Chart(ctx2, {
         },
         scales: {
             xAxes: [{
+                gridLines: {
+                    display: false,
+                },
             }],
             yAxes: [{
                 position: 'right',
