@@ -25,8 +25,8 @@
                 <p>GENERAL</p>
                 <a class="" href="index.html">Homepage</a>
                 <p>WORK</p>
-                <a class="active" href="#">Performance</a>
-                <a class="" href="#">Planning</a>
+                <a class="" href="work-performance.html">Performance</a>
+                <a class="active" href="#">Planning</a>
                 <p>FINANCE</p>
                 <a class="" href="financial.html">Summary</a>
                 <a class="" href="#">Transactions</a>
@@ -38,8 +38,8 @@
             <!-- Title -->
             <div class="col-md-12 row">
                 <div class="col-md-8">
-                    <h3 id="dashboard-title">Work</h3>
-                    <p>Dashboard > Work</p>
+                    <h3 id="dashboard-title">Planning</h3>
+                    <p>Dashboard > Work > Planning</p>
                 </div>
                 <div class="col-md-4 dashboard-item">
                     <div class="" id="dashboard-functions">
@@ -57,7 +57,7 @@
             <div class="col-md-12 row">
 
                 <!-- Item 1 -->
-                <div class="dashboard-item col-md-8">
+                <div class="dashboard-item col-md-12">
                     <div class="dashboard-content">
                         <div class="scatter-plot" style="padding-left: 20px;">
                             <label for="intervalSelector"><h6 class="tab-title">Available Resources and Estimated Workload per </h6></label>
@@ -76,28 +76,6 @@
                         </button>
                     </div>
                 </div>
-                
-                <!-- Item 2 -->
-                <div class="dashboard-item col-md-4">
-                    <div class="dashboard-content">
-                        <div class="scatter-plot" style="padding-left: 20px;">
-                            <select id="complianceSelector">
-                                <option value="month">Compliance</option>
-                                <option value="week">Completion</option>
-                            </select>
-                            <label for="complianceSelector"><h6 class="tab-title"> of Tasks per Task Type</h6></label>
-                        </div>
-
-                        <div class="chart" style="height: 300px;">
-                            <canvas id="jobCompliance"></canvas>
-                        </div>
-                        <button id="button-tasks" class="mdc-button" style="float: right; margin: 5px 15px 10px 0px;">
-                            <div class="mdc-button__ripple"></div>
-                            <span class="mdc-button__label">View tasks</span>
-                            <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
-                        </button>
-                    </div>
-                </div>
             </div>
             
             <!-- Second row -->
@@ -106,21 +84,16 @@
                 <div class="dashboard-item col-md-6">
                     <div class="dashboard-content">
                         <div class="scatter-plot" style="padding-left: 20px;">
-                            <select id="interval">
-                                <option value="month">All</option>
-                                <option value="week">Lubrication</option>
-                                <option value="week">Vibration</option>
-                            </select>
-                            <label for="interval"><h6 class="tab-title">Task Compliance per Route</h6></label>
+                            <!-- <select id="workPerPerson">
+                                <option value="workload">Expected Workload</option>
+                                <option value="resources">Available Resources</option>
+                            </select> -->
+                            <label for="workPerPerson"><h6 class="tab-title">Estimated Workload per Person</h6></label>
                         </div>
-                        <div class="chart" style="height: 300px;">
-                            <canvas id="routeComplianceChart"></canvas>
+
+                        <div class="chart">
+                            <canvas id="estimatedWorkLoad"></canvas>
                         </div>
-                        <button id="button-routes" class="mdc-button" style="float: right; margin: 5px 15px 10px 0px;">
-                            <div class="mdc-button__ripple"></div>
-                            <span class="mdc-button__label">View routes</span>
-                            <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
-                        </button>
                     </div>
                 </div>
 
@@ -141,39 +114,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Third row -->
-            <div class="col-md-12 row">
-                <!-- item 5 -->
-                <div class="dashboard-item col-md-6">
-                    <div class="dashboard-content">
-                        <div class="scatter-plot" style="padding-left: 20px;">
-                            <!-- <select id="workPerPerson">
-                                <option value="workload">Expected Workload</option>
-                                <option value="resources">Available Resources</option>
-                            </select> -->
-                            <label for="workPerPerson"><h6 class="tab-title">Estimated Workload per Person</h6></label>
-                        </div>
-
-                        <div class="chart">
-                            <canvas id="estimatedWorkLoad"></canvas>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- item 6 -->
-                <div class="dashboard-item col-md-6">
-                    <div class="dashboard-content">
-                        <div class="scatter-plot" style="padding-left: 20px;">
-                            <label for="workEquipment"><h6 class="tab-title">Executed and Not Executed Work per Equipment</h6></label>
-                        </div>
-                        
-                        <div class="chart">
-                            <canvas id="executedWorkChart" ></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </body>
@@ -181,6 +121,6 @@
 
 <footer>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <script src="js/work.js"></script>
+    <script src="js/work-planning.js"></script>
     <script src="js/functions.js"></script>
 </footer>

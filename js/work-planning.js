@@ -264,35 +264,6 @@ let workLoadChart = new Chart(ctx2, {
     }
 });
 
-//Chart 3: task compliance per route
-let routeDataPromise = new Promise((resolve) => {
-    let data = Array.from({length: 12}, () => Math.random());
-    let labels = [
-        ['Route #6'],
-        ['Route #15'],
-        ['Route #10'],
-        ['Route #2'],
-        ['Route #9'],
-        ['Route #4'],
-        ['Route #11'],
-        ['Route #20'],
-        ['Route #19'],
-        ['Route #5'],
-        ['Route #16'],
-        ['Route #1']
-    ]
-    resolve([data, labels]);
-}).then(route => {  
-    //Sorts after routeData contains (generated) values
-    route[0], route[1] = sortByData(route[0], route[1]);
-
-    //Create bar graph
-    let ctx3 = document.getElementById('routeComplianceChart').getContext('2d');
-    let routeComplianceChart = horizontalBarChart(ctx3, route[0], route[1]);
-
-    //Add custom graph options
-});
-
 // horizontalBar chart - styled
 function horizontalBarChart(chartElem, data, labels){
     return new Chart(chartElem, {
@@ -337,66 +308,7 @@ function horizontalBarChart(chartElem, data, labels){
     });
 };
 
-//Chart 2: Job compliance bar plot
-let ctx4 = document.getElementById('jobCompliance').getContext('2d');
-let jobComplianceChart = new Chart(ctx4, {
-    type: 'horizontalBar',
-    data: {
-        labels: ['Lubrication', 'Inspection', 'Process', 'Vibration', 'Thermographic', 'Other'],
-        datasets: [{
-            label: 'Executed on time',
-            backgroundColor: pDark,
-            data: [
-                Math.floor(Math.random() * 85),
-                Math.floor(Math.random() * 85),
-                Math.floor(Math.random() * 85),
-                Math.floor(Math.random() * 85),
-                Math.floor(Math.random() * 85),
-                Math.floor(Math.random() * 85)
-            ]
-        }, {
-            label: 'Executed too late',
-            backgroundColor: pLight,
-            data: [
-                Math.floor(Math.random() * 10),
-                Math.floor(Math.random() * 10),
-                Math.floor(Math.random() * 10),
-                Math.floor(Math.random() * 10),
-                Math.floor(Math.random() * 10),
-                Math.floor(Math.random() * 10)
-            ]
-        }]
-    },
-    options: {
-        tooltips: {
-            mode: 'index',
-            intersect: false
-        },
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-            xAxes: [{
-                stacked: true,
-                ticks: {
-                    min: 0,
-                    max: 100,
-                    callback: function(value, index, values) {
-                        return value + '%';
-                    }
-                }
-            }],
-            yAxes: [{
-                stacked: true
-            }]
-        },
-        legend: {
-            display: false,
-            position: 'bottom'
-        }
-    }
-});
-
-//Chart 5: Expected workload vs. actual work duration
+//Chart 5: Expected workload per person
 let ctx5 = document.getElementById('estimatedWorkLoad').getContext('2d');
 let workloadPerIndividual = new Chart(ctx5, {
     type: 'line',
@@ -518,57 +430,4 @@ let workloadPerIndividual = new Chart(ctx5, {
             return;
         },
     }
-});
-
-//Chart 6: Level of Completed and Not Completed Work per Asset 
-let getDataPromise = new Promise((resolve) => {
-    let array1 = Array.from({length: 20}, () => Math.floor(Math.random() * 30));
-    let array2 = Array.from({length: 20}, () => Math.floor(Math.random() * 30));
-    let scatterArray = [];
-
-    //Create a array of objects, required input format for scatter plot.
-    array1.forEach((item_x, index) => {
-        let item_y = array2[index];
-        scatterArray.push({
-            x : item_x, 
-            y : item_y
-        });
-    });
-    resolve(scatterArray);
-}).then(data => {   
-    console.log(data);
-    let ctx6 = document.getElementById('executedWorkChart').getContext('2d');
-    let executedWorkChart = new Chart(ctx6, {
-        type: 'scatter',
-        data: {
-            datasets: [{
-                label: 'Scatter Dataset',
-                borderColor: pMain,
-                data: data
-            }]
-        },
-        options: {
-            legend: {
-                display: false,
-            },
-            scales: {
-                xAxes: [{
-                    type: 'linear',
-                    position: 'bottom',
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'not executed'
-                    }
-                }],
-                yAxes: [{
-                    type: 'linear',
-                    position: 'left',
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'executed'
-                    }
-                }]
-            }
-        }
-    });
 });

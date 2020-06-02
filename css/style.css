@@ -66,7 +66,7 @@ body {
 .dashboard-content {
   padding: 0px 20px 20px 20px;
   background-color: white;
-  border: 1px solid grey;
+  /* border: 1px solid grey; */
   border-radius: 15px;
   height: 100%;
 }
@@ -104,9 +104,22 @@ body {
 
 .vertical-menu a {
   background-color: var(--secondary-main); /* Grey background color */
-  color: black; /* Black text color */
+  color: rgb(112, 112, 112); /* Black text color */
+  font-size: 14px;
+  font-weight: 500;
   display: block; /* Make the links appear below each other */
-  padding: 12px; /* Add some padding */
+  padding: 5px 12px 5px 20px; /* Add some padding */
+}
+
+.vertical-menu p {
+  background-color: var(--secondary-main); /* Grey background color */
+  color: grey; /* Black text color */
+  font-size: 12px;
+  font-weight: 500;
+  display: block; /* Make the links appear below each other */
+  padding-left: 12px; /* Add some padding */
+  padding-top: 20px;
+  margin-top: 10px;
 }
 
 .vertical-menu a:hover {
@@ -117,8 +130,8 @@ body {
 }
 
 .vertical-menu a.active {
-  background-color: #1a237e;
-  color: white;
+  background-color: rgb(150, 156, 224) ;
+  color: var(--primary-dark);
   border-radius: 7px;
 }
 

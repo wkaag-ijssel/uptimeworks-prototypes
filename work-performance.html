@@ -26,7 +26,7 @@
                 <a class="" href="index.html">Homepage</a>
                 <p>WORK</p>
                 <a class="active" href="#">Performance</a>
-                <a class="" href="#">Planning</a>
+                <a class="" href="work-planning.html">Planning</a>
                 <p>FINANCE</p>
                 <a class="" href="financial.html">Summary</a>
                 <a class="" href="#">Transactions</a>
@@ -37,18 +37,17 @@
         <div class="col-md-10">
             <!-- Title -->
             <div class="col-md-12 row">
-                <div class="col-md-8">
-                    <h3 id="dashboard-title">Work</h3>
-                    <p>Dashboard > Work</p>
+                <div class="col-md-9">
+                    <h3 id="dashboard-title">Performance</h3>
+                    <p>Dashboard > Work > Performance</p>
                 </div>
-                <div class="col-md-4 dashboard-item">
+                <div class="col-md-3 dashboard-item">
                     <div class="" id="dashboard-functions">
-                        <!-- <label for="rangePicker"><h6 id="rangeTag" class="tab-title">Period: </h6></label>
-                        <input id="rangePicker" type="text" name="fixedRangeDatePicker" style="display: inline-block;"></input> -->
-                        <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+                        <!-- <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
                             <i class="fa fa-calendar"></i>&nbsp;
                             <span></span> <i class="fa fa-caret-down"></i>
-                        </div>
+                        </div> -->
+                        <input type="text" name="dates"></input>
                     </div>
                 </div>
             </div>
@@ -60,18 +59,19 @@
                 <div class="dashboard-item col-md-8">
                     <div class="dashboard-content">
                         <div class="scatter-plot" style="padding-left: 20px;">
-                            <label for="intervalSelector"><h6 class="tab-title">Available Resources and Estimated Workload per </h6></label>
-                            <select id="intervalSelector">
-                                <option value="month">Month</option>
-                                <option value="week">Week</option>
+                            <select id="interval">
+                                <option value="month">All</option>
+                                <option value="week">Lubrication</option>
+                                <option value="week">Vibration</option>
                             </select>
+                            <label for="interval"><h6 class="tab-title">Task Compliance per Route</h6></label>
                         </div>
                         <div class="chart" style="height: 300px;">
-                            <canvas id="workLoadChart"></canvas>
+                            <canvas id="routeComplianceChart"></canvas>
                         </div>
-                        <button id="button-scheduler" class="mdc-button" style="float: right; margin: 5px 15px 10px 0px;">
+                        <button id="button-routes" class="mdc-button" style="float: right; margin: 5px 15px 10px 0px;">
                             <div class="mdc-button__ripple"></div>
-                            <span class="mdc-button__label">Workload scheduler</span>
+                            <span class="mdc-button__label">View routes</span>
                             <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
                         </button>
                     </div>
@@ -106,65 +106,6 @@
                 <div class="dashboard-item col-md-6">
                     <div class="dashboard-content">
                         <div class="scatter-plot" style="padding-left: 20px;">
-                            <select id="interval">
-                                <option value="month">All</option>
-                                <option value="week">Lubrication</option>
-                                <option value="week">Vibration</option>
-                            </select>
-                            <label for="interval"><h6 class="tab-title">Task Compliance per Route</h6></label>
-                        </div>
-                        <div class="chart" style="height: 300px;">
-                            <canvas id="routeComplianceChart"></canvas>
-                        </div>
-                        <button id="button-routes" class="mdc-button" style="float: right; margin: 5px 15px 10px 0px;">
-                            <div class="mdc-button__ripple"></div>
-                            <span class="mdc-button__label">View routes</span>
-                            <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- item 4 -->
-                <div class="dashboard-item col-md-6">
-                    <div class="dashboard-content">
-                        <div class="scatter-plot" style="padding-left: 20px;">
-                            <select id="interval">
-                                <option value="month">Resources</option>
-                                <option value="week">Workload</option>
-                            </select>
-                            <label for="interval"><h6 class="tab-title"> Estimation per Function </h6></label>
-                        </div>
-
-                        <div class="chart" style="height: 300px;">
-                            <canvas id="resourcesChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Third row -->
-            <div class="col-md-12 row">
-                <!-- item 5 -->
-                <div class="dashboard-item col-md-6">
-                    <div class="dashboard-content">
-                        <div class="scatter-plot" style="padding-left: 20px;">
-                            <!-- <select id="workPerPerson">
-                                <option value="workload">Expected Workload</option>
-                                <option value="resources">Available Resources</option>
-                            </select> -->
-                            <label for="workPerPerson"><h6 class="tab-title">Estimated Workload per Person</h6></label>
-                        </div>
-
-                        <div class="chart">
-                            <canvas id="estimatedWorkLoad"></canvas>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- item 6 -->
-                <div class="dashboard-item col-md-6">
-                    <div class="dashboard-content">
-                        <div class="scatter-plot" style="padding-left: 20px;">
                             <label for="workEquipment"><h6 class="tab-title">Executed and Not Executed Work per Equipment</h6></label>
                         </div>
                         
@@ -173,6 +114,9 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- item 4 -->
+                
             </div>
         </div>
     </div>
@@ -181,6 +125,6 @@
 
 <footer>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <script src="js/work.js"></script>
+    <script src="js/work-performance.js"></script>
     <script src="js/functions.js"></script>
 </footer>
