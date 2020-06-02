@@ -19,30 +19,20 @@ document.getElementById('intervalSelector').addEventListener('change', function(
     }
 });
 
-
-
 /**Workload-resources chart 
- * 
  * Monthly data:
  */
 let monthlyData = [{
     label: 'workload',
-    backgroundColor: pLight,
-    barPercentage: 0.5,
-    barThickness: 6,
-    maxBarThickness: 8,
-    minBarLength: 2,
+    borderColor: pDark,
     fill: false,
-    data: Array.from({length: 13}, () => Math.random())
+    data: Array.from({length: 12}, () => Math.random())
 },{
     label: 'resources',
-    backgroundColor: pDark,
-    barPercentage: 0.5,
-    barThickness: 6,
-    maxBarThickness: 8,
-    minBarLength: 2,
+    borderColor: pDark,
+    borderDash: [5,2],
     fill: false,
-    data: Array.from({length: 13}, () => Math.random())
+    data: Array.from({length: 12}, () => Math.random())
 }];
 let monthlyLabels = [
     ['Jan', '2020'],
@@ -57,26 +47,18 @@ let monthlyLabels = [
     ['Oct', ''],
     ['Nov', ''],
     ['Dec', ''],
-    ['Jan', '2021'],
 ];
 
 /** Weekly data */
 let weeklyData = [{
     label: 'workload',
-    backgroundColor: pLight,
-    barPercentage: 0.5,
-    barThickness: 6,
-    maxBarThickness: 8,
-    minBarLength: 2,
+    borderColor: pDark,
     fill: false,
     data: Array.from({length: 52}, () => Math.random())
 },{
     label: 'resources',
-    backgroundColor: pDark,
-    barPercentage: 0.5,
-    barThickness: 6,
-    maxBarThickness: 8,
-    minBarLength: 2,
+    borderColor: pDark,
+    borderDash: [5,2],
     fill: false,
     data: Array.from({length: 52}, () => Math.random())
 }];
@@ -152,7 +134,7 @@ let resourcesChart = new Chart(ctx, {
         elements: {
             line: {
                 tension: 0, // disables bezier curves
-                borderWidth: 2
+                borderWidth: 1
             },
             point:{
                 radius: 0 //hide data point indicators

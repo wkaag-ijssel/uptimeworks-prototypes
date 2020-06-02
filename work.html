@@ -53,11 +53,11 @@
                 <div class="dashboard-item col-md-8">
                     <div class="dashboard-content">
                         <div class="scatter-plot" style="padding-left: 20px;">
+                            <label for="intervalSelector"><h6 class="tab-title">Available Resources and Estimated Workload per </h6></label>
                             <select id="intervalSelector">
-                                <option value="month">Monthly</option>
-                                <option value="week">Weekly</option>
+                                <option value="month">Month</option>
+                                <option value="week">Week</option>
                             </select>
-                            <label for="intervalSelector"><h6 class="tab-title">Estimated Workload and Resources</h6></label>
                         </div>
                         <div class="chart" style="height: 300px;">
                             <canvas id="workLoadChart"></canvas>
@@ -106,7 +106,7 @@
                             </select>
                             <label for="interval"><h6 class="tab-title">Task Compliance per Route</h6></label>
                         </div>
-                        <div class="chart" style="height: 250px;">
+                        <div class="chart" style="height: 300px;">
                             <canvas id="routeComplianceChart"></canvas>
                         </div>
                         <button id="button-routes" class="mdc-button" style="float: right; margin: 5px 15px 10px 0px;">
@@ -128,7 +128,7 @@
                             <label for="interval"><h6 class="tab-title"> Estimation per Function </h6></label>
                         </div>
 
-                        <div class="chart">
+                        <div class="chart" style="height: 300px;">
                             <canvas id="resourcesChart"></canvas>
                         </div>
                     </div>
