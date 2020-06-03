@@ -12,7 +12,7 @@ let date_range = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep',
 // Event listeners
 document.getElementById('button-work-performance').addEventListener('click', function(event){ window.location.href = "work-performance.html"})
 
-//Chart 2: asset health
+//Chart 2: asset health by alarms generated
 let ctx4 = document.getElementById('assetHealth').getContext('2d');
 var myDoughnutChart = new Chart(ctx4, {
     type: 'doughnut',
@@ -23,8 +23,6 @@ var myDoughnutChart = new Chart(ctx4, {
                 pMain
             ]
         }],
-    
-        // These labels appear in the legend and in the tooltips when hovering different arcs
         labels: [
             'healthy assets (%)',
             'failing assets (%)'
@@ -40,16 +38,16 @@ var myDoughnutChart = new Chart(ctx4, {
         elements: {
             center: {
                 text: '95%',
-                fontStyle: 'Arial', // Default is Arial
-                sidePadding: 50, // Default is 20 (as a percentage)
-                minFontSize: 10, // Default is 20 (in px), set to false and text will not wrap.
-                lineHeight: 10 // Default is 25 (in px), used for when text wraps
+                fontStyle: 'Arial', 
+                sidePadding: 50, 
+                minFontSize: 10, 
+                lineHeight: 10 
             }
         }
     }
 });
 
-//Chart 3: Uptime
+//Chart 3: asset health by reports generated
 let ctx2 = document.getElementById('estimatedUptime').getContext('2d');
 var myDoughnutChart = new Chart(ctx2, {
     type: 'doughnut',
@@ -60,8 +58,6 @@ var myDoughnutChart = new Chart(ctx2, {
                 pMain
             ]
         }],
-    
-        // These labels appear in the legend and in the tooltips when hovering different arcs
         labels: [
             'healthy assets (%)',
             'failing assets (%)'
@@ -77,10 +73,10 @@ var myDoughnutChart = new Chart(ctx2, {
         elements: {
             center: {
                 text: '82%',
-                fontStyle: 'Arial', // Default is Arial
-                sidePadding: 50, // Default is 20 (as a percentage)
-                minFontSize: 10, // Default is 20 (in px), set to false and text will not wrap.
-                lineHeight: 10 // Default is 25 (in px), used for when text wraps
+                fontStyle: 'Arial', 
+                sidePadding: 50,
+                minFontSize: 10, 
+                lineHeight: 10
             }
         }
     }
@@ -185,7 +181,6 @@ var myDoughnutChart = new Chart(ctx1, {
                 pMain
             ]
         }],
-        // These labels appear in the legend and in the tooltips when hovering different arcs
         labels: [
             'Work completed (%)',
             'Work not completed (%)'
@@ -273,12 +268,7 @@ let myBar = new Chart(ctx, {
     }
 });
 
-
-
-let x = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
-let t = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
-
-//Line graph
+//Chart 6: Not finished 
 let ctx5 = document.getElementById('deviceActivity').getContext('2d');
 let chart5 = new Chart(ctx5, {
     type: 'horizontalBar',
@@ -286,13 +276,13 @@ let chart5 = new Chart(ctx5, {
         labels: date_range,
         datasets: [{
             label: 'data',
-            data: x,
+            data: Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40)),
             fill: true,
             borderColor: pMain,
             pointStyle: 'line'
         },{
             label: 'label',
-            data: t,
+            data: Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40)),
             fill: false,
             borderColor: pDark,
             pointStyle: 'line'
