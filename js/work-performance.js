@@ -139,12 +139,42 @@ Chart.pluginService.register({
     }
 });
 
+// Returns an array of dates between the two dates
+var getDates = function(startDate, endDate) {
+    var dates = [],
+        currentDate = startDate,
+        addDays = function(days) {
+          var date = new Date(this.valueOf());
+          date.setDate(date.getDate() + days);
+          return date;
+        };
+    while (currentDate <= endDate) {
+      dates.push(currentDate);
+      currentDate = addDays.call(currentDate, 1);
+    }
+    return dates;
+};
+  
+// Usage
 let labels = []
-let date = new Date();
-for(let i = 0; i < 50; i += 1){
-    labels[i] = [date.getDate("October 12")];
-    date = new Date(date);
-}
+let dates = getDates(new Date("1 Mar 2015"), new Date("12 May 2015"));   
+const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+]; 
+let monthNum = 0                                                                                                       
+dates.forEach(function(date, index) {
+    let month = date.getMonth();
+    let day = date.getDate();
+
+    if(month !== monthNum){
+        labels[index] = [date.getDate(), monthNames[month]];
+        monthNum = month;
+    } else if(day == 10 || day == 20){
+        labels[index] = [date.getDate(), ""];
+    } else {
+        labels[index] = ["", ""];
+    }
+});
 
 /**Chart 2: Completed work over time*/
 let ctx = document.getElementById('workLoadChart').getContext('2d');
@@ -155,8 +185,13 @@ let resourcesChart = new Chart(ctx, {
         datasets: [{
             label: 'Percentage of tasks completed',
             borderColor: pDark,
-            fill: false,
-            data: Array.from({length: 50}, () => Math.random())
+            fill: true,
+            backgroundColor: pDark,
+            barPercentage: 0.5,
+            barThickness: 6,
+            maxBarThickness: 8,
+            minBarLength: 2,
+            data: Array.from({length: labels.length}, () => Math.random())
         }]
     },
     options: {
@@ -180,7 +215,7 @@ let resourcesChart = new Chart(ctx, {
                     display: false,
                 },
                 ticks: {
-                    autoSkip: true,
+                    autoSkip: false,
                     maxRotation: 0,
                     minRotation: 0,
                     minorTick: {
