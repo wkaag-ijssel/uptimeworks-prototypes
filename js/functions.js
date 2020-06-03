@@ -25,29 +25,20 @@ $(function() {
   });
 });
 
+// Date range picker with both regular date selction and predefined ranges.
 $(function() {
-
-  var start = moment().subtract(29, 'days');
-  var end = moment();
-
-  function cb(start, end) {
-      $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-  }
-
-  $('#reportrange').daterangepicker({
-      startDate: start,
-      endDate: end,
-      showCustomRangeLabel: false,
-      ranges: {
-         'This Month': [moment(), moment()],
-         'Next 3 Months': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-         'Next 6 Months': [moment().subtract(6, 'days'), moment()],
-         'Next 12 Months': [moment().subtract(29, 'days'), moment()]
-        //  'This Month': [moment().startOf('month'), moment().endOf('month')],
-        //  'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-      }
-  }, cb);
-
-  cb(start, end);
-
+  $('input[name="combinedDatePicker').daterangepicker({
+    ranges: {
+      'Today': [moment(), moment()],
+      'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+      'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+      'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+      'This Month': [moment().startOf('month'), moment().endOf('month')],
+      'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+    },
+      "startDate": "05/28/2020",
+      "endDate": "06/03/2020"
+  }, function(start, end, label) {
+    console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
+  });
 });

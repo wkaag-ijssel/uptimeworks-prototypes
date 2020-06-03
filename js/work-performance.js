@@ -169,7 +169,7 @@ dates.forEach(function(date, index) {
     if(month !== monthNum){
         labels[index] = [date.getDate(), monthNames[month]];
         monthNum = month;
-    } else if(day == 10 || day == 20){
+    } else if(day == 5 || day == 10 || day == 15 || day == 20 || day == 25){
         labels[index] = [date.getDate(), ""];
     } else {
         labels[index] = ["", ""];
