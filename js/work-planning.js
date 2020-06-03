@@ -24,13 +24,12 @@ document.getElementById('intervalSelector').addEventListener('change', function(
  */
 let monthlyData = [{
     label: 'workload',
-    borderColor: pDark,
+    backgroundColor: pLight,
     fill: false,
     data: Array.from({length: 12}, () => Math.random())
 },{
     label: 'resources',
-    borderColor: pDark,
-    borderDash: [5,2],
+    backgroundColor: pDark,
     fill: false,
     data: Array.from({length: 12}, () => Math.random())
 }];
@@ -52,82 +51,33 @@ let monthlyLabels = [
 /** Weekly data */
 let weeklyData = [{
     label: 'workload',
-    borderColor: pDark,
+    backgroundColor: pLight,
     fill: false,
     data: Array.from({length: 52}, () => Math.random())
 },{
     label: 'resources',
-    borderColor: pDark,
-    borderDash: [5,2],
+    backgroundColor: pDark,
     fill: false,
     data: Array.from({length: 52}, () => Math.random())
 }];
-let weeklyLabels = [
-    [1, "Jan"],
-    ["", ""],
-    ["", ""],
-    ["", ""],
-    ["", ""],
-    [6, "Feb"],
-    ["", ""],
-    ["", ""],
-    ["", ""],
-    [10, "Mar"],
-    ["", ""],
-    ["", ""],
-    ["", ""],
-    [14, "Apr"],
-    ["", ""],
-    ["", ""],
-    ["", ""],
-    ["", ""], 
-    [19, "May"],
-    ["", ""],
-    ["", ""],
-    ["", ""],
-    [23, "Jun"],
-    ["", ""],
-    ["", ""],
-    ["", ""],
-    [27, "Jul"],
-    ["", ""],
-    ["", ""],
-    ["", ""],
-    ["", ""],
-    [32, "Aug"],
-    ["", ""],
-    ["", ""],
-    ["", ""],
-    [36, "Sep"],
-    ["", ""],
-    ["", ""],
-    ["", ""],
-    ["", ""],
-    [41, "Oct"],
-    ["", ""],
-    ["", ""],
-    ["", ""],
-    [45, "Nov"],
-    ["", ""],
-    ["", ""],
-    ["", ""],
-    [49, "Dec"],
-    ["", ""],
-    ["", ""],
-    ["", ""]
-];
+
+let weeklyLabels = [];
+for(let i = 0; i<52; i += 1){
+    weeklyLabels[i] = i+1;
+};
 
 /**Chart 1: Workload vs. resources*/
 let ctx = document.getElementById('workLoadChart').getContext('2d');
 let resourcesChart = new Chart(ctx, {
-    type: 'line',
+    type: 'bar',
     data: { 
         labels: monthlyLabels,
         datasets: monthlyData
     },
     options: {
         legend: {
-            display: false,
+            display: true,
+            position: false
         },
         responsive: true,
         maintainAspectRatio: false,
@@ -146,7 +96,7 @@ let resourcesChart = new Chart(ctx, {
                     display: false,
                 },
                 ticks: {
-                    autoSkip: false,
+                    autoSkip: true,
                     maxRotation: 0,
                     minRotation: 0,
                     minorTick: {
@@ -197,7 +147,7 @@ function sortByData(data, labels){
     return data, labels;
 }
 
-// Chart 4: Resources estimation per function
+// Chart 2: Resources estimation per function
 let ctx2 = document.getElementById('resourcesChart').getContext('2d');
 let workLoadChart = new Chart(ctx2, {
     type: 'line',
@@ -234,12 +184,14 @@ let workLoadChart = new Chart(ctx2, {
     options: {
         legend: {
             display: true,
-            position: 'bottom',
+            position: 'right',
             align: 'end',
             labels: {
                 usePointStyle: true
             }
         },
+        responsive: true,
+        maintainAspectRatio: false,
         elements: {
             line: {
                 tension: 0, // disables bezier curves
@@ -308,126 +260,126 @@ function horizontalBarChart(chartElem, data, labels){
     });
 };
 
-//Chart 5: Expected workload per person
-let ctx5 = document.getElementById('estimatedWorkLoad').getContext('2d');
-let workloadPerIndividual = new Chart(ctx5, {
-    type: 'line',
-    data: { 
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-        datasets: [{
-            label: 'Person X',
-            data: Array.from({length: 12}, () => Math.floor(Math.random() * 10)+20),
-            fill: false,
-            borderColor: pMain,
-            borderWidth: 1,
-            pointStyle: 'line',
-            pointStrokeColor: "rgba(255, 255, 255, 0)"
-            },
-            {
-            label: "Person Y",
-            fill: false,
-            borderColor: pMain,
-            data: Array.from({length: 12}, () => Math.floor(Math.random() * 20)+10),
-            borderWidth: 1,
-            pointStyle: 'line',
-            pointStrokeColor: "rgba(255, 255, 255, 0)"
-            },
-            {
-            label: "Person Z",
-            fill: false,
-            borderColor: pMain,
-            data: Array.from({length: 12}, () => Math.floor(Math.random() * 10)+20),
-            borderWidth: 1,
-            pointStyle: 'line',
-            pointStrokeColor: "rgba(255, 255, 255, 0)"
-            },
-            {
-            label: "Person A",
-            fill: false,
-            borderColor: pMain,
-            data: Array.from({length: 12}, () => Math.floor(Math.random() * 10)+20),
-            borderWidth: 1,
-            pointStyle: 'line',
-            pointStrokeColor: "rgba(255, 255, 255, 0)"
-            },
-            {
-            label: "Person B",
-            fill: false,
-            borderColor: pMain,
-            data: Array.from({length: 12}, () => Math.floor(Math.random() * 10)+20),
-            borderWidth: 1,
-            pointStyle: 'line',
-            pointStrokeColor: "rgba(255, 255, 255, 0)"
-            },
-            {
-            label: "Person C",
-            fill: false,
-            borderColor: pMain,
-            data: Array.from({length: 12}, () => Math.floor(Math.random() * 10)+20),
-            borderWidth: 1,
-            pointStyle: 'line',
-            pointStrokeColor: "rgba(255, 255, 255, 0)"
-            },
-            {
-            label: "Person D",
-            fill: false,
-            borderColor: pMain,
-            data: Array.from({length: 12}, () => Math.floor(Math.random() * 10)+20),
-            borderWidth: 1,
-            pointStyle: 'line',
-            pointStrokeColor: "rgba(255, 255, 255, 0)"
-        }]
-    },
-    options: {
-        legend: {
-            display: false,
-            position: 'bottom',
-            align: 'start'
-        },
-        elements: {
-            line: {
-                tension: 0
-            },
-            point: {
-                radius: 0
-            }
-        },
-        tooltips: {
-            mode: 'nearest',
-            intersect: false
-        },
-        hover: {
-            mode: 'dataset',
-            intersect: false
-        },
-        scales: {
-            xAxes: [{
-                gridLines: {
-                    display: false,
-                },
-            }],
-            yAxes: [{
-                position: 'right',
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        },
-        onHover: function onHover (evt, activeElements) {
-            if (!activeElements || !activeElements.length) {
-                this.data.datasets.forEach((dataset) => {
-                    dataset.borderColor = pMain;
-                });
-            } else {
-                let activeIndex = activeElements[0]._datasetIndex;
-                this.data.datasets.forEach((dataset, index) => {
-                    (index == activeIndex) ? setActive() : setFade();
-                    function setActive(){ dataset.borderColor = 'red'; } //to do: prevent showing pointer on hover
-                    function setFade(){ dataset.borderColor = "rgb(200, 200, 200)"; }
-                });
-            }
-            this.update();
-            return;
-        },
-    }
-});
+//Chart 2: Expected workload per person
+// let ctx5 = document.getElementById('estimatedWorkLoad').getContext('2d');
+// let workloadPerIndividual = new Chart(ctx5, {
+//     type: 'line',
+//     data: { 
+//         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+//         datasets: [{
+//             label: 'Person X',
+//             data: Array.from({length: 12}, () => Math.floor(Math.random() * 10)+20),
+//             fill: false,
+//             borderColor: pMain,
+//             borderWidth: 1,
+//             pointStyle: 'line',
+//             pointStrokeColor: "rgba(255, 255, 255, 0)"
+//             },
+//             {
+//             label: "Person Y",
+//             fill: false,
+//             borderColor: pMain,
+//             data: Array.from({length: 12}, () => Math.floor(Math.random() * 20)+10),
+//             borderWidth: 1,
+//             pointStyle: 'line',
+//             pointStrokeColor: "rgba(255, 255, 255, 0)"
+//             },
+//             {
+//             label: "Person Z",
+//             fill: false,
+//             borderColor: pMain,
+//             data: Array.from({length: 12}, () => Math.floor(Math.random() * 10)+20),
+//             borderWidth: 1,
+//             pointStyle: 'line',
+//             pointStrokeColor: "rgba(255, 255, 255, 0)"
+//             },
+//             {
+//             label: "Person A",
+//             fill: false,
+//             borderColor: pMain,
+//             data: Array.from({length: 12}, () => Math.floor(Math.random() * 10)+20),
+//             borderWidth: 1,
+//             pointStyle: 'line',
+//             pointStrokeColor: "rgba(255, 255, 255, 0)"
+//             },
+//             {
+//             label: "Person B",
+//             fill: false,
+//             borderColor: pMain,
+//             data: Array.from({length: 12}, () => Math.floor(Math.random() * 10)+20),
+//             borderWidth: 1,
+//             pointStyle: 'line',
+//             pointStrokeColor: "rgba(255, 255, 255, 0)"
+//             },
+//             {
+//             label: "Person C",
+//             fill: false,
+//             borderColor: pMain,
+//             data: Array.from({length: 12}, () => Math.floor(Math.random() * 10)+20),
+//             borderWidth: 1,
+//             pointStyle: 'line',
+//             pointStrokeColor: "rgba(255, 255, 255, 0)"
+//             },
+//             {
+//             label: "Person D",
+//             fill: false,
+//             borderColor: pMain,
+//             data: Array.from({length: 12}, () => Math.floor(Math.random() * 10)+20),
+//             borderWidth: 1,
+//             pointStyle: 'line',
+//             pointStrokeColor: "rgba(255, 255, 255, 0)"
+//         }]
+//     },
+//     options: {
+//         legend: {
+//             display: false,
+//             position: 'bottom',
+//             align: 'start'
+//         },
+//         elements: {
+//             line: {
+//                 tension: 0
+//             },
+//             point: {
+//                 radius: 0
+//             }
+//         },
+//         tooltips: {
+//             mode: 'nearest',
+//             intersect: false
+//         },
+//         hover: {
+//             mode: 'dataset',
+//             intersect: false
+//         },
+//         scales: {
+//             xAxes: [{
+//                 gridLines: {
+//                     display: false,
+//                 },
+//             }],
+//             yAxes: [{
+//                 position: 'right',
+//                 ticks: {
+//                     beginAtZero: true
+//                 }
+//             }]
+//         },
+//         onHover: function onHover (evt, activeElements) {
+//             if (!activeElements || !activeElements.length) {
+//                 this.data.datasets.forEach((dataset) => {
+//                     dataset.borderColor = pMain;
+//                 });
+//             } else {
+//                 let activeIndex = activeElements[0]._datasetIndex;
+//                 this.data.datasets.forEach((dataset, index) => {
+//                     (index == activeIndex) ? setActive() : setFade();
+//                     function setActive(){ dataset.borderColor = 'red'; } //to do: prevent showing pointer on hover
+//                     function setFade(){ dataset.borderColor = "rgb(200, 200, 200)"; }
+//                 });
+//             }
+//             this.update();
+//             return;
+//         },
+//     }
+// });

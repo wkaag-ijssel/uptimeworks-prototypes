@@ -58,7 +58,7 @@ ref = [_workorders, _readings, _reports, _totalCosts, _totalSavings]
 
 let tabs = document.getElementsByClassName('tablinks');
 let dataMetric = document.getElementsByClassName('tab-metric');
-let dataDiff = document.getElementsByClassName('tab-diff');
+let dataDiff = document.getElementsByClassName('percentage-value');
 let scatterArray = [];
 
 //Create a array of objects, required input format for scatter plot.

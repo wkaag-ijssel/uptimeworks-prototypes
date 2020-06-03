@@ -8,59 +8,11 @@ let pMain = "#1a237e"; //'rgb(26,35,126)';
 
 // Job compliance
 let date_range = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-let barChartData = {
-    labels: ['Lubrication', 'Inspection', 'Process', 'Vibration', 'Thermographic', 'Other'],
-    datasets: [{
-        label: 'Executed on time',
-        backgroundColor: pMain,
-        data: [
-            Math.floor(Math.random() * 85),
-            Math.floor(Math.random() * 85),
-            Math.floor(Math.random() * 85),
-            Math.floor(Math.random() * 85),
-            Math.floor(Math.random() * 85),
-            Math.floor(Math.random() * 85)
-        ]
-    }, {
-        label: 'Executed too late',
-        backgroundColor: pLight,
-        data: [
-            Math.floor(Math.random() * 10),
-            Math.floor(Math.random() * 10),
-            Math.floor(Math.random() * 10),
-            Math.floor(Math.random() * 10),
-            Math.floor(Math.random() * 10),
-            Math.floor(Math.random() * 10)
-        ]
-    }, {
-        label: 'Not executed',
-        data: [
-            Math.floor(Math.random() * 5),
-            Math.floor(Math.random() * 5),
-            Math.floor(Math.random() * 5),
-            Math.floor(Math.random() * 5),
-            Math.floor(Math.random() * 5),
-            Math.floor(Math.random() * 5)
-        ]
-    }]
-};
 
-data = {
-    datasets: [{
-        data: [95, 5],
-        backgroundColor: [
-            pMain
-        ]
-    }],
+// Event listeners
+document.getElementById('button-work-performance').addEventListener('click', function(event){ window.location.href = "work-performance.html"})
 
-    // These labels appear in the legend and in the tooltips when hovering different arcs
-    labels: [
-        'healthy assets (%)',
-        'failing assets (%)'
-    ]
-};
-
-//donut chart(s)
+//Chart 2: asset health
 let ctx4 = document.getElementById('assetHealth').getContext('2d');
 var myDoughnutChart = new Chart(ctx4, {
     type: 'doughnut',
@@ -81,6 +33,7 @@ var myDoughnutChart = new Chart(ctx4, {
     options: {
         cutoutPercentage: 70,
         responsive: true,
+        maintainAspectRatio: false,
         legend: {
             display: false
         },
@@ -96,6 +49,7 @@ var myDoughnutChart = new Chart(ctx4, {
     }
 });
 
+//Chart 3: Uptime
 let ctx2 = document.getElementById('estimatedUptime').getContext('2d');
 var myDoughnutChart = new Chart(ctx2, {
     type: 'doughnut',
@@ -116,6 +70,7 @@ var myDoughnutChart = new Chart(ctx2, {
     options: {
         cutoutPercentage: 70,
         responsive: true,
+        maintainAspectRatio: false,
         legend: {
             display: false
         },
@@ -216,19 +171,97 @@ Chart.pluginService.register({
         ctx.fillText(line, centerX, centerY);
       }
     }
-  });
+});
 
-//Bar plot
+
+//Chart 5: Job Compliance per Task Type
+let ctx1 = document.getElementById('taskCompletion').getContext('2d');
+var myDoughnutChart = new Chart(ctx1, {
+    type: 'doughnut',
+    data: {
+        datasets: [{
+            data: [95, 5],
+            backgroundColor: [
+                pMain
+            ]
+        }],
+        // These labels appear in the legend and in the tooltips when hovering different arcs
+        labels: [
+            'Work completed (%)',
+            'Work not completed (%)'
+        ]
+    },
+    options: {
+        cutoutPercentage: 70,
+        responsive: true,
+        maintainAspectRatio: false,
+        legend: {
+            display: false
+        },
+        elements: {
+            center: {
+                text: '95%',
+                fontStyle: 'Arial', 
+                sidePadding: 50,    
+                minFontSize: 10,    
+                lineHeight: 10    
+            }
+        }
+    }
+});
+
+//Chart 5: Job Compliance per Task Type
 let ctx = document.getElementById('jobCompliance').getContext('2d');
 let myBar = new Chart(ctx, {
     type: 'horizontalBar',
-    data: barChartData,
+    data: {
+        labels: ['Lubrication', 'Inspection', 'Process', 'Vibration', 'Thermographic', 'Other'],
+        datasets: [{
+            label: 'Executed on time',
+            backgroundColor: pMain,
+            data: [
+                Math.floor(Math.random() * 85),
+                Math.floor(Math.random() * 85),
+                Math.floor(Math.random() * 85),
+                Math.floor(Math.random() * 85),
+                Math.floor(Math.random() * 85),
+                Math.floor(Math.random() * 85)
+            ]
+        }, {
+            label: 'Executed too late',
+            backgroundColor: pLight,
+            data: [
+                Math.floor(Math.random() * 10),
+                Math.floor(Math.random() * 10),
+                Math.floor(Math.random() * 10),
+                Math.floor(Math.random() * 10),
+                Math.floor(Math.random() * 10),
+                Math.floor(Math.random() * 10)
+            ]
+        }, {
+            label: 'Not executed',
+            data: [
+                Math.floor(Math.random() * 5),
+                Math.floor(Math.random() * 5),
+                Math.floor(Math.random() * 5),
+                Math.floor(Math.random() * 5),
+                Math.floor(Math.random() * 5),
+                Math.floor(Math.random() * 5)
+            ]
+        }]
+    },
     options: {
+        legend: {
+            display: true,
+            position: 'right',
+            // position: 'top'
+        },
         tooltips: {
             mode: 'index',
             intersect: false
         },
         responsive: true,
+        maintainAspectRatio: false,
         scales: {
             xAxes: [{
                 stacked: true,
@@ -237,72 +270,13 @@ let myBar = new Chart(ctx, {
                 stacked: true
             }]
         },
-        legend: {
-            position: 'bottom'
-        }
     }
 });
 
-//Line graph
-let ctx3 = document.getElementById('taskCompletion').getContext('2d');
-let chart3 = new Chart(ctx3, {
-    type: 'line',
-    data: { 
-        labels: date_range,
-        datasets: [{
-            label: 'Lubrication',
-            data: Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40)),
-            fill: false,
-            borderColor: pMain,
-            hoverBackgroundColor: "rgba(255,99,132,0.4)",
-            hoverBorderColor: "rgba(255,99,132,1)",
-            borderWidth: 2,
-            pointStyle: 'line'
-            },
-            {
-            label: "Inspection",
-            fill: false,
-            borderColor: pMain,
-            borderDash: [5,2],
-            data: Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40)),
-            hoverBackgroundColor: "rgba(255,99,132,0.4)",
-            hoverBorderColor: "rgba(255,99,132,1)",
-            borderWidth: 2,
-            pointStyle: 'line'
-        }]
-    },
-    options: {
-        legend: {
-            display: false,
-        },
-        elements: {
-            line: {
-                tension: 0
-            }
-        },
-        scales: {
-            xAxes: [{
-            }],
-            yAxes: [{
-                position: 'right'
-            }]
-        },
-        onHover: function(evt) {
-            let item = chart3.getElementAtEvent(evt);
-            console.log(item);
-            if (item.length) {
-                console.log("onHover",item, evt.type);
-                console.log(">data", item[0]._index, data.datasets[0].data[item[0]._index]);
-            }
-        }
-    }
-});
+
 
 let x = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
 let t = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
-
-console.log(x);
-console.log(t);
 
 //Line graph
 let ctx5 = document.getElementById('deviceActivity').getContext('2d');
