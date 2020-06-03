@@ -28,9 +28,12 @@ body {
 .tab-metric {
   margin: 0px!important;
 }
+/* 
+.metric-with-difference-indicator {
 
-.tab-diff {
-  font-size: 12px;
+} */
+
+.percentage-value {
   margin: 0px!important;
   display: inline;
 }
