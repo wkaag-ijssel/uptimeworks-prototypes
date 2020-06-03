@@ -25,18 +25,21 @@
                 <p>GENERAL</p>
                 <a class="active" href="#">Homepage</a>
                 <p>WORK</p>
-                <a class="" href="work-performance.html">Performance</a>
-                <a class="" href="work-planning.html">Planning</a>
+                <a  href="work-performance.html">Performance</a>
+                <a  href="work-planning.html">Planning</a>
                 <p>FINANCE</p>
-                <a class="" href="financial.html">Summary</a>
-                <a class="" href="#">Transactions</a>
+                <a  href="financial.html">Summary</a>
+                <a  href="#">Transactions</a>
+                <p>MAINTENANCE</p>
+                <a  href="#">Alarms</a>
+                <a  href="#">Reports</a>
                 <p>TECHNOLOGY</p>
-                <a class="" href="#">Devices</a>
+                <a  href="#">Devices</a>
             </div>
 
             <div class="vertical-menu-bottom">
-                <a class="" >Help</a>
-                <a class="" >Settings</a>
+                <a  >Help</a>
+                <a  >Settings</a>
             </div>
         </div>
         <div class="col-md-10">
@@ -55,27 +58,27 @@
                     <div class="dashboard-content">
                         <div class="summary col-md-12 row">
                             <div class="summary-item col-md-6">
-                                <h6 class="tab-title">Facilities</h6>
+                                <h6 >Facilities</h6>
                                 <h5>4 (+1)</h5>
                             </div>
                             <div class="summary-item col-md-6">
-                                <h6 class="tab-title">Machines</h6>
+                                <h6 >Machines</h6>
                                 <h5>30</h5>
                             </div>
                             <div class="summary-item col-md-6">
-                                <h6 class="tab-title">Components</h6>
+                                <h6 >Components</h6>
                                 <h5>120</h5>
                             </div>
                             <div class="summary-item col-md-6">
-                                <h6 class="tab-title">Devices</h6>
+                                <h6 >Devices</h6>
                                 <h5>20</h5>
                             </div>
                             <div class="summary-item col-md-6">
-                                <h6 class="tab-title">Channels</h6>
+                                <h6 >Channels</h6>
                                 <h5>55</h5>
                             </div>
                             <div class="summary-item col-md-6">
-                                <h6 class="tab-title">Tasks</h6>
+                                <h6 >Tasks</h6>
                                 <h5>340</h5>
                             </div>
                         </div>
@@ -87,8 +90,8 @@
                         <div class="col-md-12 row">
                             <div class="col-md-6">
                                 <div class="scatter-plot" style="padding-left: 0px;">
-                                    <h6 class="tab-title">Asset Health</h6>
-                                    <h6 class="tab-title">by Alarms Generated</h6>
+                                    <h6>Asset Health by Alarms Generated</h6>
+                                    <h6 class="sub-title">IN THE PAST 30 MINUTES</h6>
                                 </div>  
                                 <div class="col-md-12 row">
                                     <div class="col-md-6">  
@@ -97,15 +100,13 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <h6 class="tab-title margin-top-20">Measurements Taken</h6>
-                                        <div class="">
+                                        <h6 class=" margin-top-20">Measurements Taken</h6>
+                                        <div >
                                             <h5 class="percentage-value">8329</h5>
-                                            <i class="fas fa-long-arrow-alt-down"></i>
-                                            <p class="percentage-value">6%</p>
                                         </div>
 
-                                        <h6 class="tab-title margin-top-20">Alarms Generated</h6>
-                                        <div class="">
+                                        <h6 class=" margin-top-20">Alarms Generated</h6>
+                                        <div >
                                             <h5 class="percentage-value">270</h5>
                                             <i class="fas fa-long-arrow-alt-down"></i>
                                             <p class="percentage-value">2%</p>
@@ -115,8 +116,8 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="scatter-plot" style="padding-left: 0px;">
-                                    <h6 class="tab-title">Asset Health</h6>
-                                    <h6 class="tab-title">by Reports Generated</h6>
+                                    <h6>Asset Health by Reports Generated</h6>
+                                    <h6 class="sub-title">This Month</h6>
                                 </div>
                                 <div class="col-md-12 row">
                                     <div class="col-md-6">  
@@ -125,15 +126,13 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <h6 class="tab-title margin-top-20">Reports Generated</h6>
-                                        <div class="">
+                                        <h6 class=" margin-top-20">Reports Generated</h6>
+                                        <div >
                                             <h5 class="percentage-value">3</h5>
-                                            <i class="fas fa-long-arrow-alt-down"></i>
-                                            <p class="percentage-value">50%</p>
                                         </div>
 
-                                        <h6 class="tab-title margin-top-20">Highest Priority</h6>
-                                        <div class="">
+                                        <h6 class=" margin-top-20">Highest Priority</h6>
+                                        <div >
                                             <h5 class="percentage-value">Alarm level 1</h5>
                                             <!-- <i class="fas fa-long-arrow-alt-down"></i>
                                             <p class="percentage-value">50%</p> -->
@@ -159,29 +158,30 @@
                     <div class="dashboard-content">
                         <div class="summary col-md-12 row">
                             <div class="summary-item col-md-6">
-                                <h6 class="tab-title">Overall Work Compliance</h6>
+                                <h6>Overall Work Compliance</h6>
+                                <h6 class="sub-title">This Month</h6>
                                                                
                                 <div class="chart" style="height: 180px;">
                                     <canvas id="taskCompletion"></canvas>
                                 </div>
                             </div>
                             <div class="summary-item col-md-6">
-                                <h6 class="tab-title">Tasks Generated</h6>
-                                <div class="">
+                                <h6>Tasks Generated</h6>
+                                <div >
                                     <h5 class="percentage-value">300</h5>
                                     <i class="fas fa-long-arrow-alt-up"></i>
                                     <p class="percentage-value">4%</p>
                                 </div>
                                 
-                                <h6 class="tab-title margin-top-20">Tasks Completed</h6>
-                                <div class="">
+                                <h6 class="margin-top-20">Tasks Completed</h6>
+                                <div >
                                     <h5 class="percentage-value">270</h5>
                                     <i class="fas fa-long-arrow-alt-down"></i>
                                     <p class="percentage-value">6%</p>
                                 </div>
 
-                                <h6 class="tab-title margin-top-20">Tasks Not Completed</h6>
-                                <div class="">
+                                <h6 class="margin-top-20">Tasks Not Completed</h6>
+                                <div>
                                     <h5 class="percentage-value">30</h5>
                                     <i class="fas fa-long-arrow-alt-up"></i>
                                     <p class="percentage-value">8%</p>
@@ -200,7 +200,7 @@
                 <div class="dashboard-item col-md-7">
                     <div class="dashboard-content">
                         <div class="scatter-plot">
-                            <h6 class="tab-title">Job compliance per type of Task</h6>
+                            <h6 >Job compliance per type of Task</h6>
                         </div>
 
                         <div class="chart" style="height: 230px;">
@@ -214,7 +214,7 @@
                 <div class="dashboard-item col-md-6">
                     <div class="dashboard-content">
                         <div class="scatter-plot">
-                            <h6 class="tab-title">Job compliance per type of Task</h6>
+                            <h6 >Job compliance per type of Task</h6>
                         </div>
 
                         <div class="chart">

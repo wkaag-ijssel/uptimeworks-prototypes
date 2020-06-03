@@ -28,10 +28,13 @@ body {
 .tab-metric {
   margin: 0px!important;
 }
-/* 
-.metric-with-difference-indicator {
 
-} */
+.sub-title {
+  color: darkgrey;
+  font-weight: 500;
+  font-size: 12px;
+  text-transform: uppercase;
+}
 
 .percentage-value {
   margin: 0px!important;
