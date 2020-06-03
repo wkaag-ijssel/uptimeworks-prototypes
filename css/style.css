@@ -100,10 +100,26 @@ body {
 }
 
 .vertical-menu {
+  position: fixed;
   margin-top: 80px;
-  /*margin-left: 30px;
-  width: 100px; Set a width if you like */
+  margin-left: 20px;
 }
+
+.vertical-menu-bottom {
+  position: fixed;
+  bottom: 80px;
+  margin-left: 20px;
+}
+
+.vertical-menu-bottom a {
+  background-color: var(--secondary-main); /* Grey background color */
+  color: rgb(112, 112, 112); /* Black text color */
+  font-size: 14px;
+  font-weight: 500;
+  display: block; /* Make the links appear below each other */
+  padding: 5px 12px 5px 20px; /* Add some padding */
+}
+
 
 .vertical-menu a {
   background-color: var(--secondary-main); /* Grey background color */
