@@ -398,15 +398,16 @@ let jobComplianceChart = new Chart(ctx4, {
     }
 });
 
-//Chart 3: Level of Completed and Not Completed Work per Asset 
+//Chart 5: Level of Completed and Not Completed Work per Asset 
 let getDataPromise = new Promise((resolve) => {
-    let array1 = Array.from({length: 20}, () => Math.floor(Math.random() * 30));
-    let array2 = Array.from({length: 20}, () => Math.floor(Math.random() * 30));
+    let array1 = Array.from({length: 20}, () => Math.floor((Math.random() * 30)+6));
+    let array2 = Array.from({length: 20}, () => Math.floor(Math.random() * 10));
     let scatterArray = [];
 
     //Create a array of objects, required input format for scatter plot.
     array1.forEach((item_x, index) => {
-        let item_y = array2[index];
+        let item_y = item_x - array2[index];
+        console.log(item_x, item_y);
         scatterArray.push({
             x : item_x, 
             y : item_y
@@ -414,6 +415,7 @@ let getDataPromise = new Promise((resolve) => {
     });
     resolve(scatterArray);
 }).then(data => {   
+    console.log(data);
     let ctx6 = document.getElementById('executedWorkChart').getContext('2d');
     let executedWorkChart = new Chart(ctx6, {
         data: {
@@ -430,8 +432,8 @@ let getDataPromise = new Promise((resolve) => {
                     x: 0,
                     y: 0
                 },{
-                    x: 30,
-                    y: 30
+                    x: 40,
+                    y: 40
                 }],
                 borderColor: pDark,
                 borderWidth: 1,
