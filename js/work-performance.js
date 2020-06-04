@@ -423,7 +423,7 @@ let getDataPromise = new Promise((resolve) => {
                 type: 'scatter',
                 label: 'Scatter Dataset',
                 showLine: false,
-                borderColor: pMain,
+                backgroundColor: pMain,
                 data: data
             },{
                 type: 'line',
