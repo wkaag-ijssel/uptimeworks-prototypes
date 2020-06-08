@@ -10,7 +10,8 @@ let pMain = "#1a237e"; //'rgb(26,35,126)';
 let date_range = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 // Event listeners
-document.getElementById('button-work-performance').addEventListener('click', function(event){ window.location.href = "work-performance.html"})
+document.getElementById('button-work-performance').addEventListener('click', function(event){ window.location.href = "work-performance.html"});
+document.getElementById('button-finance-summary').addEventListener('click', function(event){ window.location.href = "financial.html"})
 
 //Chart 2: asset health by alarms generated
 let ctx4 = document.getElementById('assetHealth').getContext('2d');
@@ -303,3 +304,57 @@ let chart5 = new Chart(ctx5, {
         }
     }
 });
+
+//Chart 7: Transaction costs 
+let costsChartPromise = new Promise((resolve) => {
+    let costs = [];
+    let date = []
+    costs[0] = 0;
+    date[0] = 0;
+
+    for(let i = 1; i < 40; i++){
+        costs[i] = costs[i-1] + Math.floor(Math.random()*5);
+        date[i] = i;
+    }
+
+    resolve([costs, date]);
+}).then(data => {
+    // console.log(data);
+    let ctx7 = document.getElementById('transactionSumChart').getContext('2d');
+    let chart7 = new Chart(ctx7, {
+        type: 'line',
+        data: { 
+            labels: data[1], //Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40)),
+            datasets: [{
+                label: 'data',
+                data: data[0],
+                fill: true,
+                borderColor: pMain,
+                pointStyle: 'line',
+                lineTension: 0
+            }]
+        },
+        options: {
+            legend: {
+                display: false,
+            },
+            scales: {
+                
+                xAxes: [{
+                    gridLines: {
+                        display: false,
+                    },
+                    ticks: {
+                        autoSkip: true,
+                        maxRotation: 0,
+                        autoSkipPadding: 50
+                    }
+                }],
+                yAxes: [{
+                    position: 'right'
+                }]
+            }
+        }
+    }); 
+})
+

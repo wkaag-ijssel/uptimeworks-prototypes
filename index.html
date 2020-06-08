@@ -206,7 +206,7 @@
             <div class="col-md-12 row">
 
                 <!-- Item 1 -->
-                <div class="dashboard-item col-md-6">
+                <div class="dashboard-item col-md-5">
                     <div class="dashboard-content">
                         <div class="scatter-plot">
                             <h6>Advice and Response Time per Report Item</h6>
@@ -215,6 +215,44 @@
                         <div class="chart">
                             <canvas id="deviceActivity"></canvas>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="dashboard-item col-md-7">
+                    <div class="dashboard-content">
+                        <div class="scatter-plot">
+                            <h6>Sum of Transactions (or Costs)</h6>
+                            <h6 class="sub-title">Since Last facturation</h6>
+                        </div>
+                        <div class="col-md-12 row">
+                            <div class="col-md-9"> 
+                                <div class="chart">
+                                    <canvas id="transactionSumChart"></canvas>
+                                </div>
+                            </div>
+                            <div class="col-md-3"> 
+                                <h6 class=" margin-top-20">Estimated Costs</h6>
+                                <div >
+                                    <h5 class="percentage-value">$50,00</h5>
+                                </div>
+
+                                <h6 class=" margin-top-20">Target</h6>
+                                <div>
+                                    <h5 class="percentage-value">$5,00</h5>
+                                </div>
+
+                                <h6 class=" margin-top-20">Target</h6>
+                                <div>
+                                    <h5 class="percentage-value">$5,00</h5>
+                                </div>
+                            </div>  
+                        </div>
+                        <button id="button-finance-summary" class="mdc-button" style="float: right; margin: 5px 15px 10px 0px;">
+                            <div class="mdc-button__ripple"></div>
+                            <span class="mdc-button__label">View Finance</span>
+                            <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
+                        </button>
                     </div>
                 </div>
             </div>

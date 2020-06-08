@@ -163,7 +163,7 @@ let chart2 = new Chart(ctx2, {
     data: {
         datasets: [{
             label: 'Scatter Dataset',
-            borderColor: pMain,
+            backgroundColor: pMain,
             data: scatterArray
         }]
     },
