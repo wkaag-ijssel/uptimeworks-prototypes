@@ -25,6 +25,24 @@ body {
   padding: 20px 20px 20px 20px;
 }
 
+.mdc-data-table {
+  width: 100%;
+}
+
+.mdc-data-table__header-cell {
+  cursor: pointer;
+}
+
+.hover-icon i {  
+  visibility: hidden;
+  vertical-align: middle;
+}
+
+.hover-icon:hover i {
+  visibility: visible!important;
+  vertical-align: middle;
+}
+
 .tab-metric {
   margin: 0px!important;
 }
@@ -55,7 +73,6 @@ body {
 
 #dashboard-functions {
   margin-top: 30px;
-  /* background-color: white; */
   padding: 20 0px 20px 20px;
   align-self: flex-end;
   border-radius: 15px;
@@ -116,39 +133,40 @@ body {
 }
 
 .vertical-menu-bottom a {
-  background-color: var(--secondary-main); /* Grey background color */
-  color: rgb(112, 112, 112); /* Black text color */
+  background-color: var(--secondary-main);
+  color: rgb(112, 112, 112);
   font-size: 14px;
   font-weight: 500;
-  display: block; /* Make the links appear below each other */
-  padding: 5px 12px 5px 20px; /* Add some padding */
+  display: block; 
+  padding: 5px 12px 5px 20px; 
 }
 
 
 .vertical-menu a {
-  background-color: var(--secondary-main); /* Grey background color */
-  color: rgb(112, 112, 112); /* Black text color */
+  background-color: var(--secondary-main); 
+  color: rgb(112, 112, 112); 
   font-size: 14px;
   font-weight: 500;
-  display: block; /* Make the links appear below each other */
-  padding: 5px 12px 5px 20px; /* Add some padding */
+  display: block; 
+  padding: 5px 12px 5px 20px; 
+  margin: 2px;
 }
 
 .vertical-menu p {
-  background-color: var(--secondary-main); /* Grey background color */
-  color: grey; /* Black text color */
+  background-color: var(--secondary-main); 
+  color: grey; 
   font-size: 12px;
   font-weight: 500;
-  display: block; /* Make the links appear below each other */
-  padding-left: 12px; /* Add some padding */
+  display: block; 
+  padding-left: 12px; 
   padding-top: 20px;
   margin-top: 10px;
 }
 
 .vertical-menu a:hover {
-  background-color: var(--secondary-dark); /* Dark grey background on mouse-over */
-  text-decoration: none; /* Remove underline from links */
-  color: black; /* Black text color */
+  background-color: var(--secondary-dark); 
+  text-decoration: none;
+  color: black;
   border-radius: 7px;
 }
 
@@ -161,12 +179,10 @@ body {
 /* Style the tab */
 .tab {
   overflow: hidden;
-  /* border: 1px solid #ccc; */
   background-color: white;
   padding-left: 40px;
 }
 
-/* Style the buttons inside the tab */
 .tab button {
   background-color: inherit;
   float: left;
@@ -179,19 +195,16 @@ body {
   border-top: 5px solid white;
 }
 
-/* Change background color of buttons on hover */
 .tab button:hover {
   background-color: #f1f1f1;
   border-top: 5px solid #f1f1f1;
 }
 
-/* Create an active/current tablink class */
 .tab button.active {
   background-color: white;
   border-top: 5px solid rgb(26,35,126);
 }
 
-/* Style the tab content */
 .tabcontent {
   display: none;
   padding: 6px 12px;
@@ -199,7 +212,6 @@ body {
   border-top: none;
 }
 
-/* Style the close button */
 .topright {
   float: right;
   cursor: pointer;

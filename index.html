@@ -16,6 +16,8 @@
     <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet" />
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+    <link rel="stylesheet" href="bundle.css">
 </head>
 
 <body class="dashboard">
@@ -94,12 +96,12 @@
                                     <h6 class="sub-title">In the past 30 minutes</h6>
                                 </div>  
                                 <div class="col-md-12 row">
-                                    <div class="col-md-6">  
+                                    <div class="col-md-7">  
                                         <div class="chart" style="height: 180px;">
                                             <canvas id="assetHealth"></canvas>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-5">
                                         <h6 class=" margin-top-20">Measurements Taken</h6>
                                         <div >
                                             <h5 class="percentage-value">8329</h5>
@@ -120,12 +122,12 @@
                                     <h6 class="sub-title">In the last 30 days</h6>
                                 </div>
                                 <div class="col-md-12 row">
-                                    <div class="col-md-6">  
+                                    <div class="col-md-7">  
                                         <div class="chart" style="height: 180px;">
                                             <canvas id="estimatedUptime"></canvas>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-5">
                                         <h6 class=" margin-top-20">Reports Generated</h6>
                                         <div >
                                             <h5 class="percentage-value">3</h5>
@@ -141,7 +143,7 @@
                         </div>
                         <button id="button-maintenance" class="mdc-button" style="float: right; margin: 5px 15px 10px 0px;">
                             <div class="mdc-button__ripple"></div>
-                            <span class="mdc-button__label">Explore asset health</span>
+                            <span class="mdc-button__label">View reports</span>
                             <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
                         </button>
                     </div>
@@ -193,6 +195,7 @@
                     <div class="dashboard-content">
                         <div class="scatter-plot">
                             <h6 >Job compliance per Type of Task</h6>
+                            <h6 class="sub-title">in the last 30 days</h6>
                         </div>
 
                         <div class="chart" style="height: 230px;">
@@ -210,6 +213,7 @@
                     <div class="dashboard-content">
                         <div class="scatter-plot">
                             <h6>Advice and Response Time per Report Item</h6>
+                            <h6 class="sub-title">In the last 30 days</h6>
                         </div>
 
                         <div class="chart">
@@ -235,11 +239,6 @@
                                 <h6 class=" margin-top-20">Estimated Costs</h6>
                                 <div >
                                     <h5 class="percentage-value">$50,00</h5>
-                                </div>
-
-                                <h6 class=" margin-top-20">Target</h6>
-                                <div>
-                                    <h5 class="percentage-value">$5,00</h5>
                                 </div>
 
                                 <h6 class=" margin-top-20">Target</h6>

@@ -1,5 +1,5 @@
 // Color scheme
-let pMain = "#1a237e"; //'rgb(26,35,126)';
+let pMain = "#1a237e";
     pLight = "#534bae";
     pDark = "#000051";
     sMain = "#ffab00";
@@ -7,8 +7,6 @@ let pMain = "#1a237e"; //'rgb(26,35,126)';
     sDark = "#c67c00";
 
 // Event listeners
-// document.getElementById('button-routes').addEventListener('click', function(event){ window.location.href = "work/routes.html"});
-// document.getElementById('button-tasks').addEventListener('click', function(event){ window.location.href = "work/routes.html"});
 document.getElementById('intervalSelector').addEventListener('change', function(event){
     if(event.target.value == "week"){
         changeChartData(resourcesChart, weeklyData, weeklyLabels);

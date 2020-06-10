@@ -1,5 +1,5 @@
 // Color scheme
-let pMain = "#1a237e"; //'rgb(26,35,126)';
+let pMain = "#1a237e";
     pLight = "#534bae";
     pDark = "#000051";
     sMain = "#ffab00";
