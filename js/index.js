@@ -309,27 +309,40 @@ let chart5 = new Chart(ctx5, {
 let costsChartPromise = new Promise((resolve) => {
     let costs = [];
     let date = []
+    let expectedCosts = [];
     costs[0] = 0;
     date[0] = 0;
+    expectedCosts[0] = 0;
 
     for(let i = 1; i < 40; i++){
-        costs[i] = costs[i-1] + Math.floor(Math.random()*5);
+        expectedCosts[i] = expectedCosts[i-1] + Math.floor(Math.random()*5);
         date[i] = i;
+        if(i < 20){
+            costs[i] = costs[i-1] + Math.floor(Math.random()*5);
+        }
     }
 
-    resolve([costs, date]);
+    resolve([costs, expectedCosts, date]);
 }).then(data => {
     // console.log(data);
     let ctx7 = document.getElementById('transactionSumChart').getContext('2d');
     let chart7 = new Chart(ctx7, {
         type: 'line',
         data: { 
-            labels: data[1], //Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40)),
+            labels: data[2], //Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40)),
             datasets: [{
-                label: 'data',
+                label: 'Actual costs',
                 data: data[0],
                 fill: true,
                 borderColor: pMain,
+                pointStyle: 'line',
+                lineTension: 0
+            },{
+                label: 'Expected costs',
+                data: data[1],
+                fill: false,
+                borderColor: pMain,
+                borderDash: [5,2],
                 pointStyle: 'line',
                 lineTension: 0
             }]
@@ -337,6 +350,12 @@ let costsChartPromise = new Promise((resolve) => {
         options: {
             legend: {
                 display: false,
+                labels: {
+                    usePointStyle: true
+                }
+            },
+            tooltips: {
+                mode: 'index'
             },
             scales: {
                 
