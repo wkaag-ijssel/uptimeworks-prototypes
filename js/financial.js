@@ -7,7 +7,11 @@ let pMain = "#1a237e"; //'rgb(26,35,126)';
     sDark = "#c67c00";
 
 // Dummy data
-let date_range = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'September', 'October', 'November', 'December'];
+// let date_range = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'September', 'October', 'November', 'December'];
+let date_range = [];
+for(let i = 0; i<52; i += 1){
+    date_range[i] = i+1;
+};
 // let workorders = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
 // let totalCosts = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 30));
 // let totalSavings = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 30));
@@ -39,7 +43,7 @@ let costsData = [{
     borderColor: pLight,
     backgroundColor: "rgb(0, 0, 0)",
     borderDash: [5,2],
-    data: Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40)),
+    data: Array.from({length: date_range.length}, () => Math.floor(Math.random() * 20)+20),
 },{
     label: 'actual costs',
     data: Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40)),
