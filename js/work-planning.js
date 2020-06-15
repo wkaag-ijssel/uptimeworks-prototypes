@@ -81,11 +81,11 @@ let resourcesChart = new Chart(ctx, {
         maintainAspectRatio: false,
         elements: {
             line: {
-                tension: 0, // disables bezier curves
-                borderWidth: 1
+                tension: 0,     // disables bezier curves
+                borderWidth: 1 
             },
             point:{
-                radius: 0 //hide data point indicators
+                radius: 0       //hide data point indicators
             }
         },
         scales: {

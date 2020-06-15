@@ -106,6 +106,7 @@ let chart1 = new Chart(ctx, {
         },{
             label: "Last year",
             type: 'line',
+            steppedLine: 'middle',
             fill: false,
             borderColor: pDark,
             borderDash: [5,2],
@@ -184,11 +185,12 @@ function loadRow(){
 
     let data = [
         ['Asset ' + Math.floor(Math.random() * 20).toString(), false],
-        ['$ ' + (Math.random() * 10).toFixed(2).toString(), true],
+        [(Math.random() * 10).toFixed(2).toString(), true],
         [Math.floor(Math.random() * 7), true],
-        [Math.floor(Math.random() * 4), true],
-        [Math.floor(Math.random() * 4), true],
-        ['person ' + Math.floor(Math.random() * 30).toString(), false]
+        [Math.floor(Math.random() * 160), true],
+        [Math.floor(Math.random() * 20), true],
+        [Math.floor(Math.random() * 10), true],
+        [Math.floor(Math.random() * 10), true]
     ];
 
     for(let i = 0; i < rowsCount; i++){
@@ -266,15 +268,17 @@ function sortTableAscending(col) {
     table = document.getElementById("financeTable");
     switching = true;
 
+    console.log(col);
     while (switching) {
         switching = false;
         rows = table.rows;
+        console.log(rows.length);
         for (i = 1; i < (rows.length - 1); i++) {
             shouldSwitch = false;
             x = rows[i].getElementsByTagName("TD")[col];
             y = rows[i + 1].getElementsByTagName("TD")[col];
 
-            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+            if (Number(x.innerHTML) > Number(y.innerHTML)) {
                 shouldSwitch = true;
                 break;
             }
@@ -286,11 +290,13 @@ function sortTableAscending(col) {
     }
 }
 
+//Descending
 function sortTableDescending(col){
     let table, rows, switching, i, x, y, shouldSwitch;
     table = document.getElementById("financeTable");
     switching = true;
 
+    console.log(col);
     while (switching) {
         switching = false;
         rows = table.rows;
@@ -299,7 +305,10 @@ function sortTableDescending(col){
             shouldSwitch = false;
             x = rows[i].getElementsByTagName("TD")[col];
             y = rows[i + 1].getElementsByTagName("TD")[col];
-            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+            console.log('switch?')
+            console.log(x.innerHTML);
+            console.log(y.innerHTML);
+            if (Number(x.innerHTML) < Number(y.innerHTML)) {
                 shouldSwitch = true;
                 break;
             }
@@ -351,7 +360,7 @@ function drawChart() {
   var options = {'width':400,
                  'height':300};
 
-  // Instantiate and draw our chart, passing in some options.
+    // Instantiate and draw our chart, passing in some options.
 //   var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
   var chart = new google.visualization.Sankey(document.getElementById('chart_div'));
   chart.draw(data, options);
@@ -364,118 +373,20 @@ function drawChart() {
  */
 function sortByData(data, labels){
     //1) combine the arrays:
-      var list = [];
-      for (var j = 0; j < data.length; j++) 
-          list.push({'value': data[j], 'label': labels[j]});
-  
-      //2) sort:
-      list.sort(function(a, b) {
-          return ((a.value > b.value) ? -1 : ((a.value == b.value) ? 0 : 1));
-      });
-  
-      //3) separate them back out:
-      for (var k = 0; k < list.length; k++) {
-          data[k] = list[k].value;
-          labels[k] = list[k].label;
-      }
-  
-      return data, labels;
-  }
+    var list = [];
+    for (var j = 0; j < data.length; j++) 
+        list.push({'value': data[j], 'label': labels[j]});
 
-//Chart 3 & 4
-let routeDataPromise = new Promise((resolve) => {
-    let data = Array.from({length: 12}, () => Math.random());
-    let labels = [
-        ['Route #6'],
-        ['Route #15'],
-        ['Route #10'],
-        ['Route #2'],
-        ['Route #9'],
-        ['Route #4'],
-        ['Route #11'],
-        ['Route #20'],
-        ['Route #19'],
-        ['Route #5'],
-        ['Route #16'],
-        ['Route #1']
-    ]
-    resolve([data, labels]);
-}).then(route => {  
-    //Sorts after routeData contains (generated) values
-    route[0], route[1] = sortByData(route[0], route[1]);
-
-    //Create bar graph
-    let ctx3 = document.getElementById('routeCostsChart').getContext('2d');
-    let routeCosts = horizontalBarChart(ctx3, route[0], route[1]);
-});
-
-//Chart 3 & 4
-let assetDataPromise = new Promise((resolve) => {
-    let data = Array.from({length: 12}, () => Math.random());
-    let labels = [
-        ['Asset #6'],
-        ['Asset #15'],
-        ['Asset #10'],
-        ['Asset #2'],
-        ['Asset #9'],
-        ['Asset #4'],
-        ['Asset #11'],
-        ['Asset #20'],
-        ['Asset #19'],
-        ['Asset #5'],
-        ['Asset #16'],
-        ['Asset #1']
-    ]
-    resolve([data, labels]);
-}).then(route => {  
-    //Sorts after routeData contains (generated) values
-    route[0], route[1] = sortByData(route[0], route[1]);
-
-    //Create bar graph
-    let ctx4 = document.getElementById('assetCostsChart').getContext('2d');
-    let assetCosts = horizontalBarChart(ctx4, route[0], route[1]);
-});
-
-// horizontalBar chart - styled
-function horizontalBarChart(chartElem, data, labels){
-    return new Chart(chartElem, {
-        type: 'horizontalBar',
-        data: { 
-            labels: labels,
-            datasets: [{
-                label: 'N. of tasks executed',
-                backgroundColor: pDark,
-                barPercentage: 0.5,
-                barThickness: 6,
-                maxBarThickness: 8,
-                minBarLength: 2,
-                data: data
-            }]
-        },
-        options: {
-            legend: {
-                display: false,
-            },
-            responsive: true,
-            maintainAspectRatio: false,
-            elements: {
-                line: {
-                    tension: 0, // disables bezier curves
-                    borderWidth: 2
-                },
-                point:{
-                    radius: 0 //hide data point indicators
-                }
-            },
-            scales: {
-                xAxes: [{
-                    stacked: true
-                }],
-                yAxes: [{
-                    stacked: true,
-                    position: 'left'
-                }]
-            }
-        }
+    //2) sort:
+    list.sort(function(a, b) {
+        return ((a.value > b.value) ? -1 : ((a.value == b.value) ? 0 : 1));
     });
-};
+
+    //3) separate them back out:
+    for (var k = 0; k < list.length; k++) {
+        data[k] = list[k].value;
+        labels[k] = list[k].label;
+    }
+  
+    return data, labels;
+}
