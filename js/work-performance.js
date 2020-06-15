@@ -7,8 +7,8 @@ let pMain = "#1a237e"; //'rgb(26,35,126)';
     sDark = "#c67c00";
 
 // Event listeners
-// document.getElementById('button-routes').addEventListener('click', function(event){ window.location.href = "work/routes.html"});
-// document.getElementById('button-tasks').addEventListener('click', function(event){ window.location.href = "work/routes.html"});
+document.getElementById('button-routes').addEventListener('click', function(event){ window.location.href = "routes.html"});
+document.getElementById('button-tasks').addEventListener('click', function(event){ window.location.href = "tasks.html"});
 // document.getElementById('intervalSelector').addEventListener('change', function(event){
 //     if(event.target.value == "week"){
 //         changeChartData(resourcesChart, weeklyData, weeklyLabels);

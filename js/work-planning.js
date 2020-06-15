@@ -22,12 +22,12 @@ document.getElementById('intervalSelector').addEventListener('change', function(
  */
 let monthlyData = [{
     label: 'workload',
-    backgroundColor: pLight,
+    backgroundColor: pDark,
     fill: false,
     data: Array.from({length: 12}, () => Math.random())
 },{
     label: 'resources',
-    backgroundColor: pDark,
+    backgroundColor: pLight,
     fill: false,
     data: Array.from({length: 12}, () => Math.random())
 }];
@@ -49,12 +49,12 @@ let monthlyLabels = [
 /** Weekly data */
 let weeklyData = [{
     label: 'workload',
-    backgroundColor: pLight,
+    backgroundColor: pDark,
     fill: false,
     data: Array.from({length: 52}, () => Math.random())
 },{
     label: 'resources',
-    backgroundColor: pDark,
+    backgroundColor: pLight,
     fill: false,
     data: Array.from({length: 52}, () => Math.random())
 }];
@@ -120,119 +120,117 @@ function changeChartData(chartName, data, label) {
     chartName.update();
 }
 
-/**
- * Sort data 
- * @param {array} data 
- * @param {array} labels 
- */
-function sortByData(data, labels){
-  //1) combine the arrays:
-    var list = [];
-    for (var j = 0; j < data.length; j++) 
-        list.push({'value': data[j], 'label': labels[j]});
+let workloadFunctionData = [{
+    label: 'Vibration engineer',
+    backgroundColor: pDark,
+    borderColor: 'rgb(255, 255, 255)',
+    barPercentage: 0.5,
+    barThickness: 6,
+    maxBarThickness: 8,
+    minBarLength: 2,
+    data: Array.from({length: 12}, () => Math.random()),
+    pointStyle: 'circle'
+},{
+    label: 'Lubrication engineer',
+    backgroundColor: pLight,
+    borderColor: 'rgb(255, 255, 255)',
+    barPercentage: 0.5,
+    barThickness: 6,
+    maxBarThickness: 8,
+    minBarLength: 2,
+    data: Array.from({length: 12}, () => Math.random()),
+    pointStyle: 'circle'
+},{
+    label: 'Other',
+    borderColor: 'rgb(255, 255, 255)',
+    data: [.5, .5, .5, .5, .5, .5, .5, .5, .5, .5, .5, .5],
+    fill: true,
+    pointStyle: 'circle'
+}];
+let workloadFunctionLabels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
-    //2) sort:
-    list.sort(function(a, b) {
-        return ((a.value < b.value) ? -1 : ((a.value == b.value) ? 0 : 1));
-    });
-
-    //3) separate them back out:
-    for (var k = 0; k < list.length; k++) {
-        data[k] = list[k].value;
-        labels[k] = list[k].label;
-    }
-
-    return data, labels;
-}
+let workloadTaskData = [{
+    label: 'Lubrication',
+    backgroundColor: pDark,
+    borderColor: 'rgb(255, 255, 255)',
+    barPercentage: 0.5,
+    barThickness: 6,
+    maxBarThickness: 8,
+    minBarLength: 2,
+    data: Array.from({length: 12}, () => Math.random()),
+    pointStyle: 'circle'
+},{
+    label: 'Inspection',
+    backgroundColor: pMain,
+    borderColor: 'rgb(255, 255, 255)',
+    barPercentage: 0.5,
+    barThickness: 6,
+    maxBarThickness: 8,
+    minBarLength: 2,
+    data: Array.from({length: 12}, () => Math.random()),
+    pointStyle: 'circle'
+},{
+    label: 'Process',
+    backgroundColor: pLight,
+    borderColor: 'rgb(255, 255, 255)',
+    barPercentage: 0.5,
+    barThickness: 6,
+    maxBarThickness: 8,
+    minBarLength: 2,
+    data: Array.from({length: 12}, () => Math.random()),
+    pointStyle: 'circle'
+},{
+    label: 'Vibration',
+    backgroundColor: sDark,
+    borderColor: 'rgb(255, 255, 255)',
+    barPercentage: 0.5,
+    barThickness: 6,
+    maxBarThickness: 8,
+    minBarLength: 2,
+    data: Array.from({length: 12}, () => Math.random()),
+    pointStyle: 'circle'
+},{
+    label: 'Thermographic',
+    backgroundColor: sMain,
+    borderColor: 'rgb(255, 255, 255)',
+    barPercentage: 0.5,
+    barThickness: 6,
+    maxBarThickness: 8,
+    minBarLength: 2,
+    data: Array.from({length: 12}, () => Math.random()),
+    pointStyle: 'circle'
+},{
+    label: 'Other',
+    borderColor: 'rgb(255, 255, 255)',
+    data: [.5, .5, .5, .5, .5, .5, .5, .5, .5, .5, .5, .5],
+    fill: true,
+    pointStyle: 'circle'
+}];
+let workloadTaskLabels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
 // Chart 2: Resources estimation per function
 let ctx2 = document.getElementById('resourcesChart').getContext('2d');
-let workLoadChart = new Chart(ctx2, {
-    type: 'line',
-    data: { 
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-        datasets: [{
-            label: 'Vibration engineer',
-            backgroundColor: pLight,
-            borderColor: 'rgb(255, 255, 255)',
-            barPercentage: 0.5,
-            barThickness: 6,
-            maxBarThickness: 8,
-            minBarLength: 2,
-            data: Array.from({length: 12}, () => Math.random()),
-            pointStyle: 'circle'
-        },{
-            label: 'Lubrication engineer',
-            backgroundColor: pDark,
-            borderColor: 'rgb(255, 255, 255)',
-            barPercentage: 0.5,
-            barThickness: 6,
-            maxBarThickness: 8,
-            minBarLength: 2,
-            data: Array.from({length: 12}, () => Math.random()),
-            pointStyle: 'circle'
-        },{
-            label: 'Other',
-            borderColor: 'rgb(255, 255, 255)',
-            data: [.5, .5, .5, .5, .5, .5, .5, .5, .5, .5, .5, .5],
-            fill: true,
-            pointStyle: 'circle'
-        }]
-    },
-    options: {
-        legend: {
-            display: true,
-            position: 'right',
-            align: 'end',
-            labels: {
-                usePointStyle: true
-            }
-        },
-        responsive: true,
-        maintainAspectRatio: false,
-        elements: {
-            line: {
-                tension: 0, // disables bezier curves
-                borderWidth: 2
-            },
-            point:{
-                radius: 0 //hide data point indicators
-            }
-        },
-        scales: {
-            xAxes: [{
-                gridLines: {
-                    display: false,
-                },
-                
-            }],
-            yAxes: [{
-                position: 'right',
-                stacked: true
-            }]
-        }
-    }
-});
+let workloadFunctionChart = stackedBarChart(ctx2, workloadFunctionData, workloadFunctionLabels);
 
-// horizontalBar chart - styled
-function horizontalBarChart(chartElem, data, labels){
-    return new Chart(chartElem, {
-        type: 'horizontalBar',
+// Chart 3: Resources estimation per type of Task
+let ctx3 = document.getElementById('taskWorkloadChart').getContext('2d');
+let workloadTaskChart = stackedBarChart(ctx3, workloadTaskData, workloadTaskLabels);
+
+function stackedBarChart(elem, data, labels){
+    return new Chart(elem, {
+        type: 'bar',
         data: { 
             labels: labels,
-            datasets: [{
-                label: 'N. of tasks executed',
-                backgroundColor: pDark,
-                barPercentage: 0.5,
-                barThickness: 6,
-                maxBarThickness: 8,
-                minBarLength: 2,
-                data: data
-            }]
+            datasets: data
         },
         options: {
             legend: {
-                display: false,
+                display: true,
+                position: 'right',
+                align: 'end',
+                labels: {
+                    usePointStyle: true
+                }
             },
             responsive: true,
             maintainAspectRatio: false,
@@ -247,16 +245,20 @@ function horizontalBarChart(chartElem, data, labels){
             },
             scales: {
                 xAxes: [{
+                    gridLines: {
+                        display: false,
+                    },
                     stacked: true
+                    
                 }],
                 yAxes: [{
-                    stacked: true,
-                    position: 'left'
+                    position: 'right',
+                    stacked: true
                 }]
             }
         }
     });
-};
+}
 
 //Chart 2: Expected workload per person
 // let ctx5 = document.getElementById('estimatedWorkLoad').getContext('2d');

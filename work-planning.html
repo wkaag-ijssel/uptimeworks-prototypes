@@ -30,13 +30,11 @@
                 <p>FINANCE</p>
                 <a class="" href="financial.html">Summary</a>
                 <a class="" href="#">Transactions</a>
+                <p>MAINTENANCE</p>
+                <a  href="#">Alarms</a>
+                <a  href="#">Reports</a>
                 <p>TECHNOLOGY</p>
-                <a class="" href="#">Devices</a>
-            </div>
-
-            <div class="vertical-menu-bottom">
-                <a class="" >Help</a>
-                <a class="" >Settings</a>
+                <a  href="#">Devices</a>
             </div>
         </div>
         <div class="col-md-10">
@@ -79,20 +77,8 @@
             
             <!-- Second row -->
             <div class="col-md-12 row">
-                <!-- item 3 --> 
-                <!-- <div class="dashboard-item col-md-6">
-                    <div class="dashboard-content">
-                        <div class="scatter-plot" style="padding-left: 20px;">
-                            <label for="workPerPerson"><h6 class="tab-title"></h6></label>
-                        </div>
-
-                        <div class="chart">
-                            <canvas id="estimatedWorkLoad"></canvas>
-                        </div>
-                    </div>
-                </div> -->
-
-                <!-- item 4 -->
+       
+                <!-- item 2 -->
                 <div class="dashboard-item col-md-12">
                     <div class="dashboard-content">
                         <div class="scatter-plot" style="padding-left: 20px;">
@@ -105,6 +91,27 @@
 
                         <div class="chart" style="height: 300px;">
                             <canvas id="resourcesChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Third row -->
+            <div class="col-md-12 row">
+       
+                <!-- item 3 -->
+                <div class="dashboard-item col-md-12">
+                    <div class="dashboard-content">
+                        <div class="scatter-plot" style="padding-left: 20px;">
+                            <select id="interval">
+                                <option value="month">Resources</option>
+                                <option value="week">Workload</option>
+                            </select>
+                            <label for="interval"><h6 class="tab-title"> Estimation per Task Type </h6></label>
+                        </div>
+
+                        <div class="chart" style="height: 300px;">
+                            <canvas id="taskWorkloadChart"></canvas>
                         </div>
                     </div>
                 </div>

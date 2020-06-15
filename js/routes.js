@@ -9,15 +9,15 @@ let pMain = "#1a237e"; //'rgb(26,35,126)';
 // Event listeners
 // document.getElementById('button-routes').addEventListener('click', function(event){ window.location.href = "work/routes.html"});
 // document.getElementById('button-tasks').addEventListener('click', function(event){ window.location.href = "work/routes.html"});
-document.getElementById('intervalSelector').addEventListener('change', function(event){
-    if(event.target.value == "week"){
-        changeChartData(resourcesChart, weeklyData, weeklyLabels);
-    } else if(event.target.value == "month"){
-        changeChartData(resourcesChart, monthlyData, monthlyLabels)
-    } else {
-        console.log("warning: unknown selector option");
-    }
-})
+// document.getElementById('intervalSelector').addEventListener('change', function(event){
+//     if(event.target.value == "week"){
+//         changeChartData(resourcesChart, weeklyData, weeklyLabels);
+//     } else if(event.target.value == "month"){
+//         changeChartData(resourcesChart, monthlyData, monthlyLabels)
+//     } else {
+//         console.log("warning: unknown selector option");
+//     }
+// })
 
 
 /**Workload-resources chart 
@@ -271,33 +271,33 @@ let workLoadChart = new Chart(ctx2, {
     }
 });
 
-let routeDataPromise = new Promise((resolve) => {
-    let data = Array.from({length: 12}, () => Math.random());
-    let labels = [
-        ['Route #6'],
-        ['Route #15'],
-        ['Route #10'],
-        ['Route #2'],
-        ['Route #9'],
-        ['Route #4'],
-        ['Route #11'],
-        ['Route #20'],
-        ['Route #19'],
-        ['Route #5'],
-        ['Route #16'],
-        ['Route #1']
-    ]
-    resolve([data, labels]);
-}).then(route => {  
-    //Sorts after routeData contains (generated) values
-    route[0], route[1] = sortByData(route[0], route[1]);
+// let routeDataPromise = new Promise((resolve) => {
+//     let data = Array.from({length: 12}, () => Math.random());
+//     let labels = [
+//         ['Route #6'],
+//         ['Route #15'],
+//         ['Route #10'],
+//         ['Route #2'],
+//         ['Route #9'],
+//         ['Route #4'],
+//         ['Route #11'],
+//         ['Route #20'],
+//         ['Route #19'],
+//         ['Route #5'],
+//         ['Route #16'],
+//         ['Route #1']
+//     ]
+//     resolve([data, labels]);
+// }).then(route => {  
+//     //Sorts after routeData contains (generated) values
+//     route[0], route[1] = sortByData(route[0], route[1]);
 
-    //Create bar graph
-    let ctx3 = document.getElementById('routeComplianceChart').getContext('2d');
-    let routeComplianceChart = horizontalBarChart(ctx3, route[0], route[1]);
+//     //Create bar graph
+//     let ctx3 = document.getElementById('routeComplianceChart').getContext('2d');
+//     let routeComplianceChart = horizontalBarChart(ctx3, route[0], route[1]);
 
-    //Add custom graph options
-});
+//     //Add custom graph options
+// });
 
 // horizontalBar chart - styled
 function horizontalBarChart(chartElem, data, labels){
@@ -351,60 +351,60 @@ function horizontalBarChart(chartElem, data, labels){
 // let jobComplianceChart = horizontalBarChart(ctx4, route[0], route[1]);
 
 //Job compliance bar plot
-let ctx4 = document.getElementById('jobCompliance').getContext('2d');
-let jobComplianceChart = new Chart(ctx4, {
-    type: 'horizontalBar',
-    data: {
-        labels: ['Lubrication', 'Inspection', 'Process', 'Vibration', 'Thermographic', 'Other'],
-        datasets: [{
-            label: 'Executed on time',
-            backgroundColor: pDark,
-            data: [
-                Math.floor(Math.random() * 85),
-                Math.floor(Math.random() * 85),
-                Math.floor(Math.random() * 85),
-                Math.floor(Math.random() * 85),
-                Math.floor(Math.random() * 85),
-                Math.floor(Math.random() * 85)
-            ]
-        }, {
-            label: 'Executed too late',
-            backgroundColor: pLight,
-            data: [
-                Math.floor(Math.random() * 10),
-                Math.floor(Math.random() * 10),
-                Math.floor(Math.random() * 10),
-                Math.floor(Math.random() * 10),
-                Math.floor(Math.random() * 10),
-                Math.floor(Math.random() * 10)
-            ]
-        }]
-    },
-    options: {
-        tooltips: {
-            mode: 'index',
-            intersect: false
-        },
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-            xAxes: [{
-                stacked: true,
-                ticks: {
-                    min: 0,
-                    max: 100,
-                    callback: function(value, index, values) {
-                        return value + '%';
-                    }
-                }
-            }],
-            yAxes: [{
-                stacked: true
-            }]
-        },
-        legend: {
-            display: false,
-            position: 'bottom'
-        }
-    }
-});
+// let ctx4 = document.getElementById('jobCompliance').getContext('2d');
+// let jobComplianceChart = new Chart(ctx4, {
+//     type: 'horizontalBar',
+//     data: {
+//         labels: ['Lubrication', 'Inspection', 'Process', 'Vibration', 'Thermographic', 'Other'],
+//         datasets: [{
+//             label: 'Executed on time',
+//             backgroundColor: pDark,
+//             data: [
+//                 Math.floor(Math.random() * 85),
+//                 Math.floor(Math.random() * 85),
+//                 Math.floor(Math.random() * 85),
+//                 Math.floor(Math.random() * 85),
+//                 Math.floor(Math.random() * 85),
+//                 Math.floor(Math.random() * 85)
+//             ]
+//         }, {
+//             label: 'Executed too late',
+//             backgroundColor: pLight,
+//             data: [
+//                 Math.floor(Math.random() * 10),
+//                 Math.floor(Math.random() * 10),
+//                 Math.floor(Math.random() * 10),
+//                 Math.floor(Math.random() * 10),
+//                 Math.floor(Math.random() * 10),
+//                 Math.floor(Math.random() * 10)
+//             ]
+//         }]
+//     },
+//     options: {
+//         tooltips: {
+//             mode: 'index',
+//             intersect: false
+//         },
+//         responsive: true,
+//         maintainAspectRatio: false,
+//         scales: {
+//             xAxes: [{
+//                 stacked: true,
+//                 ticks: {
+//                     min: 0,
+//                     max: 100,
+//                     callback: function(value, index, values) {
+//                         return value + '%';
+//                     }
+//                 }
+//             }],
+//             yAxes: [{
+//                 stacked: true
+//             }]
+//         },
+//         legend: {
+//             display: false,
+//             position: 'bottom'
+//         }
+//     }
+// });

@@ -16,8 +16,9 @@
     <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet" />
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-<!-- 
-    <link rel="stylesheet" href="bundle.css"> -->
+
+    <!-- Google Charts -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 
 <body class="dashboard">
@@ -31,16 +32,19 @@
                 <a class="" href="work-planning.html">Planning</a>
                 <p>FINANCE</p>
                 <a class="active" href="#">Summary</a>
-                <a class="" href="#">Transactions</a>
+                <a class="" href="transactions.html">Transactions</a>
+                <p>MAINTENANCE</p>
+                <a  href="#">Alarms</a>
+                <a  href="#">Reports</a>
                 <p>TECHNOLOGY</p>
-                <a class="" href="#">Devices</a>
+                <a  href="#">Devices</a>
             </div>
         </div>
         <div class="col-md-10">
             <div class="col-md-12 row">
                 <div class="col-md-10">
                     <h3 id="dashboard-title">Financial</h3>
-                    <p> Company > site X</p>
+                    <p>Dashboard > Finance > Summary</p>
                 </div>
                 <div class="col-md-2" id="dashboard-functions">
                     <input type="text" name="dates"></input>
@@ -48,87 +52,107 @@
             </div>
             
             <div class="col-md-12 row">
-                <div class="dashboard-item col-md-7">
+                <div class="dashboard-item col-md-8">
                     <div class="dashboard-content">
-                        <div class="tab">
-                            <button class="tablinks active" onclick="changeTab(event, chart1, workorders, _workorders)">
-                                <h6 class="tab-title">Workorders</h6>
-                                <p class="tab-metric"></p>
-                                <i class="fas"></i>
-                                <p class="percentage-value"></p>
-                            </button>
-                            <button class="tablinks" onclick="changeTab(event, chart1, readings, _readings)">
-                                <h6 class="tab-title">Readings</h6>
-                                <p class="tab-metric"></p>
-                                <i class="fas"></i>
-                                <p class="percentage-value"></p>
-                            </button>
-                            <button class="tablinks" onclick="changeTab(event, chart1, reports, _reports)">
-                                <h6 class="tab-title">Reports</h6>
-                                <p class="tab-metric"></p>
-                                <i class="fas"></i>
-                                <p class="percentage-value"></p>
-                            </button>
-                            <button class="tablinks" onclick="changeTab(event, chart1, totalCosts, _totalCosts)">
-                                <h6 class="tab-title">Costs</h6>
-                                <p class="tab-metric">$ </p>
-                                <i class="fas"></i>
-                                <p class="percentage-value"></p>
-                            </button>
-                            <button class="tablinks" onclick="changeTab(event, chart1, totalSavings, _totalSavings)">
-                                <h6 class="tab-title">Savings</h6>
-                                <p class="tab-metric">$ </p>
-                                <i class="fas"></i>
-                                <p class="percentage-value"></p>
-                            </button>
+                        <div class="title">
+                            <h6>Savings</h6>
+                            <p class="underline">What costs were prevented?</p>
                         </div>
-
-                        <div class="chart">
-                            <canvas id="myChart_1" height="100px"></canvas>
+                        <div class="row" style="padding-left: 20px;">
+                            <div class="col-md-3">
+                                <div class="margin-top-20">
+                                    <p class="sub-title">Total Savings</p>
+                                    <p class="value">$ 3500,00</p>
+                                    <!-- <i class="fas fa-long-arrow-alt-down"></i>
+                                    <p class="percentage-value">6%</p> -->
+                                </div>
+                                <div class="margin-top-20">
+                                    <p class="sub-title">This Weeks Savings</p>
+                                    <p class="value">$ 2500,00</p>
+                                    <!-- <i class="fas fa-long-arrow-alt-up"></i>
+                                    <p class="percentage-value">8%</p> -->
+                                </div>
+                                <div class="margin-top-20">
+                                    <p class="sub-title">Most Recent</p>
+                                    <p class="value">Asset: pump #223</p>
+                                    <p class="value">Date: 15-6-2020</p>
+                                    <p class="value">Saved: $ 2000,00</p>
+                                </div>
+                            </div>
+                            <div class="col-md-9"> 
+                                <div class="chart" style="height: 280px;">
+                                    <canvas id="savingsChart"></canvas>
+                                </div>
+                            </div>
                         </div>
-                        <button class="mdc-button" style="float: right; margin: 5px 15px 10px 0px;">
-                            <div class="mdc-button__ripple"></div>
-                            <span class="mdc-button__label">View transactions</span>
-                            <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
-                        </button>
                     </div>
                 </div>
 
-                <div class="dashboard-item col-md-5">
+                <div class="dashboard-item col-md-4">
                     <div class="dashboard-content">
-                        <div class="scatter-plot">
-                            <h6 class="tab-title">Estimated Uptime and Costs per Month</h6>
+                        <div class="scatter-plot" style="padding-left: 20px;">
+                            <select id="interval">
+                                <option value="month">Total</option>
+                                <option value="week">Lubrication</option>
+                                <option value="week">Vibration</option>
+                            </select>
+                            <label for="interval"><h6 class="tab-title">Savings per Asset</h6></label>
                         </div>
-
-                        <div class="chart">
-                            <canvas id="myChart_2" height="200px"></canvas>
+                        <div class="chart" style="height: 300px;">
+                            <canvas id="assetSavingsChart"></canvas>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-12 row">
-                <div class="dashboard-item col-md-12">
-                    <div class="mdc-data-table">
-                        <table id="financeTable" class="mdc-data-table__table" aria-label="Dessert calories">
-                          <thead>
-                            <tr class="mdc-data-table__header-row">
-                              <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Assets</th>
-                              <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric hover-icon" role="columnheader" scope="col" data-sorted="no"><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i>Costs</th>
-                              <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric hover-icon" role="columnheader" scope="col" data-sorted="no"><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i>Workorders</th>
-                              <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric hover-icon" role="columnheader" scope="col" data-sorted="no"><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i>Readings</th>
-                              <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric hover-icon" role="columnheader" scope="col" data-sorted="no"><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i>Reports</th>
-                              <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Roles</th>
-                            </tr>
-                          </thead>
-                          <tbody class="mdc-data-table__content">
-                            <!-- Auto generated cells -->
-                          </tbody>
-                        </table>
-                      </div>
-                  </div>
-              </div>
-          </div>
+                <div class="dashboard-item col-md-8">
+                    <div class="dashboard-content">
+                        <div class="title">
+                            <h6>Costs</h6>
+                            <p class="underline">What costs have been made?</p>
+                        </div>
+                        <div class="row" style="padding-left: 20px;">
+                            <div class="col-md-3">
+                                <div class="margin-top-20">
+                                    <p class="sub-title">Total Costs</p>
+                                    <p class="value">$ 3500,00</p>
+                                    <!-- <i class="fas fa-long-arrow-alt-down"></i>
+                                    <p class="percentage-value">6%</p> -->
+                                </div>
+                                <div class="margin-top-20">
+                                    <p class="sub-title">This Weeks Costs</p>
+                                    <p class="value">$ 2500,00</p>
+                                    <!-- <i class="fas fa-long-arrow-alt-up"></i>
+                                    <p class="percentage-value">8%</p> -->
+                                </div>
+                            </div>
+                            <div class="col-md-9"> 
+                                <div class="chart" style="height: 280px;">
+                                    <canvas id="costsChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-item col-md-4">
+                    <div class="dashboard-content">
+                        <div class="scatter-plot" style="padding-left: 20px;">
+                            <select id="interval">
+                                <option value="month">Total</option>
+                                <option value="week">Lubrication</option>
+                                <option value="week">Vibration</option>
+                            </select>
+                            <label for="interval"><h6 class="tab-title">Costs per Asset</h6></label>
+                        </div>
+                        <div class="chart" style="height: 300px;">
+                            <canvas id="assetCostsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html> 

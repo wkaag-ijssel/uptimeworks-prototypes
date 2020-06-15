@@ -1,0 +1,478 @@
+// Color scheme
+let pMain = "#1a237e"; //'rgb(26,35,126)';
+    pLight = "#534bae";
+    pDark = "#000051";
+    sMain = "#ffab00";
+    sLight = "#ffdd4b";
+    sDark = "#c67c00";
+
+// Dummy data
+let date_range = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'September', 'October', 'November', 'December'];
+let workorders = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
+let readings = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
+let reports = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 20));
+let totalCosts = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 30));
+let totalSavings = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 30));
+let uptimeRatio = Array.from({length: date_range.length}, () => Math.random());
+data = [workorders, readings, reports, totalCosts, totalSavings]
+
+// Dummy thresholds / references
+let _workorders = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
+let _readings = [30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30];
+let _reports = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 20));
+let _totalCosts = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 30));
+let _totalSavings = [30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30];
+
+// Not used - yet
+let assetsCosts = [{
+        asset: 'Asset #1',
+        costs: Math.floor(Math.random() * 30),
+        diff: Math.floor(Math.random() * 5)
+    },{
+        asset: 'Asset #2',
+        costs: Math.floor(Math.random() * 30),
+        diff: Math.floor(Math.random() * 5)
+    },{
+        asset: 'Asset #3',
+        costs: Math.floor(Math.random() * 30),
+        diff: Math.floor(Math.random() * 5)
+    },{
+        asset: 'Asset #4',
+        costs: Math.floor(Math.random() * 30),
+        diff: Math.floor(Math.random() * 5)
+    },{
+        asset: 'Asset #5',
+        costs: Math.floor(Math.random() * 30),
+        diff: Math.floor(Math.random() * 5)
+    },{
+        asset: 'Asset #6',
+        costs: Math.floor(Math.random() * 30),
+        diff: Math.floor(Math.random() * 5)
+    },{
+        asset: 'Asset #7',
+        costs: Math.floor(Math.random() * 30),
+        diff: Math.floor(Math.random() * 5)
+}];
+
+ref = [_workorders, _readings, _reports, _totalCosts, _totalSavings]
+let tabs = document.getElementsByClassName('tablinks');
+let dataMetric = document.getElementsByClassName('tab-metric');
+let dataDiff = document.getElementsByClassName('percentage-value');
+let scatterArray = [];
+
+//Create a array of objects, required input format for scatter plot.
+totalCosts.forEach((cost, index) => {
+    let saving = totalSavings[index];
+    scatterArray.push({
+        x: cost, 
+        y: saving
+    });
+});
+
+// Initialize line graph
+for(i = 0; i<dataMetric.length; i++){
+    let dataSum = data[i].reduce((a, b) => a + b, 0);
+    let refSum = ref[i].reduce((a,b) => a + b, 0);
+    let diff = parseInt(((100*dataSum)/refSum)-100);
+
+    let icon = tabs[i].getElementsByClassName('fas');
+
+    if(diff > 0){
+        icon[0].className += " fa-long-arrow-alt-up";
+    } else if (diff < 0){
+        icon[0].className += " fa-long-arrow-alt-down";
+        diff = Math.abs(diff);
+    }
+    dataMetric[i].innerHTML += dataSum;
+    dataDiff[i].innerHTML = diff  + "%";
+}
+
+// Line graph
+let ctx = document.getElementById('myChart_1').getContext('2d');
+let chart1 = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'bar',
+    // The data for our dataset
+    data: {
+        labels: date_range,
+        datasets: [{
+            label: 'n. of workorders',
+            data: workorders,
+            backgroundColor: pLight,
+            order: 1
+        },{
+            label: "Last year",
+            type: 'line',
+            fill: false,
+            borderColor: pDark,
+            borderDash: [5,2],
+            data: _workorders,
+            order: 2
+        }]
+    },
+
+    // Configuration options go here
+    options: {
+        legend: {
+            display: false,
+            position: 'bottom',
+            align: 'end',
+            labels: {
+                usePointStyle: true
+            }
+        },
+        elements: {
+            line: {
+                tension: 0, // disables bezier curves
+                borderWidth: 2
+            },
+            point:{
+                radius: 0 //hide data point indicators
+            }
+        },
+        scales: {
+            xAxes: [{
+                gridLines: {
+                    display: false,
+                },
+                ticks: {
+                    maxTicksLimit: 15,
+                    autoSkip: true, //!important
+                    maxRotation: 0, 
+                    minRotation: 0
+                }
+            }],
+            yAxes: [{
+                gridLines: {
+                    display:true,
+                },
+                position: 'right',
+            }]
+        }
+    }
+});
+
+function changeTab(evt, chartName, dataInput, refInput='None') {
+    let i, tabcontent, tablinks;
+  
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // change metric data
+    chartName.data.datasets[0].data = dataInput;
+    chartName.data.datasets[0].label = 'n. of ' + evt.currentTarget.getElementsByClassName("tab-title")[0].innerText.toLowerCase();
+
+    // change ref/threshold data
+    chartName.data.datasets[1].data = refInput;
+
+    chart1.update();
+    evt.currentTarget.className += " active";
+}
+
+function loadRow(){
+    let tableRef = document.getElementById('financeTable').getElementsByTagName('tbody')[0];
+    let rowsCount = document.getElementById('financeTable').rows[0].cells.length;
+
+    // Insert a row in the table at the last row
+    let newRow   = tableRef.insertRow();
+    newRow.className = "mdc-data-table__row";
+
+    let data = [
+        ['Asset ' + Math.floor(Math.random() * 20).toString(), false],
+        ['$ ' + (Math.random() * 10).toFixed(2).toString(), true],
+        [Math.floor(Math.random() * 7), true],
+        [Math.floor(Math.random() * 4), true],
+        [Math.floor(Math.random() * 4), true],
+        ['person ' + Math.floor(Math.random() * 30).toString(), false]
+    ];
+
+    for(let i = 0; i < rowsCount; i++){
+        let newCell  = newRow.insertCell(i);
+        newCell.innerHTML = data[i][0];
+
+        if(data[i][1] == true){
+            newCell.className = "mdc-data-table__cell mdc-data-table__cell--numeric"
+        } else {
+            newCell.className = "mdc-data-table__cell"
+        }
+    }
+};
+
+//onload
+function createTable(){
+    //Generate rows
+    for(let i = 0; i < 10; i++){
+        loadRow();
+    };
+    //Event listeners for specific headers ('hover-icon' class)
+    let columns = document.getElementById('financeTable').getElementsByTagName('th');
+    for(let i = 0; i < columns.length; i++){
+        let column = columns[i];
+        if(column.classList.contains("hover-icon")){
+            column.addEventListener('click', function(event) {
+                function sortedToFalse(){
+                    for(let i = 0; i < columns.length; i++){
+                        if(columns[i] !== column && columns[i].classList.contains('hover-icon')){
+                            let otherCol = columns[i];
+                            otherCol.setAttribute("data-sorted", "no");
+                            let icon = otherCol.firstChild;
+                            icon.innerHTML = "arrow_upward";
+                            icon.style.visibility = "hidden";
+                        }
+                    };
+                };
+
+                let sorted = column.getAttribute("data-sorted");
+                if(sorted == "no"){
+                    sortTableDescending(i);
+                    sortedToFalse();
+                    column.setAttribute("data-sorted", "desc");
+
+                    let icon = column.firstChild;
+                    icon.innerHTML = "arrow_upward";
+                    icon.style.visibility = "visible";
+                } else if(sorted == "desc"){
+                    sortTableAscending(i);
+                    sortedToFalse();
+                    column.setAttribute("data-sorted", "asc");
+
+                    let icon = column.firstChild;
+                    icon.innerHTML = "arrow_downward";
+                    icon.style.visibility = "visible";
+                } else if(sorted == "asc"){
+                    sortTableDescending(i);
+                    sortedToFalse();
+                    column.setAttribute("data-sorted", "desc");
+
+                    let icon = column.firstChild;
+                    icon.innerHTML = "arrow_upward";
+                    icon.style.visibility = "visible";
+                }
+            });
+        }
+    }
+    return;
+}
+createTable();
+
+//Ascending
+function sortTableAscending(col) {
+    let table, rows, switching, i, x, y, shouldSwitch;
+    table = document.getElementById("financeTable");
+    switching = true;
+
+    while (switching) {
+        switching = false;
+        rows = table.rows;
+        for (i = 1; i < (rows.length - 1); i++) {
+            shouldSwitch = false;
+            x = rows[i].getElementsByTagName("TD")[col];
+            y = rows[i + 1].getElementsByTagName("TD")[col];
+
+            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                shouldSwitch = true;
+                break;
+            }
+        }
+        if (shouldSwitch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+        }
+    }
+}
+
+function sortTableDescending(col){
+    let table, rows, switching, i, x, y, shouldSwitch;
+    table = document.getElementById("financeTable");
+    switching = true;
+
+    while (switching) {
+        switching = false;
+        rows = table.rows;
+
+        for (i = 1; i < (rows.length - 1); i++) {
+            shouldSwitch = false;
+            x = rows[i].getElementsByTagName("TD")[col];
+            y = rows[i + 1].getElementsByTagName("TD")[col];
+            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                shouldSwitch = true;
+                break;
+            }
+        }
+        if (shouldSwitch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+        }
+    }
+}
+
+// Load the Visualization API and the corechart package.
+google.charts.load('current', {'packages':['sankey']});
+
+// Set a callback to run when the Google Visualization API is loaded.
+google.charts.setOnLoadCallback(drawChart);
+
+// Callback that creates and populates a data table,
+// instantiates the pie chart, passes in the data and
+// draws it.
+function drawChart() {
+
+  // Create the data table.
+  var data = new google.visualization.DataTable();
+
+  //Column 0: Source -------> Total costs | Equipment | Devices?
+  //Column 1: Destination --> Equipment   | Devices   | Endpoints?
+  //Column 2: Value --------> cost
+  data.addColumn('string', 'Costs');
+  data.addColumn('string', 'Devices');
+  data.addColumn('number', 'Value');
+  data.addRows([
+    ['costs', 'device 1', 13],
+    ['costs', 'device 2', 10],
+    ['costs', 'device 3', 1],
+    ['costs', 'device 4', 1],
+    ['costs', 'device 5', 2],
+    ['device 1', 'equipment 1', 6],
+    ['device 1', 'equipment 2', 2],
+    ['device 1', 'equipment 3', 5],
+    ['device 2', 'equipment 3', 4],
+    ['device 2', 'equipment 4', 6],
+    ['device 3', 'equipment 4', 1],
+    ['device 4', 'equipment 3', 1],
+    ['device 5', 'equipment 6', 2],
+  ]);
+
+  // Set chart options
+  var options = {'width':400,
+                 'height':300};
+
+  // Instantiate and draw our chart, passing in some options.
+//   var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+  var chart = new google.visualization.Sankey(document.getElementById('chart_div'));
+  chart.draw(data, options);
+}
+
+/**
+ * Sort data 
+ * @param {array} data 
+ * @param {array} labels 
+ */
+function sortByData(data, labels){
+    //1) combine the arrays:
+      var list = [];
+      for (var j = 0; j < data.length; j++) 
+          list.push({'value': data[j], 'label': labels[j]});
+  
+      //2) sort:
+      list.sort(function(a, b) {
+          return ((a.value > b.value) ? -1 : ((a.value == b.value) ? 0 : 1));
+      });
+  
+      //3) separate them back out:
+      for (var k = 0; k < list.length; k++) {
+          data[k] = list[k].value;
+          labels[k] = list[k].label;
+      }
+  
+      return data, labels;
+  }
+
+//Chart 3 & 4
+let routeDataPromise = new Promise((resolve) => {
+    let data = Array.from({length: 12}, () => Math.random());
+    let labels = [
+        ['Route #6'],
+        ['Route #15'],
+        ['Route #10'],
+        ['Route #2'],
+        ['Route #9'],
+        ['Route #4'],
+        ['Route #11'],
+        ['Route #20'],
+        ['Route #19'],
+        ['Route #5'],
+        ['Route #16'],
+        ['Route #1']
+    ]
+    resolve([data, labels]);
+}).then(route => {  
+    //Sorts after routeData contains (generated) values
+    route[0], route[1] = sortByData(route[0], route[1]);
+
+    //Create bar graph
+    let ctx3 = document.getElementById('routeCostsChart').getContext('2d');
+    let routeCosts = horizontalBarChart(ctx3, route[0], route[1]);
+});
+
+//Chart 3 & 4
+let assetDataPromise = new Promise((resolve) => {
+    let data = Array.from({length: 12}, () => Math.random());
+    let labels = [
+        ['Asset #6'],
+        ['Asset #15'],
+        ['Asset #10'],
+        ['Asset #2'],
+        ['Asset #9'],
+        ['Asset #4'],
+        ['Asset #11'],
+        ['Asset #20'],
+        ['Asset #19'],
+        ['Asset #5'],
+        ['Asset #16'],
+        ['Asset #1']
+    ]
+    resolve([data, labels]);
+}).then(route => {  
+    //Sorts after routeData contains (generated) values
+    route[0], route[1] = sortByData(route[0], route[1]);
+
+    //Create bar graph
+    let ctx4 = document.getElementById('assetCostsChart').getContext('2d');
+    let assetCosts = horizontalBarChart(ctx4, route[0], route[1]);
+});
+
+// horizontalBar chart - styled
+function horizontalBarChart(chartElem, data, labels){
+    return new Chart(chartElem, {
+        type: 'horizontalBar',
+        data: { 
+            labels: labels,
+            datasets: [{
+                label: 'N. of tasks executed',
+                backgroundColor: pDark,
+                barPercentage: 0.5,
+                barThickness: 6,
+                maxBarThickness: 8,
+                minBarLength: 2,
+                data: data
+            }]
+        },
+        options: {
+            legend: {
+                display: false,
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+            elements: {
+                line: {
+                    tension: 0, // disables bezier curves
+                    borderWidth: 2
+                },
+                point:{
+                    radius: 0 //hide data point indicators
+                }
+            },
+            scales: {
+                xAxes: [{
+                    stacked: true
+                }],
+                yAxes: [{
+                    stacked: true,
+                    position: 'left'
+                }]
+            }
+        }
+    });
+};

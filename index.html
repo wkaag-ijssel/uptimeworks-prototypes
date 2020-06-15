@@ -16,8 +16,6 @@
     <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet" />
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-
-    <link rel="stylesheet" href="bundle.css">
 </head>
 
 <body class="dashboard">
@@ -38,11 +36,10 @@
                 <p>TECHNOLOGY</p>
                 <a  href="#">Devices</a>
             </div>
-
-            <div class="vertical-menu-bottom">
+            <!-- <div class="vertical-menu-bottom">
                 <a  >Help</a>
                 <a  >Settings</a>
-            </div>
+            </div> -->
         </div>
         <div class="col-md-10">
             <div class="col-md-12 row">
@@ -58,32 +55,37 @@
                 <!-- item 1 -->
                 <div class="dashboard-item col-md-4">
                     <div class="dashboard-content">
-                        <div class="summary col-md-12 row">
-                            <div class="summary-item col-md-6">
-                                <h6 >Facilities</h6>
-                                <h5>4 (+1)</h5>
+                        <div class="title">
+                            <h6>Assets Monitored</h6>                            
+                            <p class="underline">At this moment</p>
+                        
+                            <div class="row">
+                                <div class="summary-item col-md-6">
+                                    <p class="sub-title">Facilities</p>
+                                    <p class="value">4</p>
+                                </div>
+                                <div class="summary-item col-md-6">
+                                    <p class="sub-title">Machines</p>
+                                    <p class="value">30</p>
+                                </div>
+                                <div class="summary-item col-md-6">
+                                    <p class="sub-title">Components</p>
+                                    <p class="value">120</p>
+                                </div>
+                                <div class="summary-item col-md-6">
+                                    <p class="sub-title">Devices</p>
+                                    <p class="value">20</p>
+                                </div>
+                                <div class="summary-item col-md-6">
+                                    <p class="sub-title">Channels</p>
+                                    <p class="value">55</p>
+                                </div>
+                                <div class="summary-item col-md-6">
+                                    <p class="sub-title">Tasks</p>
+                                    <p class="value">340</p>
+                                </div>
                             </div>
-                            <div class="summary-item col-md-6">
-                                <h6 >Machines</h6>
-                                <h5>30</h5>
-                            </div>
-                            <div class="summary-item col-md-6">
-                                <h6 >Components</h6>
-                                <h5>120</h5>
-                            </div>
-                            <div class="summary-item col-md-6">
-                                <h6 >Devices</h6>
-                                <h5>20</h5>
-                            </div>
-                            <div class="summary-item col-md-6">
-                                <h6 >Channels</h6>
-                                <h5>55</h5>
-                            </div>
-                            <div class="summary-item col-md-6">
-                                <h6 >Tasks</h6>
-                                <h5>340</h5>
-                            </div>
-                        </div>
+                        </div> 
                     </div>
                 </div>
 
@@ -91,61 +93,66 @@
                     <div class="dashboard-content">
                         <div class="col-md-12 row">
                             <div class="col-md-6">
-                                <div class="scatter-plot" style="padding-left: 0px;">
-                                    <h6>Asset Health by Alarms Generated</h6>
-                                    <h6 class="sub-title">In the past 30 minutes</h6>
+                                <div class="scatter-plot"  style="padding-left: 20px;">
+                                    <h6>Asset Health by Actual Alarms</h6>
+                                    <p class="underline">At this moment</p>
                                 </div>  
-                                <div class="col-md-12 row">
+                                <div class="row">
                                     <div class="col-md-7">  
                                         <div class="chart" style="height: 180px;">
                                             <canvas id="assetHealth"></canvas>
                                         </div>
                                     </div>
                                     <div class="col-md-5">
-                                        <h6 class=" margin-top-20">Measurements Taken</h6>
-                                        <div >
-                                            <h5 class="percentage-value">8329</h5>
+                                        <div class="margin-top-20">
+                                            <p class="sub-title">Actual Measurements</p>
+                                            <p class="value">8329</p>
                                         </div>
 
-                                        <h6 class=" margin-top-20">Alarms Generated</h6>
-                                        <div >
-                                            <h5 class="percentage-value">270</h5>
-                                            <i class="fas fa-long-arrow-alt-down"></i>
-                                            <p class="percentage-value">2%</p>
+                                        <div class="margin-top-20">
+                                            <p class="sub-title">Actual Alarms</p>
+                                            <p class="value">270</p>
+                                            <!-- <i class="fas fa-long-arrow-alt-down"></i>
+                                            <p class="percentage-value">2%</p> -->
                                         </div>
                                     </div>
                                 </div>
+                                <button id="button-maintenance" class="mdc-button" style="float: right;">
+                                    <div class="mdc-button__ripple"></div>
+                                    <span class="mdc-button__label">View alarms</span>
+                                    <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
+                                </button>
                             </div>
                             <div class="col-md-6">
                                 <div class="scatter-plot" style="padding-left: 0px;">
                                     <h6>Asset Health by Reports Generated</h6>
-                                    <h6 class="sub-title">In the last 30 days</h6>
+                                    <p class="underline">In the last 30 days</p>
                                 </div>
-                                <div class="col-md-12 row">
+                                <div class="row">
                                     <div class="col-md-7">  
                                         <div class="chart" style="height: 180px;">
                                             <canvas id="estimatedUptime"></canvas>
                                         </div>
                                     </div>
                                     <div class="col-md-5">
-                                        <h6 class=" margin-top-20">Reports Generated</h6>
-                                        <div >
-                                            <h5 class="percentage-value">3</h5>
+                                        <div class="margin-top-20">
+                                            <p class="sub-title">Reports Generated</p>
+                                            <p class="value">3</p>
                                         </div>
 
-                                        <h6 class=" margin-top-20">Highest Priority</h6>
-                                        <div >
-                                            <h5 class="percentage-value">Alarm level 1</h5>
+                                        <div class="margin-top-20">
+                                            <p class="sub-title">Highest Priority</p>
+                                            <p class="percentage-value">Alarm level 1</p>
                                         </div>
                                     </div>
-                                </div>
+                                </div>                                
+                                <button id="button-maintenance" class="mdc-button" style="float: right;">
+                                    <div class="mdc-button__ripple"></div>
+                                    <span class="mdc-button__label">View reports</span>
+                                    <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
+                                </button>
                             </div>
                         </div>
-                        <button id="button-maintenance" class="mdc-button" style="float: right; margin: 5px 15px 10px 0px;">
-                            <div class="mdc-button__ripple"></div>
-                            <span class="mdc-button__label">View reports</span>
-                            <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
-                        </button>
                     </div>
                 </div>
             </div>
@@ -153,12 +160,64 @@
             <!-- Row 2 -->
             <div class="col-md-12 row">
 
+                <!-- Item 1 -->
+                <div class="dashboard-item col-md-8">
+                    <div class="dashboard-content">
+                        <div class="title">
+                            <h6>Costs and Savings</h6>
+                            <p class="underline">Since 1st of June 2020</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8"> 
+                                <div class="chart" style="height: 260px;">
+                                    <canvas id="transactionSumChart"></canvas>
+                                </div>
+                            </div>
+                            <div class="col-md-4"> 
+                                <div class="margin-top-20">
+                                    <p class="sub-title">Total Saved</p>
+                                    <p class="value">$ 5000,00</p>
+                                </div>
+                                <div class="margin-top-20">
+                                    <p class="sub-title">Total Costs</p>
+                                    <p class="value">$ 2400,00</p>
+                                </div>
+                                            
+                                <button id="button-finance-summary" class="mdc-button" style="position: absolute; right: 0; bottom: 0; margin: 0px 30px 0px 0px;">
+                                    <div class="mdc-button__ripple"></div>
+                                    <span class="mdc-button__label">View Finance</span>
+                                    <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
+                                </button>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="dashboard-item col-md-4">
+                    <div class="dashboard-content">
+                        <div class="title">
+                            <h6>Advice and Response Time per Report Item</h6>
+                            <p class="underline">In the last 30 days</p>
+                        </div>
+
+                        <div class="chart">
+                            <canvas id="deviceActivity"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Row 3 -->
+            <div class="col-md-12 row">
+
                 <!-- item 1-->
                 <div class="dashboard-item col-md-5">
                     <div class="dashboard-content">
-                        <div class="scatter-plot">
-                            <h6>Overall Work Compliance</h6>
-                            <h6 class="sub-title">In the last 30 days</h6>
+                        <div class="title">
+                            <h6>Work Order Compliance</h6>
+                            <p class="underline">In the last 30 days</p>
                         </div>
                         <div class="col-md-12 row">
                             <div class="col-md-6">  
@@ -167,18 +226,17 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <h6 class="margin-top-20">Tasks Completed</h6>
-                                <div >
-                                    <h5 class="percentage-value">270</h5>
-                                    <i class="fas fa-long-arrow-alt-down"></i>
-                                    <p class="percentage-value">6%</p>
-                                </div>
-
-                                <h6 class="margin-top-20">Tasks Not Completed</h6>
-                                <div>
-                                    <h5 class="percentage-value">30</h5>
-                                    <i class="fas fa-long-arrow-alt-up"></i>
-                                    <p class="percentage-value">8%</p>
+                                <div class="margin-top-20">
+                                    <p class="sub-title">Work Orders Completed</p>
+                                    <p class="value">270</p>
+                                    <!-- <i class="fas fa-long-arrow-alt-down"></i>
+                                    <p class="percentage-value">6%</p> -->
+                                </div>                                
+                                <div class="margin-top-20">
+                                    <p class="sub-title">Work Orders Not Completed</p>
+                                    <p class="value">30</p>
+                                    <!-- <i class="fas fa-long-arrow-alt-up"></i>
+                                    <p class="percentage-value">8%</p> -->
                                 </div>
                             </div>
                         </div>
@@ -193,66 +251,14 @@
                 <!-- item 2 -->
                 <div class="dashboard-item col-md-7">
                     <div class="dashboard-content">
-                        <div class="scatter-plot">
-                            <h6 >Job compliance per Type of Task</h6>
-                            <h6 class="sub-title">in the last 30 days</h6>
+                        <div class="title">
+                            <h6 >Work Order Compliance per Type of Task</h6>
+                            <p class="underline">in the last 30 days</p>
                         </div>
 
                         <div class="chart" style="height: 230px;">
                             <canvas id="jobCompliance"></canvas>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Row 3 -->
-            <div class="col-md-12 row">
-
-                <!-- Item 1 -->
-                <div class="dashboard-item col-md-5">
-                    <div class="dashboard-content">
-                        <div class="scatter-plot">
-                            <h6>Advice and Response Time per Report Item</h6>
-                            <h6 class="sub-title">In the last 30 days</h6>
-                        </div>
-
-                        <div class="chart">
-                            <canvas id="deviceActivity"></canvas>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Item 2 -->
-                <div class="dashboard-item col-md-7">
-                    <div class="dashboard-content">
-                        <div class="scatter-plot">
-                            <h6>Sum of Transactions (or Costs)</h6>
-                            <h6 class="sub-title">Since Last facturation</h6>
-                        </div>
-                        <div class="col-md-12 row">
-                            <div class="col-md-9"> 
-                                <div class="chart">
-                                    <canvas id="transactionSumChart"></canvas>
-                                </div>
-                            </div>
-                            <div class="col-md-3"> 
-                                <h6 class=" margin-top-20">Estimated Costs</h6>
-                                <div >
-                                    <h5 class="percentage-value">$50,00</h5>
-                                </div>
-
-                                <h6 class=" margin-top-20">Target</h6>
-                                <div>
-                                    <h5 class="percentage-value">$5,00</h5>
-                                </div>
-                            </div>  
-                        </div>
-                        <!-- <p>Last updated forecast: 10-6-2020</p> -->
-                        <button id="button-finance-summary" class="mdc-button" style="float: right; margin: 5px 15px 10px 0px;">
-                            <div class="mdc-button__ripple"></div>
-                            <span class="mdc-button__label">View Finance</span>
-                            <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
-                        </button>
                     </div>
                 </div>
             </div>

@@ -308,32 +308,44 @@ let chart5 = new Chart(ctx5, {
 //Chart 7: Transaction costs 
 let costsChartPromise = new Promise((resolve) => {
     let costs = [];
-    let date = []
+    let date = [];
+    let savings = [];
     let expectedCosts = [];
     costs[0] = 0;
     date[0] = 0;
+    savings[0] = 0;
     expectedCosts[0] = 0;
 
-    for(let i = 1; i < 40; i++){
-        expectedCosts[i] = expectedCosts[i-1] + Math.floor(Math.random()*5);
+    for(let i = 1; i < 31; i++){
         date[i] = i;
         if(i < 20){
             costs[i] = costs[i-1] + Math.floor(Math.random()*5);
+            savings[i] = savings[i-1] + Math.floor(Math.random()*10);
+            expectedCosts[i] = costs[i];
+        } else {
+            expectedCosts[i] = expectedCosts[i-1] + Math.floor(Math.random()*5); //Forecast of costs 
         }
     }
 
-    resolve([costs, expectedCosts, date]);
+    resolve([costs, expectedCosts, date, savings]);
 }).then(data => {
-    // console.log(data);
     let ctx7 = document.getElementById('transactionSumChart').getContext('2d');
     let chart7 = new Chart(ctx7, {
         type: 'line',
         data: { 
             labels: data[2], //Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40)),
             datasets: [{
-                label: 'Actual costs',
+                label: 'Savings',
+                data: data[3],
+                fill: false,
+                borderColor: sMain,
+                lineWidth: 0.1,
+                pointStyle: 'line',
+                lineTension: 0
+            },{
+                label: 'Costs',
                 data: data[0],
-                fill: true,
+                fill: false,
                 borderColor: pMain,
                 pointStyle: 'line',
                 lineTension: 0
@@ -349,16 +361,23 @@ let costsChartPromise = new Promise((resolve) => {
         },
         options: {
             legend: {
-                display: false,
+                display: true,
+                position: "bottom",
                 labels: {
                     usePointStyle: true
                 }
             },
+            elements: {
+                point: {
+                    radius: 0
+                }
+            },
+            responsive: true,
+            maintainAspectRatio: false,
             tooltips: {
                 mode: 'index'
             },
             scales: {
-                
                 xAxes: [{
                     gridLines: {
                         display: false,

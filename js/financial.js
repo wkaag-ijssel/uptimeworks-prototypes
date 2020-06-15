@@ -8,341 +8,324 @@ let pMain = "#1a237e"; //'rgb(26,35,126)';
 
 // Dummy data
 let date_range = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'September', 'October', 'November', 'December'];
-let workorders = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
-let readings = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
-let reports = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 20));
-let totalCosts = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 30));
-let totalSavings = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 30));
-let uptimeRatio = Array.from({length: date_range.length}, () => Math.random());
-data = [workorders, readings, reports, totalCosts, totalSavings]
+// let workorders = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
+// let totalCosts = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 30));
+// let totalSavings = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 30));
 
-// Dummy thresholds / references
-let _workorders = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
-let _readings = [30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30];
-let _reports = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 20));
-let _totalCosts = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 30));
-let _totalSavings = [30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30];
+// Event listeners
+// document.getElementById('button-transactions').addEventListener('click', function(event){ window.location.href = "transactions.html"});
 
-// Not used - yet
-let assetsCosts = [{
-    asset: 'Asset #1',
-    costs: Math.floor(Math.random() * 30),
-    diff: Math.floor(Math.random() * 5)
-},{
-    asset: 'Asset #2',
-    costs: Math.floor(Math.random() * 30),
-    diff: Math.floor(Math.random() * 5)
-},{
-    asset: 'Asset #3',
-    costs: Math.floor(Math.random() * 30),
-    diff: Math.floor(Math.random() * 5)
-},{
-    asset: 'Asset #4',
-    costs: Math.floor(Math.random() * 30),
-    diff: Math.floor(Math.random() * 5)
-},{
-    asset: 'Asset #5',
-    costs: Math.floor(Math.random() * 30),
-    diff: Math.floor(Math.random() * 5)
-},{
-    asset: 'Asset #6',
-    costs: Math.floor(Math.random() * 30),
-    diff: Math.floor(Math.random() * 5)
-},{
-    asset: 'Asset #7',
-    costs: Math.floor(Math.random() * 30),
-    diff: Math.floor(Math.random() * 5)
-}];
-
-ref = [_workorders, _readings, _reports, _totalCosts, _totalSavings]
-
-let tabs = document.getElementsByClassName('tablinks');
-let dataMetric = document.getElementsByClassName('tab-metric');
-let dataDiff = document.getElementsByClassName('percentage-value');
-let scatterArray = [];
-
+// let scatterArray = [];
 //Create a array of objects, required input format for scatter plot.
-totalCosts.forEach((cost, index) => {
-    let saving = totalSavings[index];
-    scatterArray.push({
-        x: cost, 
-        y: saving
-    });
-});
+// totalCosts.forEach((cost, index) => {
+//     let saving = totalSavings[index];
+//     scatterArray.push({
+//         x: cost, 
+//         y: saving
+//     });
+// });
 
-// Initialize line graph
-for(i = 0; i<dataMetric.length; i++){
-    let dataSum = data[i].reduce((a, b) => a + b, 0);
-    let refSum = ref[i].reduce((a,b) => a + b, 0);
-    let diff = parseInt(((100*dataSum)/refSum)-100);
+let savingsData = [{
+    label: 'savings',
+    data: Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40)),
+    backgroundColor: pDark
+}];
+let savingsLabels = date_range;
 
-    let icon = tabs[i].getElementsByClassName('fas');
-
-    if(diff > 0){
-        icon[0].className += " fa-long-arrow-alt-up";
-    } else if (diff < 0){
-        icon[0].className += " fa-long-arrow-alt-down";
-        diff = Math.abs(diff);
-    }
-    dataMetric[i].innerHTML += dataSum;
-    dataDiff[i].innerHTML = diff  + "%";
-}
-
-// Line graph
-let ctx = document.getElementById('myChart_1').getContext('2d');
-let chart1 = new Chart(ctx, {
-    // The type of chart we want to create
+let costsData = [{
+    label: "expected costs",
     type: 'line',
+    fill: false,
+    borderColor: pLight,
+    backgroundColor: "rgb(0, 0, 0)",
+    borderDash: [5,2],
+    data: Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40)),
+},{
+    label: 'actual costs',
+    data: Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40)),
+    backgroundColor: pDark,
+}]
+let costsLabels = date_range;
 
-    // The data for our dataset
-    data: {
-        labels: date_range,
-        datasets: [{
-            label: 'n. of workorders',
-            fill: false,
-            borderColor: pMain,
-            data: workorders,
-            pointStyle: 'line'
-        },
-        {
-            label: "Last year",
-            fill: false,
-            borderColor: pMain,
-            borderDash: [5,2],
-            data: _workorders,
-            pointStyle: 'line'
-        }]
-    },
+// Savings Chart
+let ctx = document.getElementById('savingsChart').getContext('2d');
+let chart1 = mixedGraph(ctx, savingsData, savingsLabels);
 
-    // Configuration options go here
-    options: {
-        legend: {
-            display: true,
-            position: 'bottom',
-            align: 'end',
-            labels: {
-                usePointStyle: true
-            }
-        },
-        elements: {
-            line: {
-                tension: 0, // disables bezier curves
-                borderWidth: 2
-            },
-            point:{
-                radius: 0 //hide data point indicators
-            }
-        },
-        scales: {
-            xAxes: [{
-                gridLines: {
-                    display: false,
-                },
-                ticks: {
-                    maxTicksLimit: 15,
-                    autoSkip: true, //!important
-                    maxRotation: 0, 
-                    minRotation: 0
-                }
-            }],
-            yAxes: [{
-                gridLines: {
-                    display:true,
-                },
-                position: 'right',
-            }]
-        }
-    }
-});
+// Costs Chart
+let ctx3 = document.getElementById('costsChart').getContext('2d');
+let chart2 = mixedGraph(ctx3, costsData, costsLabels);
 
-//Scatter plot
-let ctx2 = document.getElementById('myChart_2').getContext('2d');
-let chart2 = new Chart(ctx2, {
-    type: 'scatter',
-    data: {
-        datasets: [{
-            label: 'Scatter Dataset',
-            backgroundColor: pMain,
-            data: scatterArray
-        }]
-    },
-    options: {
-        legend: {
-            display: false,
+function mixedGraph(elem, data, input){
+    return new Chart(elem, {
+        // The type of chart we want to create
+        type: 'bar',
+        // The data for our dataset
+        data: {
+            labels: input,
+            datasets: data
         },
-        scales: {
-            xAxes: [{
-                type: 'linear',
+
+        // Configuration options go here
+        options: {
+            legend: {
+                display: false,
                 position: 'bottom',
-                scaleLabel: {
-                    display: true,
-                    labelString: 'Costs'
+                align: 'end',
+                labels: {
+                    usePointStyle: true
                 }
-            }],
-            yAxes: [{
-                type: 'linear',
-                position: 'left',
-                scaleLabel: {
-                    display: true,
-                    labelString: 'Savings'
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+            elements: {
+                line: {
+                    tension: 0, // disables bezier curves
+                    borderWidth: 2
+                },
+                point:{
+                    radius: 0 //hide data point indicators
                 }
-            }]
+            },
+            scales: {
+                xAxes: [{
+                    gridLines: {
+                        display: false,
+                    },
+                    ticks: {
+                        maxTicksLimit: 15,
+                        autoSkip: true, //!important
+                        maxRotation: 0, 
+                        minRotation: 0
+                    }
+                }],
+                yAxes: [{
+                    gridLines: {
+                        display:true,
+                    },
+                    position: 'right',
+                }]
+            }
         }
-    }
-});
-
-function changeTab(evt, chartName, dataInput, refInput='None') {
-    let i, tabcontent, tablinks;
-  
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-
-    // change metric data
-    chartName.data.datasets[0].data = dataInput;
-    chartName.data.datasets[0].label = 'n. of ' + evt.currentTarget.getElementsByClassName("tab-title")[0].innerText.toLowerCase();
-
-    // change ref/threshold data
-    chartName.data.datasets[1].data = refInput;
-
-    chart1.update();
-    evt.currentTarget.className += " active";
-}
-
-function loadRow(){
-    let tableRef = document.getElementById('financeTable').getElementsByTagName('tbody')[0];
-    let rowsCount = document.getElementById('financeTable').rows[0].cells.length;
-
-    // Insert a row in the table at the last row
-    let newRow   = tableRef.insertRow();
-    newRow.className = "mdc-data-table__row";
-
-    let data = [
-        ['Asset ' + Math.floor(Math.random() * 20).toString(), false],
-        ['$ ' + (Math.random() * 10).toFixed(2).toString(), true],
-        [Math.floor(Math.random() * 7), true],
-        [Math.floor(Math.random() * 4), true],
-        [Math.floor(Math.random() * 4), true],
-        ['person ' + Math.floor(Math.random() * 30).toString(), false]
-    ];
-
-    for(let i = 0; i < rowsCount; i++){
-        let newCell  = newRow.insertCell(i);
-        newCell.innerHTML = data[i][0];
-
-        if(data[i][1] == true){
-            newCell.className = "mdc-data-table__cell mdc-data-table__cell--numeric"
-        } else {
-            newCell.className = "mdc-data-table__cell"
-        }
-    }
+    });
 };
 
-//onload
-function createTable(){
-    //Generate rows
-    for(let i = 0; i < 10; i++){
-        loadRow();
-    };
-    //Event listeners for specific headers ('hover-icon' class)
-    let columns = document.getElementById('financeTable').getElementsByTagName('th');
-    for(let i = 0; i < columns.length; i++){
-        let column = columns[i];
-        if(column.classList.contains("hover-icon")){
-            column.addEventListener('click', function(event) {
-                function sortedToFalse(){
-                    for(let i = 0; i < columns.length; i++){
-                        if(columns[i] !== column && columns[i].classList.contains('hover-icon')){
-                            let otherCol = columns[i];
-                            otherCol.setAttribute("data-sorted", "no");
-                            let icon = otherCol.firstChild;
-                            icon.innerHTML = "arrow_upward";
-                            icon.style.visibility = "hidden";
-                        }
-                    };
-                };
+/**
+ * Sort data 
+ * @param {array} data 
+ * @param {array} labels 
+ */
+function sortByData(data, labels){
+    //1) combine the arrays:
+      var list = [];
+      for (var j = 0; j < data.length; j++) 
+          list.push({'value': data[j], 'label': labels[j]});
+  
+      //2) sort:
+      list.sort(function(a, b) {
+          return ((a.value > b.value) ? -1 : ((a.value == b.value) ? 0 : 1));
+      });
+  
+      //3) separate them back out:
+      for (var k = 0; k < list.length; k++) {
+          data[k] = list[k].value;
+          labels[k] = list[k].label;
+      }
+  
+      return data, labels;
+  }
 
-                let sorted = column.getAttribute("data-sorted");
-                if(sorted == "no"){
-                    sortTableDescending(i);
-                    sortedToFalse();
-                    column.setAttribute("data-sorted", "desc");
+//Chart 5
+let routeDataPromise = new Promise((resolve) => {
+    let data = Array.from({length: 12}, () => Math.random());
+    let labels = [
+        ['Route #6'],
+        ['Route #15'],
+        ['Route #10'],
+        ['Route #2'],
+        ['Route #9'],
+        ['Route #4'],
+        ['Route #11'],
+        ['Route #20'],
+        ['Route #19'],
+        ['Route #5'],
+        ['Route #16'],
+        ['Route #1']
+    ]
+    resolve([data, labels]);
+}).then(route => {  
+    //Sorts after routeData contains (generated) values
+    route[0], route[1] = sortByData(route[0], route[1]);
 
-                    let icon = column.firstChild;
-                    icon.innerHTML = "arrow_upward";
-                    icon.style.visibility = "visible";
-                } else if(sorted == "desc"){
-                    sortTableAscending(i);
-                    sortedToFalse();
-                    column.setAttribute("data-sorted", "asc");
+    //Create bar graph
+    let ctx5 = document.getElementById('routeCostsChart').getContext('2d');
+    let routeCosts = horizontalBarChart(ctx5, route[0], route[1]);
+});
 
-                    let icon = column.firstChild;
-                    icon.innerHTML = "arrow_downward";
-                    icon.style.visibility = "visible";
-                } else if(sorted == "asc"){
-                    sortTableDescending(i);
-                    sortedToFalse();
-                    column.setAttribute("data-sorted", "desc");
+//Chart 2
+let assetSavingsPromise = new Promise((resolve) => {
+    let data = Array.from({length: 12}, () => Math.random());
+    let labels = [
+        ['Asset #6'],
+        ['Asset #15'],
+        ['Asset #10'],
+        ['Asset #2'],
+        ['Asset #9'],
+        ['Asset #4'],
+        ['Asset #11'],
+        ['Asset #20'],
+        ['Asset #19'],
+        ['Asset #5'],
+        ['Asset #16'],
+        ['Asset #1']
+    ]
+    resolve([data, labels]);
+}).then(route => {  
+    //Sorts after routeData contains (generated) values
+    route[0], route[1] = sortByData(route[0], route[1]);
 
-                    let icon = column.firstChild;
-                    icon.innerHTML = "arrow_upward";
-                    icon.style.visibility = "visible";
+    //Create bar graph
+    let ctx2 = document.getElementById('assetSavingsChart').getContext('2d');
+    let assetSavings = horizontalBarChart(ctx2, route[0], route[1]);
+});
+
+//Chart 4
+let assetCostsPromise = new Promise((resolve) => {
+    let data = Array.from({length: 12}, () => Math.random());
+    let labels = [
+        ['Asset #6'],
+        ['Asset #15'],
+        ['Asset #10'],
+        ['Asset #2'],
+        ['Asset #9'],
+        ['Asset #4'],
+        ['Asset #11'],
+        ['Asset #20'],
+        ['Asset #19'],
+        ['Asset #5'],
+        ['Asset #16'],
+        ['Asset #1']
+    ]
+    resolve([data, labels]);
+}).then(route => {  
+    //Sorts after routeData contains (generated) values
+    route[0], route[1] = sortByData(route[0], route[1]);
+
+    //Create bar graph
+    let ctx4 = document.getElementById('assetCostsChart').getContext('2d');
+    let assetCosts = horizontalBarChart(ctx4, route[0], route[1]);
+});
+
+// horizontalBar chart - styled
+function horizontalBarChart(chartElem, data, labels){
+    return new Chart(chartElem, {
+        type: 'horizontalBar',
+        data: { 
+            labels: labels,
+            datasets: [{
+                label: 'N. of tasks executed',
+                backgroundColor: pDark,
+                barPercentage: 0.5,
+                barThickness: 6,
+                maxBarThickness: 8,
+                minBarLength: 2,
+                data: data
+            }]
+        },
+        options: {
+            legend: {
+                display: false,
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+            elements: {
+                line: {
+                    tension: 0, // disables bezier curves
+                    borderWidth: 2
+                },
+                point:{
+                    radius: 0 //hide data point indicators
                 }
-            });
-        }
-    }
-    return;
-}
-createTable();
-
-//Ascending
-function sortTableAscending(col) {
-    let table, rows, switching, i, x, y, shouldSwitch;
-    table = document.getElementById("financeTable");
-    switching = true;
-
-    while (switching) {
-        switching = false;
-        rows = table.rows;
-        for (i = 1; i < (rows.length - 1); i++) {
-            shouldSwitch = false;
-            x = rows[i].getElementsByTagName("TD")[col];
-            y = rows[i + 1].getElementsByTagName("TD")[col];
-
-            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                shouldSwitch = true;
-                break;
+            },
+            scales: {
+                xAxes: [{
+                    stacked: true
+                }],
+                yAxes: [{
+                    stacked: true,
+                    position: 'left'
+                }]
             }
         }
-        if (shouldSwitch) {
-            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-            switching = true;
-        }
-    }
-}
+    });
+};
 
-function sortTableDescending(col){
-    let table, rows, switching, i, x, y, shouldSwitch;
-    table = document.getElementById("financeTable");
-    switching = true;
+//Chart 7: Transaction costs 
+// let costsChartPromise = new Promise((resolve) => {
+//     let costs = [];
+//     let date = []
+//     let expectedCosts = [];
+//     costs[0] = 0;
+//     date[0] = 0;
+//     expectedCosts[0] = 0;
 
-    while (switching) {
-        switching = false;
-        rows = table.rows;
+//     for(let i = 1; i < 40; i++){
+//         expectedCosts[i] = expectedCosts[i-1] + Math.floor(Math.random()*5);
+//         date[i] = i;
+//         if(i < 20){
+//             costs[i] = costs[i-1] + Math.floor(Math.random()*5);
+//         }
+//     }
 
-        for (i = 1; i < (rows.length - 1); i++) {
-            shouldSwitch = false;
-            x = rows[i].getElementsByTagName("TD")[col];
-            y = rows[i + 1].getElementsByTagName("TD")[col];
-            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                shouldSwitch = true;
-                break;
-            }
-        }
-        if (shouldSwitch) {
-            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-            switching = true;
-        }
-    }
-}
+//     resolve([costs, expectedCosts, date]);
+// }).then(data => {
+//     let ctx7 = document.getElementById('transactionSumChart').getContext('2d');
+//     let chart7 = new Chart(ctx7, {
+//         type: 'line',
+//         data: { 
+//             labels: data[2], //Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40)),
+//             datasets: [{
+//                 label: 'Actual costs',
+//                 data: data[0],
+//                 fill: true,
+//                 borderColor: pMain,
+//                 pointStyle: 'line',
+//                 lineTension: 0
+//             },{
+//                 label: 'Expected costs',
+//                 data: data[1],
+//                 fill: false,
+//                 borderColor: pMain,
+//                 borderDash: [5,2],
+//                 pointStyle: 'line',
+//                 lineTension: 0
+//             }]
+//         },
+//         options: {
+//             legend: {
+//                 display: false,
+//                 labels: {
+//                     usePointStyle: true
+//                 }
+//             },
+//             tooltips: {
+//                 mode: 'index'
+//             },
+//             scales: {
+                
+//                 xAxes: [{
+//                     gridLines: {
+//                         display: false,
+//                     },
+//                     ticks: {
+//                         autoSkip: true,
+//                         maxRotation: 0,
+//                         autoSkipPadding: 50
+//                     }
+//                 }],
+//                 yAxes: [{
+//                     position: 'right'
+//                 }]
+//             }
+//         }
+//     }); 
+// })

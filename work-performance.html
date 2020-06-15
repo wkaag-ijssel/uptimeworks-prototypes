@@ -29,14 +29,12 @@
                 <a class="" href="work-planning.html">Planning</a>
                 <p>FINANCE</p>
                 <a class="" href="financial.html">Summary</a>
-                <a class="" href="#">Transactions</a>
+                <a class="" href="transactions.html">Transactions</a>
+                <p>MAINTENANCE</p>
+                <a  href="#">Alarms</a>
+                <a  href="#">Reports</a>
                 <p>TECHNOLOGY</p>
-                <a class="" href="#">Devices</a>
-            </div>
-
-            <div class="vertical-menu-bottom">
-                <a class="" >Help</a>
-                <a class="" >Settings</a>
+                <a  href="#">Devices</a>
             </div>
         </div>
         <div class="col-md-10">
@@ -57,36 +55,37 @@
             <div class="col-md-12 row">
 
                 <!-- item 1-->
-                <div class="dashboard-item col-md-5">
+                <div class="dashboard-item col-md-6">
                     <div class="dashboard-content">
-                        <div class="summary col-md-12 row">
-                            <div class="summary-item col-md-6">
-                                <h6 class="tab-title">Overall Work Compliance</h6>
-                                                               
+                        <div class="title">
+                            <h6>Work Order Compliance</h6>
+                            <p class="underline">How many work orders were completed?</p>
+                        </div>
+                        <div class="col-md-12 row">
+                            
+                            <div class="col-md-6">                       
                                 <div class="chart" style="height: 180px;">
                                     <canvas id="taskCompletion"></canvas>
                                 </div>
                             </div>
-                            <div class="summary-item col-md-6">
-                                <h6 class="tab-title">Tasks Generated</h6>
+                            <div class="col-md-6" style="padding-left: 20px;">
                                 <div>
-                                    <h5 class="percentage-value">300</h5>
-                                    <i class="fas fa-long-arrow-alt-up"></i>
-                                    <p class="percentage-value">4%</p>
+                                    <p class="sub-title">Generated Work Orders</p>
+                                    <p class="value">300</p>
+                                    <!-- <i class="fas fa-long-arrow-alt-up"></i>
+                                    <p class="value">4%</p> -->
                                 </div>
-                                
-                                <h6 class="tab-title margin-top-20">Tasks Completed</h6>
-                                <div>
-                                    <h5 class="percentage-value">270</h5>
-                                    <i class="fas fa-long-arrow-alt-down"></i>
-                                    <p class="percentage-value">6%</p>
+                                <div class="margin-top-20">
+                                    <p class="sub-title">Completed Work Orders</p>
+                                    <p class="value">270</p>
+                                    <!-- <i class="fas fa-long-arrow-alt-down"></i>
+                                    <p class="percentage-value">6%</p> -->
                                 </div>
-
-                                <h6 class="tab-title margin-top-20">Tasks Not Completed</h6>
-                                <div>
-                                    <h5 class="percentage-value">30</h5>
-                                    <i class="fas fa-long-arrow-alt-up"></i>
-                                    <p class="percentage-value">8%</p>
+                                <div class="margin-top-20">
+                                    <p class="sub-title">Not Completed Work Orders</p>
+                                    <p class="value">30</p>
+                                    <!-- <i class="fas fa-long-arrow-alt-up"></i>
+                                    <p class="value">8%</p> -->
                                 </div>
                             </div>
                         </div>
@@ -94,15 +93,14 @@
                 </div>
 
                 <!-- item 2 -->
-                <div class="dashboard-item col-md-7">
+                <div class="dashboard-item col-md-6">
                     <div class="dashboard-content">
-                        <div class="scatter-plot" style="padding-left: 20px;">
+                        <div class="title">
                             <select id="intervalSelector">
                                 <option value="month">Daily</option>
                                 <option value="week">Weekly</option>
                             </select>
-                            <label for="intervalSelector"><h6 class="tab-title"> Completed Work</h6></label>
-                            <!-- <span><h6>in Percentage (%)</h6></span> -->
+                            <label for="intervalSelector"><h6> Completed Work Orders</h6></label>
                         </div>
                         <div style="height: 180px;">
                             <canvas id="workLoadChart"></canvas>
@@ -123,7 +121,7 @@
                                 <option value="week">Lubrication</option>
                                 <option value="week">Vibration</option>
                             </select>
-                            <label for="interval"><h6 class="tab-title">Task Compliance per Route</h6></label>
+                            <label for="interval"><h6 class="tab-title">Work Order Compliance per Route</h6></label>
                         </div>
                         <div class="chart" style="height: 300px;">
                             <canvas id="routeComplianceChart"></canvas>
@@ -140,7 +138,7 @@
                 <div class="dashboard-item col-md-4">
                     <div class="dashboard-content">
                         <div class="scatter-plot" style="padding-left: 20px;">
-                            <h6 class="tab-title">Task Compliance per Task Type</h6>
+                            <h6 class="tab-title">Work Order Compliance per Task Type</h6>
                         </div>
 
                         <div class="chart" style="height: 300px;">
@@ -148,7 +146,7 @@
                         </div>
                         <button id="button-tasks" class="mdc-button" style="float: right; margin: 5px 15px 10px 0px;">
                             <div class="mdc-button__ripple"></div>
-                            <span class="mdc-button__label">View tasks</span>
+                            <span class="mdc-button__label">View Work Orders</span>
                             <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
                         </button>
                     </div>
@@ -161,7 +159,7 @@
                 <div class="dashboard-item col-md-6">
                     <div class="dashboard-content">
                         <div class="scatter-plot" style="padding-left: 20px;">
-                            <label for="workEquipment"><h6 class="tab-title">Generated Work and Completed Work per Equipment</h6></label>
+                            <label for="workEquipment"><h6 class="tab-title">Generated Work Orders and Completed Work Orders per Machine</h6></label>
                         </div>
                         
                         <div class="chart">
