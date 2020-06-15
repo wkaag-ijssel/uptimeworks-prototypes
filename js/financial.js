@@ -41,6 +41,7 @@ let costsData = [{
     type: 'line',
     fill: false,
     borderColor: pLight,
+    steppedLine: 'middle',
     backgroundColor: "rgb(0, 0, 0)",
     borderDash: [5,2],
     data: Array.from({length: date_range.length}, () => Math.floor(Math.random() * 20)+20),
