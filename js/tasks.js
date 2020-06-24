@@ -6,76 +6,138 @@ let pMain = "#1a237e"; //'rgb(26,35,126)';
     sLight = "#ffdd4b";
     sDark = "#c67c00";
 
-// Dummy data
-let date_range = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'September', 'October', 'November', 'December'];
-let workorders = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
-let readings = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
-let reports = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 20));
-let totalCosts = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 30));
-let totalSavings = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 30));
-let uptimeRatio = Array.from({length: date_range.length}, () => Math.random());
-data = [workorders, readings, reports, totalCosts, totalSavings]
+// let date_range = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'September', 'October', 'November', 'December'];
+let date_range = [];
+for(let i = 0; i<52; i += 1){
+    date_range[i] = i+1;
+};
 
-// Dummy thresholds / references
-let _workorders = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
-let _readings = [30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30];
-let _reports = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 20));
-let _totalCosts = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 30));
-let _totalSavings = [30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30];
 
 // Not used - yet
-let assetsCosts = [{
-        asset: 'Asset #1',
-        costs: Math.floor(Math.random() * 30),
-        diff: Math.floor(Math.random() * 5)
-    },{
-        asset: 'Asset #2',
-        costs: Math.floor(Math.random() * 30),
-        diff: Math.floor(Math.random() * 5)
-    },{
-        asset: 'Asset #3',
-        costs: Math.floor(Math.random() * 30),
-        diff: Math.floor(Math.random() * 5)
-    },{
-        asset: 'Asset #4',
-        costs: Math.floor(Math.random() * 30),
-        diff: Math.floor(Math.random() * 5)
-    },{
-        asset: 'Asset #5',
-        costs: Math.floor(Math.random() * 30),
-        diff: Math.floor(Math.random() * 5)
-    },{
-        asset: 'Asset #6',
-        costs: Math.floor(Math.random() * 30),
-        diff: Math.floor(Math.random() * 5)
-    },{
-        asset: 'Asset #7',
-        costs: Math.floor(Math.random() * 30),
-        diff: Math.floor(Math.random() * 5)
-}];
+// let assetsCosts = [{
+//         asset: 'Asset #1',
+//         costs: Math.floor(Math.random() * 30),
+//         diff: Math.floor(Math.random() * 5)
+//     },{
+//         asset: 'Asset #2',
+//         costs: Math.floor(Math.random() * 30),
+//         diff: Math.floor(Math.random() * 5)
+//     },{
+//         asset: 'Asset #3',
+//         costs: Math.floor(Math.random() * 30),
+//         diff: Math.floor(Math.random() * 5)
+//     },{
+//         asset: 'Asset #4',
+//         costs: Math.floor(Math.random() * 30),
+//         diff: Math.floor(Math.random() * 5)
+//     },{
+//         asset: 'Asset #5',
+//         costs: Math.floor(Math.random() * 30),
+//         diff: Math.floor(Math.random() * 5)
+//     },{
+//         asset: 'Asset #6',
+//         costs: Math.floor(Math.random() * 30),
+//         diff: Math.floor(Math.random() * 5)
+//     },{
+//         asset: 'Asset #7',
+//         costs: Math.floor(Math.random() * 30),
+//         diff: Math.floor(Math.random() * 5)
+// }];
 
-ref = [_workorders, _readings, _reports, _totalCosts, _totalSavings]
-let tabs = document.getElementsByClassName('tablinks');
-let dataMetric = document.getElementsByClassName('tab-metric');
-let dataDiff = document.getElementsByClassName('percentage-value');
 let scatterArray = [];
-
 //Create a array of objects, required input format for scatter plot.
-totalCosts.forEach((cost, index) => {
-    let saving = totalSavings[index];
-    scatterArray.push({
-        x: cost, 
-        y: saving
-    });
+// totalCosts.forEach((cost, index) => {
+//     let saving = totalSavings[index];
+//     scatterArray.push({
+//         x: cost, 
+//         y: saving
+//     });
+// });
+
+// Chart 1: % completed work orders for a specific task over time 
+let ctx = document.getElementById('taskCompletedWorkChart').getContext('2d');
+let chart1 = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: date_range,
+        datasets: [{
+            label: 'compliance (%)',
+            data: Array.from({length: date_range.length}, () => Math.floor(Math.random() * 100)),
+            backgroundColor: pMain,
+            order: 1
+        },{
+            label: "Last year",
+            type: 'line',
+            steppedLine: 'middle',
+            fill: false,
+            borderColor: pDark,
+            borderDash: [5,2],
+            data: Array.from({length: date_range.length}, () => 95),
+            order: 2
+        }]
+    },
+    options: {
+        legend: {
+            display: false,
+            position: 'bottom',
+            align: 'end',
+            labels: {
+                usePointStyle: true
+            }
+        },
+        responsive: true,
+        maintainAspectRatio: false,
+        elements: {
+            line: {
+                tension: 0,
+                borderWidth: 2
+            },
+            point:{
+                radius: 0
+            }
+        },
+        scales: {
+            xAxes: [{
+                gridLines: {
+                    display: false,
+                },
+                ticks: {
+                    maxTicksLimit: 15,
+                    autoSkip: true, //!important
+                    maxRotation: 0, 
+                    minRotation: 0
+                }
+            }],
+            yAxes: [{
+                gridLines: {
+                    display:true,
+                },
+                position: 'right',
+            }]
+        }
+    }
 });
 
+// change tab - information
+function changeTab(evt) {
+    let title = document.getElementById('title-chart-1');
+    title.innerHTML = '% Completed Work for ' + evt.firstChild.innerHTML
+
+    chart1.data.datasets[0].data = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 100));;
+    chart1.data.datasets[1].data = Array.from({length: date_range.length}, () => 85);;
+    chart1.update();
+    console.log(evt.firstChild.innerHTML);
+}
+
+
 function loadRow(){
-    let tableRef = document.getElementById('financeTable').getElementsByTagName('tbody')[0];
-    let rowsCount = document.getElementById('financeTable').rows[0].cells.length;
+    let tableRef = document.getElementById('taskTable').getElementsByTagName('tbody')[0];
+    let rowsCount = document.getElementById('taskTable').rows[0].cells.length;
 
     // Insert a row in the table at the last row
     let newRow   = tableRef.insertRow();
     newRow.className = "mdc-data-table__row";
+    newRow.onclick = "changeTab(this.value);"
 
     let data = [
         ['Task ' + Math.floor(Math.random() * 20).toString(), false],
@@ -106,7 +168,7 @@ function createTable(){
         loadRow();
     };
     //Event listeners for specific headers ('hover-icon' class)
-    let columns = document.getElementById('financeTable').getElementsByTagName('th');
+    let columns = document.getElementById('taskTable').getElementsByTagName('th');
     for(let i = 0; i < columns.length; i++){
         let column = columns[i];
         if(column.classList.contains("hover-icon")){
@@ -152,6 +214,24 @@ function createTable(){
             });
         }
     }
+
+    //Add eventlisteners to each row
+    let tableRows = document.querySelectorAll('#taskTable-body tr');
+    tableRows.forEach(e => e.addEventListener("click", function() {
+        // Here, `this` refers to the element the event was hooked on
+        tableRows.forEach(row => { 
+            if(row === e){
+                if(row.style.backgroundColor == "rgb(150, 156, 224)" ){
+                    row.style.backgroundColor = "white";
+                } else {
+                    row.style.backgroundColor = "rgb(150, 156, 224)";  
+                    changeTab(row);
+                }
+            } else {
+                row.style.backgroundColor = "white";
+            }
+        });
+    }));
     return;
 }
 createTable();
@@ -159,7 +239,7 @@ createTable();
 //Ascending
 function sortTableAscending(col) {
     let table, rows, switching, i, x, y, shouldSwitch;
-    table = document.getElementById("financeTable");
+    table = document.getElementById("taskTable");
     switching = true;
 
     while (switching) {
@@ -184,7 +264,7 @@ function sortTableAscending(col) {
 
 function sortTableDescending(col){
     let table, rows, switching, i, x, y, shouldSwitch;
-    table = document.getElementById("financeTable");
+    table = document.getElementById("taskTable");
     switching = true;
 
     while (switching) {
@@ -205,52 +285,6 @@ function sortTableDescending(col){
             switching = true;
         }
     }
-}
-
-// Load the Visualization API and the corechart package.
-google.charts.load('current', {'packages':['sankey']});
-
-// Set a callback to run when the Google Visualization API is loaded.
-google.charts.setOnLoadCallback(drawChart);
-
-// Callback that creates and populates a data table,
-// instantiates the pie chart, passes in the data and
-// draws it.
-function drawChart() {
-
-  // Create the data table.
-  var data = new google.visualization.DataTable();
-
-  //Column 0: Source -------> Total costs | Equipment | Devices?
-  //Column 1: Destination --> Equipment   | Devices   | Endpoints?
-  //Column 2: Value --------> cost
-  data.addColumn('string', 'Costs');
-  data.addColumn('string', 'Devices');
-  data.addColumn('number', 'Value');
-  data.addRows([
-    ['costs', 'device 1', 13],
-    ['costs', 'device 2', 10],
-    ['costs', 'device 3', 1],
-    ['costs', 'device 4', 1],
-    ['costs', 'device 5', 2],
-    ['device 1', 'equipment 1', 6],
-    ['device 1', 'equipment 2', 2],
-    ['device 1', 'equipment 3', 5],
-    ['device 2', 'equipment 3', 4],
-    ['device 2', 'equipment 4', 6],
-    ['device 3', 'equipment 4', 1],
-    ['device 4', 'equipment 3', 1],
-    ['device 5', 'equipment 6', 2],
-  ]);
-
-  // Set chart options
-  var options = {'width':400,
-                 'height':300};
-
-  // Instantiate and draw our chart, passing in some options.
-//   var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-  var chart = new google.visualization.Sankey(document.getElementById('chart_div'));
-  chart.draw(data, options);
 }
 
 /**
@@ -277,33 +311,6 @@ function sortByData(data, labels){
 
     return data, labels;
 }
-
-//Chart 3 & 4
-// let assetDataPromise = new Promise((resolve) => {
-//     let data = Array.from({length: 12}, () => Math.random());
-//     let labels = [
-//         ['Asset #6'],
-//         ['Asset #15'],
-//         ['Asset #10'],
-//         ['Asset #2'],
-//         ['Asset #9'],
-//         ['Asset #4'],
-//         ['Asset #11'],
-//         ['Asset #20'],
-//         ['Asset #19'],
-//         ['Asset #5'],
-//         ['Asset #16'],
-//         ['Asset #1']
-//     ]
-//     resolve([data, labels]);
-// }).then(route => {  
-//     //Sorts after routeData contains (generated) values
-//     route[0], route[1] = sortByData(route[0], route[1]);
-
-//     //Create bar graph
-//     let ctx4 = document.getElementById('assetCostsChart').getContext('2d');
-//     let assetCosts = horizontalBarChart(ctx4, route[0], route[1]);
-// });
 
 // horizontalBar chart - styled
 function horizontalBarChart(chartElem, data, labels){

@@ -186,8 +186,8 @@ body {
 }
 
 .vertical-menu a.active {
-  background-color: rgb(150, 156, 224) ;
-  color: var(--primary-dark);
+  background-color: var(--primary-main);
+  color: white; /*var(--primary-dark);*/
   border-radius: 7px;
 }
 

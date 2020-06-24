@@ -16,7 +16,7 @@ for(let i = 0; i<52; i += 1){
 let savingsData = [{
     label: 'savings',
     data: Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40)),
-    backgroundColor: pDark
+    backgroundColor: pMain
 }];
 let savingsLabels = date_range;
 
