@@ -20,17 +20,10 @@ body {
 .margin-bottom-30 { margin-bottom: 30px;}
 .margin-bottom-40 { margin-bottom: 40px;}
 
+
 /* Chart Style */
 .chart {
   padding: 20px 20px 20px 20px;
-}
-
-.mdc-data-table {
-  width: 100%;
-}
-
-.mdc-data-table__header-cell {
-  cursor: pointer;
 }
 
 .hover-icon i {  
@@ -74,12 +67,6 @@ body {
 }
 
 .dashboard-content {
-  /*custom layout*/
-  /* padding: 0px 20px 20px 20px;
-  background-color: white;
-  border-radius: 15px;
-  height: 100%; */
-
   /*Mdc layout*/
   padding: 0px 20px 20px 20px;
   background-color: white;
@@ -112,6 +99,15 @@ body {
   letter-spacing: 1.5px;
   color: darkgrey;
   text-transform: uppercase;
+}
+
+.percentage-value {
+  font-size: small;
+  font-weight: 500;
+}
+
+.fas {
+  padding-right: 3px;
 }
 
 .scatter-plot {
@@ -193,6 +189,51 @@ body {
   background-color: rgb(150, 156, 224) ;
   color: var(--primary-dark);
   border-radius: 7px;
+}
+
+/* Insight card */
+#pre-route-insight {
+  text-align: center;
+}
+
+.support-text {
+  color: lightgrey;
+  text-transform: uppercase;
+}
+
+/* Interactive table */
+.mdc-data-table {
+  width: 100%;
+}
+
+.mdc-data-table__header-cell {
+  cursor: pointer;
+}
+
+.mdc-data-table__row {
+  cursor: pointer;
+}
+
+label {
+  margin-bottom: 0rem!important;
+}
+
+#button-download.mdc-button:not(:disabled) {
+  background-color: var(--primary-light)!important;
+}
+
+.download-container {
+  height: 100px;
+  position: relative;
+}
+
+.download-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 /* Style the tab */

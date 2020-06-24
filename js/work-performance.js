@@ -9,15 +9,6 @@ let pMain = "#1a237e"; //'rgb(26,35,126)';
 // Event listeners
 document.getElementById('button-routes').addEventListener('click', function(event){ window.location.href = "routes.html"});
 document.getElementById('button-tasks').addEventListener('click', function(event){ window.location.href = "tasks.html"});
-// document.getElementById('intervalSelector').addEventListener('change', function(event){
-//     if(event.target.value == "week"){
-//         changeChartData(resourcesChart, weeklyData, weeklyLabels);
-//     } else if(event.target.value == "month"){
-//         changeChartData(resourcesChart, monthlyData, monthlyLabels)
-//     } else {
-//         console.log("warning: unknown selector option");
-//     }
-// });
 
 let ctx1 = document.getElementById('taskCompletion').getContext('2d');
 var myDoughnutChart = new Chart(ctx1, {
@@ -140,7 +131,7 @@ Chart.pluginService.register({
 });
 
 // Returns an array of dates between the two dates
-var getDates = function(startDate, endDate) {
+let getDates = function(startDate, endDate) {
     var dates = [],
         currentDate = startDate,
         addDays = function(days) {
@@ -184,14 +175,14 @@ let resourcesChart = new Chart(ctx, {
         labels: labels,
         datasets: [{
             label: 'Percentage of tasks completed',
-            borderColor: pDark,
+            borderColor: pMain,
             fill: true,
-            backgroundColor: pDark,
+            backgroundColor: pMain,
             barPercentage: 0.5,
             barThickness: 6,
             maxBarThickness: 8,
             minBarLength: 2,
-            data: Array.from({length: labels.length}, () => Math.random())
+            data: Array.from({length: labels.length}, () => Math.random()*50)
         }]
     },
     options: {
@@ -247,7 +238,7 @@ function changeChartData(chartName, data, label) {
  * @param {array} labels 
  */
 function sortByData(data, labels){
-  //1) combine the arrays:
+    //1) combine the arrays:
     var list = [];
     for (var j = 0; j < data.length; j++) 
         list.push({'value': data[j], 'label': labels[j]});
@@ -284,15 +275,42 @@ let routeDataPromise = new Promise((resolve) => {
         ['Route #1']
     ]
     resolve([data, labels]);
-}).then(route => {  
+}).then(data => {  
     //Sorts after routeData contains (generated) values
-    route[0], route[1] = sortByData(route[0], route[1]);
+    data[0], data[1] = sortByData(data[0], data[1]);
 
     //Create bar graph
     let ctx3 = document.getElementById('routeComplianceChart').getContext('2d');
-    let routeComplianceChart = horizontalBarChart(ctx3, route[0], route[1]);
+    let routeComplianceChart = horizontalBarChart(ctx3, data[0], data[1]);
 
     //Add custom graph options
+});
+
+//Chart 1: task compliance per route
+let assetDataPromise = new Promise((resolve) => {
+    let data = Array.from({length: 12}, () => Math.random() *  100);
+    let labels = [
+        ['Asset #6'],
+        ['Asset #15'],
+        ['Asset #10'],
+        ['Asset #2'],
+        ['Asset #9'],
+        ['Asset #4'],
+        ['Asset #11'],
+        ['Asset #20'],
+        ['Asset #19'],
+        ['Asset #5'],
+        ['Asset #16'],
+        ['Asset #1']
+    ]
+    resolve([data, labels]);
+}).then(data => {  
+    //Sorts after routeData contains (generated) values
+    data[0], data[1] = sortByData(data[0], data[1]);
+
+    //Create bar graph
+    let ctx5 = document.getElementById('assetComplianceChart').getContext('2d');
+    let assetComplianceChart = horizontalBarChart(ctx5, data[0], data[1]);
 });
 
 // horizontalBar chart - styled
@@ -303,7 +321,7 @@ function horizontalBarChart(chartElem, data, labels){
             labels: labels,
             datasets: [{
                 label: 'N. of tasks executed',
-                backgroundColor: pDark,
+                backgroundColor: pMain,
                 barPercentage: 0.5,
                 barThickness: 6,
                 maxBarThickness: 8,
@@ -339,63 +357,59 @@ function horizontalBarChart(chartElem, data, labels){
     });
 };
 
+
 //Chart 2: Job compliance bar plot
-let ctx4 = document.getElementById('jobCompliance').getContext('2d');
-let jobComplianceChart = new Chart(ctx4, {
-    type: 'horizontalBar',
-    data: {
-        labels: ['Lubrication', 'Inspection', 'Process', 'Vibration', 'Thermographic', 'Other'],
-        datasets: [{
-            label: 'Executed on time',
-            backgroundColor: pDark,
-            data: [
-                Math.floor(Math.random() * 85),
-                Math.floor(Math.random() * 85),
-                Math.floor(Math.random() * 85),
-                Math.floor(Math.random() * 85),
-                Math.floor(Math.random() * 85),
-                Math.floor(Math.random() * 85)
-            ]
-        }, {
-            label: 'Executed too late',
-            backgroundColor: pLight,
-            data: [
-                Math.floor(Math.random() * 10),
-                Math.floor(Math.random() * 10),
-                Math.floor(Math.random() * 10),
-                Math.floor(Math.random() * 10),
-                Math.floor(Math.random() * 10),
-                Math.floor(Math.random() * 10)
-            ]
-        }]
-    },
-    options: {
-        tooltips: {
-            mode: 'index',
-            intersect: false
-        },
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-            xAxes: [{
-                stacked: true,
-                ticks: {
-                    min: 0,
-                    max: 100,
-                    callback: function(value, index, values) {
-                        return value + '%';
-                    }
-                }
-            }],
-            yAxes: [{
-                stacked: true
+let jobCompliancePromise = new Promise((resolve) => {
+    let data_1 = Array.from({length: 6}, () => Math.floor(Math.random() * 85));
+    let data_2 = Array.from({length: 6}, () => Math.floor(Math.random() * 10));
+    let labels = ['Lubrication', 'Inspection', 'Process', 'Vibration', 'Thermographic', 'Other'];
+
+
+    resolve([data_1, data_2, labels]);
+}).then(data => {  
+    let ctx4 = document.getElementById('jobCompliance').getContext('2d');
+    let jobComplianceChart = new Chart(ctx4, {
+        type: 'horizontalBar',
+        data: {
+            labels: data[2],
+            datasets: [{
+                label: 'Executed on time',
+                backgroundColor: pMain,
+                data: data[0]
+            }, {
+                label: 'Executed too late',
+                backgroundColor: pLight,
+                data: data[1]
             }]
         },
-        legend: {
-            display: false,
-            position: 'bottom'
+        options: {
+            tooltips: {
+                mode: 'index',
+                intersect: false
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                xAxes: [{
+                    stacked: true,
+                    ticks: {
+                        min: 0,
+                        max: 100,
+                        callback: function(value, index, values) {
+                            return value + '%';
+                        }
+                    }
+                }],
+                yAxes: [{
+                    stacked: true
+                }]
+            },
+            legend: {
+                display: false,
+                position: 'bottom'
+            }
         }
-    }
+    });
 });
 
 //Chart 5: Level of Completed and Not Completed Work per Asset 
@@ -407,7 +421,6 @@ let getDataPromise = new Promise((resolve) => {
     //Create a array of objects, required input format for scatter plot.
     array1.forEach((item_x, index) => {
         let item_y = item_x - array2[index];
-        console.log(item_x, item_y);
         scatterArray.push({
             x : item_x, 
             y : item_y
@@ -415,7 +428,6 @@ let getDataPromise = new Promise((resolve) => {
     });
     resolve(scatterArray);
 }).then(data => {   
-    console.log(data);
     let ctx6 = document.getElementById('executedWorkChart').getContext('2d');
     let executedWorkChart = new Chart(ctx6, {
         data: {

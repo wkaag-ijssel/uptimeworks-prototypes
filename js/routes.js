@@ -6,20 +6,6 @@ let pMain = "#1a237e"; //'rgb(26,35,126)';
     sLight = "#ffdd4b";
     sDark = "#c67c00";
 
-// Event listeners
-// document.getElementById('button-routes').addEventListener('click', function(event){ window.location.href = "work/routes.html"});
-// document.getElementById('button-tasks').addEventListener('click', function(event){ window.location.href = "work/routes.html"});
-// document.getElementById('intervalSelector').addEventListener('change', function(event){
-//     if(event.target.value == "week"){
-//         changeChartData(resourcesChart, weeklyData, weeklyLabels);
-//     } else if(event.target.value == "month"){
-//         changeChartData(resourcesChart, monthlyData, monthlyLabels)
-//     } else {
-//         console.log("warning: unknown selector option");
-//     }
-// })
-
-
 /**Workload-resources chart 
  * 
  * Monthly data:
@@ -74,8 +60,7 @@ weeklyData = [{
     maxBarThickness: 8,
     minBarLength: 2,
     data: Array.from({length: 13}, () => Math.random())
-},
-{
+},{
     label: 'workload',
     backgroundColor: pLight,
     barPercentage: 0.5,
@@ -140,38 +125,6 @@ weeklyLabels = [ //To do: week-bins instead of month-bins, add months to the 'ma
     ['Jan', '2021'],
 ];
 
-/**Chart 1: Workload vs. resources*/
-let ctx = document.getElementById('workLoadChart').getContext('2d');
-let resourcesChart = new Chart(ctx, {
-    type: 'bar',
-    data: { 
-        labels: monthlyLabels,
-        datasets: monthlyData
-    },
-    options: {
-        legend: {
-            display: false,
-        },
-        responsive: true,
-        maintainAspectRatio: false,
-        elements: {
-            line: {
-                tension: 0, // disables bezier curves
-                borderWidth: 2
-            },
-            point:{
-                radius: 0 //hide data point indicators
-            }
-        },
-        scales: {
-            xAxes: [{
-            }],
-            yAxes: [{
-                position: 'right'
-            }]
-        }
-    }
-});
 
 /**
  * @param {*} chartName The chart variable name
@@ -208,203 +161,303 @@ function sortByData(data, labels){
     return data, labels;
 }
 
-// Line plot
-let ctx2 = document.getElementById('resourcesChart').getContext('2d');
-let workLoadChart = new Chart(ctx2, {
+// Load row
+function loadRow(){
+    let tableRef = document.getElementById('routeTable').getElementsByTagName('tbody')[0];
+    let rowsCount = document.getElementById('routeTable').rows[0].cells.length;
+
+    // Insert a row in the table at the last row
+    let newRow   = tableRef.insertRow();
+    newRow.className = "mdc-data-table__row";
+
+    let data = [
+        ['Route ' + Math.floor(Math.random() * 20).toString(), false],
+        [Math.floor(Math.random() * 20), true],
+        [Math.floor(Math.random() * 300), true],
+        [Math.floor(Math.random() * 300), true],
+        [Math.floor(Math.random() * 150), true],
+        [Math.floor(Math.random() * 150), true],
+    ];
+
+    for(let i = 0; i < rowsCount; i++){
+        let newCell  = newRow.insertCell(i);
+        newCell.innerHTML = data[i][0];
+
+        if(data[i][1] == true){
+            newCell.className = "mdc-data-table__cell mdc-data-table__cell--numeric"
+        } else {
+            newCell.className = "mdc-data-table__cell"
+        }
+    }
+};
+
+//onload
+function createTable(){
+    //Generate rows
+    for(let i = 0; i < 5; i++){
+        loadRow();
+    };
+
+    //Event listeners for specific headers ('hover-icon' class)
+    let columns = document.getElementById('routeTable').getElementsByTagName('th');
+    for(let i = 0; i < columns.length; i++){
+        let column = columns[i];
+        if(column.classList.contains("hover-icon")){
+            column.addEventListener('click', function(event) {
+                function sortedToFalse(){
+                    for(let i = 0; i < columns.length; i++){
+                        if(columns[i] !== column && columns[i].classList.contains('hover-icon')){
+                            let otherCol = columns[i];
+                            otherCol.setAttribute("data-sorted", "no");
+                            let icon = otherCol.firstChild;
+                            icon.innerHTML = "arrow_upward";
+                            icon.style.visibility = "hidden";
+                        }
+                    };
+                };
+
+                let sorted = column.getAttribute("data-sorted");
+                if(sorted == "no"){
+                    sortTableDescending(i);
+                    sortedToFalse();
+                    column.setAttribute("data-sorted", "desc");
+
+                    let icon = column.firstChild;
+                    icon.innerHTML = "arrow_upward";
+                    icon.style.visibility = "visible";
+                } else if(sorted == "desc"){
+                    sortTableAscending(i);
+                    sortedToFalse();
+                    column.setAttribute("data-sorted", "asc");
+
+                    let icon = column.firstChild;
+                    icon.innerHTML = "arrow_downward";
+                    icon.style.visibility = "visible";
+                } else if(sorted == "asc"){
+                    sortTableDescending(i);
+                    sortedToFalse();
+                    column.setAttribute("data-sorted", "desc");
+
+                    let icon = column.firstChild;
+                    icon.innerHTML = "arrow_upward";
+                    icon.style.visibility = "visible";
+                }
+            });
+        }
+    }
+
+    //Add eventlisteners to each row
+    let tableRows = document.querySelectorAll('#routeTable-body tr');
+    let start = document.getElementById('pre-route-insight');
+    let insight = document.getElementById('route-insight');
+
+    tableRows.forEach(e => e.addEventListener("click", function() {
+        console.log(e)
+        // Here, `this` refers to the element the event was hooked on
+        tableRows.forEach(row => { 
+            if(row === e){
+                if(row.style.backgroundColor == "rgb(150, 156, 224)" ){
+                    row.style.backgroundColor = "white";
+                    start.style.display = 'none';
+                    insight.style.display = 'block';
+                } else {
+                    row.style.backgroundColor = "rgb(150, 156, 224)";  
+                    start.style.display = 'none';
+                    getRouteInsight();
+                    insight.style.display = 'block';
+                }
+            } else {
+                row.style.backgroundColor = "white";
+            }
+        });
+    }));
+    return;
+}
+createTable();
+
+//Ascending
+function sortTableAscending(col) {
+    let table, rows, switching, i, x, y, shouldSwitch;
+    table = document.getElementById("routeTable");
+    switching = true;
+
+    while (switching) {
+        switching = false;
+        rows = table.rows;
+        for (i = 1; i < (rows.length - 1); i++) {
+            shouldSwitch = false;
+            x = rows[i].getElementsByTagName("TD")[col];
+            y = rows[i + 1].getElementsByTagName("TD")[col];
+
+            if (Number(x.innerHTML) > Number(y.innerHTML)) {
+                shouldSwitch = true;
+                break;
+            }
+        }
+        if (shouldSwitch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+        }
+    }
+}
+
+function sortTableDescending(col){
+    let table, rows, switching, i, x, y, shouldSwitch;
+    table = document.getElementById("routeTable");
+    switching = true;
+
+    while (switching) {
+        switching = false;
+        rows = table.rows;
+
+        for (i = 1; i < (rows.length - 1); i++) {
+            shouldSwitch = false;
+            x = rows[i].getElementsByTagName("TD")[col];
+            y = rows[i + 1].getElementsByTagName("TD")[col];
+            if (Number(x.innerHTML) < Number(y.innerHTML)) {
+                shouldSwitch = true;
+                break;
+            }
+        }
+        if (shouldSwitch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+        }
+    }
+}
+
+function getRouteInsight(route){
+    let start = document.getElementById('pre-route-insight');
+    let insight = document.getElementById('route-insight');
+
+    start.style.display = 'none';
+    insight.style.display = 'block';
+}
+
+// Chart 1: route completion over time
+let ctx5 = document.getElementById('routeCompletion').getContext('2d');
+let workloadPerIndividual = new Chart(ctx5, {
     type: 'line',
     data: { 
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         datasets: [{
-            label: 'Vibration engineer',
-            backgroundColor: pLight,
-            borderColor: 'rgb(255, 255, 255)',
-            barPercentage: 0.5,
-            barThickness: 6,
-            maxBarThickness: 8,
-            minBarLength: 2,
-            data: Array.from({length: 12}, () => Math.random()),
-            pointStyle: 'circle'
-        },{
-            label: 'Lubrication engineer',
-            backgroundColor: pDark,
-            borderColor: 'rgb(255, 255, 255)',
-            barPercentage: 0.5,
-            barThickness: 6,
-            maxBarThickness: 8,
-            minBarLength: 2,
-            data: Array.from({length: 12}, () => Math.random()),
-            pointStyle: 'circle'
-        },{
-            label: 'Other',
-            borderColor: 'rgb(255, 255, 255)',
-            data: [.5, .5, .5, .5, .5, .5, .5, .5, .5, .5, .5, .5],
-            fill: true,
-            pointStyle: 'circle'
+                label: 'Route X',
+                data: Array.from({length: 12}, () => Math.floor(Math.random() * 20)+80),
+                fill: false,
+                borderColor: pMain,
+                borderWidth: 1,
+                pointStyle: 'circle',
+                pointStrokeColor: "rgba(255, 255, 255, 0)"
+            },
+            {
+                label: "Route Y",
+                fill: false,
+                borderColor: pMain,
+                data: Array.from({length: 12}, () => Math.floor(Math.random() * 20)+80),
+                borderWidth: 1,
+                pointStyle: 'circle',
+                pointStrokeColor: "rgba(255, 255, 255, 0)"
+            },
+            {
+                label: "Route Z",
+                fill: false,
+                borderColor: pMain,
+                data: Array.from({length: 12}, () => Math.floor(Math.random() * 20)+80),
+                borderWidth: 1,
+                pointStyle: 'circle',
+                pointStrokeColor: "rgba(255, 255, 255, 0)"
+            },
+            {
+                label: "Route A",
+                fill: false,
+                borderColor: pMain,
+                data: Array.from({length: 12}, () => Math.floor(Math.random() * 20)+80),
+                borderWidth: 1,
+                pointStyle: 'circle',
+                pointStrokeColor: "rgba(255, 255, 255, 0)"
+            },
+            {
+                label: "Route B",
+                fill: false,
+                borderColor: pMain,
+                data: Array.from({length: 12}, () => Math.floor(Math.random() * 20)+80),
+                borderWidth: 1,
+                pointStyle: 'circle',
+                pointStrokeColor: "rgba(255, 255, 255, 0)"
+            },
+            {
+                label: "Route C",
+                fill: false,
+                borderColor: pMain,
+                data: Array.from({length: 12}, () => Math.floor(Math.random() * 20)+80),
+                borderWidth: 1,
+                pointStyle: 'circle',
+                pointStrokeColor: "rgba(255, 255, 255, 0)"
+            },
+            {
+                label: "Route D",
+                fill: false,
+                borderColor: pMain,
+                data: Array.from({length: 12}, () => Math.floor(Math.random() * 100)),
+                borderWidth: 1,
+                pointStyle: 'circle',
+                pointStrokeColor: "rgba(255, 255, 255, 0)"
         }]
     },
     options: {
         legend: {
-            display: true,
+            display: false,
             position: 'bottom',
-            align: 'end',
-            labels: {
-                usePointStyle: true
-            }
+            align: 'start'
         },
+        responsive: true,
+        maintainAspectRatio: false,
         elements: {
             line: {
-                tension: 0, // disables bezier curves
-                borderWidth: 2
+                tension: 0
             },
-            point:{
-                radius: 0 //hide data point indicators
+            point: {
+                radius: 0
             }
+        },
+        tooltips: {
+            mode: 'nearest',
+            intersect: false
+        },
+        hover: {
+            mode: 'dataset',
+            intersect: false
         },
         scales: {
             xAxes: [{
+                gridLines: {
+                    display: false,
+                },
             }],
             yAxes: [{
                 position: 'right',
-                stacked: true
-            }]
-        }
-    }
-});
-
-// let routeDataPromise = new Promise((resolve) => {
-//     let data = Array.from({length: 12}, () => Math.random());
-//     let labels = [
-//         ['Route #6'],
-//         ['Route #15'],
-//         ['Route #10'],
-//         ['Route #2'],
-//         ['Route #9'],
-//         ['Route #4'],
-//         ['Route #11'],
-//         ['Route #20'],
-//         ['Route #19'],
-//         ['Route #5'],
-//         ['Route #16'],
-//         ['Route #1']
-//     ]
-//     resolve([data, labels]);
-// }).then(route => {  
-//     //Sorts after routeData contains (generated) values
-//     route[0], route[1] = sortByData(route[0], route[1]);
-
-//     //Create bar graph
-//     let ctx3 = document.getElementById('routeComplianceChart').getContext('2d');
-//     let routeComplianceChart = horizontalBarChart(ctx3, route[0], route[1]);
-
-//     //Add custom graph options
-// });
-
-// horizontalBar chart - styled
-function horizontalBarChart(chartElem, data, labels){
-    console.log(labels);
-    return new Chart(chartElem, {
-        type: 'horizontalBar',
-        data: { 
-            labels: labels,
-            datasets: [{
-                label: 'N. of tasks executed',
-                backgroundColor: pDark,
-                barPercentage: 0.5,
-                barThickness: 6,
-                maxBarThickness: 8,
-                minBarLength: 2,
-                data: data
+                ticks: {
+                    beginAtZero: true
+                }
             }]
         },
-        options: {
-            legend: {
-                display: false,
-            },
-            responsive: true,
-            maintainAspectRatio: false,
-            elements: {
-                line: {
-                    tension: 0, // disables bezier curves
-                    borderWidth: 2
-                },
-                point:{
-                    radius: 0 //hide data point indicators
-                }
-            },
-            scales: {
-                xAxes: [{
-                    stacked: true
-                }],
-                yAxes: [{
-                    stacked: true,
-                    position: 'left'
-                }]
+        onHover: function onHover (evt, activeElements) {
+            if (!activeElements || !activeElements.length) {
+                this.data.datasets.forEach((dataset) => {
+                    dataset.borderColor = pMain;
+                });
+            } else {
+                let activeIndex = activeElements[0]._datasetIndex;
+                this.data.datasets.forEach((dataset, index) => {
+                    (index == activeIndex) ? setActive() : setFade();
+                    function setActive(){ 
+                        dataset.borderColor = 'red'; 
+                    } //to do: prevent showing pointer on hover
+                    function setFade(){ dataset.borderColor = "rgb(200, 200, 200)"; }
+                });
             }
-        }
-    });
-};
-
-
-
-//Create bar graph
-// let ctx4 = document.getElementById('jobCompliance').getContext('2d');
-// let jobComplianceChart = horizontalBarChart(ctx4, route[0], route[1]);
-
-//Job compliance bar plot
-// let ctx4 = document.getElementById('jobCompliance').getContext('2d');
-// let jobComplianceChart = new Chart(ctx4, {
-//     type: 'horizontalBar',
-//     data: {
-//         labels: ['Lubrication', 'Inspection', 'Process', 'Vibration', 'Thermographic', 'Other'],
-//         datasets: [{
-//             label: 'Executed on time',
-//             backgroundColor: pDark,
-//             data: [
-//                 Math.floor(Math.random() * 85),
-//                 Math.floor(Math.random() * 85),
-//                 Math.floor(Math.random() * 85),
-//                 Math.floor(Math.random() * 85),
-//                 Math.floor(Math.random() * 85),
-//                 Math.floor(Math.random() * 85)
-//             ]
-//         }, {
-//             label: 'Executed too late',
-//             backgroundColor: pLight,
-//             data: [
-//                 Math.floor(Math.random() * 10),
-//                 Math.floor(Math.random() * 10),
-//                 Math.floor(Math.random() * 10),
-//                 Math.floor(Math.random() * 10),
-//                 Math.floor(Math.random() * 10),
-//                 Math.floor(Math.random() * 10)
-//             ]
-//         }]
-//     },
-//     options: {
-//         tooltips: {
-//             mode: 'index',
-//             intersect: false
-//         },
-//         responsive: true,
-//         maintainAspectRatio: false,
-//         scales: {
-//             xAxes: [{
-//                 stacked: true,
-//                 ticks: {
-//                     min: 0,
-//                     max: 100,
-//                     callback: function(value, index, values) {
-//                         return value + '%';
-//                     }
-//                 }
-//             }],
-//             yAxes: [{
-//                 stacked: true
-//             }]
-//         },
-//         legend: {
-//             display: false,
-//             position: 'bottom'
-//         }
-//     }
-// });
+            this.update();
+            return;
+        },
+    }
+});

@@ -31,8 +31,8 @@
                 <a class="" href="financial.html">Summary</a>
                 <a class="" href="transactions.html">Transactions</a>
                 <p>MAINTENANCE</p>
-                <a  href="#">Alarms</a>
-                <a  href="#">Reports</a>
+                <a  href="alarms.html">Alarms</a>
+                <a  href="reports.html">Reports</a>
                 <p>TECHNOLOGY</p>
                 <a  href="#">Devices</a>
             </div>
@@ -96,13 +96,14 @@
                 <div class="dashboard-item col-md-6">
                     <div class="dashboard-content">
                         <div class="title">
+                            <label for="intervalSelector"><h6>Completed Work Orders per</h6></label>
                             <select id="intervalSelector">
-                                <option value="month">Daily</option>
-                                <option value="week">Weekly</option>
+                                <option value="day">Day</option>
+                                <option value="week">Week</option>
+                                <option value="month">Month</option>
                             </select>
-                            <label for="intervalSelector"><h6> Completed Work Orders</h6></label>
                         </div>
-                        <div style="height: 180px;">
+                        <div style="height: 200px;">
                             <canvas id="workLoadChart"></canvas>
                         </div>
                     </div>
@@ -113,15 +114,16 @@
             <div class="col-md-12 row">
 
                 <!-- Item 1 -->
-                <div class="dashboard-item col-md-8">
+                <div class="dashboard-item col-md-4">
                     <div class="dashboard-content">
                         <div class="scatter-plot" style="padding-left: 20px;">
                             <select id="interval">
-                                <option value="month">All</option>
+                                <option value="month">All Work</option>
                                 <option value="week">Lubrication</option>
                                 <option value="week">Vibration</option>
                             </select>
-                            <label for="interval"><h6 class="tab-title">Work Order Compliance per Route</h6></label>
+                            <label for="interval"><h6 class="tab-title">Compliance per Route</h6></label>
+                            <p class="underline">Sorted by lowest work order compliance</p>
                         </div>
                         <div class="chart" style="height: 300px;">
                             <canvas id="routeComplianceChart"></canvas>
@@ -133,12 +135,31 @@
                         </button>
                     </div>
                 </div>
-                
+
                 <!-- Item 2 -->
                 <div class="dashboard-item col-md-4">
                     <div class="dashboard-content">
                         <div class="scatter-plot" style="padding-left: 20px;">
+                            <select id="interval">
+                                <option value="month">All Work</option>
+                                <option value="week">Lubrication</option>
+                                <option value="week">Vibration</option>
+                            </select>
+                            <label for="interval"><h6 class="tab-title">Compliance per Asset</h6></label>
+                            <p class="underline">Sorted by lowest work order compliance</p>
+                        </div>
+                        <div class="chart" style="height: 300px;">
+                            <canvas id="assetComplianceChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Item 3 -->
+                <div class="dashboard-item col-md-4">
+                    <div class="dashboard-content">
+                        <div class="scatter-plot" style="padding-left: 20px;">
                             <h6 class="tab-title">Work Order Compliance per Task Type</h6>
+                            <p class="underline">Sorted by </p>
                         </div>
 
                         <div class="chart" style="height: 300px;">

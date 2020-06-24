@@ -12,6 +12,8 @@ let date_range = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep',
 // Event listeners
 document.getElementById('button-work-performance').addEventListener('click', function(event){ window.location.href = "work-performance.html"});
 document.getElementById('button-finance-summary').addEventListener('click', function(event){ window.location.href = "financial.html"})
+document.getElementById('button-alarms').addEventListener('click', function(event){ window.location.href = "alarms.html"});
+document.getElementById('button-reports').addEventListener('click', function(event){ window.location.href = "reports.html"})
 
 //Chart 2: asset health by alarms generated
 let ctx4 = document.getElementById('assetHealth').getContext('2d');

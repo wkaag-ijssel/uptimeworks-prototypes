@@ -34,8 +34,8 @@
                 <a class="" href="financial.html">Summary</a>
                 <a class="active" href="#">Transactions</a>
                 <p>MAINTENANCE</p>
-                <a  href="#">Alarms</a>
-                <a  href="#">Reports</a>
+                <a  href="alarms.html">Alarms</a>
+                <a  href="reports.html">Reports</a>
                 <p>TECHNOLOGY</p>
                 <a  href="#">Devices</a>
             </div>
@@ -58,43 +58,27 @@
                             <button class="tablinks active" onclick="changeTab(event, chart1, workorders, _workorders)">
                                 <h6 class="tab-title">Workorders</h6>
                                 <p class="tab-metric"></p>
-                                <i class="fas"></i>
-                                <p class="percentage-value"></p>
+                                <p class="percentage-value"><i class="fas"></i></p>
                             </button>
                             <button class="tablinks" onclick="changeTab(event, chart1, readings, _readings)">
                                 <h6 class="tab-title">Readings</h6>
                                 <p class="tab-metric"></p>
-                                <i class="fas"></i>
-                                <p class="percentage-value"></p>
+                                <p class="percentage-value"><i class="fas"></i></p>
                             </button>
                             <button class="tablinks" onclick="changeTab(event, chart1, reports, _reports)">
                                 <h6 class="tab-title">Reports</h6>
                                 <p class="tab-metric"></p>
-                                <i class="fas"></i>
-                                <p class="percentage-value"></p>
+                                <p class="percentage-value"><i class="fas"></i></p>
                             </button>
                             <button class="tablinks" onclick="changeTab(event, chart1, totalCosts, _totalCosts)">
                                 <h6 class="tab-title">Costs</h6>
                                 <p class="tab-metric">$ </p>
-                                <i class="fas"></i>
-                                <p class="percentage-value"></p>
+                                <p class="percentage-value"><i class="fas"></i></p>
                             </button>
-                            <!-- <button class="tablinks" onclick="changeTab(event, chart1, totalSavings, _totalSavings)">
-                                <h6 class="tab-title">Savings</h6>
-                                <p class="tab-metric">$ </p>
-                                <i class="fas"></i>
-                                <p class="percentage-value"></p>
-                            </button> -->
                         </div>
-
                         <div class="chart">
-                            <canvas id="myChart_1" height="100px"></canvas>
+                            <canvas id="myChart_1" height="250px"></canvas>
                         </div>
-                        <button class="mdc-button" style="float: right; margin: 5px 15px 10px 0px;">
-                            <div class="mdc-button__ripple"></div>
-                            <span class="mdc-button__label">View transactions</span>
-                            <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
-                        </button>
                     </div>
                 </div>
 
@@ -103,9 +87,8 @@
                         <div class="scatter-plot">
                             <h6 class="tab-title">Distribution of Transactions</h6>
                         </div>
-    
-                        <div class="chart">
-                            <div id="chart_div"></div>
+                        <div id="googleChart" class="chart">
+                            <div id="chart_div" style="width: 100%;"></div>
                         </div>
                     </div>
                 </div>
@@ -133,6 +116,17 @@
                     </div>
                 </div>
             </div>
+
+            <div class="download-container">
+                <div class="download-center">
+                    <button class="mdc-button mdc-button--raised">
+                        <div class="mdc-button__ripple"></div>
+                        <i class="material-icons mdc-button__icon" aria-hidden="true">cloud_download</i>
+                        <span class="mdc-button__label">Download all transactions</span>
+                    </button>
+                </div>
+            </div>
+
         </div>
     </div>
 </body>

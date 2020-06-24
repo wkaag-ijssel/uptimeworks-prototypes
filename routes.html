@@ -24,16 +24,16 @@
         <div class="col-md-2">
             <div class="vertical-menu" style='position: fixed;'>
                 <p>GENERAL</p>
-                <a href="#">Homepage</a>
+                <a href="index.html">Homepage</a>
                 <p>WORK</p>
                 <a  class="active" href="work-performance.html">Performance</a>
                 <a  href="work-planning.html">Planning</a>
                 <p>FINANCE</p>
                 <a  href="financial.html">Summary</a>
-                <a  href="#">Transactions</a>
+                <a  href="transactions.html">Transactions</a>
                 <p>MAINTENANCE</p>
-                <a  href="#">Alarms</a>
-                <a  href="#">Reports</a>
+                <a  href="alarms.html">Alarms</a>
+                <a  href="reports.html">Reports</a>
                 <p>TECHNOLOGY</p>
                 <a  href="#">Devices</a>
             </div>
@@ -42,7 +42,7 @@
             <div class="col-md-12 row">
                 <div class="col-md-10">
                     <h3 id="dashboard-title">Routes</h3>
-                    <p>Dashboard > Work > Routes</p>
+                    <p>Dashboard > Work > Performance > Routes</p>
                 </div>
                 <div class="col-md-2" id="dashboard-functions">
                     <input type="text" name="dates"></input>
@@ -50,47 +50,36 @@
             </div>
             
             <div class="col-md-12 row">
-                <div class="dashboard-item col-md-6">
+                <div class="dashboard-item col-md-8">
                     <div class="dashboard-content">
-                        <div class="scatter-plot" style="padding-left: 20px;">
-                            <select id="interval" name="cars">
-                                <option value="month">Monthly</option>
-                                <option value="week">Weekly</option>
-                            </select>
-                            <label for="interval"><h6 class="tab-title">Estimated Workload and Resources</h6></label>
+                        <div class="title">
+                            <h6>% Completed Work Orders per Route</h6>
+                            <p class="underline">For The 5 routes with the lowest % Completed Work</p>
                         </div>
-                        <div class="chart">
-                            <canvas id="workLoadChart"></canvas>
+                        <div class="chart" style="height: 300px;">
+                            <canvas id="routeCompletion"></canvas>
                         </div>
-                        <!-- <div class="col-md-12 row">
-                            <button class="mdc-button foo-button">
-                                <div class="mdc-button__ripple"></div>
-                                <span class="material-icons mdc-fab__icon">cloud</span>
-                                <span class="mdc-button__label">Workload scheduler</span>
-                            </button>
-                        </div> -->
-                        <!-- <div class="col-md-12 row">
-                            <button class="mdc-button">
-                                <div class="mdc-button__ripple"></div>
-                                <i class="material-icons mdc-button__icon" aria-hidden="true">bookmark</i>
-                                <span class="mdc-button__label">Text Button plus icon</span>
-                            </button>
-                        </div> -->
                     </div>
                 </div>
 
-                <div class="dashboard-item col-md-6">
+                <div class="dashboard-item col-md-4">
                     <div class="dashboard-content">
-                        <div class="scatter-plot" style="padding-left: 20px;">
-                            <select id="interval" name="cars">
-                                <option value="month">Resources</option>
-                                <option value="week">Workload</option>
-                            </select>
-                            <label for="interval"><h6 class="tab-title"> Types </h6></label>
+                        <div class="title">
+                            <h6>Route Insight</h6>
+                            <p class="underline">What factors are important?</p>
                         </div>
 
-                        <div class="chart">
-                            <canvas id="resourcesChart"></canvas>
+                        <div id="pre-route-insight" class="title" >
+                            <h6 class="support-text">select a route</h6>
+                            <p class="support-text" style="font-size: small;">in the graph or table below</p>
+                        </div>
+                        <div id="route-insight" class='title' style="display: none; height: 300px; overflow-y: scroll;">
+                            <p><a class="sub-title">Route: </a>D</p>
+
+                            <p class="sub-title">Least Completed Tasks</p>
+                            <p>Task X at Equipment 4</p>
+                            <p>Task P at Equipment 1</p>
+                            <p>Task Q at Equipment 3</p>
                         </div>
                     </div>
                 </div>
@@ -99,22 +88,32 @@
             <div class="col-md-12 row">
                 <div class="dashboard-item col-md-12">
                     <div class="mdc-data-table">
-                        <table id="financeTable" class="mdc-data-table__table" aria-label="Dessert calories">
-                          <thead>
-                            <tr class="mdc-data-table__header-row">
-                              <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Assets</th>
-                              <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric hover-icon" role="columnheader" scope="col" data-sorted="no"><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i>Costs</th>
-                              <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric hover-icon" role="columnheader" scope="col" data-sorted="no"><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i>Workorders</th>
-                              <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric hover-icon" role="columnheader" scope="col" data-sorted="no"><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i>Readings</th>
-                              <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric hover-icon" role="columnheader" scope="col" data-sorted="no"><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i>Reports</th>
-                              <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Roles</th>
-                            </tr>
-                          </thead>
-                          <tbody class="mdc-data-table__content">
-                            <!-- Auto generated cells -->
-                          </tbody>
+                        <table id="routeTable" class="mdc-data-table__table" aria-label="Dessert calories">
+                            <thead>
+                                <tr class="mdc-data-table__header-row">
+                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Routes</th>
+                                    <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric hover-icon" role="columnheader" scope="col" data-sorted="no"><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i>Tasks</th>
+                                    <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric hover-icon" role="columnheader" scope="col" data-sorted="no"><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i>Work Orders</th>
+                                    <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric hover-icon" role="columnheader" scope="col" data-sorted="no"><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i>% Completed</th>
+                                    <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric hover-icon" role="columnheader" scope="col" data-sorted="no"><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i>% Overdue</th>
+                                    <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric hover-icon" role="columnheader" scope="col" data-sorted="no"><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i>% Not Completed</th>
+                                </tr>
+                            </thead>
+                            <tbody id="routeTable-body" class="mdc-data-table__content">
+                                <!-- Auto generated cells -->
+                            </tbody>
                         </table>
                     </div>
+                </div>
+            </div>
+
+            <div class="download-container">
+                <div class="download-center">
+                    <button class="mdc-button mdc-button--raised">
+                        <div class="mdc-button__ripple"></div>
+                        <i class="material-icons mdc-button__icon" aria-hidden="true">cloud_download</i>
+                        <span class="mdc-button__label">Download all routes</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -126,5 +125,5 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="js/routes.js"></script>
     <script src="js/functions.js"></script>
-    <script src="js/datatable.js"></script>
+    <!-- <script src="js/datatable.js"></script> -->
 </footer>

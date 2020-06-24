@@ -34,8 +34,8 @@
                 <a class="active" href="#">Summary</a>
                 <a class="" href="transactions.html">Transactions</a>
                 <p>MAINTENANCE</p>
-                <a  href="#">Alarms</a>
-                <a  href="#">Reports</a>
+                <a  href="alarms.html">Alarms</a>
+                <a  href="reports.html">Reports</a>
                 <p>TECHNOLOGY</p>
                 <a  href="#">Devices</a>
             </div>
@@ -67,7 +67,7 @@
                                     <p class="percentage-value">6%</p> -->
                                 </div>
                                 <div class="margin-top-20">
-                                    <p class="sub-title">This Weeks Savings</p>
+                                    <p class="sub-title">This Month</p>
                                     <p class="value">$ 2500,00</p>
                                     <!-- <i class="fas fa-long-arrow-alt-up"></i>
                                     <p class="percentage-value">8%</p> -->
@@ -109,8 +109,8 @@
                 <div class="dashboard-item col-md-8">
                     <div class="dashboard-content">
                         <div class="title">
-                            <h6>Costs</h6>
-                            <p class="underline">What costs have been made?</p>
+                            <h6>Transaction Costs</h6>
+                            <p class="underline">What transaction costs have been made?</p>
                         </div>
                         <div class="row" style="padding-left: 20px;">
                             <div class="col-md-3">
@@ -121,7 +121,7 @@
                                     <p class="percentage-value">6%</p> -->
                                 </div>
                                 <div class="margin-top-20">
-                                    <p class="sub-title">This Weeks Costs</p>
+                                    <p class="sub-title">This Month</p>
                                     <p class="value">$ 2500,00</p>
                                     <!-- <i class="fas fa-long-arrow-alt-up"></i>
                                     <p class="percentage-value">8%</p> -->
@@ -144,10 +144,45 @@
                                 <option value="week">Lubrication</option>
                                 <option value="week">Vibration</option>
                             </select>
-                            <label for="interval"><h6 class="tab-title">Costs per Asset</h6></label>
+                            <label for="interval"><h6 class="tab-title">Transaction Costs per Asset</h6></label>
                         </div>
                         <div class="chart" style="height: 300px;">
                             <canvas id="assetCostsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 row">
+                <div class="dashboard-item col-md-4">
+                    <div class="dashboard-content">
+                        <div class="scatter-plot" style="padding-left: 20px;">
+                            <h6 class="tab-title">Transaction Costs per Route</h6>
+                        </div>
+                        <div class="chart" style="height: 300px;">
+                            <canvas id="routeCostsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="dashboard-item col-md-4">
+                    <div class="dashboard-content">
+                        <div class="scatter-plot" style="padding-left: 20px;">
+                            <h6 class="tab-title">Total Costs and Total Savings per Asset</h6>
+                        </div>
+                        <div class="chart" style="height: 300px;">
+                            <canvas id="costsAndSavingsChart"></canvas>
+                        </div>
+                    </div>
+                </div> -->
+
+                <div class="dashboard-item col-md-4">
+                    <div class="dashboard-content">
+                        <div class="scatter-plot" style="padding-left: 20px;">
+                            <h6 class="tab-title">Savings per Task Type</h6>
+                        </div>
+                        <div class="chart" style="height: 300px;">
+                            <canvas id="taskSavingsChart"></canvas>
                         </div>
                     </div>
                 </div>

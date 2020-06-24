@@ -6,71 +6,30 @@ let pMain = "#1a237e"; //'rgb(26,35,126)';
     sLight = "#ffdd4b";
     sDark = "#c67c00";
 
+// Labels
+// let date_range = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'September', 'October', 'November', 'December'];
+let date_range = [];
+for(let i = 0; i<52; i += 1){
+    date_range[i] = i+1;
+};
+
 // Dummy data
-let date_range = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'September', 'October', 'November', 'December'];
 let workorders = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
 let readings = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
 let reports = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 20));
 let totalCosts = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 30));
-let totalSavings = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 30));
-let uptimeRatio = Array.from({length: date_range.length}, () => Math.random());
-data = [workorders, readings, reports, totalCosts, totalSavings]
+data = [workorders, readings, reports, totalCosts];
 
 // Dummy thresholds / references
 let _workorders = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
-let _readings = [30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30];
+let _readings = Array.from({length: date_range.length}, () => 30);
 let _reports = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 20));
 let _totalCosts = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 30));
-let _totalSavings = [30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30];
+ref = [_workorders, _readings, _reports, _totalCosts];
 
-// Event listeners
-// document.getElementById('button-transactions').addEventListener('click', function(event){ window.location.href = "transactions.html"});
-
-// Not used - yet
-let assetsCosts = [{
-        asset: 'Asset #1',
-        costs: Math.floor(Math.random() * 30),
-        diff: Math.floor(Math.random() * 5)
-    },{
-        asset: 'Asset #2',
-        costs: Math.floor(Math.random() * 30),
-        diff: Math.floor(Math.random() * 5)
-    },{
-        asset: 'Asset #3',
-        costs: Math.floor(Math.random() * 30),
-        diff: Math.floor(Math.random() * 5)
-    },{
-        asset: 'Asset #4',
-        costs: Math.floor(Math.random() * 30),
-        diff: Math.floor(Math.random() * 5)
-    },{
-        asset: 'Asset #5',
-        costs: Math.floor(Math.random() * 30),
-        diff: Math.floor(Math.random() * 5)
-    },{
-        asset: 'Asset #6',
-        costs: Math.floor(Math.random() * 30),
-        diff: Math.floor(Math.random() * 5)
-    },{
-        asset: 'Asset #7',
-        costs: Math.floor(Math.random() * 30),
-        diff: Math.floor(Math.random() * 5)
-}];
-
-ref = [_workorders, _readings, _reports, _totalCosts, _totalSavings]
 let tabs = document.getElementsByClassName('tablinks');
 let dataMetric = document.getElementsByClassName('tab-metric');
 let dataDiff = document.getElementsByClassName('percentage-value');
-let scatterArray = [];
-
-//Create a array of objects, required input format for scatter plot.
-totalCosts.forEach((cost, index) => {
-    let saving = totalSavings[index];
-    scatterArray.push({
-        x: cost, 
-        y: saving
-    });
-});
 
 // Initialize line graph
 for(i = 0; i<dataMetric.length; i++){
@@ -87,21 +46,19 @@ for(i = 0; i<dataMetric.length; i++){
         diff = Math.abs(diff);
     }
     dataMetric[i].innerHTML += dataSum;
-    dataDiff[i].innerHTML = diff  + "%";
+    dataDiff[i].innerHTML += diff  + "%";
 }
 
 // Line graph
 let ctx = document.getElementById('myChart_1').getContext('2d');
 let chart1 = new Chart(ctx, {
-    // The type of chart we want to create
     type: 'bar',
-    // The data for our dataset
     data: {
         labels: date_range,
         datasets: [{
             label: 'n. of workorders',
             data: workorders,
-            backgroundColor: pLight,
+            backgroundColor: pMain,
             order: 1
         },{
             label: "Last year",
@@ -114,8 +71,6 @@ let chart1 = new Chart(ctx, {
             order: 2
         }]
     },
-
-    // Configuration options go here
     options: {
         legend: {
             display: false,
@@ -125,13 +80,15 @@ let chart1 = new Chart(ctx, {
                 usePointStyle: true
             }
         },
+        responsive: true,
+        maintainAspectRatio: false,
         elements: {
             line: {
-                tension: 0, // disables bezier curves
+                tension: 0,
                 borderWidth: 2
             },
             point:{
-                radius: 0 //hide data point indicators
+                radius: 0
             }
         },
         scales: {
@@ -331,39 +288,53 @@ google.charts.setOnLoadCallback(drawChart);
 // draws it.
 function drawChart() {
 
-  // Create the data table.
-  var data = new google.visualization.DataTable();
+    // Create the data table.
+    var data = new google.visualization.DataTable();
 
-  //Column 0: Source -------> Total costs | Equipment | Devices?
-  //Column 1: Destination --> Equipment   | Devices   | Endpoints?
-  //Column 2: Value --------> cost
-  data.addColumn('string', 'Costs');
-  data.addColumn('string', 'Devices');
-  data.addColumn('number', 'Value');
-  data.addRows([
-    ['costs', 'device 1', 13],
-    ['costs', 'device 2', 10],
-    ['costs', 'device 3', 1],
-    ['costs', 'device 4', 1],
-    ['costs', 'device 5', 2],
-    ['device 1', 'equipment 1', 6],
-    ['device 1', 'equipment 2', 2],
-    ['device 1', 'equipment 3', 5],
-    ['device 2', 'equipment 3', 4],
-    ['device 2', 'equipment 4', 6],
-    ['device 3', 'equipment 4', 1],
-    ['device 4', 'equipment 3', 1],
-    ['device 5', 'equipment 6', 2],
-  ]);
+    //Column 0: Source -------> Total costs | Equipment | Devices?
+    //Column 1: Destination --> Equipment   | Devices   | Endpoints?
+    //Column 2: Value --------> cost
+    data.addColumn('string', 'Costs');
+    data.addColumn('string', 'Devices');
+    data.addColumn('number', 'Value');
+    data.addRows([
+        ['costs', 'device 1', 13],
+        ['costs', 'device 2', 10],
+        ['costs', 'device 3', 1],
+        ['costs', 'device 4', 1],
+        ['costs', 'other devices', 2],
+        ['device 1', 'equipment 1', 6],
+        ['device 1', 'equipment 2', 2],
+        ['device 1', 'equipment 3', 5],
+        ['device 2', 'equipment 3', 4],
+        ['device 2', 'equipment 4', 6],
+        ['device 3', 'equipment 4', 1],
+        ['device 4', 'equipment 3', 1],
+        ['other devices', 'other equipments', 2],
+    ]);
+    
+    let colors = ["#1a237e", "#534bae", "#000051", "#ffab00", "#ffdd4b", "#c67c00"]
+    let width = document.getElementById('googleChart').width;
 
-  // Set chart options
-  var options = {'width':400,
-                 'height':300};
+    // Set chart options
+    var options = {
+        'width': width,
+        'height':300,
+        sankey: {
+        node: {
+            colors: colors,
+            width: 2
+            }
+        // link: {
+        //     colorMode: 'gradient',
+        //     }
+        }
+    };
 
     // Instantiate and draw our chart, passing in some options.
-//   var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-  var chart = new google.visualization.Sankey(document.getElementById('chart_div'));
-  chart.draw(data, options);
+    //   var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+    var chart = new google.visualization.Sankey(document.getElementById('chart_div'));
+    chart.draw(data, options);
 }
 
 /**

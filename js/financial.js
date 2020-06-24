@@ -12,22 +12,6 @@ let date_range = [];
 for(let i = 0; i<52; i += 1){
     date_range[i] = i+1;
 };
-// let workorders = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
-// let totalCosts = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 30));
-// let totalSavings = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 30));
-
-// Event listeners
-// document.getElementById('button-transactions').addEventListener('click', function(event){ window.location.href = "transactions.html"});
-
-// let scatterArray = [];
-//Create a array of objects, required input format for scatter plot.
-// totalCosts.forEach((cost, index) => {
-//     let saving = totalSavings[index];
-//     scatterArray.push({
-//         x: cost, 
-//         y: saving
-//     });
-// });
 
 let savingsData = [{
     label: 'savings',
@@ -48,7 +32,7 @@ let costsData = [{
 },{
     label: 'actual costs',
     data: Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40)),
-    backgroundColor: pDark,
+    backgroundColor: pMain,
 }]
 let costsLabels = date_range;
 
@@ -168,7 +152,7 @@ let routeDataPromise = new Promise((resolve) => {
 
 //Chart 2
 let assetSavingsPromise = new Promise((resolve) => {
-    let data = Array.from({length: 12}, () => Math.random());
+    let data = Array.from({length: 12}, () => Math.random() * 8000);
     let labels = [
         ['Asset #6'],
         ['Asset #15'],
@@ -220,15 +204,36 @@ let assetCostsPromise = new Promise((resolve) => {
     let assetCosts = horizontalBarChart(ctx4, route[0], route[1]);
 });
 
+//Chart 4
+let taskSavingsPromise = new Promise((resolve) => {
+    let data = Array.from({length: 6}, () => Math.random() * 10000);
+    let labels = [
+        ['Lubrication'],
+        ['Process'],
+        ['Vibration'],
+        ['Inspection'],
+        ['Thermographic'],
+        ['Other']
+    ]
+    resolve([data, labels]);
+}).then(data => {  
+    //Sorts after routeData contains (generated) values
+    data[0], data[1] = sortByData(data[0], data[1]);
+
+    //Create bar graph
+    let ctx6 = document.getElementById('taskSavingsChart').getContext('2d');
+    let taskSavingsChart = horizontalBarChart(ctx6, data[0], data[1]);
+});
+
 // horizontalBar chart - styled
-function horizontalBarChart(chartElem, data, labels){
+function horizontalBarChart(chartElem, data, labels, col=pMain){
     return new Chart(chartElem, {
         type: 'horizontalBar',
         data: { 
             labels: labels,
             datasets: [{
                 label: 'N. of tasks executed',
-                backgroundColor: pDark,
+                backgroundColor: col,
                 barPercentage: 0.5,
                 barThickness: 6,
                 maxBarThickness: 8,
@@ -263,74 +268,3 @@ function horizontalBarChart(chartElem, data, labels){
         }
     });
 };
-
-//Chart 7: Transaction costs 
-// let costsChartPromise = new Promise((resolve) => {
-//     let costs = [];
-//     let date = []
-//     let expectedCosts = [];
-//     costs[0] = 0;
-//     date[0] = 0;
-//     expectedCosts[0] = 0;
-
-//     for(let i = 1; i < 40; i++){
-//         expectedCosts[i] = expectedCosts[i-1] + Math.floor(Math.random()*5);
-//         date[i] = i;
-//         if(i < 20){
-//             costs[i] = costs[i-1] + Math.floor(Math.random()*5);
-//         }
-//     }
-
-//     resolve([costs, expectedCosts, date]);
-// }).then(data => {
-//     let ctx7 = document.getElementById('transactionSumChart').getContext('2d');
-//     let chart7 = new Chart(ctx7, {
-//         type: 'line',
-//         data: { 
-//             labels: data[2], //Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40)),
-//             datasets: [{
-//                 label: 'Actual costs',
-//                 data: data[0],
-//                 fill: true,
-//                 borderColor: pMain,
-//                 pointStyle: 'line',
-//                 lineTension: 0
-//             },{
-//                 label: 'Expected costs',
-//                 data: data[1],
-//                 fill: false,
-//                 borderColor: pMain,
-//                 borderDash: [5,2],
-//                 pointStyle: 'line',
-//                 lineTension: 0
-//             }]
-//         },
-//         options: {
-//             legend: {
-//                 display: false,
-//                 labels: {
-//                     usePointStyle: true
-//                 }
-//             },
-//             tooltips: {
-//                 mode: 'index'
-//             },
-//             scales: {
-                
-//                 xAxes: [{
-//                     gridLines: {
-//                         display: false,
-//                     },
-//                     ticks: {
-//                         autoSkip: true,
-//                         maxRotation: 0,
-//                         autoSkipPadding: 50
-//                     }
-//                 }],
-//                 yAxes: [{
-//                     position: 'right'
-//                 }]
-//             }
-//         }
-//     }); 
-// })

@@ -69,108 +69,6 @@ totalCosts.forEach((cost, index) => {
     });
 });
 
-// Initialize line graph
-for(i = 0; i<dataMetric.length; i++){
-    let dataSum = data[i].reduce((a, b) => a + b, 0);
-    let refSum = ref[i].reduce((a,b) => a + b, 0);
-    let diff = parseInt(((100*dataSum)/refSum)-100);
-
-    let icon = tabs[i].getElementsByClassName('fas');
-
-    if(diff > 0){
-        icon[0].className += " fa-long-arrow-alt-up";
-    } else if (diff < 0){
-        icon[0].className += " fa-long-arrow-alt-down";
-        diff = Math.abs(diff);
-    }
-    dataMetric[i].innerHTML += dataSum;
-    dataDiff[i].innerHTML = diff  + "%";
-}
-
-// Line graph
-let ctx = document.getElementById('myChart_1').getContext('2d');
-let chart1 = new Chart(ctx, {
-    // The type of chart we want to create
-    type: 'bar',
-    // The data for our dataset
-    data: {
-        labels: date_range,
-        datasets: [{
-            label: 'n. of workorders',
-            data: workorders,
-            backgroundColor: pLight,
-            order: 1
-        },{
-            label: "Last year",
-            type: 'line',
-            fill: false,
-            borderColor: pDark,
-            borderDash: [5,2],
-            data: _workorders,
-            order: 2
-        }]
-    },
-
-    // Configuration options go here
-    options: {
-        legend: {
-            display: false,
-            position: 'bottom',
-            align: 'end',
-            labels: {
-                usePointStyle: true
-            }
-        },
-        elements: {
-            line: {
-                tension: 0, // disables bezier curves
-                borderWidth: 2
-            },
-            point:{
-                radius: 0 //hide data point indicators
-            }
-        },
-        scales: {
-            xAxes: [{
-                gridLines: {
-                    display: false,
-                },
-                ticks: {
-                    maxTicksLimit: 15,
-                    autoSkip: true, //!important
-                    maxRotation: 0, 
-                    minRotation: 0
-                }
-            }],
-            yAxes: [{
-                gridLines: {
-                    display:true,
-                },
-                position: 'right',
-            }]
-        }
-    }
-});
-
-function changeTab(evt, chartName, dataInput, refInput='None') {
-    let i, tabcontent, tablinks;
-  
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-
-    // change metric data
-    chartName.data.datasets[0].data = dataInput;
-    chartName.data.datasets[0].label = 'n. of ' + evt.currentTarget.getElementsByClassName("tab-title")[0].innerText.toLowerCase();
-
-    // change ref/threshold data
-    chartName.data.datasets[1].data = refInput;
-
-    chart1.update();
-    evt.currentTarget.className += " active";
-}
-
 function loadRow(){
     let tableRef = document.getElementById('financeTable').getElementsByTagName('tbody')[0];
     let rowsCount = document.getElementById('financeTable').rows[0].cells.length;
@@ -180,12 +78,13 @@ function loadRow(){
     newRow.className = "mdc-data-table__row";
 
     let data = [
-        ['Asset ' + Math.floor(Math.random() * 20).toString(), false],
-        ['$ ' + (Math.random() * 10).toFixed(2).toString(), true],
-        [Math.floor(Math.random() * 7), true],
+        ['Task ' + Math.floor(Math.random() * 20).toString(), false],
+        [Math.floor(Math.random() * 100), true],
+        [Math.floor(Math.random() * 100), true],
         [Math.floor(Math.random() * 4), true],
         [Math.floor(Math.random() * 4), true],
-        ['person ' + Math.floor(Math.random() * 30).toString(), false]
+        [Math.floor(Math.random() * 4), true],
+        [Math.floor(Math.random() * 4), true],
     ];
 
     for(let i = 0; i < rowsCount; i++){
@@ -271,7 +170,7 @@ function sortTableAscending(col) {
             x = rows[i].getElementsByTagName("TD")[col];
             y = rows[i + 1].getElementsByTagName("TD")[col];
 
-            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+            if (Number(x.innerHTML) > Number(y.innerHTML)) {
                 shouldSwitch = true;
                 break;
             }
@@ -296,7 +195,7 @@ function sortTableDescending(col){
             shouldSwitch = false;
             x = rows[i].getElementsByTagName("TD")[col];
             y = rows[i + 1].getElementsByTagName("TD")[col];
-            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+            if (Number(x.innerHTML) < Number(y.innerHTML)){
                 shouldSwitch = true;
                 break;
             }
@@ -361,77 +260,50 @@ function drawChart() {
  */
 function sortByData(data, labels){
     //1) combine the arrays:
-      var list = [];
-      for (var j = 0; j < data.length; j++) 
-          list.push({'value': data[j], 'label': labels[j]});
-  
-      //2) sort:
-      list.sort(function(a, b) {
-          return ((a.value > b.value) ? -1 : ((a.value == b.value) ? 0 : 1));
-      });
-  
-      //3) separate them back out:
-      for (var k = 0; k < list.length; k++) {
-          data[k] = list[k].value;
-          labels[k] = list[k].label;
-      }
-  
-      return data, labels;
-  }
+    var list = [];
+    for (var j = 0; j < data.length; j++) 
+        list.push({'value': data[j], 'label': labels[j]});
+
+    //2) sort:
+    list.sort(function(a, b) {
+        return ((a.value > b.value) ? -1 : ((a.value == b.value) ? 0 : 1));
+    });
+
+    //3) separate them back out:
+    for (var k = 0; k < list.length; k++) {
+        data[k] = list[k].value;
+        labels[k] = list[k].label;
+    }
+
+    return data, labels;
+}
 
 //Chart 3 & 4
-let routeDataPromise = new Promise((resolve) => {
-    let data = Array.from({length: 12}, () => Math.random());
-    let labels = [
-        ['Route #6'],
-        ['Route #15'],
-        ['Route #10'],
-        ['Route #2'],
-        ['Route #9'],
-        ['Route #4'],
-        ['Route #11'],
-        ['Route #20'],
-        ['Route #19'],
-        ['Route #5'],
-        ['Route #16'],
-        ['Route #1']
-    ]
-    resolve([data, labels]);
-}).then(route => {  
-    //Sorts after routeData contains (generated) values
-    route[0], route[1] = sortByData(route[0], route[1]);
+// let assetDataPromise = new Promise((resolve) => {
+//     let data = Array.from({length: 12}, () => Math.random());
+//     let labels = [
+//         ['Asset #6'],
+//         ['Asset #15'],
+//         ['Asset #10'],
+//         ['Asset #2'],
+//         ['Asset #9'],
+//         ['Asset #4'],
+//         ['Asset #11'],
+//         ['Asset #20'],
+//         ['Asset #19'],
+//         ['Asset #5'],
+//         ['Asset #16'],
+//         ['Asset #1']
+//     ]
+//     resolve([data, labels]);
+// }).then(route => {  
+//     //Sorts after routeData contains (generated) values
+//     route[0], route[1] = sortByData(route[0], route[1]);
 
-    //Create bar graph
-    let ctx3 = document.getElementById('routeCostsChart').getContext('2d');
-    let routeCosts = horizontalBarChart(ctx3, route[0], route[1]);
-});
-
-//Chart 3 & 4
-let assetDataPromise = new Promise((resolve) => {
-    let data = Array.from({length: 12}, () => Math.random());
-    let labels = [
-        ['Asset #6'],
-        ['Asset #15'],
-        ['Asset #10'],
-        ['Asset #2'],
-        ['Asset #9'],
-        ['Asset #4'],
-        ['Asset #11'],
-        ['Asset #20'],
-        ['Asset #19'],
-        ['Asset #5'],
-        ['Asset #16'],
-        ['Asset #1']
-    ]
-    resolve([data, labels]);
-}).then(route => {  
-    //Sorts after routeData contains (generated) values
-    route[0], route[1] = sortByData(route[0], route[1]);
-
-    //Create bar graph
-    let ctx4 = document.getElementById('assetCostsChart').getContext('2d');
-    let assetCosts = horizontalBarChart(ctx4, route[0], route[1]);
-});
+//     //Create bar graph
+//     let ctx4 = document.getElementById('assetCostsChart').getContext('2d');
+//     let assetCosts = horizontalBarChart(ctx4, route[0], route[1]);
+// });
 
 // horizontalBar chart - styled
 function horizontalBarChart(chartElem, data, labels){
