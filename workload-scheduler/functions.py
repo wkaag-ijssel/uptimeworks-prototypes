@@ -14,7 +14,7 @@ def arrayOfTasks(size):
 
     def generateTask():
         task = {
-            "interval": random.randint(2,4), #task interval, interval must not be larger than number of queues take into account!!
+            "interval": random.randint(2,4), #task interval, interval must < number of queues && > 0
             "duration": random.randint(1,4), #task duration
             "type": random.randint(0,2),     #task type e.g., walking routes
             "id": uuid.uuid4()               #task id (to differentiate between tasks with equal interval, duration and type)

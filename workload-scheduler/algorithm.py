@@ -12,18 +12,36 @@ def scoring(qes, res):
         res (list):         The resources 
 
     Returns:
-        score (float):      The performance of this workload
+        score (float):      The score of this workload
 
     '''
 
     diff = []
     for queue, resource in zip(qes, res):
         diff.append(resource-queue)
-    score = statistics.stdev(diff)          # Metric 1 - overall standard deviation of the queue-resource differences
+    score = statistics.stdev(diff)
 
-    # Idea: resource surplus- or shortage-oriented metric
-    # Idea: short-term oriented score. Resource shortage later-on is of lesser importance, than a shortage next week.
-    # Idea: additional to score, add breaking conditions (e.g., safety, downtime, idk)
+    '''
+    Idea: resource surplus- or shortage-oriented metric.
+    Idea: short-term oriented score. Resource shortage later-on is of lesser importance, than a shortage next week.
+    Idea: additional to score, add breaking conditions (e.g., safety, downtime, idk)
+
+          filter tasks with 'breaking conditions':
+                at stage 2:
+                    begin with relocating these tasks, as their options are limited:
+                        distribute the 'rest' of the tasks to minimize any resource shortages.
+
+    Idea: at stage 2, aim to find startdates at weeks with tasks of same type.
+        
+        evaluate tasks in queue:
+            if any has type of selected task:
+                calculate score 
+            else:
+                breaking condition
+                or
+                penalty to score
+
+    '''
     return score
 
 def calculateWorkload(start_date, workload, batch):
@@ -54,14 +72,14 @@ def scheduleWorkloadperBatch(batches, queues, resources):
 
     Parameters:
         batches (list):             Batches of tasks. Each batch contains tasks with the same 'type' 
-        queues (list):              Queues 
+        queues (list):              The workload. Each queue represents a week. The initial workload is 0.
         resources(list):            Resources
 
     Returns:
-        batchScores (list):         Scores
-        bestWorkload (list):        Workload
-        batchStartDates (list):     Start dates
-        planning (list):            Planning
+        batchScores (list):         Scores of each batch (not used)
+        bestWorkload (list):        The workload of best schedule
+        batchStartDates (list):     The start dates of each batch (not used)
+        planning (list):            The new schedule resulting from batch-scheduling.
     '''
     def getMaxInterval(setOfTasks):
         interval = 0
@@ -127,16 +145,17 @@ def scheduleWorkloadperTask(sched, res, base_workload, score):
     Stage 2 - creating a new schedule by iteratively testing the impact of different startdates for individual tasks.
 
     Parameters:
-        sched (list): the schedule with a . 
-        res (list): Resources of 
-        base_workload(list): 
-        score (float): 
+        sched (list):               The schedule resulting from batch-scheduling the tasks (stage 1). 
+                                    A list containing lists of dicts. Each dict being a task.
+        res (list):                 The resources
+        base_workload(list):        The workload resulting from batch-scheduling the tasks (stage 1). 
+        score (float):              The score of the base_workload
 
     Returns:
-        planning (list):
-        workload (list):
-        start_date (int):
-        score (float):
+        sched (list):               The new schedule resulting from task-scheduling. 
+        best_workload (list):       The new workload resulting from the planning
+        start_date (int):           
+        score (float):              The score of the workload
     '''
 
     # recalculate the workload - minus the workload of the 'task' - check
