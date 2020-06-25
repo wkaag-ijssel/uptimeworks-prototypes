@@ -112,6 +112,11 @@ let chart1 = new Chart(ctx, {
                 gridLines: {
                     display:true,
                 },
+                ticks: {
+                    callback: function(value, index, values) {
+                        return value + '%';
+                    }
+                },
                 position: 'right',
             }]
         }
