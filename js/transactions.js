@@ -13,18 +13,22 @@ for(let i = 0; i<52; i += 1){
     date_range[i] = i+1;
 };
 
+
+let past = .75
+let future = 1 - past
+
 // Dummy data
-let workorders = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
-let readings = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
-let reports = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 20));
-let totalCosts = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 30));
-data = [workorders, readings, reports, totalCosts];
+let workorders = Array.from({length: date_range.length * past}, () => Math.floor(Math.random() * 40));
+let readings = Array.from({length: date_range.length * past}, () => Math.floor(Math.random() * 40));
+let reports = Array.from({length: date_range.length * past}, () => Math.floor(Math.random() * 20));
+let totalCosts = Array.from({length: date_range.length * past}, () => Math.floor(Math.random() * 30));
+let data = [workorders, readings, reports, totalCosts]
 
 // Dummy thresholds / references
-let _workorders = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40));
-let _readings = Array.from({length: date_range.length}, () => 30);
-let _reports = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 20));
-let _totalCosts = Array.from({length: date_range.length}, () => Math.floor(Math.random() * 30));
+let _workorders = workorders.concat(Array.from({length: date_range.length * future}, () => Math.floor(Math.random() * 40)));
+let _readings = readings.concat(Array.from({length: date_range.length * future}, () => 30));
+let _reports = reports.concat(Array.from({length: date_range.length * future}, () => Math.floor(Math.random() * 20)));
+let _totalCosts = totalCosts.concat(Array.from({length: date_range.length * future}, () => Math.floor(Math.random() * 30)));
 ref = [_workorders, _readings, _reports, _totalCosts];
 
 let tabs = document.getElementsByClassName('tablinks');
@@ -52,20 +56,22 @@ for(i = 0; i<dataMetric.length; i++){
 // Line graph
 let ctx = document.getElementById('myChart_1').getContext('2d');
 let chart1 = new Chart(ctx, {
-    type: 'bar',
+    type: 'line',
     data: {
         labels: date_range,
         datasets: [{
             label: 'n. of workorders',
             data: workorders,
+            fill: false,
+            borderColor: pMain,
             backgroundColor: pMain,
             order: 1
         },{
             label: "Last year",
             type: 'line',
-            steppedLine: 'middle',
+            // steppedLine: 'middle',
             fill: false,
-            borderColor: pDark,
+            borderColor: pLight,
             borderDash: [5,2],
             data: _workorders,
             order: 2

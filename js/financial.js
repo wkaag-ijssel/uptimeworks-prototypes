@@ -15,26 +15,35 @@ for(let i = 0; i<52; i += 1){
 
 let savingsData = [{
     label: 'savings',
-    data: Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40)),
+    type: 'line',
+    fill: false,
+    borderColor: sMain,
+    data: Array.from({length: date_range.length*.75}, () => Math.floor(Math.random() * 40)),
     backgroundColor: pMain
 }];
 let savingsLabels = date_range;
 
+let costs = Array.from({length: date_range.length*.75}, () => Math.floor(Math.random() * 40));
+let expected = Array.from({length: date_range.length * .25}, () => Math.floor(Math.random() * 20)+20);
+
 let costsData = [{
     label: "expected costs",
-    type: 'line',
     fill: false,
     borderColor: pLight,
-    steppedLine: 'middle',
-    backgroundColor: "rgb(0, 0, 0)",
+    // steppedLine: 'middle',
     borderDash: [5,2],
-    data: Array.from({length: date_range.length}, () => Math.floor(Math.random() * 20)+20),
+    data: costs.concat(expected),
 },{
     label: 'actual costs',
-    data: Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40)),
-    backgroundColor: pMain,
+    data: costs,
+    fill: false,
+    borderColor: pMain,
 }]
 let costsLabels = date_range;
+console.log(costs)
+console.log(expected)
+console.log(costsData[0].data.length)
+console.log(date_range.length)
 
 // Savings Chart
 let ctx = document.getElementById('savingsChart').getContext('2d');
@@ -47,11 +56,12 @@ let chart2 = mixedGraph(ctx3, costsData, costsLabels);
 function mixedGraph(elem, data, input){
     return new Chart(elem, {
         // The type of chart we want to create
-        type: 'bar',
+        type: 'line',
         // The data for our dataset
         data: {
             labels: input,
-            datasets: data
+            datasets: data,
+            fill: false
         },
 
         // Configuration options go here
@@ -84,7 +94,9 @@ function mixedGraph(elem, data, input){
                         maxTicksLimit: 15,
                         autoSkip: true, //!important
                         maxRotation: 0, 
-                        minRotation: 0
+                        minRotation: 0,
+                        suggestedMin: 0,
+                        suggestedMax: 52
                     }
                 }],
                 yAxes: [{

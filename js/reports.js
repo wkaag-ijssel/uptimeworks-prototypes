@@ -192,8 +192,6 @@ let reportCriticality = new Chart(ctx3, {
     }
 });
 
-
-
 /**
  * Table 
  */
@@ -209,7 +207,7 @@ function loadRow(){
         ['Report ' + Math.floor(Math.random() * 20).toString(), false],
         ['Equipment ' + Math.floor(Math.random() * 20), false],
         ['Person ' + Math.floor(Math.random() * 20), false],
-        ['<span href="mailto:test@test.nl" class="material-icons">mail_outline</span><span href="mailto:test@test.nl" class="material-icons">share</span>', false]
+        ['<span class="material-icons">mail_outline</span>', false]
     ];
 
     for(let i = 0; i < rowsCount; i++){
@@ -222,6 +220,10 @@ function loadRow(){
             newCell.className = "mdc-data-table__cell"
         }
     }
+
+    newRow.children[3].addEventListener('click', function() {
+        window.open("mailto:test@example.com");
+    })
 };
 
 //onload
