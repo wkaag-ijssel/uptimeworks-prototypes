@@ -44,8 +44,9 @@
                     <h3 id="dashboard-title">Performance</h3>
                     <p>Dashboard > Work > Performance</p>
                 </div>
-                <div class="col-md-3 dashboard-item" style="right: 5px;">
-                    <div class="" id="dashboard-functions">
+                <div class="col-md-3 dashboard-item" style="right: 0px;">
+                    <p style="float: left;">This month: </p>
+                    <div id="dashboard-functions">
                         <input type="text" name="fixedRangeDatePicker"></input>
                     </div>
                 </div>
@@ -72,20 +73,14 @@
                                 <div>
                                     <p class="sub-title">Generated Work Orders</p>
                                     <p class="value">300</p>
-                                    <!-- <i class="fas fa-long-arrow-alt-up"></i>
-                                    <p class="value">4%</p> -->
                                 </div>
                                 <div class="margin-top-20">
                                     <p class="sub-title">Completed Work Orders</p>
                                     <p class="value">270</p>
-                                    <!-- <i class="fas fa-long-arrow-alt-down"></i>
-                                    <p class="percentage-value">6%</p> -->
                                 </div>
                                 <div class="margin-top-20">
                                     <p class="sub-title">Not Completed Work Orders</p>
                                     <p class="value">30</p>
-                                    <!-- <i class="fas fa-long-arrow-alt-up"></i>
-                                    <p class="value">8%</p> -->
                                 </div>
                             </div>
                         </div>
@@ -102,8 +97,9 @@
                                 <option value="week">Week</option>
                                 <option value="month">Month</option>
                             </select>
+                            <p class="underline">Nr. of Completed Work over time</p>
                         </div>
-                        <div style="height: 200px;">
+                        <div style="height: 180px;">
                             <canvas id="workLoadChart"></canvas>
                         </div>
                     </div>
@@ -159,7 +155,7 @@
                     <div class="dashboard-content">
                         <div class="scatter-plot" style="padding-left: 20px;">
                             <h6 class="tab-title">Work Order Compliance per Task Type</h6>
-                            <p class="underline">Sorted by </p>
+                            <p class="underline">Sorted by lowest work order compliance</p>
                         </div>
 
                         <div class="chart" style="height: 300px;">
@@ -176,6 +172,7 @@
             
             <!-- Second row -->
             <div class="col-md-12 row">
+                
                 <!-- item 3 -->
                 <div class="dashboard-item col-md-6">
                     <div class="dashboard-content">

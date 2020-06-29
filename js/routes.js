@@ -6,126 +6,6 @@ let pMain = "#1a237e"; //'rgb(26,35,126)';
     sLight = "#ffdd4b";
     sDark = "#c67c00";
 
-/**Workload-resources chart 
- * 
- * Monthly data:
- */
-monthlyData = [{
-    label: 'workload',
-    backgroundColor: pLight,
-    barPercentage: 0.5,
-    barThickness: 6,
-    maxBarThickness: 8,
-    minBarLength: 2,
-    data: Array.from({length: 13}, () => Math.random())
-},{
-    label: 'resources',
-    backgroundColor: pDark,
-    barPercentage: 0.5,
-    barThickness: 6,
-    maxBarThickness: 8,
-    minBarLength: 2,
-    data: Array.from({length: 13}, () => Math.random())
-}];
-monthlyLabels = [
-    ['Jan', '2020'],
-    ['Feb', ''],
-    ['Mar', ''],
-    ['Apr', ''],
-    ['May', ''],
-    ['Jun', ''],
-    ['Jul', ''],
-    ['Aug', ''],
-    ['Sep', ''],
-    ['Oct', ''],
-    ['Nov', ''],
-    ['Dec', ''],
-    ['Jan', '2021'],
-];
-
-/** Weekly data */
-weeklyData = [{
-    label: 'workload',
-    backgroundColor: pLight,
-    barPercentage: 0.5,
-    barThickness: 6,
-    maxBarThickness: 8,
-    minBarLength: 2,
-    data: Array.from({length: 13}, () => Math.random())
-},{
-    label: 'resources',
-    backgroundColor: pDark,
-    barPercentage: 0.5,
-    barThickness: 6,
-    maxBarThickness: 8,
-    minBarLength: 2,
-    data: Array.from({length: 13}, () => Math.random())
-},{
-    label: 'workload',
-    backgroundColor: pLight,
-    barPercentage: 0.5,
-    barThickness: 6,
-    maxBarThickness: 8,
-    minBarLength: 2,
-    data: Array.from({length: 13}, () => Math.random())
-},{
-    label: 'resources',
-    backgroundColor: pDark,
-    barPercentage: 0.5,
-    barThickness: 6,
-    maxBarThickness: 8,
-    minBarLength: 2,
-    data: Array.from({length: 13}, () => Math.random())
-},{
-    label: 'workload',
-    backgroundColor: pLight,
-    barPercentage: 0.5,
-    barThickness: 6,
-    maxBarThickness: 8,
-    minBarLength: 2,
-    data: Array.from({length: 13}, () => Math.random())
-},{
-    label: 'resources',
-    backgroundColor: pDark,
-    barPercentage: 0.5,
-    barThickness: 6,
-    maxBarThickness: 8,
-    minBarLength: 2,
-    data: Array.from({length: 13}, () => Math.random())
-},{
-    label: 'workload',
-    backgroundColor: pLight,
-    barPercentage: 0.5,
-    barThickness: 6,
-    maxBarThickness: 8,
-    minBarLength: 2,
-    data: Array.from({length: 13}, () => Math.random())
-},{
-    label: 'resources',
-    backgroundColor: pDark,
-    barPercentage: 0.5,
-    barThickness: 6,
-    maxBarThickness: 8,
-    minBarLength: 2,
-    data: Array.from({length: 13}, () => Math.random())
-}];
-weeklyLabels = [ //To do: week-bins instead of month-bins, add months to the 'major' ticks instead of jan/year indicator
-    ['Jan', '2020'],
-    ['Feb', ''],
-    ['Mar', ''],
-    ['Apr', ''],
-    ['May', ''],
-    ['Jun', ''],
-    ['Jul', ''],
-    ['Aug', ''],
-    ['Sep', ''],
-    ['Oct', ''],
-    ['Nov', ''],
-    ['Dec', ''],
-    ['Jan', '2021'],
-];
-
-
 /**
  * @param {*} chartName The chart variable name
  * @param {*} dataInput The new dataset 
@@ -140,7 +20,7 @@ function changeChartData(chartName, data, label) {
 function sortByData(data, labels){
 
     console.log(data, labels);
-  //1) combine the arrays:
+    //1) combine the arrays:
     var list = [];
     for (var j = 0; j < data.length; j++) 
         list.push({'value': data[j], 'label': labels[j]});
@@ -459,5 +339,8 @@ let workloadPerIndividual = new Chart(ctx5, {
             this.update();
             return;
         },
+        'onClick': function onClick (evt, activeElements) {
+            getRouteInsight(activeElements);
+        }
     }
 });

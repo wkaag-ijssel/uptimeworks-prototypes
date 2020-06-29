@@ -63,14 +63,10 @@
                                 <div class="margin-top-20">
                                     <p class="sub-title">Total Savings</p>
                                     <p class="value">$ 3500,00</p>
-                                    <!-- <i class="fas fa-long-arrow-alt-down"></i>
-                                    <p class="percentage-value">6%</p> -->
                                 </div>
                                 <div class="margin-top-20">
                                     <p class="sub-title">This Month</p>
                                     <p class="value">$ 2500,00</p>
-                                    <!-- <i class="fas fa-long-arrow-alt-up"></i>
-                                    <p class="percentage-value">8%</p> -->
                                 </div>
                                 <div class="margin-top-20">
                                     <p class="sub-title">Most Recent</p>
@@ -90,13 +86,14 @@
 
                 <div class="dashboard-item col-md-4">
                     <div class="dashboard-content">
-                        <div class="scatter-plot" style="padding-left: 20px;">
+                        <div class="title">
                             <select id="interval">
                                 <option value="month">Total</option>
                                 <option value="week">Lubrication</option>
                                 <option value="week">Vibration</option>
                             </select>
-                            <label for="interval"><h6 class="tab-title">Savings per Asset</h6></label>
+                            <label for="interval"><h6>Savings per Asset</h6></label>
+                            <p class="underline">Sorted by highest savings</p>
                         </div>
                         <div class="chart" style="height: 300px;">
                             <canvas id="assetSavingsChart"></canvas>
@@ -117,14 +114,10 @@
                                 <div class="margin-top-20">
                                     <p class="sub-title">Total Costs</p>
                                     <p class="value">$ 3500,00</p>
-                                    <!-- <i class="fas fa-long-arrow-alt-down"></i>
-                                    <p class="percentage-value">6%</p> -->
                                 </div>
                                 <div class="margin-top-20">
                                     <p class="sub-title">This Month</p>
                                     <p class="value">$ 2500,00</p>
-                                    <!-- <i class="fas fa-long-arrow-alt-up"></i>
-                                    <p class="percentage-value">8%</p> -->
                                 </div>
                             </div>
                             <div class="col-md-9"> 
@@ -138,13 +131,14 @@
 
                 <div class="dashboard-item col-md-4">
                     <div class="dashboard-content">
-                        <div class="scatter-plot" style="padding-left: 20px;">
+                        <div class="title">
                             <select id="interval">
                                 <option value="month">Total</option>
                                 <option value="week">Lubrication</option>
                                 <option value="week">Vibration</option>
                             </select>
-                            <label for="interval"><h6 class="tab-title">Transaction Costs per Asset</h6></label>
+                            <label for="interval"><h6> Costs per Asset</h6></label>
+                            <p class="underline">Sorted by highest transaction costs</p>
                         </div>
                         <div class="chart" style="height: 300px;">
                             <canvas id="assetCostsChart"></canvas>
@@ -156,8 +150,9 @@
             <div class="col-md-12 row">
                 <div class="dashboard-item col-md-4">
                     <div class="dashboard-content">
-                        <div class="scatter-plot" style="padding-left: 20px;">
-                            <h6 class="tab-title">Transaction Costs per Route</h6>
+                        <div class="title">
+                            <h6>Transaction Costs per Route</h6>
+                            <p class="underline">Sorted by highest costs</p>
                         </div>
                         <div class="chart" style="height: 300px;">
                             <canvas id="routeCostsChart"></canvas>
@@ -178,8 +173,9 @@
 
                 <div class="dashboard-item col-md-4">
                     <div class="dashboard-content">
-                        <div class="scatter-plot" style="padding-left: 20px;">
-                            <h6 class="tab-title">Savings per Task Type</h6>
+                        <div class="title">
+                            <h6>Savings per Task Type</h6>
+                            <p class="underline">Sorted by highest savings</p>
                         </div>
                         <div class="chart" style="height: 300px;">
                             <canvas id="taskSavingsChart"></canvas>
