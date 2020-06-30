@@ -207,7 +207,10 @@ function loadRow(){
         ['Report ' + Math.floor(Math.random() * 20).toString(), false],
         ['Equipment ' + Math.floor(Math.random() * 20), false],
         ['Person ' + Math.floor(Math.random() * 20), false],
-        ['<span class="material-icons">mail_outline</span>', false]
+        [
+            '<button class="mdc-icon-button material-icons">mail_outline</button>', 
+            false
+        ]
     ];
 
     for(let i = 0; i < rowsCount; i++){

@@ -201,7 +201,7 @@ body {
   text-transform: uppercase;
 }
 
-/* Interactive table */
+/* Data Table */
 .mdc-data-table {
   width: 100%;
 }
@@ -213,6 +213,8 @@ body {
 .mdc-data-table__row {
   cursor: pointer;
 }
+
+/* End of Data Table */
 
 label {
   margin-bottom: 0rem!important;
