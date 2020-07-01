@@ -135,6 +135,7 @@ body {
   text-align: center;
 }
 
+/* Vertical menu */
 .vertical-menu {
   position: fixed;
   margin-top: 80px;
@@ -155,7 +156,6 @@ body {
   display: block; 
   padding: 5px 12px 5px 20px; 
 }
-
 
 .vertical-menu a {
   background-color: var(--secondary-main); 
@@ -190,6 +190,21 @@ body {
   color: white; /*var(--primary-dark);*/
   border-radius: 7px;
 }
+/* End */
+
+/* Datepicker */
+#datepicker-label {
+  margin-top: 5px;
+  margin-bottom: 0px; 
+  text-align: right;
+  font-weight: 600;
+  color: black 90%;
+}
+
+#datepicker-div {
+  margin-top: 30px; 
+  padding-right: 0px;
+}
 
 /* Insight card */
 #pre-route-insight {
@@ -200,6 +215,7 @@ body {
   color: lightgrey;
   text-transform: uppercase;
 }
+/* End */
 
 /* Data Table */
 .mdc-data-table {
@@ -213,8 +229,7 @@ body {
 .mdc-data-table__row {
   cursor: pointer;
 }
-
-/* End of Data Table */
+/* End */
 
 label {
   margin-bottom: 0rem!important;

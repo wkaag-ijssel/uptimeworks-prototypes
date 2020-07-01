@@ -40,12 +40,22 @@
         </div>
         <div class="col-md-10">
             <div class="col-md-12 row">
-                <div class="col-md-10">
+                <div class="col-md-7">
                     <h3 id="dashboard-title">Routes</h3>
                     <p>Dashboard > Work > Performance > Routes</p>
                 </div>
-                <div class="col-md-2" id="dashboard-functions">
-                    <input type="text" name="dates"></input>
+                <div class="col-md-5 dashboard-item">
+                    <div class="row margin-top-10">
+                        <div id="datepicker-div" class="col-md-4">
+                            <p id="datepicker-label"></p>
+                        </div>
+                        <div class="col-md-8" id="dashboard-functions">
+                            <div range="past" id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+                                <i class="fa fa-calendar"></i>&nbsp;
+                                <span></span> <i class="fa fa-caret-down"></i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             
