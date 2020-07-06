@@ -15,7 +15,7 @@ var myDoughnutChart = new Chart(ctx4, {
     type: 'doughnut',
     data: {
         datasets: [{
-            data: [95, 5],
+            data: [82, 18],
             backgroundColor: [
                 pMain
             ]
@@ -34,7 +34,7 @@ var myDoughnutChart = new Chart(ctx4, {
         },
         elements: {
             center: {
-                text: '95%',
+                text: '82%',
                 fontStyle: 'Arial', 
                 sidePadding: 50, 
                 minFontSize: 10, 
@@ -169,7 +169,7 @@ let reportCriticality = new Chart(ctx3, {
         labels: ['Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x'],
         datasets: [{
             label: 'Alarms',
-            data: Array.from({length: 9}, () => Math.floor(Math.random() * 40)),
+            data: Array.from({length: 9}, () => Math.floor(Math.random() * 6)),
             fill: true,
             backgroundColor: pMain,
             pointStyle: 'line'

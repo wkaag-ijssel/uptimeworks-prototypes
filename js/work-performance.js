@@ -167,7 +167,7 @@ dates.forEach(function(date, index) {
     }
 });
 
-/**Chart 2: Completed work over time*/
+/** Chart 2: Completed work over time */
 let ctx = document.getElementById('workLoadChart').getContext('2d');
 let resourcesChart = new Chart(ctx, {
     type: 'line',

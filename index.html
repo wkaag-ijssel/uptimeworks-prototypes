@@ -36,10 +36,6 @@
                 <p>TECHNOLOGY</p>
                 <a  href="#">Devices</a>
             </div>
-            <!-- <div class="vertical-menu-bottom">
-                <a  >Help</a>
-                <a  >Settings</a>
-            </div> -->
         </div>
         <div class="col-md-10">
             <div class="col-md-12 row">
@@ -112,8 +108,6 @@
                                         <div class="margin-top-20">
                                             <p class="sub-title">Actual Alarms</p>
                                             <p class="value">270</p>
-                                            <!-- <i class="fas fa-long-arrow-alt-down"></i>
-                                            <p class="percentage-value">2%</p> -->
                                         </div>
                                     </div>
                                 </div>
@@ -169,7 +163,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-9"> 
-                                <div class="chart" style="height: 260px;">
+                                <div class="chart" style="height: 280px;">
                                     <canvas id="transactionSumChart"></canvas>
                                 </div>
                             </div>
@@ -197,12 +191,12 @@
                 <div class="dashboard-item col-md-4">
                     <div class="dashboard-content">
                         <div class="title">
-                            <h6>Advice and Response Time per Report Item</h6>
+                            <h6>Action and Response Time per Report</h6>
                             <p class="underline">In the last 30 days</p>
                         </div>
 
-                        <div class="chart">
-                            <canvas id="deviceActivity"></canvas>
+                        <div style="height: 270px; padding: 5px 5px 0px 5px;">
+                            <canvas id="adviceResponseChart"></canvas>
                         </div>
                     </div>
                 </div>
@@ -229,14 +223,10 @@
                                 <div class="margin-top-20">
                                     <p class="sub-title">Work Orders Completed</p>
                                     <p class="value">270</p>
-                                    <!-- <i class="fas fa-long-arrow-alt-down"></i>
-                                    <p class="percentage-value">6%</p> -->
                                 </div>                                
                                 <div class="margin-top-20">
                                     <p class="sub-title">Work Orders Not Completed</p>
                                     <p class="value">30</p>
-                                    <!-- <i class="fas fa-long-arrow-alt-up"></i>
-                                    <p class="percentage-value">8%</p> -->
                                 </div>
                             </div>
                         </div>
@@ -270,5 +260,4 @@
 <footer>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="js/index.js"></script>
-    <script src="js/functions.js"></script>
 </footer>
