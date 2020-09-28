@@ -11,9 +11,140 @@ let date_range = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep',
 
 // Event listeners
 document.getElementById('button-work-performance').addEventListener('click', function(event){ window.location.href = "work-performance.html"});
-document.getElementById('button-finance-summary').addEventListener('click', function(event){ window.location.href = "financial.html"})
+// document.getElementById('button-finance-summary').addEventListener('click', function(event){ window.location.href = "financial.html"})
 document.getElementById('button-alarms').addEventListener('click', function(event){ window.location.href = "alarms.html"});
-document.getElementById('button-reports').addEventListener('click', function(event){ window.location.href = "reports.html"})
+document.getElementById('button-reports').addEventListener('click', function(event){ window.location.href = "reports.html"});
+
+// Labels
+// let date_range = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'September', 'October', 'November', 'December'];
+// let date_range = [];
+// for(let i = 0; i<52; i += 1){
+//     date_range[i] = i+1;
+// };
+let past = .75
+let future = 1 - past
+
+// Dummy data
+let workorders = Array.from({length: date_range.length * past}, () => Math.floor(Math.random() * 40));
+let readings = Array.from({length: date_range.length * past}, () => Math.floor(Math.random() * 40));
+let reports = Array.from({length: date_range.length * past}, () => Math.floor(Math.random() * 20));
+let totalCosts = Array.from({length: date_range.length * past}, () => Math.floor(Math.random() * 30));
+let data = [workorders, readings, reports, totalCosts]
+
+// Dummy thresholds / references
+let _workorders = workorders.concat(Array.from({length: date_range.length * future}, () => Math.floor(Math.random() * 40)));
+let _readings = readings.concat(Array.from({length: date_range.length * future}, () => 30));
+let _reports = reports.concat(Array.from({length: date_range.length * future}, () => Math.floor(Math.random() * 20)));
+// let _totalCosts = totalCosts.concat(Array.from({length: date_range.length * future}, () => Math.floor(Math.random() * 30)));
+let ref = [_workorders, _readings, _reports];
+
+// 
+let tabs = document.getElementsByClassName('tablinks');
+let dataMetric = document.getElementsByClassName('tab-metric');
+let dataDiff = document.getElementsByClassName('percentage-value');
+
+// Initialize line graph
+for(i = 0; i<dataMetric.length; i++){
+    let dataSum = data[i].reduce((a, b) => a + b, 0);
+    let refSum = ref[i].reduce((a,b) => a + b, 0);
+    let diff = parseInt(((100*dataSum)/refSum)-100);
+
+    let icon = tabs[i].getElementsByClassName('fas');
+
+    if(diff > 0){
+        icon[0].className += " fa-long-arrow-alt-up";
+    } else if (diff < 0){
+        icon[0].className += " fa-long-arrow-alt-down";
+        diff = Math.abs(diff);
+    }
+    dataMetric[i].innerHTML += dataSum;
+    dataDiff[i].innerHTML += diff  + "%";
+}
+
+// Line graph
+let ctx5 = document.getElementById('myChart_1').getContext('2d');
+let chart1 = new Chart(ctx5, {
+    type: 'line',
+    data: {
+        labels: date_range,
+        datasets: [{
+            label: 'n. of workorders',
+            data: workorders,
+            fill: false,
+            borderColor: pMain,
+            backgroundColor: pMain,
+            order: 1
+        },{
+            label: "Last year",
+            type: 'line',
+            // steppedLine: 'middle',
+            fill: false,
+            borderColor: pLight,
+            borderDash: [5,2],
+            data: _workorders,
+            order: 2
+        }]
+    },
+    options: {
+        legend: {
+            display: false,
+            position: 'bottom',
+            align: 'end',
+            labels: {
+                usePointStyle: true
+            }
+        },
+        responsive: true,
+        maintainAspectRatio: false,
+        elements: {
+            line: {
+                tension: 0,
+                borderWidth: 2
+            },
+            point:{
+                radius: 0
+            }
+        },
+        scales: {
+            xAxes: [{
+                gridLines: {
+                    display: false,
+                },
+                ticks: {
+                    maxTicksLimit: 15,
+                    autoSkip: true, //!important
+                    maxRotation: 0, 
+                    minRotation: 0
+                }
+            }],
+            yAxes: [{
+                gridLines: {
+                    display:true,
+                },
+                position: 'right',
+            }]
+        }
+    }
+});
+
+function changeTab(evt, chartName, dataInput, refInput='None') {
+    let i, tablinks;
+  
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // change metric data
+    chartName.data.datasets[0].data = dataInput;
+    chartName.data.datasets[0].label = 'n. of ' + evt.currentTarget.getElementsByClassName("tab-title")[0].innerText.toLowerCase();
+
+    // change ref/threshold data
+    chartName.data.datasets[1].data = refInput;
+
+    chart1.update();
+    evt.currentTarget.className += " active";
+}
 
 //Chart 2: asset health by alarms generated
 let ctx4 = document.getElementById('assetHealth').getContext('2d');
@@ -270,187 +401,5 @@ let myBar = new Chart(ctx, {
     }
 });
 
-//Chart 6: Scatter plot (response/advice time)
-let getDataPromise = new Promise((resolve) => {
-    let array1 = Array.from({length: 5}, () => Math.floor(Math.random() * 30)); // time to action
-    let array2 = Array.from({length: 5}, () => Math.floor(Math.random() * 30)); // response time: advice issued - date sent
-    let scatterArray = [];
 
-    //Create a array of objects, required input format for scatter plot.
-    array1.forEach((item_x, index) => {
-        scatterArray.push({
-            x : item_x, 
-            y : array2[index]
-        });
-    });
-    resolve(scatterArray);
-}).then(dataset => {   
-    let ctx6 = document.getElementById('adviceResponseChart').getContext('2d');
-    let data = {
-        labels: ['Report X', 'Report Y', 'Report Z', 'Report A', 'Report B'],
-        datasets: [{
-            type: 'scatter',
-            // label: 'Report',
-            showLine: false,
-            backgroundColor: pMain,
-            data: dataset
-        },{
-            type: 'line',
-            // label: 'target',
-            data: [{
-                x: 0,
-                y: 0
-            },{
-                x: 30, 
-                y: 30 
-            }],
-            // borderColor: pDark,
-            borderWidth: 1,
-            borderDash: [5,2],
-            fill: false,
-            PointStyle: 'none',
-            radius: 0
-        }]
-    };
-
-    let executedWorkChart = new Chart(ctx6, {
-        data: data,
-        options: {
-            legend: {
-                display: false,
-            },
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                xAxes: [{
-                    type: 'linear',
-                    position: 'bottom',
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Time to Action (days)'
-                    }
-                }],
-                yAxes: [{
-                    type: 'linear',
-                    position: 'left',
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Response Time (days)'
-                    }
-                }]
-            },
-            tooltips: {
-                enabled: true,
-                callbacks: {
-                    title: function(tooltipItem, data) {
-                        let title = data.labels[tooltipItem[0].index];
-                        return title;
-                    },
-                    label: function(tooltipItem, data) {
-                        return ['time to action: ' + tooltipItem.xLabel + ' days', 'response time: ' + tooltipItem.yLabel + ' days'];
-                    }
-                }
-            },
-            onClick: function(evt, activeElements) {
-                if (activeElements[0]) {
-                    let elementIndex = activeElements[0]._index;
-                    console.log('report item selected: ', data.labels[elementIndex])   
-
-                    //Load report item in pop-up, or in new page.
-                }
-            }
-        }
-    });
-});
-
-//Chart 7: Transaction costs 
-let costsChartPromise = new Promise((resolve) => {
-    let costs = [];
-    let date = [];
-    let savings = [];
-    let expectedCosts = [];
-    costs[0] = 0;
-    date[0] = 0;
-    savings[0] = 0;
-    expectedCosts[0] = 0;
-
-    for(let i = 1; i < 31; i++){
-        date[i] = i;
-        if(i < 20){
-            costs[i] = costs[i-1] + Math.floor(Math.random()*5);
-            savings[i] = savings[i-1] + Math.floor(Math.random()*10);
-            expectedCosts[i] = costs[i];
-        } else {
-            expectedCosts[i] = expectedCosts[i-1] + Math.floor(Math.random()*5); //Forecast of costs 
-        }
-    }
-
-    resolve([costs, expectedCosts, date, savings]);
-}).then(data => {
-    let ctx7 = document.getElementById('transactionSumChart').getContext('2d');
-    let chart7 = new Chart(ctx7, {
-        type: 'line',
-        data: { 
-            labels: data[2], //Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40)),
-            datasets: [{
-                label: 'Savings',
-                data: data[3],
-                fill: false,
-                borderColor: sMain,
-                lineWidth: 0.1,
-                pointStyle: 'line',
-                lineTension: 0
-            },{
-                label: 'Costs',
-                data: data[0],
-                fill: false,
-                borderColor: pMain,
-                pointStyle: 'line',
-                lineTension: 0
-            },{
-                label: 'Expected costs',
-                data: data[1],
-                fill: false,
-                borderColor: pMain,
-                borderDash: [5,2],
-                pointStyle: 'line',
-                lineTension: 0
-            }]
-        },
-        options: {
-            legend: {
-                display: true,
-                position: "bottom",
-                labels: {
-                    usePointStyle: true
-                }
-            },
-            elements: {
-                point: {
-                    radius: 0
-                }
-            },
-            responsive: true,
-            maintainAspectRatio: false,
-            tooltips: {
-                mode: 'index'
-            },
-            scales: {
-                xAxes: [{
-                    gridLines: {
-                        display: false,
-                    },
-                    ticks: {
-                        autoSkip: true,
-                        maxRotation: 0,
-                        autoSkipPadding: 50
-                    }
-                }],
-                yAxes: [{
-                    position: 'right'
-                }]
-            }
-        }
-    }); 
-})
 

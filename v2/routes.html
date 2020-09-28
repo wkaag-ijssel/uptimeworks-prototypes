@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/3d92c0de9b.js" crossorigin="anonymous"></script>
+
+    <!--Datapicker-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+    <!--(Google) Material design: https://materializecss.com/getting-started.html -->
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet" />
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    
+</head>
+
+<body class="dashboard">
+    <div class="col-md-12 row">
+        <div class="col-md-2">
+            <div class="vertical-menu" style='position: fixed;'>
+                <p>GENERAL</p>
+                    <a  href="index-v2.html">Homepage</a>
+                <p>MAINTENANCE ACTIVITY</p>
+                    <a  class="active" href="work-performance.html">Work</a>
+                    <a  href="devices.html">Devices</a>
+                <p>ASSET CONDITION</p>
+                    <a  href="reports.html">Reports</a>
+                    <a  href="alarms.html">Measurements</a>                
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="col-md-12 row">
+                <div class="col-md-7">
+                    <h3 id="dashboard-title">Routes</h3>
+                    <p>Dashboard > Work > Performance > Routes</p>
+                </div>
+                <div class="col-md-5 dashboard-item">
+                    <div class="row margin-top-10">
+                        <div id="datepicker-div" class="col-md-4">
+                            <p id="datepicker-label"></p>
+                        </div>
+                        <div class="col-md-8" id="dashboard-functions">
+                            <div range="past" id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+                                <i class="fa fa-calendar"></i>&nbsp;
+                                <span></span> <i class="fa fa-caret-down"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-12 row">
+                <div class="dashboard-item col-md-8">
+                    <div class="dashboard-content">
+                        <div class="title">
+                            <h6>% Completed Work Orders per Route</h6>
+                            <p class="underline">For The 5 routes with the lowest % Completed Work</p>
+                        </div>
+                        <div class="chart" style="height: 300px;">
+                            <canvas id="routeCompletion"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-item col-md-4">
+                    <div class="dashboard-content">
+                        <div class="title">
+                            <h6>Route Insight</h6>
+                            <p class="underline">What factors are important?</p>
+                        </div>
+
+                        <div id="pre-route-insight" class="title" >
+                            <h6 class="support-text">select a route</h6>
+                            <p class="support-text" style="font-size: small;">in the graph or table below</p>
+                        </div>
+                        <div id="route-insight" class='title' style="display: none; height: 300px; overflow-y: scroll;">
+                            <p><a class="sub-title">Route: </a>D</p>
+
+                            <p class="sub-title">Least Completed Tasks</p>
+                            <p>Task X at Equipment 4</p>
+                            <p>Task P at Equipment 1</p>
+                            <p>Task Q at Equipment 3</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 row">
+                <div class="dashboard-item col-md-12">
+                    <div class="mdc-data-table">
+                        <table id="routeTable" class="mdc-data-table__table" aria-label="Dessert calories">
+                            <thead>
+                                <tr class="mdc-data-table__header-row">
+                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Routes</th>
+                                    <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric hover-icon" role="columnheader" scope="col" data-sorted="no"><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i>Tasks</th>
+                                    <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric hover-icon" role="columnheader" scope="col" data-sorted="no"><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i>Work Orders</th>
+                                    <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric hover-icon" role="columnheader" scope="col" data-sorted="no"><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i>% Completed</th>
+                                    <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric hover-icon" role="columnheader" scope="col" data-sorted="no"><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i>% Overdue</th>
+                                    <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric hover-icon" role="columnheader" scope="col" data-sorted="no"><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i>% Not Completed</th>
+                                </tr>
+                            </thead>
+                            <tbody id="routeTable-body" class="mdc-data-table__content">
+                                <!-- Auto generated cells -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="download-container">
+                <div class="download-center">
+                    <button class="mdc-button mdc-button--raised">
+                        <div class="mdc-button__ripple"></div>
+                        <i class="material-icons mdc-button__icon" aria-hidden="true">cloud_download</i>
+                        <span class="mdc-button__label">Download all routes</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
+
+<footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="../js/v2/routes.js"></script>
+    <script src="../js/functions.js"></script>
+    <!-- <script src="js/datatable.js"></script> -->
+</footer>
