@@ -44,21 +44,9 @@ let dataMetric = document.getElementsByClassName('tab-metric');
 let dataDiff = document.getElementsByClassName('percentage-value');
 
 // Initialize line graph
-for(i = 0; i<dataMetric.length; i++){
+for (i = 0; i<dataMetric.length; i++) {
     let dataSum = data[i].reduce((a, b) => a + b, 0);
-    let refSum = ref[i].reduce((a,b) => a + b, 0);
-    let diff = parseInt(((100*dataSum)/refSum)-100);
-
-    let icon = tabs[i].getElementsByClassName('fas');
-
-    if(diff > 0){
-        icon[0].className += " fa-long-arrow-alt-up";
-    } else if (diff < 0){
-        icon[0].className += " fa-long-arrow-alt-down";
-        diff = Math.abs(diff);
-    }
     dataMetric[i].innerHTML += dataSum;
-    dataDiff[i].innerHTML += diff  + "%";
 }
 
 // Line graph
@@ -193,8 +181,8 @@ var myDoughnutChart = new Chart(ctx2, {
             ]
         }],
         labels: [
-            'No report',
-            'Report'
+            'No report (%)',
+            'Report (%)'
         ]
     },
     options: {
