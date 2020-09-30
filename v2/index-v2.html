@@ -165,7 +165,13 @@
                 <div class="dashboard-item col-md-5">
                     <div class="dashboard-content">
                         <div class="title">
-                            <h6>Work Order Compliance</h6>
+                            <label><h6>Work Order Compliance</h6></label>
+                            <span title="The percentage of completed work orders within the selected time period per route. Click on a route to see more information about it.">
+                                <svg class="help" xmlns="http://www.w3.org/2000/svg" height="18" fill="lightgrey" viewBox="0 0 24 24" width="18">
+                                    <path d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/>
+                                </svg>
+                            </span>
                             <p class="underline">In the last 30 days</p>
                         </div>
                         <div class="col-md-12 row">
@@ -216,7 +222,7 @@
 
             <!-- Row 2 -->
             <div class="col-md-12 row">
-                <div class="dashboard-item col-md-7">
+                <div class="dashboard-item col-md-8">
                     <div class="dashboard-content">
                         <div class="tab">
                             <button class="tablinks active" onclick="changeTab(event, chart1, workorders, _workorders)">
@@ -241,13 +247,46 @@
                             </button> -->
                         </div>
                         <div class="chart">
-                            <canvas id="myChart_1" height="250px"></canvas>
+                            <canvas id="myChart_1" height="200px"></canvas>
                         </div>
                     </div>
                 </div>
 
-                <div class="dashboard-item col-md-5">
+                <div class="dashboard-item col-md-4">
                     <div class="dashboard-content">
+                        <div class="title">
+                            <h6>Device Activity</h6>
+                            <p class="underline">At this moment</p>
+                        </div>
+                        <div class="col-md-12 row margin-top-40"  style="border-bottom: 2px solid #fafafa; padding-bottom: 20px; margin-left: 4px; margin-bottom:25px;">
+                            <div class="col-md-4" style="padding-left: 20px;">
+                                <h7>uBridge</h7>
+                            </div>
+                            <div class="col-md-8 center">
+                                <h4>75.0%</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-12 row margin-top-20"  style="border-bottom: 2px solid #fafafa; padding-bottom: 20px; margin-left: 4px; margin-bottom:25px;">
+                            <div class="col-md-4" style="padding-left: 20px;">
+                                <h7>uMote</h7>
+                            </div>
+                            <div class="col-md-8 center">
+                                <h4>98.0%</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-12 row margin-top-20" style="padding-bottom: 20px; margin-left: 4px; margin-bottom:25px;">
+                            <div class="col-md-4" style="padding-left: 20px;">
+                                <h7>Other</h7>
+                            </div>
+                            <div class="col-md-8 center">
+                                <h4>?</h4>
+                            </div>
+                        </div>              
+                        <!-- <button id="button-reports" class="mdc-button" style="float: right;">
+                            <div class="mdc-button__ripple"></div>
+                            <span class="mdc-button__label">View reports</span>
+                            <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
+                        </button> -->
                     </div>
                 </div>
             </div>
