@@ -20,6 +20,14 @@ body {
 .margin-bottom-30 { margin-bottom: 30px;}
 .margin-bottom-40 { margin-bottom: 40px;}
 
+/* Icon */
+.icon-float {
+  float: right;
+}
+
+.help path {
+  fill: grey;
+}
 
 /* Chart Style */
 .chart {

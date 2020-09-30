@@ -10,11 +10,11 @@ let pMain = "#1a237e";
 let date_range = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 // Event listeners
-document.getElementById('button-work-performance').addEventListener('click', function(event){ window.location.href = "work-performance.html"});
+// document.getElementById('button-work-performance').addEventListener('click', function(event){ window.location.href = "work-performance.html"});
 // document.getElementById('button-finance-summary').addEventListener('click', function(event){ window.location.href = "financial.html"})
-document.getElementById('button-alarms').addEventListener('click', function(event){ window.location.href = "alarms.html"});
-document.getElementById('button-reports').addEventListener('click', function(event){ window.location.href = "reports.html"});
-
+// document.getElementById('button-alarms').addEventListener('click', function(event){ window.location.href = "alarms.html"});
+// document.getElementById('button-reports').addEventListener('click', function(event){ window.location.href = "reports.html"});
+ 
 // Labels
 // let date_range = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'September', 'October', 'November', 'December'];
 // let date_range = [];
@@ -158,8 +158,8 @@ var myDoughnutChart = new Chart(ctx4, {
             ]
         }],
         labels: [
-            'healthy assets (%)',
-            'failing assets (%)'
+            'Normal (%)',
+            'Alarm (%)'
         ]
     },
     options: {
@@ -193,8 +193,8 @@ var myDoughnutChart = new Chart(ctx2, {
             ]
         }],
         labels: [
-            'healthy assets (%)',
-            'failing assets (%)'
+            'No report',
+            'Report'
         ]
     },
     options: {
@@ -315,8 +315,8 @@ var myDoughnutChart = new Chart(ctx1, {
             ]
         }],
         labels: [
-            'Work completed (%)',
-            'Work not completed (%)'
+            'Completed (%)',
+            'Not completed (%)'
         ]
     },
     options: {

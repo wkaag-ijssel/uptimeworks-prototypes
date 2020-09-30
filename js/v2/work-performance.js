@@ -7,8 +7,8 @@ let pMain = "#1a237e"; //'rgb(26,35,126)';
     sDark = "#c67c00";
 
 // Event listeners
-document.getElementById('button-routes').addEventListener('click', function(event){ window.location.href = "routes.html"});
-document.getElementById('button-tasks').addEventListener('click', function(event){ window.location.href = "tasks.html"});
+// document.getElementById('button-routes').addEventListener('click', function(event){ window.location.href = "routes.html"});
+// document.getElementById('button-tasks').addEventListener('click', function(event){ window.location.href = "tasks.html"});
 
 let ctx1 = document.getElementById('taskCompletion').getContext('2d');
 var myDoughnutChart = new Chart(ctx1, {
@@ -257,9 +257,10 @@ function sortByData(data, labels){
     return data, labels;
 }
 
-//Chart 1: task compliance per route
+//work order compliance per route
 let routeDataPromise = new Promise((resolve) => {
     let data = Array.from({length: 12}, () => Math.random());
+    let colours = Array.from({length: 12}, () => pMain)
     let labels = [
         ['Route #6'],
         ['Route #15'],
@@ -274,21 +275,20 @@ let routeDataPromise = new Promise((resolve) => {
         ['Route #16'],
         ['Route #1']
     ]
-    resolve([data, labels]);
+    resolve([data, labels, colours]);
 }).then(data => {  
     //Sorts after routeData contains (generated) values
     data[0], data[1] = sortByData(data[0], data[1]);
 
     //Create bar graph
     let ctx3 = document.getElementById('routeComplianceChart').getContext('2d');
-    let routeComplianceChart = horizontalBarChart(ctx3, data[0], data[1]);
-
-    //Add custom graph options
+    let routeComplianceChart = horizontalBarChart(ctx3, data[0], data[1], data[2]);
 });
 
-//Chart 1: task compliance per route
+//work order compliance per asset
 let assetDataPromise = new Promise((resolve) => {
     let data = Array.from({length: 12}, () => Math.random() *  100);
+    let colours = Array.from({length: 12}, () => pMain);
     let labels = [
         ['Asset #6'],
         ['Asset #15'],
@@ -303,25 +303,45 @@ let assetDataPromise = new Promise((resolve) => {
         ['Asset #16'],
         ['Asset #1']
     ]
-    resolve([data, labels]);
+    resolve([data, labels, colours]);
 }).then(data => {  
     //Sorts after routeData contains (generated) values
     data[0], data[1] = sortByData(data[0], data[1]);
 
     //Create bar graph
     let ctx5 = document.getElementById('assetComplianceChart').getContext('2d');
-    let assetComplianceChart = horizontalBarChart(ctx5, data[0], data[1]);
+    let assetComplianceChart = horizontalBarChart(ctx5, data[0], data[1], data[2]);
 });
 
+// let routeAssetPromise = new Promise((resolve) => {
+//     let data = Array.from({length: 4}, () => Math.random() *  100);
+//     let colours = Array.from({length: 4}, () => pMain);
+//     let labels = [
+//         ['Asset #6'],
+//         ['Asset #15'],
+//         ['Asset #10'],
+//         ['Asset #2']
+//     ]
+//     resolve([data, labels, colours]);
+// }).then(data => {  
+//     //Sorts after routeData contains (generated) values
+//     data[0], data[1] = sortByData(data[0], data[1]);
+
+//     //Another one
+//     let ctx7 = document.getElementById('assetRouteChart').getContext('2d');
+//     let testChart = horizontalBarChart(ctx7, data[0], data[1], data[2]);
+// });
+
 // horizontalBar chart - styled
-function horizontalBarChart(chartElem, data, labels){
+function horizontalBarChart(chartElem, data, labels, colors = pMain){
+    let isSelected = false;
     return new Chart(chartElem, {
         type: 'horizontalBar',
         data: { 
             labels: labels,
             datasets: [{
                 label: 'N. of tasks executed',
-                backgroundColor: pMain,
+                backgroundColor: colors,
                 barPercentage: 0.5,
                 barThickness: 6,
                 maxBarThickness: 8,
@@ -352,34 +372,80 @@ function horizontalBarChart(chartElem, data, labels){
                     stacked: true,
                     position: 'left'
                 }]
+            },
+            onHover: function onHover (evt, activeElements) {
+                let dataset = this.data.datasets[0];
+
+                if (!isSelected) {
+                    if (!activeElements || !activeElements.length) {
+                        dataset.backgroundColor.forEach((c, index) => {
+                            dataset.backgroundColor[index] = pMain;
+                        });
+                    } else {
+                        let activeIndex = activeElements[0]._index; 
+                        let max = this.data.datasets[0].data.length;
+                        for (let i = 0; i < max; i += 1) {
+                            (i == activeIndex) 
+                            ? dataset.backgroundColor[activeIndex] = pMain 
+                            : dataset.backgroundColor[i] = "rgb(200, 200, 200)";
+                        };
+                    }
+                };
+                this.update();
+                return;
+            },
+            'onClick': function onClick (evt, activeElements) {
+                try {
+                    let activeIndex = activeElements[0]._index;
+                    let dataset = this.data.datasets[0];
+                    let max = this.data.datasets[0].data.length;
+                    isSelected = true;
+
+                    for (let i = 0; i < max; i += 1) {
+                        (i == activeIndex) 
+                        ? dataset.backgroundColor[activeIndex] = pMain 
+                        : dataset.backgroundColor[i] = "rgb(200, 200, 200)";
+                    };
+
+                    this.update();
+                } catch(error) { 
+                    isSelected = false; 
+                }
             }
         }
     });
 };
 
 
-//Chart 2: Job compliance bar plot
+//Chart: work order compliance per task type
 let jobCompliancePromise = new Promise((resolve) => {
     let data_1 = Array.from({length: 6}, () => Math.floor(Math.random() * 85));
     let data_2 = Array.from({length: 6}, () => Math.floor(Math.random() * 10));
+    let data_3 = []
+    for(var i = 0;i<data_1.length;i++)
+        data_3.push(100 - data_1[i] - data_2[i]);
+  
     let labels = ['Lubrication', 'Inspection', 'Process', 'Vibration', 'Thermographic', 'Other'];
 
 
-    resolve([data_1, data_2, labels]);
+    resolve([data_1, data_2, data_3, labels]);
 }).then(data => {  
     let ctx4 = document.getElementById('jobCompliance').getContext('2d');
     let jobComplianceChart = new Chart(ctx4, {
         type: 'horizontalBar',
         data: {
-            labels: data[2],
+            labels: data[3],
             datasets: [{
-                label: 'Executed on time',
+                label: 'Completed',
                 backgroundColor: pMain,
                 data: data[0]
             }, {
-                label: 'Executed too late',
+                label: 'Overdue',
                 backgroundColor: pLight,
                 data: data[1]
+            }, {
+                label: 'Not Completed',
+                data: data[2]
             }]
         },
         options: {

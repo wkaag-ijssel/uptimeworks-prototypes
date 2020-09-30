@@ -106,11 +106,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button id="button-alarms" class="mdc-button" style="float: right;">
+                                <!-- <button id="button-alarms" class="mdc-button" style="float: right;">
                                     <div class="mdc-button__ripple"></div>
                                     <span class="mdc-button__label">View alarms</span>
                                     <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
-                                </button>
+                                </button> -->
                             </div>
                             <div class="col-md-6">
                                 <div class="scatter-plot" style="padding-left: 0px;">
@@ -135,12 +135,62 @@
                                         </div>
                                     </div>
                                 </div>                                
-                                <button id="button-reports" class="mdc-button" style="float: right;">
+                                <!-- <button id="button-reports" class="mdc-button" style="float: right;">
                                     <div class="mdc-button__ripple"></div>
                                     <span class="mdc-button__label">View reports</span>
                                     <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
-                                </button>
+                                </button> -->
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="col-md-12 row">
+
+                <!-- item 1-->
+                <div class="dashboard-item col-md-5">
+                    <div class="dashboard-content">
+                        <div class="title">
+                            <h6>Work Order Compliance</h6>
+                            <p class="underline">In the last 30 days</p>
+                        </div>
+                        <div class="col-md-12 row">
+                            <div class="col-md-6">  
+                                <div class="chart" style="height: 180px;">
+                                    <canvas id="taskCompletion"></canvas>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="margin-top-20">
+                                    <p class="sub-title">Work Orders Completed</p>
+                                    <p class="value">270</p>
+                                </div>                                
+                                <div class="margin-top-20">
+                                    <p class="sub-title">Work Orders Not Completed</p>
+                                    <p class="value">30</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <button id="button-work-performance" class="mdc-button" style="float: right; margin: 5px 15px 10px 0px;">
+                            <div class="mdc-button__ripple"></div>
+                            <span class="mdc-button__label">View Performance</span>
+                            <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
+                        </button> -->
+                    </div>
+                </div>
+
+                <!-- item 2 -->
+                <div class="dashboard-item col-md-7">
+                    <div class="dashboard-content">
+                        <div class="title">
+                            <h6 >Work Order Compliance per Type of Task</h6>
+                            <p class="underline">in the last 30 days</p>
+                        </div>
+
+                        <div class="chart" style="height: 200px;">
+                            <canvas id="jobCompliance"></canvas>
                         </div>
                     </div>
                 </div>
@@ -184,65 +234,18 @@
                 </div>
             </div>
 
-            <!-- Row 3 -->
-            <div class="col-md-12 row">
-
-                <!-- item 1-->
-                <div class="dashboard-item col-md-5">
-                    <div class="dashboard-content">
-                        <div class="title">
-                            <h6>Work Order Compliance</h6>
-                            <p class="underline">In the last 30 days</p>
-                        </div>
-                        <div class="col-md-12 row">
-                            <div class="col-md-6">  
-                                <div class="chart" style="height: 180px;">
-                                    <canvas id="taskCompletion"></canvas>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="margin-top-20">
-                                    <p class="sub-title">Work Orders Completed</p>
-                                    <p class="value">270</p>
-                                </div>                                
-                                <div class="margin-top-20">
-                                    <p class="sub-title">Work Orders Not Completed</p>
-                                    <p class="value">30</p>
-                                </div>
-                            </div>
-                        </div>
-                        <button id="button-work-performance" class="mdc-button" style="float: right; margin: 5px 15px 10px 0px;">
-                            <div class="mdc-button__ripple"></div>
-                            <span class="mdc-button__label">View Performance</span>
-                            <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- item 2 -->
-                <div class="dashboard-item col-md-7">
-                    <div class="dashboard-content">
-                        <div class="title">
-                            <h6 >Work Order Compliance per Type of Task</h6>
-                            <p class="underline">in the last 30 days</p>
-                        </div>
-
-                        <div class="chart" style="height: 230px;">
-                            <canvas id="jobCompliance"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <div class="col-md-12 row">
                 <div class="dashboard-item col-md-8">
                     <div class="dashboard-content">
+                        <div class="title">
+                            <h6>Device Activity</h6>
+                            <p class="underline">At this moment</p>
+                        </div>
                         <div class="col-md-12 row">
                             <div class="col-md-6">
-                                <div class="scatter-plot"  style="padding-left: 20px;">
-                                    <h6>Device activity</h6>
-                                    <p class="underline">At this moment</p>
-                                </div> 
+                                <div class="chart" style="height: 230px;">
+                                    <canvas id="jobCompliance"></canvas>
+                                </div>
                             </div>
                             <div class="col-md-6"> 
                                 <div class="row">
@@ -253,21 +256,26 @@
                                     </div>
                                     <div class="col-md-5">
                                         <div class="margin-top-20">
-                                            <p class="sub-title">Measurements</p>
-                                            <p class="value">8329</p>
+                                            <p class="sub-title">uBridges</p>
+                                            <p class="value">5</p>
                                         </div>
 
                                         <div class="margin-top-20">
-                                            <p class="sub-title">Alarms</p>
-                                            <p class="value">270</p>
+                                            <p class="sub-title">uMotes</p>
+                                            <p class="value">30</p>
+                                        </div>
+
+                                        <div class="margin-top-20">
+                                            <p class="sub-title">Other</p>
+                                            <p class="value">10</p>
                                         </div>
                                     </div>
                                 </div>
-                                <button id="button-alarms" class="mdc-button" style="float: right;">
+                                <!-- <button id="button-alarms" class="mdc-button" style="float: right;">
                                     <div class="mdc-button__ripple"></div>
                                     <span class="mdc-button__label">View alarms</span>
                                     <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
-                                </button>
+                                </button> -->
                             </div>
                         </div>
                     </div>
