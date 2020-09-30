@@ -21,12 +21,17 @@ body {
 .margin-bottom-40 { margin-bottom: 40px;}
 
 /* Icon */
-.icon-float {
-  float: right;
+.help {
+  fill: lightgrey;
 }
 
-.help path {
-  fill: grey;
+.tooltip-inner {
+  white-space: pre-line;
+}
+
+.help:hover {
+  fill: black;
+  cursor: pointer;
 }
 
 /* Chart Style */
