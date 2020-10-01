@@ -333,11 +333,12 @@ dates.forEach(function(date, index) {
 /** Chart 2: Completed work over time */
 let ctx4 = document.getElementById('workLoadChart').getContext('2d');
 let resourcesChart = new Chart(ctx4, {
-    type: 'line',
+    type: 'bar',
     data: { 
         labels: labels,
         datasets: [{
-            label: 'Percentage of tasks completed',
+            label: 'Readings',
+            type: 'line',
             borderColor: pMain,
             fill: false,
             backgroundColor: pMain,
@@ -345,7 +346,18 @@ let resourcesChart = new Chart(ctx4, {
             barThickness: 6,
             maxBarThickness: 8,
             minBarLength: 2,
-            data: Array.from({length: labels.length}, () => Math.random()*50)
+            data: Array.from({length: labels.length}, () => Math.random()*10 + 40)
+        },{
+            label: 'Report items',
+            // type: 'bar',
+            borderColor: pMain,
+            fill: false,
+            backgroundColor: pMain,
+            barPercentage: 0.5,
+            barThickness: 6,
+            maxBarThickness: 8,
+            minBarLength: 2,
+            data: Array.from({length: labels.length}, () => Math.random()*5)
         }]
     },
     options: {
@@ -363,6 +375,10 @@ let resourcesChart = new Chart(ctx4, {
                 radius: 0 //hide data point indicators
             }
         },
+        tooltips: {
+            mode: 'index',
+            intersect: false
+        },
         scales: {
             xAxes: [{
                 gridLines: {
@@ -378,7 +394,10 @@ let resourcesChart = new Chart(ctx4, {
                 }
             }],
             yAxes: [{
-                position: 'right'
+                position: 'right',
+                ticks: {
+                    beginAtZero: true
+                }
             }]
         }
     }
@@ -419,60 +438,6 @@ function sortByData(data, labels){
 
     return data, labels;
 }
-
-//Chart 1: task compliance per route
-let routeDataPromise = new Promise((resolve) => {
-    let data = Array.from({length: 12}, () => Math.random());
-    let labels = [
-        ['Route #6'],
-        ['Route #15'],
-        ['Route #10'],
-        ['Route #2'],
-        ['Route #9'],
-        ['Route #4'],
-        ['Route #11'],
-        ['Route #20'],
-        ['Route #19'],
-        ['Route #5'],
-        ['Route #16'],
-        ['Route #1']
-    ]
-    resolve([data, labels]);
-}).then(data => {  
-    //Sorts after routeData contains (generated) values
-    data[0], data[1] = sortByData(data[0], data[1]);
-
-    //Create bar graph
-    let ctx7 = document.getElementById('routeComplianceChart').getContext('2d');
-    let routeComplianceChart = horizontalBarChart(ctx7, data[0], data[1]);
-});
-
-//Chart 1: task compliance per route
-let assetDataPromise = new Promise((resolve) => {
-    let data = Array.from({length: 12}, () => Math.random() *  100);
-    let labels = [
-        ['Asset #6'],
-        ['Asset #15'],
-        ['Asset #10'],
-        ['Asset #2'],
-        ['Asset #9'],
-        ['Asset #4'],
-        ['Asset #11'],
-        ['Asset #20'],
-        ['Asset #19'],
-        ['Asset #5'],
-        ['Asset #16'],
-        ['Asset #1']
-    ]
-    resolve([data, labels]);
-}).then(data => {  
-    //Sorts after routeData contains (generated) values
-    data[0], data[1] = sortByData(data[0], data[1]);
-
-    //Create bar graph
-    let ctx5 = document.getElementById('assetComplianceChart').getContext('2d');
-    let assetComplianceChart = horizontalBarChart(ctx5, data[0], data[1]);
-});
 
 // horizontalBar chart - styled
 function horizontalBarChart(chartElem, data, labels){
@@ -518,30 +483,12 @@ function horizontalBarChart(chartElem, data, labels){
     });
 };
 
-
-//Chart 2: Job compliance bar plot
-let jobCompliancePromise = new Promise((resolve) => {
-    let data_1 = Array.from({length: 6}, () => Math.floor(Math.random() * 85));
-    let data_2 = Array.from({length: 6}, () => Math.floor(Math.random() * 10));
-    let labels = ['Lubrication', 'Inspection', 'Process', 'Vibration', 'Thermographic', 'Other'];
-
-
-    resolve([data_1, data_2, labels]);
-}).then(data => {  
-    let ctx4 = document.getElementById('jobCompliance').getContext('2d');
-    let jobComplianceChart = new Chart(ctx4, {
+function stackedBarChart(chart, data, labels, usePerc = false) {
+    return new Chart(chart, {
         type: 'horizontalBar',
         data: {
-            labels: data[2],
-            datasets: [{
-                label: 'Executed on time',
-                backgroundColor: pMain,
-                data: data[0]
-            }, {
-                label: 'Executed too late',
-                backgroundColor: pLight,
-                data: data[1]
-            }]
+            labels: labels,
+            datasets: data
         },
         options: {
             tooltips: {
@@ -557,7 +504,11 @@ let jobCompliancePromise = new Promise((resolve) => {
                         min: 0,
                         max: 100,
                         callback: function(value, index, values) {
-                            return value + '%';
+                            if (usePerc) { 
+                                return value + '%';
+                            } else {
+                                return value;
+                            }
                         }
                     }
                 }],
@@ -571,4 +522,64 @@ let jobCompliancePromise = new Promise((resolve) => {
             }
         }
     });
+}
+
+
+//Malfunctions per uBridge
+let malfunctionChartPromise = new Promise((resolve) => {
+    let data = [{
+        label: 'Normal',
+        backgroundColor: pMain,
+        data: Array.from({length: 6}, () => Math.floor(Math.random() * 85))
+    }, {
+        label: 'Full',
+        backgroundColor: pLight,
+        data: Array.from({length: 6}, () => Math.floor(Math.random() * 10))
+    }];
+    let labels = ['Lubrication', 'Inspection', 'Process', 'Vibration', 'Thermographic', 'Other'];
+
+
+    resolve([data, labels]);
+}).then(result => {  
+    let ctx4 = document.getElementById('malfunctionChart').getContext('2d');
+    let malfunctionChart = stackedBarChart(ctx4, result[0], result[1], true)
+});
+
+//Normal and Full Reading
+let normalFullChartPromise = new Promise((resolve) => {
+    let data = [{
+        label: 'Normal',
+        backgroundColor: pMain,
+        data: Array.from({length: 6}, () => Math.floor(Math.random() * 85))
+    }, {
+        label: 'Full',
+        backgroundColor: pLight,
+        data: Array.from({length: 6}, () => Math.floor(Math.random() * 10))
+    }];
+    let labels = ['device x', 'device x', 'device x', 'device x', 'device x', 'device x'];
+    resolve([data, labels]);
+}).then(result => {  
+    let ctx8 = document.getElementById('normalFullChart').getContext('2d');
+    let normalFullChart = stackedBarChart(ctx8, result[0], result[1])
+});
+
+//Alarm and Report
+let alarmReportChartPromise = new Promise((resolve) => {
+    let data = [{
+        label: 'Alarm',
+        backgroundColor: pMain,
+        data: Array.from({length: 6}, () => Math.floor(Math.random() * 85))
+    }, {
+        label: 'Report',
+        backgroundColor: pLight,
+        data: Array.from({length: 6}, () => Math.floor(Math.random() * 10))
+    }];
+    let labels = ['Device x', 'Device x', 'Device x', 'Device x', 'Device x', 'Device x'];
+
+
+    resolve([data, labels]);
+}).then(result => { 
+    console.log(result);
+    let ctx10 = document.getElementById('alarmReportChart').getContext('2d');
+    let normalFullChart = stackedBarChart(ctx10, result[0], result[1])
 });
