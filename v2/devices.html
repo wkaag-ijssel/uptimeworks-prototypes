@@ -155,63 +155,61 @@
             <!-- First row -->
             <div class="col-md-12 row">
                 <!-- item 1-->
-                <div class="dashboard-item col-md-6">
+                <div class="dashboard-item col-md-12">
                     <div class="dashboard-content">
-                        <div class="title">
-                            <label><h6>Device: </h6></label>
-                            <select id="intervalSelector">
-                                <option value="day">uBridge X</option>
-                                <option value="week">uBridge Y</option>
-                                <option value="month">..</option>
-                            </select>
-                            <p class="underline">How many work orders were completed?</p>
-                        </div>
-                        <div class="col-md-12 row">
-                            <div class="col-md-6" style="padding-left: 20px;">
-                                <div>
-                                    <p class="sub-title">Generated Work Orders</p>
-                                    <p class="value">300</p>
-                                </div>
-                                <div class="margin-top-20">
-                                    <p class="sub-title">Completed Work Orders</p>
-                                    <p class="value">270</p>
-                                </div>
-                                <br>
-                                <!-- <div class="margin-top-20">
-                                    <p class="sub-title">Not Completed Work Orders</p>
-                                    <p class="value">30</p>
-                                </div> -->
-                                <select id="intervalSelector">
-                                    <option value="day">uBridge</option>
-                                    <option value="week">uMote</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6 center"> 
-                               <canvas id="tutorial" width="150px" height="200px"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="dashboard-item col-md-6">
-                    <div class="dashboard-content">
-                        <div class="title">
-                            <label for="intervalSelector"><h6>Device Measurements for </h6></label>
-                            <select id="intervalSelector">
-                                <option value="day">uBridge X</option>
-                                <option value="week">uBridge Y</option>
-                                <option value="month">..</option>
-                            </select>
-                            <label for="intervalSelector"><h6>per </h6></label>
-                            <select id="intervalSelector">
-                                <option value="day">Day</option>
-                                <option value="week">Week</option>
-                                <option value="month">Month</option>
-                            </select>
-                            <p class="underline">The nr. of measurements, alarms & warnings over time</p>
-                        </div>
-                        <div style="height: 180px;">
-                            <canvas id="workLoadChart"></canvas>
+                        <div class="col-md-12 row">
+                            <div class="col-md-6">
+                                <div class="title">
+                                    <label><h6>Device: </h6></label>
+                                    <select id="intervalSelector">
+                                        <option value="day">uBridge X</option>
+                                        <option value="week">uBridge Y</option>
+                                        <option value="month">..</option>
+                                    </select>
+                                    <p class="underline">How many work orders were completed?</p>
+                                </div>
+                                <div class="col-md-12 row">
+                                    <div class="col-md-6" style="padding-left: 20px;">
+                                        <div>
+                                            <p class="sub-title">Generated Work Orders</p>
+                                            <p class="value">300</p>
+                                        </div>
+                                        <div class="margin-top-20">
+                                            <p class="sub-title">Completed Work Orders</p>
+                                            <p class="value">270</p>
+                                        </div>
+                                        <br>
+                                        <select id="intervalSelector">
+                                            <option value="day">uBridge</option>
+                                            <option value="week">uMote</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 center"> 
+                                    <canvas id="tutorial" width="150px" height="200px"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="title">
+                                    <label for="intervalSelector"><h6>Device Measurements for </h6></label>
+                                    <select id="intervalSelector">
+                                        <option value="day">uBridge X</option>
+                                        <option value="week">uBridge Y</option>
+                                        <option value="month">..</option>
+                                    </select>
+                                    <label for="intervalSelector"><h6>per </h6></label>
+                                    <select id="intervalSelector">
+                                        <option value="day">Day</option>
+                                        <option value="week">Week</option>
+                                        <option value="month">Month</option>
+                                    </select>
+                                    <p class="underline">The nr. of measurements, alarms & warnings over time</p>
+                                </div>
+                                <div style="height: 180px;">
+                                    <canvas id="workLoadChart"></canvas>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -288,32 +286,47 @@
         function draw() {
             let canvas = document.getElementById('tutorial');
             if (canvas.getContext) {
-                var ctx9 = canvas.getContext('2d');
+                let ctx9 = canvas.getContext('2d');
+                let channelStates = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
+                
+                const selectColor = (i) => {
+                    if (channelStates[i] == 0) return 'grey';
+                    if (channelStates[i] == 1) return 'green';
+                    if (channelStates[i] == 2) return 'yellow';
+                    return 'red'
+                };
+
+                const drawChannels = () => {
+                    let id = 0
+                    let max = channelStates.length - 1;
+                    for(let i = 1; i <= 10; i++) {
+                        for(let j = 1; j <= 5; j++) {
+                            if (id <= max) {
+                                ctx9.beginPath();
+                                ctx9.ellipse(j * 20, i * 20, 5, 5, Math.PI / 4, 0, 2 * Math.PI);
+                                ctx9.fillStyle = selectColor(id);
+                                ctx9.fill();
+                                ctx9.stroke();
+                                id++
+                            } else {
+                                return;
+                            }
+                        }
+                    }
+                };
 
                 // path 1
-                // ctx9.fillStyle = 'rgb(255, 255, 255, 0.5)';
                 ctx9.beginPath();
                 ctx9.rect(10, 10, 100, 150);
                 ctx9.stroke();
                  
                 // path 2
-                // ctx9.fillStyle = 'rgba(255, 255, 255, 0.5)';
                 ctx9.beginPath();
                 ctx9.rect(5, 5, 110, 160);
                 ctx9.stroke();
 
                 // path 3 - channels
-                // ctx9.fillStyle = 'rgba(255, 255, 255, 0.5)';
-                for(let i = 1; i <= 5; i++) {
-                    for(let j = 1; j <= 4; j++) {
-                        if (i * j <= 19) {
-                            ctx9.beginPath();
-                            ctx9.ellipse(i * 20, j * 20, 5, 5, Math.PI / 4, 0, 2 * Math.PI);
-                            ctx9.stroke();
-                        }
-                    }
-                }
-                // path 4 - 
+                drawChannels();
             } else {
                 // canvas-unsupported code here
             }

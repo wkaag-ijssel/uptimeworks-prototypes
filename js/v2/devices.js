@@ -445,8 +445,6 @@ let routeDataPromise = new Promise((resolve) => {
     //Create bar graph
     let ctx7 = document.getElementById('routeComplianceChart').getContext('2d');
     let routeComplianceChart = horizontalBarChart(ctx7, data[0], data[1]);
-
-    //Add custom graph options
 });
 
 //Chart 1: task compliance per route

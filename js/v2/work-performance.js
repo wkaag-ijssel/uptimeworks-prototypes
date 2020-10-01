@@ -313,24 +313,68 @@ let assetDataPromise = new Promise((resolve) => {
     let assetComplianceChart = horizontalBarChart(ctx5, data[0], data[1], data[2]);
 });
 
-// let routeAssetPromise = new Promise((resolve) => {
-//     let data = Array.from({length: 4}, () => Math.random() *  100);
-//     let colours = Array.from({length: 4}, () => pMain);
-//     let labels = [
-//         ['Asset #6'],
-//         ['Asset #15'],
-//         ['Asset #10'],
-//         ['Asset #2']
-//     ]
-//     resolve([data, labels, colours]);
-// }).then(data => {  
-//     //Sorts after routeData contains (generated) values
-//     data[0], data[1] = sortByData(data[0], data[1]);
+let ctx4, jobComplianceChart;
+//Chart: work order compliance per task type
+let jobCompliancePromise = new Promise((resolve) => {
+    let data_1 = Array.from({length: 6}, () => Math.floor(Math.random() * 85));
+    let data_2 = Array.from({length: 6}, () => Math.floor(Math.random() * 10));
+    let data_3 = []
+    for (var i = 0;i<data_1.length;i++) {
+        data_3.push(100 - data_1[i] - data_2[i]) 
+    };
+  
+    let labels = ['Lubrication', 'Inspection', 'Process', 'Vibration', 'Thermographic', 'Other'];
 
-//     //Another one
-//     let ctx7 = document.getElementById('assetRouteChart').getContext('2d');
-//     let testChart = horizontalBarChart(ctx7, data[0], data[1], data[2]);
-// });
+
+    resolve([data_1, data_2, data_3, labels]);
+}).then(data => {  
+    ctx4 = document.getElementById('jobCompliance').getContext('2d');
+    jobComplianceChart = new Chart(ctx4, {
+        type: 'horizontalBar',
+        data: {
+            labels: data[3],
+            datasets: [{
+                label: 'Completed',
+                backgroundColor: pMain,
+                data: data[0]
+            }, {
+                label: 'Overdue',
+                backgroundColor: pLight,
+                data: data[1]
+            }, {
+                label: 'Not Completed',
+                data: data[2]
+            }]
+        },
+        options: {
+            tooltips: {
+                mode: 'index',
+                intersect: false
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                xAxes: [{
+                    stacked: true,
+                    ticks: {
+                        min: 0,
+                        max: 100,
+                        callback: function(value, index, values) {
+                            return value + '%';
+                        }
+                    }
+                }],
+                yAxes: [{
+                    stacked: true
+                }]
+            },
+            legend: {
+                display: false,
+                position: 'bottom'
+            }
+        }
+    });
+});
 
 // horizontalBar chart - styled
 function horizontalBarChart(chartElem, data, labels, colors = pMain){
@@ -395,88 +439,46 @@ function horizontalBarChart(chartElem, data, labels, colors = pMain){
                 return;
             },
             'onClick': function onClick (evt, activeElements) {
-                try {
-                    let activeIndex = activeElements[0]._index;
-                    let dataset = this.data.datasets[0];
-                    let max = this.data.datasets[0].data.length;
-                    isSelected = true;
+                // try {
+                let activeIndex = activeElements[0]._index;
+                let dataset = this.data.datasets[0];
+                let max = this.data.datasets[0].data.length;
+                isSelected = true;
 
-                    for (let i = 0; i < max; i += 1) {
-                        (i == activeIndex) 
-                        ? dataset.backgroundColor[activeIndex] = pMain 
-                        : dataset.backgroundColor[i] = "rgb(200, 200, 200)";
-                    };
+                for (let i = 0; i < max; i += 1) {
+                    (i == activeIndex) 
+                    ? dataset.backgroundColor[activeIndex] = pMain 
+                    : dataset.backgroundColor[i] = "rgb(200, 200, 200)";
+                };
 
-                    this.update();
-                } catch(error) { 
-                    isSelected = false; 
-                }
+                let route_1 = Array.from({length: 6}, () => Math.floor(Math.random() * 85));
+                let route_2 = Array.from({length: 6}, () => Math.floor(Math.random() * 10));
+                let route_3 = []
+                for (let i = 0; i<route_1.length; i++) {
+                    route_3.push(100 - route_1[i] - route_2[i])
+                };
+            
+                console.log('test')
+                changeData(jobComplianceChart, [route_1, route_2, route_3])
+                
+
+                this.update();
+                // } catch(error) { 
+                //     isSelected = false; 
+                // }
             }
         }
     });
 };
 
-
-//Chart: work order compliance per task type
-let jobCompliancePromise = new Promise((resolve) => {
-    let data_1 = Array.from({length: 6}, () => Math.floor(Math.random() * 85));
-    let data_2 = Array.from({length: 6}, () => Math.floor(Math.random() * 10));
-    let data_3 = []
-    for(var i = 0;i<data_1.length;i++)
-        data_3.push(100 - data_1[i] - data_2[i]);
-  
-    let labels = ['Lubrication', 'Inspection', 'Process', 'Vibration', 'Thermographic', 'Other'];
-
-
-    resolve([data_1, data_2, data_3, labels]);
-}).then(data => {  
-    let ctx4 = document.getElementById('jobCompliance').getContext('2d');
-    let jobComplianceChart = new Chart(ctx4, {
-        type: 'horizontalBar',
-        data: {
-            labels: data[3],
-            datasets: [{
-                label: 'Completed',
-                backgroundColor: pMain,
-                data: data[0]
-            }, {
-                label: 'Overdue',
-                backgroundColor: pLight,
-                data: data[1]
-            }, {
-                label: 'Not Completed',
-                data: data[2]
-            }]
-        },
-        options: {
-            tooltips: {
-                mode: 'index',
-                intersect: false
-            },
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                xAxes: [{
-                    stacked: true,
-                    ticks: {
-                        min: 0,
-                        max: 100,
-                        callback: function(value, index, values) {
-                            return value + '%';
-                        }
-                    }
-                }],
-                yAxes: [{
-                    stacked: true
-                }]
-            },
-            legend: {
-                display: false,
-                position: 'bottom'
-            }
-        }
+function changeData (chart, data) {
+    console.log('hallo')
+    chart.data.datasets.forEach((dataset, index) => {
+        dataset.data = data[index];
     });
-});
+    chart.update();
+}
+
 
 //Chart 5: Level of Completed and Not Completed Work per Asset 
 let getDataPromise = new Promise((resolve) => {
