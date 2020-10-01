@@ -139,6 +139,49 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-12 row">
+                <div class="dashboard-item col-md-6">
+                    <div class="dashboard-content">
+                        <div class="title">
+                            <label for="interval"><h6 class="tab-title">Report items per Task Type</h6></label>
+                            <p class="underline">How stable is the data collection?</p>
+                        </div>
+
+                        <div class="chart" style="height: 300px;">
+                            <canvas id="reportTypeChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-item col-md-6">
+                    <div class="dashboard-content">
+                        <div class="title">
+                            <label for="interval"><h6 class="tab-title">Report items and Criticiality per Asset</h6></label>
+                            <p class="underline">Sorted by most report items</p>
+                        </div>
+
+                        <div class="chart" style="height: 300px;">
+                            <canvas id="criticalAssetChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 row">
+                <div class="dashboard-item col-md-6">
+                    <div class="dashboard-content">
+                        <div class="title">
+                            <label for="interval"><h6 class="tab-title">Report items and Type per Asset</h6></label>
+                            <p class="underline">Sorted by most report items</p>
+                        </div>
+
+                        <div class="chart" style="height: 300px;">
+                            <canvas id="typeAssetChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>

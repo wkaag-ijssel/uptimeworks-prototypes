@@ -363,3 +363,139 @@ function sortTableDescending(col){
         }
     }
 }
+
+function stackedBarChart(chart, data, labels, usePerc = false) {
+    return new Chart(chart, {
+        type: 'horizontalBar',
+        data: {
+            labels: labels,
+            datasets: data
+        },
+        options: {
+            tooltips: {
+                mode: 'index',
+                intersect: false
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                xAxes: [{
+                    stacked: true,
+                    ticks: {
+                        beginAtZero: true,
+                        callback: function(value, index, values) {
+                            if (usePerc) { 
+                                return value + '%';
+                            } else {
+                                return value;
+                            }
+                        }
+                    }
+                }],
+                yAxes: [{
+                    stacked: true
+                }]
+            },
+            legend: {
+                display: false,
+                position: 'bottom'
+            }
+        }
+    });
+}
+
+//Type of report
+let reportTypeChart = new Promise((resolve) => {
+    let data = [{
+        label: 'Lvl 4',
+        backgroundColor: pDark,
+        data: Array.from({length: 6}, () => Math.floor(Math.random() * 3))
+    }, {
+        label: 'Lvl 3',
+        backgroundColor: pMain,
+        data: Array.from({length: 6}, () => Math.floor(Math.random() * 5))
+    }, {
+        label: 'Lvl 2',
+        backgroundColor: pLight,
+        data: Array.from({length: 6}, () => Math.floor(Math.random() * 5))
+    }, {
+        label: 'Lvl 1',
+        backgroundColor: sMain,
+        data: Array.from({length: 6}, () => Math.floor(Math.random() * 5))
+    }, {
+        label: 'Normal',
+        backgroundColor: sLight,
+        data: Array.from({length: 6}, () => Math.floor(Math.random() * 5))
+    }];
+    let labels = ['Lubrication', 'Inspection', 'Process', 'Vibration', 'Thermographic', 'Other'];
+
+
+    resolve([data, labels]);
+}).then(result => {  
+    let ctx4 = document.getElementById('reportTypeChart').getContext('2d');
+    let reportTypeChart = stackedBarChart(ctx4, result[0], result[1])
+});
+
+//Type of report
+let criticalPromise = new Promise((resolve) => {
+    let data = [{
+        label: 'Lvl 4',
+        backgroundColor: pDark,
+        data: Array.from({length: 6}, () => Math.floor(Math.random() * 3))
+    }, {
+        label: 'Lvl 3',
+        backgroundColor: pMain,
+        data: Array.from({length: 6}, () => Math.floor(Math.random() * 5))
+    }, {
+        label: 'Lvl 2',
+        backgroundColor: pLight,
+        data: Array.from({length: 6}, () => Math.floor(Math.random() * 5))
+    }, {
+        label: 'Lvl 1',
+        backgroundColor: sMain,
+        data: Array.from({length: 6}, () => Math.floor(Math.random() * 5))
+    }, {
+        label: 'Normal',
+        backgroundColor: sLight,
+        data: Array.from({length: 6}, () => Math.floor(Math.random() * 5))
+    }];
+    let labels = ['Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x'];
+    resolve([data, labels]);
+}).then(result => {  
+    let ctx = document.getElementById('criticalAssetChart').getContext('2d');
+    let reportTypeChart = stackedBarChart(ctx, result[0], result[1])
+});
+
+//Type of report
+let typePromise = new Promise((resolve) => {
+    let data = [{
+        label: 'Thermographic',
+        backgroundColor: pDark,
+        data: Array.from({length: 6}, () => Math.floor(Math.random() * 3))
+    }, {
+        label: 'Vibration',
+        backgroundColor: pMain,
+        data: Array.from({length: 6}, () => Math.floor(Math.random() * 5))
+    }, {
+        label: 'Process',
+        backgroundColor: pLight,
+        data: Array.from({length: 6}, () => Math.floor(Math.random() * 5))
+    }, {
+        label: 'Inspection',
+        backgroundColor: sMain,
+        data: Array.from({length: 6}, () => Math.floor(Math.random() * 5))
+    }, {
+        label: 'Lubrication',
+        backgroundColor: sLight,
+        data: Array.from({length: 6}, () => Math.floor(Math.random() * 5))
+    }, {
+        label: 'Other',
+        backgroundColor: sLight,
+        data: Array.from({length: 6}, () => Math.floor(Math.random() * 5))
+    }];
+    let labels = ['Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x'];
+    resolve([data, labels]);
+}).then(result => {  
+    let ctx = document.getElementById('typeAssetChart').getContext('2d');
+    let reportTypeChart = stackedBarChart(ctx, result[0], result[1])
+});
