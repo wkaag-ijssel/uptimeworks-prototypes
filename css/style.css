@@ -301,12 +301,12 @@ label {
 .tab {
   overflow: hidden;
   background-color: white;
-  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .tab button {
   background-color: inherit;
-  float: left;
+  float: right;
   border: none;
   outline: none;
   cursor: pointer;

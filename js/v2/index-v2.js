@@ -25,9 +25,9 @@ let past = .75
 let future = 1 - past
 
 // Dummy data
-let workorders = Array.from({length: date_range.length * past}, () => Math.floor(Math.random() * 40));
-let readings = Array.from({length: date_range.length * past}, () => Math.floor(Math.random() * 40));
-let reports = Array.from({length: date_range.length * past}, () => Math.floor(Math.random() * 20));
+let workorders = Array.from({length: date_range.length * past}, () => Math.floor(Math.random() * 40) + 30);
+let readings = Array.from({length: date_range.length * past}, () => Math.floor(Math.random() * 300) + 700);
+let reports = Array.from({length: date_range.length * past}, () => Math.floor(Math.random() * 10) + 25);
 let totalCosts = Array.from({length: date_range.length * past}, () => Math.floor(Math.random() * 30));
 let data = [workorders, readings, reports, totalCosts]
 
@@ -110,6 +110,9 @@ let chart1 = new Chart(ctx5, {
                     display:true,
                 },
                 position: 'right',
+                ticks: {
+                    beginAtZero: true
+                }
             }]
         }
     }
@@ -125,7 +128,7 @@ function changeTab(evt, chartName, dataInput, refInput='None') {
 
     // change metric data
     chartName.data.datasets[0].data = dataInput;
-    chartName.data.datasets[0].label = 'n. of ' + evt.currentTarget.getElementsByClassName("tab-title")[0].innerText.toLowerCase();
+    chartName.data.datasets[0].label = 'n. of ' + evt.currentTarget.getElementsByClassName("sub-title")[0].innerText.toLowerCase();
 
     // change ref/threshold data
     chartName.data.datasets[1].data = refInput;

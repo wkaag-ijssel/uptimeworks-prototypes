@@ -224,27 +224,38 @@
             <div class="col-md-12 row">
                 <div class="dashboard-item col-md-8">
                     <div class="dashboard-content">
-                        <div class="tab">
-                            <button class="tablinks active" onclick="changeTab(event, chart1, workorders, _workorders)">
-                                <h6 class="tab-title">Workorders</h6>
-                                <p class="tab-metric"></p>
-                                <!-- <p class="percentage-value"><i class="fas"></i></p> -->
-                            </button>
-                            <button class="tablinks" onclick="changeTab(event, chart1, readings, _readings)">
-                                <h6 class="tab-title">Readings</h6>
-                                <p class="tab-metric"></p>
-                                <!-- <p class="percentage-value"><i class="fas"></i></p> -->
-                            </button>
-                            <button class="tablinks" onclick="changeTab(event, chart1, reports, _reports)">
-                                <h6 class="tab-title">Reports</h6>
-                                <p class="tab-metric"></p>
-                                <!-- <p class="percentage-value"><i class="fas"></i></p> -->
-                            </button>
-                            <!-- <button class="tablinks" onclick="changeTab(event, chart1, totalCosts, _totalCosts)">
-                                <h6 class="tab-title">Costs</h6>
-                                <p class="tab-metric">$ </p>
-                                <p class="percentage-value"><i class="fas"></i></p>
-                            </button> -->
+
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="title">
+                                    <label><h6>Maintenance Activity</h6></label>
+                                    <p class="underline">Past and future level of activity</p>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="tab">
+                                    <button class="tablinks" onclick="changeTab(event, chart1, readings, _readings)">
+                                        <h6 class="sub-title">Readings</h6>
+                                        <p class="tab-metric"></p>
+                                        <!-- <p class="percentage-value"><i class="fas"></i></p> -->
+                                    </button>
+                                    <button class="tablinks" onclick="changeTab(event, chart1, reports, _reports)">
+                                        <h6 class="sub-title">Reports</h6>
+                                        <p class="tab-metric"></p>
+                                        <!-- <p class="percentage-value"><i class="fas"></i></p> -->
+                                    </button>
+                                    <button class="tablinks active" onclick="changeTab(event, chart1, workorders, _workorders)">
+                                        <h6 class="sub-title">Workorders</h6>
+                                        <p class="tab-metric"></p>
+                                        <!-- <p class="percentage-value"><i class="fas"></i></p> -->
+                                    </button>
+                                    <!-- <button class="tablinks" onclick="changeTab(event, chart1, totalCosts, _totalCosts)">
+                                        <h6 class="tab-title">Costs</h6>
+                                        <p class="tab-metric">$ </p>
+                                        <p class="percentage-value"><i class="fas"></i></p>
+                                    </button> -->
+                                </div>
+                            </div>
                         </div>
                         <div class="chart">
                             <canvas id="myChart_1" height="200px"></canvas>
@@ -274,7 +285,7 @@
                                 <h4>98.0%</h4>
                             </div>
                         </div>
-                        <div class="col-md-12 row margin-top-20" style="padding-bottom: 20px; margin-left: 4px; margin-bottom:25px;">
+                        <div class="col-md-12 row margin-top-20" style="padding-bottom: 20px; margin-left: 4px;">
                             <div class="col-md-4" style="padding-left: 20px;">
                                 <h7>Other</h7>
                             </div>
@@ -290,54 +301,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- <div class="col-md-12 row">
-                <div class="dashboard-item col-md-8">
-                    <div class="dashboard-content">
-                        <div class="title">
-                            <h6>Device Activity</h6>
-                            <p class="underline">At this moment</p>
-                        </div>
-                        <div class="col-md-12 row">
-                            <div class="col-md-6">
-                                <div class="chart" style="height: 230px;">
-                                    <canvas id="jobCompliance"></canvas>
-                                </div>
-                            </div>
-                            <div class="col-md-6"> 
-                                <div class="row">
-                                    <div class="col-md-7">  
-                                        <div class="chart" style="height: 180px;">
-                                            <canvas id="assetHealth"></canvas>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <div class="margin-top-20">
-                                            <p class="sub-title">uBridges</p>
-                                            <p class="value">5</p>
-                                        </div>
-
-                                        <div class="margin-top-20">
-                                            <p class="sub-title">uMotes</p>
-                                            <p class="value">30</p>
-                                        </div>
-
-                                        <div class="margin-top-20">
-                                            <p class="sub-title">Other</p>
-                                            <p class="value">10</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <button id="button-alarms" class="mdc-button" style="float: right;">
-                                    <div class="mdc-button__ripple"></div>
-                                    <span class="mdc-button__label">View alarms</span>
-                                    <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
-                                </button> 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
         </div>
     </div>
 </body>

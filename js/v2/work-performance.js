@@ -182,7 +182,7 @@ let resourcesChart = new Chart(ctx, {
             barThickness: 6,
             maxBarThickness: 8,
             minBarLength: 2,
-            data: Array.from({length: labels.length}, () => Math.random()*50)
+            data: Array.from({length: labels.length}, () => Math.random()*20 + 30)
         }]
     },
     options: {
@@ -215,7 +215,10 @@ let resourcesChart = new Chart(ctx, {
                 }
             }],
             yAxes: [{
-                position: 'right'
+                position: 'right',
+                ticks: {
+                    beginAtZero: true
+                }
             }]
         }
     }
