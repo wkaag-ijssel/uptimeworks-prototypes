@@ -460,8 +460,6 @@ function horizontalBarChart(chartElem, data, labels, colors = pMain){
                 for (let i = 0; i<route_1.length; i++) {
                     route_3.push(100 - route_1[i] - route_2[i])
                 };
-            
-                console.log('test')
                 changeData(jobComplianceChart, [route_1, route_2, route_3])
                 
 
@@ -475,7 +473,6 @@ function horizontalBarChart(chartElem, data, labels, colors = pMain){
 };
 
 function changeData (chart, data) {
-    console.log('hallo')
     chart.data.datasets.forEach((dataset, index) => {
         dataset.data = data[index];
     });

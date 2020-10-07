@@ -131,66 +131,66 @@ Chart.pluginService.register({
 
 
 //Chart 6: asset Iot alarms
-let ctx2 = document.getElementById('reportItems').getContext('2d');
-let reportItems = new Chart(ctx2, {
-    type: 'horizontalBar',
-    data: { 
-        labels: ['Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x'],
-        datasets: [{
-            label: 'Alarms',
-            data: Array.from({length: 9}, () => Math.floor(Math.random() * 40)),
-            fill: true,
-            backgroundColor: pMain,
-            pointStyle: 'line'
-        }], 
-    },
-    options: {
-        legend: {
-            display: false,
-        },
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-            xAxes: [{
-                stacked: true,
-            }],
-            yAxes: [{
-                stacked: true
-            }]
-        }
-    }
-});
+// let ctx2 = document.getElementById('reportItems').getContext('2d');
+// let reportItems = new Chart(ctx2, {
+//     type: 'horizontalBar',
+//     data: { 
+//         labels: ['Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x'],
+//         datasets: [{
+//             label: 'Alarms',
+//             data: Array.from({length: 9}, () => Math.floor(Math.random() * 40)),
+//             fill: true,
+//             backgroundColor: pMain,
+//             pointStyle: 'line'
+//         }], 
+//     },
+//     options: {
+//         legend: {
+//             display: false,
+//         },
+//         responsive: true,
+//         maintainAspectRatio: false,
+//         scales: {
+//             xAxes: [{
+//                 stacked: true,
+//             }],
+//             yAxes: [{
+//                 stacked: true
+//             }]
+//         }
+//     }
+// });
 
-//Chart 6: asset Iot alarms
-let ctx3 = document.getElementById('reportCriticality').getContext('2d');
-let reportCriticality = new Chart(ctx3, {
-    type: 'horizontalBar',
-    data: { 
-        labels: ['Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x'],
-        datasets: [{
-            label: 'Alarms',
-            data: Array.from({length: 9}, () => Math.floor(Math.random() * 6)),
-            fill: true,
-            backgroundColor: pMain,
-            pointStyle: 'line'
-        }], 
-    },
-    options: {
-        legend: {
-            display: false,
-        },
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-            xAxes: [{
-                stacked: true,
-            }],
-            yAxes: [{
-                stacked: true
-            }]
-        }
-    }
-});
+// //Chart 6: asset Iot alarms
+// let ctx3 = document.getElementById('reportCriticality').getContext('2d');
+// let reportCriticality = new Chart(ctx3, {
+//     type: 'horizontalBar',
+//     data: { 
+//         labels: ['Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x'],
+//         datasets: [{
+//             label: 'Alarms',
+//             data: Array.from({length: 9}, () => Math.floor(Math.random() * 6)),
+//             fill: true,
+//             backgroundColor: pMain,
+//             pointStyle: 'line'
+//         }], 
+//     },
+//     options: {
+//         legend: {
+//             display: false,
+//         },
+//         responsive: true,
+//         maintainAspectRatio: false,
+//         scales: {
+//             xAxes: [{
+//                 stacked: true,
+//             }],
+//             yAxes: [{
+//                 stacked: true
+//             }]
+//         }
+//     }
+// });
 
 /**
  * Table 

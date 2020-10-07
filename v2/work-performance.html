@@ -164,35 +164,39 @@
                 </div>
             </div>
 
+            <!-- First row -->
             <div class="col-md-12 row">
 
-                <!-- Item 2 -->
-                <div class="dashboard-item col-md-6">
+                <!-- Item 1 -->
+                <div class="dashboard-item col-md-12">
                     <div class="dashboard-content">
-                        <div class="title">
-                            <select id="interval">
-                                <option value="month">All Work</option>
-                                <option value="week">Lubrication</option>
-                                <option value="week">Vibration</option>
-                            </select>
-                            <label for="interval"><h6 class="tab-title">Compliance per Asset</h6></label>
-                            <p class="underline">Sorted by lowest work order compliance</p>
-                        </div>
-                        <div class="chart" style="height: 300px; cursor: pointer;">
-                            <canvas id="assetComplianceChart"></canvas>
-                        </div>
-                    </div>
-                </div>
+                        <div class="col-md-12 row">
+                            <div class="col-md-6">
+                                <div class="title">
+                                    <select id="interval">
+                                        <option value="month">All Work</option>
+                                        <option value="week">Lubrication</option>
+                                        <option value="week">Vibration</option>
+                                    </select>
+                                    <label for="interval"><h6 class="tab-title">Compliance per Asset</h6></label>
+                                    <p class="underline">Sorted by lowest work order compliance</p>
+                                </div>
+                                <div class="chart" style="height: 300px; cursor: pointer;">
+                                    <canvas id="assetComplianceChart"></canvas>
+                                </div>
+                            </div>
                 
-                <!-- item 3 -->
-                <div class="dashboard-item col-md-6">
-                    <div class="dashboard-content">
-                        <div class="title">
-                            <label for="workEquipment"><h6 class="tab-title">Generated Work Orders and Completed Work Orders per Machine</h6></label>
-                        </div>
-                        
-                        <div class="chart">
-                            <canvas id="executedWorkChart" ></canvas>
+                            <!-- item 3 -->
+                            <div class="col-md-6">
+                                <div class="title">
+                                    <label for="workEquipment"><h6 class="tab-title">Completed Work Orders per Asset</h6></label>
+                                    <p class="underline">Average Work Compliance over Time</p>
+                                </div>
+                                
+                                <div class="chart" style="height: 300px;">
+                                    <canvas id="executedWorkChart" ></canvas>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

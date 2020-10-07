@@ -139,12 +139,14 @@ let ctx = document.getElementById('uBridgeChart').getContext('2d');
 let ctx1 = document.getElementById('uMoteChart').getContext('2d');
 let ctx2 = document.getElementById('uClipChart').getContext('2d');
 let ctx3 = document.getElementById('otherChart').getContext('2d');
+let ctx5 = document.getElementById('deviceChart').getContext('2d');
 
 // run the scripts
 let ctxChart = doughnutChart(ctx, [60, 0, 20, 20]);
 let ctx2Chart = doughnutChart(ctx1, [80, 15, 5, 0]);
 let ctx3Chart = doughnutChart(ctx2, [90, 0, 0, 10]);
 let ctx4Chart = doughnutChart(ctx3, [100, 0, 0, 0]);
+let ctx5Chart = doughnutChart(ctx5, [100, 0, 0, 0]);
 
 function loadRow(){
     let tableRef = document.getElementById('deviceTable').getElementsByTagName('tbody')[0];
@@ -357,7 +359,7 @@ let resourcesChart = new Chart(ctx4, {
             barThickness: 6,
             maxBarThickness: 8,
             minBarLength: 2,
-            data: Array.from({length: labels.length}, () => Math.random()*5)
+            data: Array.from({length: labels.length}, () => Math.floor(Math.random()*5))
         }]
     },
     options: {

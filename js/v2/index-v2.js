@@ -36,9 +36,8 @@ let _workorders = workorders.concat(Array.from({length: date_range.length * futu
 let _readings = readings.concat(Array.from({length: date_range.length * future}, () => 30));
 let _reports = reports.concat(Array.from({length: date_range.length * future}, () => Math.floor(Math.random() * 20)));
 // let _totalCosts = totalCosts.concat(Array.from({length: date_range.length * future}, () => Math.floor(Math.random() * 30)));
-let ref = [_workorders, _readings, _reports];
 
-// 
+let ref = [_workorders, _readings, _reports]; 
 let tabs = document.getElementsByClassName('tablinks');
 let dataMetric = document.getElementsByClassName('tab-metric');
 let dataDiff = document.getElementsByClassName('percentage-value');
@@ -71,7 +70,7 @@ let chart1 = new Chart(ctx5, {
             borderDash: [5,2],
             data: _workorders,
             order: 2
-        }]
+        },]
     },
     options: {
         legend: {

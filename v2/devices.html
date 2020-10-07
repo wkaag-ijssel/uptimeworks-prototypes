@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 </head>
 
-<body class="dashboard"  onload="draw();">
+<body class="dashboard">
     <div class="col-md-12 row">
         <div class="col-md-2">
             <div class="vertical-menu" style='position: fixed;'>
@@ -159,7 +159,7 @@
                     <div class="dashboard-content">
 
                         <div class="col-md-12 row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="title">
                                     <label><h6>Device: </h6></label>
                                     <select id="intervalSelector">
@@ -172,12 +172,12 @@
                                 <div class="col-md-12 row">
                                     <div class="col-md-6" style="padding-left: 20px;">
                                         <div>
-                                            <p class="sub-title">Generated Work Orders</p>
+                                            <p class="sub-title">Readings</p>
                                             <p class="value">300</p>
                                         </div>
                                         <div class="margin-top-20">
-                                            <p class="sub-title">Completed Work Orders</p>
-                                            <p class="value">270</p>
+                                            <p class="sub-title">Channels</p>
+                                            <p class="value">20 / 3 / 5 </p>
                                         </div>
                                         <br>
                                         <select id="intervalSelector">
@@ -186,11 +186,11 @@
                                         </select>
                                     </div>
                                     <div class="col-md-6 center"> 
-                                    <canvas id="tutorial" width="150px" height="200px"></canvas>
+                                        <canvas id="deviceChart" width="150px" height="200px"></canvas>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <div class="title">
                                     <label for="intervalSelector"><h6>Number of readings per</h6></label>
                                     <select id="intervalSelector">
@@ -276,58 +276,4 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="../js/v2/devices.js"></script>
     <script src="../js/functions.js"></script>
-    <script type="text/javascript">
-        function draw() {
-            let canvas = document.getElementById('tutorial');
-            if (canvas.getContext) {
-                let ctx9 = canvas.getContext('2d');
-                let channelStates = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
-                
-                const selectColor = (i) => {
-                    if (channelStates[i] == 0) return 'grey';
-                    if (channelStates[i] == 1) return 'green';
-                    if (channelStates[i] == 2) return 'yellow';
-                    return 'red'
-                };
-
-                const drawChannels = () => {
-                    let id = 0
-                    let max = channelStates.length - 1;
-                    for(let i = 1; i <= 10; i++) {
-                        for(let j = 1; j <= 5; j++) {
-                            if (id <= max) {
-                                ctx9.beginPath();
-                                ctx9.ellipse(j * 20, i * 20, 5, 5, Math.PI / 4, 0, 2 * Math.PI);
-                                ctx9.fillStyle = selectColor(id);
-                                ctx9.fill();
-                                ctx9.lineWidth = 0.5;
-                                ctx9.stroke();
-                                id++
-                            } else {
-                                return;
-                            }
-                        }
-                    }
-                };
-
-                // path 1
-                ctx9.beginPath();
-                ctx9.lineWidth = "0.2";
-                ctx9.rect(10, 10, 100, 150);
-                ctx9.stroke();
-                 
-                
-                // path 2
-                ctx9.beginPath();
-                ctx9.lineWidth = "0.2";
-                ctx9.rect(5, 5, 110, 160);
-                ctx9.stroke();
-
-                // path 3 - channels
-                drawChannels();
-            } else {
-                // canvas-unsupported code here
-            }
-        }
-    </script>
 </footer>
