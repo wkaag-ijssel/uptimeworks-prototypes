@@ -111,15 +111,15 @@ Chart.pluginService.register({
 
         // Break words up into multiple lines if necessary
         for (var n = 0; n < words.length; n++) {
-        var testLine = line + words[n] + ' ';
-        var metrics = ctx.measureText(testLine);
-        var testWidth = metrics.width;
-        if (testWidth > elementWidth && n > 0) {
-            lines.push(line);
-            line = words[n] + ' ';
-        } else {
-            line = testLine;
-        }
+            var testLine = line + words[n] + ' ';
+            var metrics = ctx.measureText(testLine);
+            var testWidth = metrics.width;
+            if (testWidth > elementWidth && n > 0) {
+                lines.push(line);
+                line = words[n] + ' ';
+            } else {
+                line = testLine;
+            }
         }
 
         // Move the center up depending on line height and number of lines
@@ -135,62 +135,39 @@ Chart.pluginService.register({
     }
 });
 
-let ctx = document.getElementById('uBridgeChart').getContext('2d');
-let ctx1 = document.getElementById('uMoteChart').getContext('2d');
-let ctx2 = document.getElementById('uClipChart').getContext('2d');
-let ctx3 = document.getElementById('otherChart').getContext('2d');
-let ctx5 = document.getElementById('deviceChart').getContext('2d');
-
-// run the scripts
-let ctxChart = doughnutChart(ctx, [60, 0, 20, 20]);
-let ctx2Chart = doughnutChart(ctx1, [80, 15, 5, 0]);
-let ctx3Chart = doughnutChart(ctx2, [90, 0, 0, 10]);
-let ctx4Chart = doughnutChart(ctx3, [100, 0, 0, 0]);
-let ctx5Chart = doughnutChart(ctx5, [100, 0, 0, 0]);
-
-function loadRow(){
-    let tableRef = document.getElementById('deviceTable').getElementsByTagName('tbody')[0];
-    let rowsCount = document.getElementById('deviceTable').rows[0].cells.length;
-
-    // Insert a row in the table at the last row
-    let newRow   = tableRef.insertRow();
-    newRow.className = "mdc-data-table__row";
-
-    let data = [
-        ['Device ' + Math.floor(Math.random() * 20).toString(), false],
-        [Math.floor(Math.random() * 150), true],
-        [Math.floor(Math.random() * 7), true],
-        [Math.floor(Math.random() * 160), true]
-    ];
-
-    for(let i = 0; i < rowsCount; i++){
-        let newCell  = newRow.insertCell(i);
-        newCell.innerHTML = data[i][0];
-
-        if(data[i][1] == true){
-            newCell.className = "mdc-data-table__cell mdc-data-table__cell--numeric"
-        } else {
-            newCell.className = "mdc-data-table__cell"
-        }
-    }
-};
-
 //onload
-function createTable(){
+function createTable(table_id, row_data, nr_of_devices){
+
     //Generate rows
-    for(let i = 0; i < 10; i++){
-        loadRow();
+    for(let i = 0; i < nr_of_devices; i++){
+        let tableRef = document.getElementById(table_id).getElementsByTagName('tbody')[0];
+        let rowsCount = document.getElementById(table_id).rows[0].cells.length;
+
+        // Insert a row in the table at the last row
+        let newRow   = tableRef.insertRow();
+        newRow.className = "mdc-data-table__row";
+
+        let data = row_data();
+
+        for (let i = 0; i < rowsCount; i++) {
+            let newCell  = newRow.insertCell(i);
+            newCell.innerHTML = data[i][0];
+
+            if (data[i][1] == true) {
+                newCell.className = "mdc-data-table__cell mdc-data-table__cell--numeric"
+            } else {
+                newCell.className = "mdc-data-table__cell"
+            }
+        };
     };
+
     //Event listeners for specific headers ('hover-icon' class)
-    let columns = document.getElementById('deviceTable').getElementsByTagName('th');
-    for(let i = 0; i < columns.length; i++){
+    let columns = document.getElementById(table_id).getElementsByTagName('th');
+    for (let i = 0; i < columns.length; i++) {
         let column = columns[i];
-        console.log(column)
-        if(column.classList.contains("hover-icon")){
+        if (column.classList.contains("hover-icon")) {
             column.addEventListener('click', function(event) {
-                console.log('test');
                 function sortedToFalse() {
-                    console.log('sortedToFalse')
                     for(let i = 0; i < columns.length; i++){
                         if(columns[i] !== column && columns[i].classList.contains('hover-icon')){
                             let otherCol = columns[i];
@@ -203,24 +180,24 @@ function createTable(){
                 };
 
                 let sorted = column.getAttribute("data-sorted");
-                if(sorted == "no"){
-                    sortTableDescending(i);
+                if (sorted == "no") {
+                    sortTableDescending(i, table_id);
                     sortedToFalse();
                     column.setAttribute("data-sorted", "desc");
 
                     let icon = column.firstChild;
                     icon.innerHTML = "arrow_upward";
                     icon.style.visibility = "visible";
-                } else if(sorted == "desc"){
-                    sortTableAscending(i);
+                } else if (sorted == "desc") {
+                    sortTableAscending(i, table_id);
                     sortedToFalse();
                     column.setAttribute("data-sorted", "asc");
 
                     let icon = column.firstChild;
                     icon.innerHTML = "arrow_downward";
                     icon.style.visibility = "visible";
-                } else if(sorted == "asc"){
-                    sortTableDescending(i);
+                } else if (sorted == "asc") {
+                    sortTableDescending(i, table_id);
                     sortedToFalse();
                     column.setAttribute("data-sorted", "desc");
 
@@ -229,24 +206,40 @@ function createTable(){
                     icon.style.visibility = "visible";
                 }
             });
-        }
-    }
+        };
+    };
     return;
 }
-createTable();
+let createuBridgeRow = () => {
+    let row = [
+        ['uBridgeFakeName' + Math.floor(Math.random() * 20).toString(), false],
+        [Math.floor(Math.random() * 30), true],
+        ['Asset ' + Math.floor(Math.random() * 10), false]
+    ];
+    return row
+};
+createTable('deviceTable', createuBridgeRow, 4);
+
+let createuMoteRow = () => {
+    let row = [
+        ['um121-10012' + Math.floor(Math.random() * 20).toString(), false],
+        [Math.floor(Math.random() * 30), true],
+        [Math.floor(Math.random() * 100), true],
+        ['Asset ' + Math.floor(Math.random() * 10), false]
+    ];
+    return row
+};
+createTable('uMoteTable', createuMoteRow, 40);
 
 //Ascending
-function sortTableAscending(col) {
-    console.log('ascending')
+function sortTableAscending(col, table_id) {
     let table, rows, switching, i, x, y, shouldSwitch;
-    table = document.getElementById("deviceTable");
+    table = document.getElementById(table_id);
     switching = true;
 
-    console.log(col);
     while (switching) {
         switching = false;
         rows = table.rows;
-        console.log(rows.length);
         for (i = 1; i < (rows.length - 1); i++) {
             shouldSwitch = false;
             x = rows[i].getElementsByTagName("TD")[col];
@@ -265,13 +258,11 @@ function sortTableAscending(col) {
 }
 
 //Descending
-function sortTableDescending(col) {
-    console.log('descending')
+function sortTableDescending(col, table_id) {
     let table, rows, switching, i, x, y, shouldSwitch;
-    table = document.getElementById("deviceTable");
+    table = document.getElementById(table_id);
     switching = true;
 
-    console.log(col);
     while (switching) {
         switching = false;
         rows = table.rows;
@@ -280,9 +271,7 @@ function sortTableDescending(col) {
             shouldSwitch = false;
             x = rows[i].getElementsByTagName("TD")[col];
             y = rows[i + 1].getElementsByTagName("TD")[col];
-            console.log('switch?')
-            console.log(x.innerHTML);
-            console.log(y.innerHTML);
+            
             if (Number(x.innerHTML) < Number(y.innerHTML)) {
                 shouldSwitch = true;
                 break;
@@ -340,7 +329,7 @@ let resourcesChart = new Chart(ctx4, {
         labels: labels,
         datasets: [{
             label: 'Readings',
-            type: 'line',
+            // type: 'line',
             borderColor: pMain,
             fill: false,
             backgroundColor: pMain,
@@ -348,18 +337,18 @@ let resourcesChart = new Chart(ctx4, {
             barThickness: 6,
             maxBarThickness: 8,
             minBarLength: 2,
-            data: Array.from({length: labels.length}, () => Math.random()*10 + 40)
+            data: Array.from({length: labels.length}, () => Math.floor(Math.random()*5) + 10)
         },{
             label: 'Report items',
             // type: 'bar',
             borderColor: pMain,
             fill: false,
-            backgroundColor: pMain,
+            backgroundColor: sMain,
             barPercentage: 0.5,
             barThickness: 6,
             maxBarThickness: 8,
             minBarLength: 2,
-            data: Array.from({length: labels.length}, () => Math.floor(Math.random()*5))
+            data: Array.from({length: labels.length}, () => Math.floor(Math.random()*3))
         }]
     },
     options: {
@@ -383,6 +372,7 @@ let resourcesChart = new Chart(ctx4, {
         },
         scales: {
             xAxes: [{
+                stacked: true,
                 gridLines: {
                     display: false,
                 },
@@ -396,6 +386,7 @@ let resourcesChart = new Chart(ctx4, {
                 }
             }],
             yAxes: [{
+                stacked: true,
                 position: 'right',
                 ticks: {
                     beginAtZero: true
@@ -501,10 +492,9 @@ function stackedBarChart(chart, data, labels, usePerc = false) {
             maintainAspectRatio: false,
             scales: {
                 xAxes: [{
-                    stacked: true,
+                    stacked: false,
                     ticks: {
                         min: 0,
-                        max: 100,
                         callback: function(value, index, values) {
                             if (usePerc) { 
                                 return value + '%';
@@ -515,7 +505,7 @@ function stackedBarChart(chart, data, labels, usePerc = false) {
                     }
                 }],
                 yAxes: [{
-                    stacked: true
+                    stacked: false
                 }]
             },
             legend: {
@@ -526,39 +516,18 @@ function stackedBarChart(chart, data, labels, usePerc = false) {
     });
 }
 
-
-//Malfunctions per uBridge
-let malfunctionChartPromise = new Promise((resolve) => {
-    let data = [{
-        label: 'Normal',
-        backgroundColor: pMain,
-        data: Array.from({length: 6}, () => Math.floor(Math.random() * 85))
-    }, {
-        label: 'Full',
-        backgroundColor: pLight,
-        data: Array.from({length: 6}, () => Math.floor(Math.random() * 10))
-    }];
-    let labels = ['Lubrication', 'Inspection', 'Process', 'Vibration', 'Thermographic', 'Other'];
-
-
-    resolve([data, labels]);
-}).then(result => {  
-    let ctx4 = document.getElementById('malfunctionChart').getContext('2d');
-    let malfunctionChart = stackedBarChart(ctx4, result[0], result[1], true)
-});
-
 //Normal and Full Reading
 let normalFullChartPromise = new Promise((resolve) => {
     let data = [{
         label: 'Normal',
         backgroundColor: pMain,
-        data: Array.from({length: 6}, () => Math.floor(Math.random() * 85))
+        data: Array.from({length: 10}, () => Math.floor(Math.random() * 200)).sort((a, b) => a - b)
     }, {
         label: 'Full',
         backgroundColor: pLight,
-        data: Array.from({length: 6}, () => Math.floor(Math.random() * 10))
+        data: Array.from({length: 10}, () => Math.floor(Math.random() * 20))
     }];
-    let labels = ['device x', 'device x', 'device x', 'device x', 'device x', 'device x'];
+    let labels = ['device x', 'device x', 'device x', 'device x', 'device x', 'device x', 'device x', 'device x', 'device x', 'device x'];
     resolve([data, labels]);
 }).then(result => {  
     let ctx8 = document.getElementById('normalFullChart').getContext('2d');
@@ -570,13 +539,13 @@ let alarmReportChartPromise = new Promise((resolve) => {
     let data = [{
         label: 'Alarm',
         backgroundColor: pMain,
-        data: Array.from({length: 6}, () => Math.floor(Math.random() * 85))
+        data: Array.from({length: 10}, () => Math.floor(Math.random() * 200)).sort((a, b) => a - b)
     }, {
         label: 'Report',
         backgroundColor: pLight,
-        data: Array.from({length: 6}, () => Math.floor(Math.random() * 10))
+        data: Array.from({length: 10}, () => Math.floor(Math.random() * 20))
     }];
-    let labels = ['Device x', 'Device x', 'Device x', 'Device x', 'Device x', 'Device x'];
+    let labels = ['Device x', 'Device x', 'Device x', 'Device x', 'Device x', 'Device x', 'device x', 'device x', 'device x', 'device x'];
 
 
     resolve([data, labels]);

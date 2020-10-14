@@ -205,6 +205,7 @@ function loadRow(){
 
     let data = [
         ['Report ' + Math.floor(Math.random() * 20).toString(), false],
+        [Math.floor(Math.random() * 5), true],
         ['Equipment ' + Math.floor(Math.random() * 20), false],
         ['Person ' + Math.floor(Math.random() * 20), false],
         [

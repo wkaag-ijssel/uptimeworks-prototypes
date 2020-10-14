@@ -29,7 +29,7 @@
                     <a  href="devices.html">Devices</a>
                 <p>ASSET CONDITION</p>
                     <a  href="reports.html">Reports</a>
-                    <a  href="alarms.html">Measurements</a>                
+                    <!-- <a  href="alarms.html">Measurements</a>                 -->
             </div>
         </div>
         <div class="col-md-10">
@@ -84,41 +84,6 @@
                     <div class="dashboard-content">
                         <div class="col-md-12 row">
                             <div class="col-md-6">
-                                <div class="scatter-plot"  style="padding-left: 20px;">
-                                    <label><h6>Asset Health by Actual Alarms</h6></label>
-                                    <span data-title="Asset health as the nr. of alarms against the nr. of measurements labelled normal.">
-                                        <svg class="help" xmlns="http://www.w3.org/2000/svg" height="18" fill="lightgrey" viewBox="0 0 24 24" width="18">
-                                            <path d="M0 0h24v24H0z" fill="none"/>
-                                            <path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/>
-                                        </svg>
-                                    </span>
-                                    <p class="underline">At this moment</p>
-                                </div>  
-                                <div class="row">
-                                    <div class="col-md-7">  
-                                        <div class="chart" style="height: 180px;">
-                                            <canvas id="assetHealth"></canvas>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <div class="margin-top-20">
-                                            <p class="sub-title">Measurements</p>
-                                            <p class="value">8329</p>
-                                        </div>
-
-                                        <div class="margin-top-20">
-                                            <p class="sub-title">Alarms</p>
-                                            <p class="value">270</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- <button id="button-alarms" class="mdc-button" style="float: right;">
-                                    <div class="mdc-button__ripple"></div>
-                                    <span class="mdc-button__label">View alarms</span>
-                                    <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
-                                </button> -->
-                            </div>
-                            <div class="col-md-6">
                                 <div class="scatter-plot" style="padding-left: 0px;">
                                     <label><h6>Asset Health by Reports Generated</h6></label>
                                     <span data-title="Asset health as the nr. of assets with a report against the nr. of assets without.">
@@ -150,6 +115,41 @@
                                 <!-- <button id="button-reports" class="mdc-button" style="float: right;">
                                     <div class="mdc-button__ripple"></div>
                                     <span class="mdc-button__label">View reports</span>
+                                    <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
+                                </button> -->
+                            </div>
+                            <div class="col-md-6">
+                                <div class="scatter-plot"  style="padding-left: 20px;">
+                                    <label><h6>Asset Health by Actual Alarms</h6></label>
+                                    <span data-title="Asset health as the nr. of alarms against the nr. of measurements labelled normal.">
+                                        <svg class="help" xmlns="http://www.w3.org/2000/svg" height="18" fill="lightgrey" viewBox="0 0 24 24" width="18">
+                                            <path d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/>
+                                        </svg>
+                                    </span>
+                                    <p class="underline">At this moment</p>
+                                </div>  
+                                <div class="row">
+                                    <div class="col-md-7">  
+                                        <div class="chart" style="height: 180px;">
+                                            <canvas id="assetHealth"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="margin-top-20">
+                                            <p class="sub-title">Measurements</p>
+                                            <p class="value">8329</p>
+                                        </div>
+
+                                        <div class="margin-top-20">
+                                            <p class="sub-title">Alarms</p>
+                                            <p class="value">270</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <button id="button-alarms" class="mdc-button" style="float: right;">
+                                    <div class="mdc-button__ripple"></div>
+                                    <span class="mdc-button__label">View alarms</span>
                                     <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_forward</i>
                                 </button> -->
                             </div>
@@ -234,17 +234,17 @@
                             </div>
                             <div class="col-md-7">
                                 <div class="tab">
-                                    <button class="tablinks" onclick="changeTab(event, chart1, readings, _readings)">
+                                    <button class="tablinks" onclick="changeTab(event, chart1, readings_data)">
                                         <h6 class="sub-title">Readings</h6>
                                         <p class="tab-metric"></p>
                                         <!-- <p class="percentage-value"><i class="fas"></i></p> -->
                                     </button>
-                                    <button class="tablinks" onclick="changeTab(event, chart1, reports, _reports)">
+                                    <button class="tablinks" onclick="changeTab(event, chart1, reports_data)">
                                         <h6 class="sub-title">Reports</h6>
                                         <p class="tab-metric"></p>
                                         <!-- <p class="percentage-value"><i class="fas"></i></p> -->
                                     </button>
-                                    <button class="tablinks active" onclick="changeTab(event, chart1, workorders, _workorders)">
+                                    <button class="tablinks active" onclick="changeTab(event, chart1, workorders_data)">
                                         <h6 class="sub-title">Workorders</h6>
                                         <p class="tab-metric"></p>
                                         <!-- <p class="percentage-value"><i class="fas"></i></p> -->

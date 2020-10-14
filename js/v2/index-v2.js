@@ -35,7 +35,95 @@ let data = [workorders, readings, reports, totalCosts]
 let _workorders = workorders.concat(Array.from({length: date_range.length * future}, () => Math.floor(Math.random() * 40)));
 let _readings = readings.concat(Array.from({length: date_range.length * future}, () => 30));
 let _reports = reports.concat(Array.from({length: date_range.length * future}, () => Math.floor(Math.random() * 20)));
-// let _totalCosts = totalCosts.concat(Array.from({length: date_range.length * future}, () => Math.floor(Math.random() * 30)));
+
+
+// Workorder data
+let workorders_data = [{
+    label: 'total',
+    data: workorders,
+    fill: false,
+    borderColor: pMain,
+    backgroundColor: pMain,
+    order: 1
+},{
+    label: "total",
+    type: 'line',
+    // steppedLine: 'middle',
+    fill: false,
+    borderColor: pLight,
+    borderDash: [5,2],
+    data: _workorders,
+    order: 2
+},{
+    label: 'lubrication',
+    data: readings,
+    fill: false,
+    borderColor: pMain,
+    backgroundColor: pMain,
+    order: 1
+},{
+    label: "lubrication",
+    type: 'line',
+    // steppedLine: 'middle',
+    fill: false,
+    borderColor: pLight,
+    borderDash: [5,2],
+    data: _readings,
+    order: 2
+},{
+    label: 'Inspection',
+    data: reports,
+    fill: false,
+    borderColor: pMain,
+    backgroundColor: pMain,
+    order: 1
+},{
+    label: "Inspection",
+    type: 'line',
+    // steppedLine: 'middle',
+    fill: false,
+    borderColor: pLight,
+    borderDash: [5,2],
+    data: _reports,
+    order: 2
+},];
+
+// 
+let readings_data = [{
+    label: 'n. of workorders',
+    data: readings,
+    fill: false,
+    borderColor: pMain,
+    backgroundColor: pMain,
+    order: 1
+},{
+    label: "Last year",
+    type: 'line',
+    // steppedLine: 'middle',
+    fill: false,
+    borderColor: pLight,
+    borderDash: [5,2],
+    data: _readings,
+    order: 2
+},];
+
+let reports_data = [{
+    label: 'n. of workorders',
+    data: reports,
+    fill: false,
+    borderColor: pMain,
+    backgroundColor: pMain,
+    order: 1
+},{
+    label: "Last year",
+    type: 'line',
+    // steppedLine: 'middle',
+    fill: false,
+    borderColor: pLight,
+    borderDash: [5,2],
+    data: _reports,
+    order: 2
+},]
 
 let ref = [_workorders, _readings, _reports]; 
 let tabs = document.getElementsByClassName('tablinks');
@@ -54,31 +142,17 @@ let chart1 = new Chart(ctx5, {
     type: 'line',
     data: {
         labels: date_range,
-        datasets: [{
-            label: 'n. of workorders',
-            data: workorders,
-            fill: false,
-            borderColor: pMain,
-            backgroundColor: pMain,
-            order: 1
-        },{
-            label: "Last year",
-            type: 'line',
-            // steppedLine: 'middle',
-            fill: false,
-            borderColor: pLight,
-            borderDash: [5,2],
-            data: _workorders,
-            order: 2
-        },]
+        datasets: workorders_data
     },
     options: {
         legend: {
             display: false,
-            position: 'bottom',
+            position: 'right',
             align: 'end',
             labels: {
-                usePointStyle: true
+                boxWidth: 20,
+                fontSize: 10,
+                // usePointStyle: true
             }
         },
         responsive: true,
@@ -117,20 +191,21 @@ let chart1 = new Chart(ctx5, {
     }
 });
 
-function changeTab(evt, chartName, dataInput, refInput='None') {
+function changeTab(evt, chartName, dataInput) {
     let i, tablinks;
   
     tablinks = document.getElementsByClassName("tablinks");
     for (i = 0; i < tablinks.length; i++) {
       tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
+    };
 
     // change metric data
-    chartName.data.datasets[0].data = dataInput;
+    chartName.data.datasets[0] = dataInput[0];
+    chartName.data.datasets[1] = dataInput[1];
     chartName.data.datasets[0].label = 'n. of ' + evt.currentTarget.getElementsByClassName("sub-title")[0].innerText.toLowerCase();
 
     // change ref/threshold data
-    chartName.data.datasets[1].data = refInput;
+    // chartName.data.datasets[1].data = refInput;
 
     chart1.update();
     evt.currentTarget.className += " active";

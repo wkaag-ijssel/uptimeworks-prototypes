@@ -29,7 +29,7 @@
                     <a class="active"  href="#">Devices</a>
                 <p>ASSET CONDITION</p>
                     <a href="reports.html">Reports</a>
-                    <a href="alarms.html">Measurements</a>                
+                    <!-- <a href="alarms.html">Measurements</a>                 -->
             </div>
         </div>
         <div class="col-md-10">
@@ -59,158 +59,56 @@
             <div class="col-md-12 row">
 
                 <!-- item 1 -->
-                <div class="dashboard-item col-md-7">
+                <div class="dashboard-item col-md-4">
                     <div class="dashboard-content">
                         <div class="title">
-                            <h6>Status of Installed Devices</h6>
+                            <h6>Installed Devices</h6>
                             <p class="underline">Today</p>
                         </div>
                         <div class="col-md-12 row" style="border-bottom: 2px solid #fafafa; padding-bottom: 15px; margin-left: 4px; margin-bottom:25px;">
-                            <div class="col-md-3" style="padding-left: 0px;">
+                            <div class="col-md-6" style="padding-left: 0px;">
                                 <div>
                                     <p class="sub-title">uBridges</p>
                                     <p class="value">5</p>
                                 </div>
                                 <div class="margin-top-20">
-                                    <p class="sub-title">Readings Taken</p>
+                                    <label><p class="sub-title">Readings Taken</p></label>
+                                    <span data-title="Asset health as the nr. of assets with a report against the nr. of assets without.">
+                                        <svg class="help" xmlns="http://www.w3.org/2000/svg" height="15" fill="lightgrey" viewBox="0 0 24 24" width="15">
+                                            <path d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/>
+                                        </svg>
+                                    </span>
                                     <p class="value">100/10 </p>
                                 </div>
                             </div>
-                            <div class="col-md-3">                       
-                                <div class="chart" style="height: 120px;">
-                                    <canvas id="uBridgeChart"></canvas>
-                                </div>
-                            </div>
-                            <div class="col-md-3" style="padding-left: 0px;">
-                                <div>
-                                    <p class="sub-title">uMotes</p>
-                                    <p class="value">40</p>
-                                </div>
-                                <div class="margin-top-20">
-                                    <p class="sub-title">Readings Taken</p>
-                                    <p class="value">270/15</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">                       
-                                <div class="chart" style="height: 120px;">
-                                    <canvas id="uMoteChart"></canvas>
-                                </div>
+                            <div class="col-md-6" style="padding-left: 0px;">
+                                <img src="./images/vibration-data-collector-1024x747.webp" width="150px;">
                             </div>
                         </div>
                         <div class="col-md-12 row" style="margin-left: 4px; margin-bottom:10px;">
-                            <div class="col-md-3" style="padding-left: 0px;">
+                            <div class="col-md-6" style="padding-left: 0px;">
                                 <div>
-                                    <p class="sub-title">uClips</p>
+                                    <p class="sub-title">uMotes</p>
                                     <p class="value">10</p>
                                 </div>
                                 <div class="margin-top-20">
-                                    <p class="sub-title">Readings Taken</p>
+                                    <label><p class="sub-title">Readings Taken</p></label>
+                                    <span data-title="Asset health as the nr. of assets with a report against the nr. of assets without.">
+                                        <svg class="help" xmlns="http://www.w3.org/2000/svg" height="15" fill="lightgrey" viewBox="0 0 24 24" width="15">
+                                            <path d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/>
+                                        </svg>
+                                    </span>
                                     <p class="value">12/2</p>
                                 </div>
                             </div>
-                            <div class="col-md-3">                       
-                                <div class="chart" style="height: 120px;">
-                                    <canvas id="uClipChart"></canvas>
-                                </div>
-                            </div>
-                            <div class="col-md-3" style="padding-left: 0px;">
-                                <div>
-                                    <p class="sub-title">Other Devices</p>
-                                    <p class="value">2</p>
-                                </div>
-                                <div class="margin-top-20">
-                                    <p class="sub-title">Readings Taken</p>
-                                    <p class="value">100/2</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">                       
-                                <div class="chart" style="height: 120px;">
-                                    <canvas id="otherChart"></canvas>
-                                </div>
+                            <div class="col-md-6" style="padding-left: 0px;">
+                                <img src="./images/wireless-vibration-sensor.webp" width="150px;">
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- item 1 -->
-                <div class="dashboard-item col-md-5">
-                    <div class="mdc-data-table" style="height: 393px; overflow-y: scroll;">
-                        <table id="deviceTable" class="mdc-data-table__table" aria-label="Dessert calories">
-                            <thead>
-                                <tr class="mdc-data-table__header-row">
-                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col" >Device</th>
-                                    <th class="mdc-data-table__header-cell hover-icon" role="columnheader" scope="col" data-sorted="no"><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i>Normal</th>
-                                    <th class="mdc-data-table__header-cell hover-icon" role="columnheader" scope="col" data-sorted="no"><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i>Full</th>
-                                    <th class="mdc-data-table__header-cell hover-icon" role="columnheader" scope="col" data-sorted="no"><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i>Alarms</th>
-                                </tr>
-                            </thead>
-                            <tbody class="mdc-data-table__content">
-                                <!-- Auto generated cells -->
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- First row -->
-            <div class="col-md-12 row">
-                <!-- item 1-->
-                <div class="dashboard-item col-md-12">
-                    <div class="dashboard-content">
-
-                        <div class="col-md-12 row">
-                            <div class="col-md-4">
-                                <div class="title">
-                                    <label><h6>Device: </h6></label>
-                                    <select id="intervalSelector">
-                                        <option value="day">uBridge X</option>
-                                        <option value="week">uBridge Y</option>
-                                        <option value="month">..</option>
-                                    </select>
-                                    <p class="underline">How many work orders were completed?</p>
-                                </div>
-                                <div class="col-md-12 row">
-                                    <div class="col-md-6" style="padding-left: 20px;">
-                                        <div>
-                                            <p class="sub-title">Readings</p>
-                                            <p class="value">300</p>
-                                        </div>
-                                        <div class="margin-top-20">
-                                            <p class="sub-title">Channels</p>
-                                            <p class="value">20 / 3 / 5 </p>
-                                        </div>
-                                        <br>
-                                        <select id="intervalSelector">
-                                            <option value="day">uBridge</option>
-                                            <option value="week">uMote</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6 center"> 
-                                        <canvas id="deviceChart" width="150px" height="200px"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="title">
-                                    <label for="intervalSelector"><h6>Number of readings per</h6></label>
-                                    <select id="intervalSelector">
-                                        <option value="day">Day</option>
-                                        <option value="week">Week</option>
-                                        <option value="month">Month</option>
-                                    </select>
-                                    <p class="underline">The nr. of readings and report items generated by {uBridge name} </p>
-                                </div>
-                                <div style="height: 180px;">
-                                    <canvas id="workLoadChart"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- second row-->
-            <div class="col-md-12 row">
 
                 <!-- Item 1 -->
                 <div class="dashboard-item col-md-4">
@@ -220,7 +118,6 @@
                             <select id="interval">
                                 <option value="month">uBridge</option>
                                 <option value="week">uMote</option>
-                                <option value="week">uClip</option>
                             </select>
                             <p class="underline">Is the data collection managed properly?</p>
                         </div>
@@ -238,7 +135,6 @@
                             <select id="interval">
                                 <option value="month">uBridge</option>
                                 <option value="week">uMote</option>
-                                <option value="week">uClip</option>
                             </select>
                             <p class="underline">What is the follow-up on alarms?</p>
                         </div>
@@ -247,22 +143,83 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            
+            <!-- First row -->
+            <div class="col-md-12 row">
                 
-                <!-- Item 3 -->
-                <div class="dashboard-item col-md-4">
+                <div class="dashboard-item col-md-5">
+                    
+                    <div class="mdc-data-table" style="height: 350px; overflow-y: scroll;">
+                        <table id="deviceTable" class="mdc-data-table__table" aria-label="Devices list">
+                            <thead>
+                                <tr class="mdc-data-table__header-row">
+                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col" >uBridge</th>
+                                    <th class="mdc-data-table__header-cell hover-icon" role="columnheader" scope="col" data-sorted="no"><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i>Channels</th>
+                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Asset</th>
+                                </tr>
+                            </thead>
+                            <tbody class="mdc-data-table__content">
+                                <!-- Auto generated cells -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- item 1-->
+                <div class="dashboard-item col-md-7">
                     <div class="dashboard-content">
                         <div class="title">
-                            <label for="interval"><h6 class="tab-title">Malfunctions per </h6></label>
-                            <select id="interval">
-                                <option value="month">uBridge</option>
-                                <option value="week">uMote</option>
-                                <option value="week">uClip</option>
+                            <label for="intervalSelector"><h6>Normal and Full Readings per </h6></label>
+                            <select id="intervalSelector">
+                                <option value="day">Day</option>
+                                <option value="week">Week</option>
+                                <option value="month">Month</option>
                             </select>
-                            <p class="underline">How stable is the data collection?</p>
+                            <p class="underline">The nr. of readings and report items generated by {uBridge name} or 'All uBridges' </p>
                         </div>
+                        <div style="height: 250px;">
+                            <canvas id="workLoadChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                        <div class="chart" style="height: 300px;">
-                            <canvas id="malfunctionChart"></canvas>
+            <!-- second row-->
+            <div class="col-md-12 row">
+              
+                <div class="dashboard-item col-md-6">
+                    
+                    <div class="mdc-data-table" style="height: 300px; overflow-y: scroll;">
+                        <table id="uMoteTable" class="mdc-data-table__table" aria-label="Devices list">
+                            <thead>
+                                <tr class="mdc-data-table__header-row">
+                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col" >uMote</th>
+                                    <th class="mdc-data-table__header-cell hover-icon" role="columnheader" scope="col" data-sorted="no"><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i>Readings</th>
+                                    <th class="mdc-data-table__header-cell hover-icon" role="columnheader" scope="col" data-sorted="no"><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i>Battery</th>
+                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Asset</th>
+                                </tr>
+                            </thead>
+                            <tbody class="mdc-data-table__content">
+                                <!-- Auto generated cells -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- item 1-->
+                <div class="dashboard-item col-md-6">
+                    <div class="dashboard-content">
+                        <div class="title">
+                            <label for="intervalSelector"><h6>Normal and Full Readings per </h6></label>
+                            <select id="intervalSelector">
+                                <option value="day">Day</option>
+                                <option value="week">Week</option>
+                                <option value="month">Month</option>
+                            </select>
+                            <p class="underline">The nr. of readings and report items generated by {uBridge name} or 'All uBridges' </p>
+                        </div>
+                        <div style="height: 250px;">
+                            <canvas id="uMoteReadingsChart"></canvas>
                         </div>
                     </div>
                 </div>

@@ -20,6 +20,10 @@ body {
 .margin-bottom-30 { margin-bottom: 30px;}
 .margin-bottom-40 { margin-bottom: 40px;}
 
+.mdc-data-table__cell--numeric {
+  text-align: center!important;
+}
+
 /* Icon */
 .help {
   fill: lightgrey;
@@ -27,7 +31,7 @@ body {
 
 .help:hover {
   fill: black;
-  cursor: pointer;
+  cursor: help;
 }
 
 /* Tooltip container */
