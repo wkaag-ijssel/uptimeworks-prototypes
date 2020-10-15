@@ -136,7 +136,7 @@ Chart.pluginService.register({
 });
 
 //onload
-function createTable(table_id, row_data, nr_of_devices){
+function createTable(table_id, table_body_id, row_data, nr_of_devices){
 
     //Generate rows
     for(let i = 0; i < nr_of_devices; i++){
@@ -208,6 +208,23 @@ function createTable(table_id, row_data, nr_of_devices){
             });
         };
     };
+
+    //Add eventlisteners to each row
+    let tableRows = document.querySelectorAll(table_body_id + ' tr');
+    tableRows.forEach(e => e.addEventListener("click", function() {
+        // Here, `this` refers to the element the event was hooked on
+        tableRows.forEach(row => { 
+            if(row === e){
+                if(row.style.backgroundColor == "rgb(150, 156, 224)" ){
+                    row.style.backgroundColor = "white";
+                } else {
+                    row.style.backgroundColor = "rgb(150, 156, 224)";
+                }
+            } else {
+                row.style.backgroundColor = "white";
+            }
+        });
+    }));
     return;
 }
 let createuBridgeRow = () => {
@@ -218,7 +235,7 @@ let createuBridgeRow = () => {
     ];
     return row
 };
-createTable('deviceTable', createuBridgeRow, 4);
+createTable('uBridgeTable', '#uBridgeTable-body', createuBridgeRow, 4);
 
 let createuMoteRow = () => {
     let row = [
@@ -229,7 +246,7 @@ let createuMoteRow = () => {
     ];
     return row
 };
-createTable('uMoteTable', createuMoteRow, 40);
+createTable('uMoteTable', '#uMoteTable-body', createuMoteRow, 40);
 
 //Ascending
 function sortTableAscending(col, table_id) {
