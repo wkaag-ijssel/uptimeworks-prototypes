@@ -206,6 +206,8 @@ function loadRow(){
     let data = [
         ['Report ' + Math.floor(Math.random() * 20).toString(), false],
         [Math.floor(Math.random() * 5), true],
+        ['Yes', false],
+        ['21-10-2020', false],
         ['Equipment ' + Math.floor(Math.random() * 20), false],
         ['Person ' + Math.floor(Math.random() * 20), false],
         [
@@ -439,28 +441,29 @@ let reportTypeChart = new Promise((resolve) => {
 
 //Type of report
 let criticalPromise = new Promise((resolve) => {
+    let numberOfAssets = 10;
     let data = [{
         label: 'Lvl 4',
         backgroundColor: pDark,
-        data: Array.from({length: 6}, () => Math.floor(Math.random() * 3))
+        data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 3))
     }, {
         label: 'Lvl 3',
         backgroundColor: pMain,
-        data: Array.from({length: 6}, () => Math.floor(Math.random() * 5))
+        data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 5))
     }, {
         label: 'Lvl 2',
         backgroundColor: pLight,
-        data: Array.from({length: 6}, () => Math.floor(Math.random() * 5))
+        data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 5))
     }, {
         label: 'Lvl 1',
         backgroundColor: sMain,
-        data: Array.from({length: 6}, () => Math.floor(Math.random() * 5))
+        data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 5))
     }, {
         label: 'Normal',
         backgroundColor: sLight,
-        data: Array.from({length: 6}, () => Math.floor(Math.random() * 5))
+        data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 5))
     }];
-    let labels = ['Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x'];
+    let labels = ['Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x'];
     resolve([data, labels]);
 }).then(result => {  
     let ctx = document.getElementById('criticalAssetChart').getContext('2d');
@@ -469,32 +472,33 @@ let criticalPromise = new Promise((resolve) => {
 
 //Type of report
 let typePromise = new Promise((resolve) => {
+    let numberOfAssets = 10;
     let data = [{
         label: 'Thermographic',
         backgroundColor: pDark,
-        data: Array.from({length: 6}, () => Math.floor(Math.random() * 3))
+        data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 3))
     }, {
         label: 'Vibration',
         backgroundColor: pMain,
-        data: Array.from({length: 6}, () => Math.floor(Math.random() * 5))
+        data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 5))
     }, {
         label: 'Process',
         backgroundColor: pLight,
-        data: Array.from({length: 6}, () => Math.floor(Math.random() * 5))
+        data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 5))
     }, {
         label: 'Inspection',
         backgroundColor: sMain,
-        data: Array.from({length: 6}, () => Math.floor(Math.random() * 5))
+        data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 5))
     }, {
         label: 'Lubrication',
         backgroundColor: sLight,
-        data: Array.from({length: 6}, () => Math.floor(Math.random() * 5))
+        data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 5))
     }, {
         label: 'Other',
         backgroundColor: sLight,
-        data: Array.from({length: 6}, () => Math.floor(Math.random() * 5))
+        data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 5))
     }];
-    let labels = ['Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x'];
+    let labels = ['Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x'];
     resolve([data, labels]);
 }).then(result => {  
     let ctx = document.getElementById('typeAssetChart').getContext('2d');
