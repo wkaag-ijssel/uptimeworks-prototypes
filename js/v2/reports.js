@@ -400,11 +400,31 @@ function stackedBarChart(chart, data, labels, usePerc = false) {
                 }]
             },
             legend: {
-                display: false,
-                position: 'bottom'
+                display: true,
+                position: 'right'
             }
         }
     });
+}
+
+function sortArrays(data) {
+    let data_sum = [];
+    for (let i = 0; i < 6; i++) {
+        let sum = 0
+        data.forEach((array, index) => {
+            sum += array['data'][i];
+        });
+        data_sum.push(sum)
+    }
+
+    let c = data.map((e, i) => [e, data_sum[i]]);
+    c.sort((a, b) => a[1] - b[1]);
+    let sortedList = [];
+    c.forEach(item => {
+        sortedList.push(item[0]);
+    });
+    console.log(sortedList)
+    return c
 }
 
 //Type of report
@@ -431,7 +451,7 @@ let reportTypeChart = new Promise((resolve) => {
         data: Array.from({length: 6}, () => Math.floor(Math.random() * 5))
     }];
     let labels = ['Lubrication', 'Inspection', 'Process', 'Vibration', 'Thermographic', 'Other'];
-
+    let sortedData = sortArrays(data)
 
     resolve([data, labels]);
 }).then(result => {  

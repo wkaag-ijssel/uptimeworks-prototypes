@@ -84,12 +84,12 @@ Chart.pluginService.register({
         var wrapText = false;
 
         if (minFontSize === undefined) {
-        minFontSize = 20;
+            minFontSize = 20;
         }
 
         if (minFontSize && fontSizeToUse < minFontSize) {
-        fontSizeToUse = minFontSize;
-        wrapText = true;
+            fontSizeToUse = minFontSize;
+            wrapText = true;
         }
 
         // Set font settings to draw it correctly.
@@ -136,7 +136,7 @@ Chart.pluginService.register({
 });
 
 //onload
-function createTable(table_id, table_body_id, row_data, nr_of_devices){
+function createTable(table_id, table_body_id, row_data, nr_of_devices, chartname){
 
     //Generate rows
     for(let i = 0; i < nr_of_devices; i++){
@@ -168,7 +168,7 @@ function createTable(table_id, table_body_id, row_data, nr_of_devices){
         if (column.classList.contains("hover-icon")) {
             column.addEventListener('click', function(event) {
                 function sortedToFalse() {
-                    for(let i = 0; i < columns.length; i++){
+                    for (let i = 0; i < columns.length; i++) {
                         if(columns[i] !== column && columns[i].classList.contains('hover-icon')){
                             let otherCol = columns[i];
                             otherCol.setAttribute("data-sorted", "no");
@@ -214,7 +214,7 @@ function createTable(table_id, table_body_id, row_data, nr_of_devices){
     tableRows.forEach(e => e.addEventListener("click", function() {
         // Here, `this` refers to the element the event was hooked on
         tableRows.forEach(row => { 
-            if(row === e){
+            if (row === e) {
                 if(row.style.backgroundColor == "rgb(150, 156, 224)" ){
                     row.style.backgroundColor = "white";
                 } else {
@@ -224,29 +224,48 @@ function createTable(table_id, table_body_id, row_data, nr_of_devices){
                 row.style.backgroundColor = "white";
             }
         });
+
+        let deviceDataPromise = new Promise(resolve => {
+            let data = [{
+                label: 'Readings',
+                borderColor: pMain,
+                fill: false,
+                backgroundColor: pMain,
+                barPercentage: 0.5,
+                barThickness: 6,
+                maxBarThickness: 8,
+                minBarLength: 2,
+                data: Array.from({length: labels.length}, () => Math.floor(Math.random()*5) + 100)
+            },{
+                label: 'Spectra',
+                borderColor: pDark,
+                fill: false,
+                backgroundColor: pDark,
+                barPercentage: 0.5,
+                barThickness: 6,
+                maxBarThickness: 8,
+                minBarLength: 2,
+                data: Array.from({length: labels.length}, () => Math.floor(Math.random()*5) + 2)
+            },{
+                label: 'Report items',
+                borderColor: sMain,
+                fill: false,
+                backgroundColor: sMain,
+                barPercentage: 0.5,
+                barThickness: 6,
+                maxBarThickness: 8,
+                minBarLength: 2,
+                data: Array.from({length: labels.length}, () => Math.floor(Math.random()*3))
+            }]
+            resolve(data)
+        }).then(deviceData => {
+            console.log(deviceData)
+            console.log(chartname)
+            changeChartData(chartname, deviceData, labels)
+        })
     }));
     return;
 }
-let createuBridgeRow = () => {
-    let row = [
-        ['uBridgeFakeName' + Math.floor(Math.random() * 20).toString(), false],
-        [Math.floor(Math.random() * 30), true],
-        ['Asset ' + Math.floor(Math.random() * 10), false]
-    ];
-    return row
-};
-createTable('uBridgeTable', '#uBridgeTable-body', createuBridgeRow, 4);
-
-let createuMoteRow = () => {
-    let row = [
-        ['um121-10012' + Math.floor(Math.random() * 20).toString(), false],
-        [Math.floor(Math.random() * 30), true],
-        [Math.floor(Math.random() * 100), true],
-        ['Asset ' + Math.floor(Math.random() * 10), false]
-    ];
-    return row
-};
-createTable('uMoteTable', '#uMoteTable-body', createuMoteRow, 40);
 
 //Ascending
 function sortTableAscending(col, table_id) {
@@ -317,36 +336,23 @@ let getDates = function(startDate, endDate) {
     return dates;
 };
   
-// Usage
-let labels = []
-let dates = getDates(new Date("1 Mar 2015"), new Date("12 May 2015"));   
-const monthNames = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"
-]; 
-let monthNum = 0                                                                                                       
-dates.forEach(function(date, index) {
-    let month = date.getMonth();
-    let day = date.getDate();
-
-    if(month !== monthNum){
-        labels[index] = [date.getDate(), monthNames[month]];
-        monthNum = month;
-    } else if(day == 5 || day == 10 || day == 15 || day == 20 || day == 25){
-        labels[index] = [date.getDate(), ""];
-    } else {
-        labels[index] = ["", ""];
-    }
+// Date generator
+let dates = getDates(new Date("1 Mar 2015"), new Date("12 May 2015"));  
+let labels = dates
+labels.forEach((test, index) => {
+    let month = test.getMonth();
+    let day = test.getDate();
+    labels[index] = day + '-' + month + '-2020';
 });
 
-/** Chart 2: Completed work over time */
+/** uBridge chart normal/spectra readings **/
 let ctx4 = document.getElementById('workLoadChart').getContext('2d');
-let resourcesChart = new Chart(ctx4, {
+let uBridgeChart = new Chart(ctx4, {
     type: 'bar',
     data: { 
         labels: labels,
         datasets: [{
             label: 'Readings',
-            // type: 'line',
             borderColor: pMain,
             fill: false,
             backgroundColor: pMain,
@@ -354,11 +360,20 @@ let resourcesChart = new Chart(ctx4, {
             barThickness: 6,
             maxBarThickness: 8,
             minBarLength: 2,
-            data: Array.from({length: labels.length}, () => Math.floor(Math.random()*5) + 10)
+            data: Array.from({length: labels.length}, () => Math.floor(Math.random()*5) + 100)
+        },{
+            label: 'Spectra',
+            borderColor: pDark,
+            fill: false,
+            backgroundColor: pDark,
+            barPercentage: 0.5,
+            barThickness: 6,
+            maxBarThickness: 8,
+            minBarLength: 2,
+            data: Array.from({length: labels.length}, () => Math.floor(Math.random()*5) + 2)
         },{
             label: 'Report items',
-            // type: 'bar',
-            borderColor: pMain,
+            borderColor: sMain,
             fill: false,
             backgroundColor: sMain,
             barPercentage: 0.5,
@@ -370,7 +385,8 @@ let resourcesChart = new Chart(ctx4, {
     },
     options: {
         legend: {
-            display: false,
+            display: true,
+            position: 'right'
         },
         responsive: true,
         maintainAspectRatio: false,
@@ -394,7 +410,7 @@ let resourcesChart = new Chart(ctx4, {
                     display: false,
                 },
                 ticks: {
-                    autoSkip: false,
+                    autoSkip: true,
                     maxRotation: 0,
                     minRotation: 0,
                     minorTick: {
@@ -406,7 +422,93 @@ let resourcesChart = new Chart(ctx4, {
                 stacked: true,
                 position: 'right',
                 ticks: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    suggestedMax: 10,
+                }
+            }]
+        }
+    }
+});
+
+/** Chart 2: Completed work over time */
+let ctx5 = document.getElementById('uMoteReadingsChart').getContext('2d');
+let uMoteChart = new Chart(ctx5, {
+    type: 'bar',
+    data: { 
+        labels: labels,
+        datasets: [{
+            label: 'Reading',
+            borderColor: pMain,
+            fill: false,
+            backgroundColor: pMain,
+            barPercentage: 0.5,
+            barThickness: 6,
+            maxBarThickness: 8,
+            minBarLength: 2,
+            data: Array.from({length: labels.length}, () => Math.floor(Math.random()*5) + 10)
+        },{
+            label: 'Spectra',
+            borderColor: pMain,
+            fill: false,
+            backgroundColor: pDark,
+            barPercentage: 0.5,
+            barThickness: 6,
+            maxBarThickness: 8,
+            minBarLength: 2,
+            data: Array.from({length: labels.length}, () => Math.floor(Math.random()*5) + 5)
+        },{
+            label: 'Report items',
+            borderColor: sMain,
+            fill: false,
+            backgroundColor: sMain,
+            barPercentage: 0.5,
+            barThickness: 6,
+            maxBarThickness: 8,
+            minBarLength: 2,
+            data: Array.from({length: labels.length}, () => Math.floor(Math.random()*3))
+        }]
+    },
+    options: {
+        legend: {
+            display: true,
+            position: 'right'
+        },
+        responsive: true,
+        maintainAspectRatio: false,
+        elements: {
+            line: {
+                tension: 0, // disables bezier curves
+                borderWidth: 1
+            },
+            point:{
+                radius: 0 //hide data point indicators
+            }
+        },
+        tooltips: {
+            mode: 'index',
+            intersect: false,
+        },
+        scales: {
+            xAxes: [{
+                stacked: true,
+                gridLines: {
+                    display: false,
+                },
+                ticks: {
+                    autoSkip: true,
+                    maxRotation: 0,
+                    minRotation: 0,
+                    minorTick: {
+                        fontSize: 7
+                    }
+                }
+            }],
+            yAxes: [{
+                stacked: true,
+                position: 'right',
+                ticks: {
+                    beginAtZero: true,
+                    suggestedMax: 10
                 }
             }]
         }
@@ -571,3 +673,26 @@ let alarmReportChartPromise = new Promise((resolve) => {
     let ctx10 = document.getElementById('alarmReportChart').getContext('2d');
     let normalFullChart = stackedBarChart(ctx10, result[0], result[1])
 });
+
+
+let createuBridgeRow = () => {
+    let row = [
+        ['uBridgeFakeName' + Math.floor(Math.random() * 20).toString(), false],
+        [Math.floor(Math.random() * 2000), true],
+        [Math.floor(Math.random() * 30), true],
+        ['Asset ' + Math.floor(Math.random() * 10), false]
+    ];
+    return row
+};
+createTable('uBridgeTable', '#uBridgeTable-body', createuBridgeRow, 4, uBridgeChart);
+
+let createuMoteRow = () => {
+    let row = [
+        ['um121-10012' + Math.floor(Math.random() * 20).toString(), false],
+        [Math.floor(Math.random() * 30), true],
+        [Math.floor(Math.random() * 100), true],
+        ['Asset ' + Math.floor(Math.random() * 10), false]
+    ];
+    return row
+};
+createTable('uMoteTable', '#uMoteTable-body', createuMoteRow, 40, uMoteChart);

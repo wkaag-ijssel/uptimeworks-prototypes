@@ -130,99 +130,34 @@ Chart.pluginService.register({
     }
 });
 
-// Returns an array of dates between the two dates
-let getDates = function(startDate, endDate) {
-    var dates = [],
-        currentDate = startDate,
-        addDays = function(days) {
-          var date = new Date(this.valueOf());
-          date.setDate(date.getDate() + days);
-          return date;
-        };
-    while (currentDate <= endDate) {
-      dates.push(currentDate);
-      currentDate = addDays.call(currentDate, 1);
-    }
-    return dates;
-};
   
 // Usage
-let labels = []
-let dates = getDates(new Date("1 Mar 2015"), new Date("12 May 2015"));   
-const monthNames = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"
-]; 
-let monthNum = 0                                                                                                       
-dates.forEach(function(date, index) {
-    let month = date.getMonth();
-    let day = date.getDate();
-
-    if(month !== monthNum){
-        labels[index] = [date.getDate(), monthNames[month]];
-        monthNum = month;
-    } else if(day == 5 || day == 10 || day == 15 || day == 20 || day == 25){
-        labels[index] = [date.getDate(), ""];
-    } else {
-        labels[index] = ["", ""];
-    }
-});
-
-/** Chart 2: Completed work over time */
-let ctx = document.getElementById('workLoadChart').getContext('2d');
-let resourcesChart = new Chart(ctx, {
-    type: 'line',
-    data: { 
-        labels: labels,
-        datasets: [{
-            label: 'Percentage of tasks completed',
-            borderColor: pMain,
-            fill: false,
-            backgroundColor: pMain,
-            barPercentage: 0.5,
-            barThickness: 6,
-            maxBarThickness: 8,
-            minBarLength: 2,
-            data: Array.from({length: labels.length}, () => Math.random()*20 + 30)
-        }]
-    },
-    options: {
-        legend: {
-            display: false,
-        },
-        responsive: true,
-        maintainAspectRatio: false,
-        elements: {
-            line: {
-                tension: 0, // disables bezier curves
-                borderWidth: 1
-            },
-            point:{
-                radius: 0 //hide data point indicators
-            }
-        },
-        scales: {
-            xAxes: [{
-                gridLines: {
-                    display: false,
-                },
-                ticks: {
-                    autoSkip: false,
-                    maxRotation: 0,
-                    minRotation: 0,
-                    minorTick: {
-                        fontSize: 7
-                    }
-                }
-            }],
-            yAxes: [{
-                position: 'right',
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
+function getDateLabels() {
+    // Returns an array of dates between the two dates
+    let getDates = (startDate, endDate) => {
+        var dates = [],
+            currentDate = startDate,
+            addDays = function(days) {
+            var date = new Date(this.valueOf());
+            date.setDate(date.getDate() + days);
+            return date;
+            };
+        while (currentDate <= endDate) {
+        dates.push(currentDate);
+        currentDate = addDays.call(currentDate, 1);
         }
-    }
-});
+        return dates;
+    };
+
+    let dates = getDates(new Date("1 Mar 2015"), new Date("12 May 2015"));  
+    let labels = dates
+    labels.forEach((test, index) => {
+        let month = test.getMonth();
+        let day = test.getDate();
+        labels[index] = day + '-' + month + '-2020';
+    });
+    return labels
+}
 
 /**
  * @param {string} chartName The chart variable name
@@ -480,71 +415,82 @@ function changeData (chart, data) {
 }
 
 
-//Chart 5: Level of Completed and Not Completed Work per Asset 
-let getDataPromise = new Promise((resolve) => {
-    let array1 = Array.from({length: 20}, () => Math.floor((Math.random() * 30)+6));
-    let array2 = Array.from({length: 20}, () => Math.floor(Math.random() * 10));
-    let scatterArray = [];
-
-    //Create a array of objects, required input format for scatter plot.
-    array1.forEach((item_x, index) => {
-        let item_y = item_x - array2[index];
-        scatterArray.push({
-            x : item_x, 
-            y : item_y
-        });
-    });
-    resolve(scatterArray);
-}).then(data => {   
-    let ctx6 = document.getElementById('executedWorkChart').getContext('2d');
-    let executedWorkChart = new Chart(ctx6, {
-        data: {
+function lineChart(chartElem, data, labels) {
+    return new Chart(chartElem, {
+        type: 'line',
+        data: { 
+            labels: labels,
             datasets: [{
-                type: 'scatter',
-                label: 'Scatter Dataset',
-                showLine: false,
-                backgroundColor: pMain,
-                data: data
-            },{
-                type: 'line',
-                label: 'target',
-                data: [{
-                    x: 0,
-                    y: 0
-                },{
-                    x: 40,
-                    y: 40
-                }],
-                borderColor: pDark,
-                borderWidth: 1,
-                borderDash: [5,2],
+                label: 'Percentage of tasks completed',
+                borderColor: pMain,
                 fill: false,
-                PointStyle: 'none',
-                radius: 0
+                backgroundColor: pMain,
+                barPercentage: 0.5,
+                barThickness: 6,
+                maxBarThickness: 8,
+                minBarLength: 2,
+                data: data
             }]
         },
         options: {
             legend: {
                 display: false,
             },
+            responsive: true,
+            maintainAspectRatio: false,
+            elements: {
+                line: {
+                    tension: 0,  // disables bezier curves
+                    borderWidth: 1
+                },
+                point: {
+                    radius: 0    //hide data point indicators
+                }
+            },
             scales: {
                 xAxes: [{
-                    type: 'linear',
-                    position: 'bottom',
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Generated'
+                    gridLines: {
+                        display: false,
+                    },
+                    ticks: {
+                        autoSkip: true,
+                        maxRotation: 0,
+                        minRotation: 0,
+                        minorTick: {
+                            fontSize: 7
+                        }
                     }
                 }],
                 yAxes: [{
-                    type: 'linear',
-                    position: 'left',
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Completed'
+                    position: 'right',
+                    ticks: {
+                        beginAtZero: true
                     }
                 }]
             }
         }
     });
+}
+
+
+
+/** Chart 2: Completed work over time */
+let completedWorkChart = new Promise(resolve => {
+    let labels = getDateLabels();
+    let data =  Array.from({length: labels.length}, () => Math.random()*20 + 30);
+    resolve([data, labels])
+}).then(data => {
+    let ctx = document.getElementById('workLoadChart').getContext('2d');
+    let overTimeChart = lineChart(ctx, data[0], data[1])
+})
+
+
+//Chart 5: Level of Completed and Not Completed Work per Asset 
+let completedWorkAssetChart = new Promise((resolve) => {
+    let labels = getDateLabels();
+    let data =  Array.from({length: labels.length}, () => Math.random()*20 + 30);
+    resolve([data, labels])
+}).then(data => {   
+    let ctx6 = document.getElementById('executedWorkChart').getContext('2d');
+    let executedWorkChart = lineChart(ctx6, data[0], data[1]);
 });

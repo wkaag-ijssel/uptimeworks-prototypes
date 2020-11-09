@@ -374,14 +374,15 @@ var myDoughnutChart = new Chart(ctx1, {
     type: 'doughnut',
     data: {
         datasets: [{
-            data: [95, 5],
+            data: [85, 5, 10],
             backgroundColor: [
                 pMain
             ]
         }],
         labels: [
             'Completed (%)',
-            'Not completed (%)'
+            'Not compl. with reason (%)',
+            'Not compl. without reason (%)'
         ]
     },
     options: {
@@ -465,6 +466,117 @@ let myBar = new Chart(ctx, {
         },
     }
 });
+
+
+const targetValue = 100
+
+//Chart 7: Transaction costs 
+let costsChartPromise = new Promise((resolve) => {
+    // Usage
+    const getDateLabels = () => {
+        // Returns an array of dates between the two dates
+        let getDates = (startDate, endDate) => {
+            var dates = [],
+                currentDate = startDate,
+                addDays = function(days) {
+                var date = new Date(this.valueOf());
+                date.setDate(date.getDate() + days);
+                return date;
+                };
+            while (currentDate <= endDate) {
+            dates.push(currentDate);
+            currentDate = addDays.call(currentDate, 1);
+            }
+            return dates;
+        };
+
+        let dates = getDates(new Date("1 Nov 2020"), new Date("30 Nov 2020"));  
+        let labels = dates;
+        labels.forEach((test, index) => {
+            let month = test.getMonth();
+            let day = test.getDate();
+            labels[index] = day + '-' + month + '-2020';
+        });
+        return labels
+    }
+
+    let date = getDateLabels();
+    let savings = [];
+    let target = [];
+    savings[0] = 0;
+    target[0] = targetValue;
+
+    for(let i = 1; i < date.length; i++){
+        if (i < 20) {
+            savings[i] = savings[i-1] + Math.floor(Math.random()*10);
+        }
+        target[i] = targetValue;
+    }
+    resolve([target, date, savings]);
+}).then(data => {
+    let ctx7 = document.getElementById('transactionSumChart').getContext('2d');
+    let chart7 = new Chart(ctx7, {
+        type: 'line',
+        data: { 
+            labels: data[1], //Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40)),
+            datasets: [{
+                label: 'Savings',
+                data: data[2],
+                fill: false,
+                borderColor: sMain,
+                lineWidth: 0.1,
+                pointStyle: 'line',
+                lineTension: 0
+            },{
+                label: 'Target',
+                data: data[0],
+                fill: false,
+                borderColor: pMain,
+                lineWidth: 0.1,
+                borderDash: [7,3],
+                pointStyle: 'line',
+                lineTension: 0
+            }]
+        },
+        options: {
+            legend: {
+                display: true,
+                position: "bottom",
+                labels: {
+                    usePointStyle: true
+                }
+            },
+            elements: {
+                point: {
+                    radius: 0
+                }
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+            tooltips: {
+                mode: 'index'
+            },
+            scales: {
+                xAxes: [{
+                    gridLines: {
+                        display: false,
+                    },
+                    ticks: {
+                        autoSkip: true,
+                        maxRotation: 0,
+                        autoSkipPadding: 20
+                    }
+                }],
+                yAxes: [{
+                    position: 'right',
+                    ticks: {
+                        suggestedMax: targetValue*1.2
+                    }
+                }]
+            }
+        }
+    }); 
+})
 
 
 
