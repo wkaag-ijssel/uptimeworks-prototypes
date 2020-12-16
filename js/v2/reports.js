@@ -1,10 +1,16 @@
 // Color scheme
-let pMain = "#1a237e";
+let pMain  = "#1a237e";
     pLight = "#534bae";
-    pDark = "#000051";
-    sMain = "#ffab00";
+    pDark  = "#000051";
+    sMain  = "#ffab00";
     sLight = "#ffdd4b";
-    sDark = "#c67c00";
+    sDark  = "#c67c00";
+
+let normal = "#00c853";
+    lvl_1  = "#ffd740";
+    lvl_2  = "#ffc400";
+    lvl_3  = "#ffab00";
+    lvl_4  = "#ff6f00";
 
 // Job compliance
 let date_range = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -430,24 +436,24 @@ function sortArrays(data) {
 //Type of report
 let reportTypeChart = new Promise((resolve) => {
     let data = [{
-        label: 'Lvl 4',
-        backgroundColor: pDark,
-        data: Array.from({length: 6}, () => Math.floor(Math.random() * 3))
-    }, {
-        label: 'Lvl 3',
-        backgroundColor: pMain,
+    //     label: 'Normal',
+    //     backgroundColor: normal,
+    //     data: Array.from({length: 6}, () => Math.floor(Math.random() * 3))
+    // }, {
+        label: 'Lvl 1',
+        backgroundColor: lvl_1,
         data: Array.from({length: 6}, () => Math.floor(Math.random() * 5))
     }, {
         label: 'Lvl 2',
-        backgroundColor: pLight,
+        backgroundColor: lvl_2,
         data: Array.from({length: 6}, () => Math.floor(Math.random() * 5))
     }, {
-        label: 'Lvl 1',
-        backgroundColor: sMain,
+        label: 'Lvl 3',
+        backgroundColor: lvl_3,
         data: Array.from({length: 6}, () => Math.floor(Math.random() * 5))
     }, {
-        label: 'Normal',
-        backgroundColor: sLight,
+        label: 'Lvl 4',
+        backgroundColor: lvl_4,
         data: Array.from({length: 6}, () => Math.floor(Math.random() * 5))
     }];
     let labels = ['Lubrication', 'Inspection', 'Process', 'Vibration', 'Thermographic', 'Other'];
@@ -463,24 +469,24 @@ let reportTypeChart = new Promise((resolve) => {
 let criticalPromise = new Promise((resolve) => {
     let numberOfAssets = 10;
     let data = [{
-        label: 'Lvl 4',
-        backgroundColor: pDark,
-        data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 3))
-    }, {
-        label: 'Lvl 3',
-        backgroundColor: pMain,
+    //     label: 'Normal',
+    //     backgroundColor: normal,
+    //     data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 3))
+    // }, {
+        label: 'Lvl 1',
+        backgroundColor: lvl_1,
         data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 5))
     }, {
         label: 'Lvl 2',
-        backgroundColor: pLight,
+        backgroundColor: lvl_2,
         data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 5))
     }, {
-        label: 'Lvl 1',
-        backgroundColor: sMain,
+        label: 'Lvl 3',
+        backgroundColor: lvl_3,
         data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 5))
     }, {
-        label: 'Normal',
-        backgroundColor: sLight,
+        label: 'Lvl 4',
+        backgroundColor: lvl_4,
         data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 5))
     }];
     let labels = ['Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x'];

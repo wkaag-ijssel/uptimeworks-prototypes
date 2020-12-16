@@ -36,7 +36,7 @@
             <div class="col-md-12 row">
                 <div class="col-md-6">
                     <h3 id="dashboard-title">Reports</h3>
-                    <p>Dashboard > Maintenance > Reports</p>
+                    <p>Site > Asset Condition > Reports</p>
                 </div>
                 <div class="col-md-6 dashboard-item">
                     <div class="row margin-top-10">
@@ -88,9 +88,52 @@
                     </div>
                 </div>
 
-                <!-- item 2 -->
                 <div class="dashboard-item col-md-7">
-                    <div class="mdc-data-table" style="height: 280px; overflow-y: scroll;">
+                    <div class="dashboard-content">
+                        <div class="title">
+                            <label for="interval"><h6 class="tab-title">Report items and Criticiality per Task Type</h6></label>
+                            <p class="underline">How stable is the data collection?</p>
+                        </div>
+
+                        <div class="chart" style="height: 200px;">
+                            <canvas id="reportTypeChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 row">
+                <div class="dashboard-item col-md-6">
+                    <div class="dashboard-content">
+                        <div class="title">
+                            <label for="interval"><h6 class="tab-title">Report items and Criticiality per Asset</h6></label>
+                            <p class="underline">Sorted by most report items</p>
+                        </div>
+
+                        <div class="chart" style="height: 300px;">
+                            <canvas id="criticalAssetChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-item col-md-6">
+                    <div class="dashboard-content">
+                        <div class="title">
+                            <label for="interval"><h6 class="tab-title">Report items and Type per Asset</h6></label>
+                            <p class="underline">Sorted by most report items</p>
+                        </div>
+
+                        <div class="chart" style="height: 300px;">
+                            <canvas id="typeAssetChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 row">
+                <!-- item 2 -->
+                <div class="dashboard-item col-md-12">
+                    <div class="mdc-data-table" style="height: 500px; overflow-y: scroll;">
                         <table id="routeTable" class="mdc-data-table__table" aria-label="Reports list">
                             <thead>
                                 <tr class="mdc-data-table__header-row">
@@ -108,80 +151,7 @@
                             </tbody>
                         </table>
                     </div>
-                </div>
-            </div>
-
-            <!-- Row 2 -->
-            <!-- <div class="col-md-12 row">
-
-                <div class="dashboard-item col-md-6">
-                    <div class="dashboard-content">
-                        <div class="title">
-                            <h6>Number of Report Items per Asset</h6>
-                            <p class="underline">In the last 30 days</p>
-                        </div>
-
-                        <div class="chart" style="height: 300px;">
-                            <canvas id="reportItems"></canvas>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="dashboard-item col-md-6">
-                    <div class="dashboard-content">
-                        <div class="title">
-                            <h6>Max. Criticiality of Report Items per Asset</h6>
-                            <p class="underline">Sorted on Criticiality</p>
-                        </div>
-
-                        <div class="chart" style="height: 300px;">
-                            <canvas id="reportCriticality"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-
-            <div class="col-md-12 row">
-                <div class="dashboard-item col-md-6">
-                    <div class="dashboard-content">
-                        <div class="title">
-                            <label for="interval"><h6 class="tab-title">Report items and Criticiality per Task Type</h6></label>
-                            <p class="underline">How stable is the data collection?</p>
-                        </div>
-
-                        <div class="chart" style="height: 300px;">
-                            <canvas id="reportTypeChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="dashboard-item col-md-6">
-                    <div class="dashboard-content">
-                        <div class="title">
-                            <label for="interval"><h6 class="tab-title">Report items and Criticiality per Asset</h6></label>
-                            <p class="underline">Sorted by most report items</p>
-                        </div>
-
-                        <div class="chart" style="height: 300px;">
-                            <canvas id="criticalAssetChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-12 row">
-                <div class="dashboard-item col-md-6">
-                    <div class="dashboard-content">
-                        <div class="title">
-                            <label for="interval"><h6 class="tab-title">Report items and Type per Asset</h6></label>
-                            <p class="underline">Sorted by most report items</p>
-                        </div>
-
-                        <div class="chart" style="height: 300px;">
-                            <canvas id="typeAssetChart"></canvas>
-                        </div>
-                    </div>
-                </div>
+                </div>                
             </div>
         </div>
     </div>
