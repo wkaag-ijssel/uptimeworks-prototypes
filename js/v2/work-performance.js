@@ -50,6 +50,15 @@ var myDoughnutChart = new Chart(ctx1, {
                 lineHeight: 10 // Default is 25 (in px), used for when text wraps
             }
         }
+        // tooltips: {
+        //     // mode: 'label',
+        //     callbacks: {
+        //         label: function(tooltipItem, data) { 
+        //             let indice = tooltipItem.index;
+        //             return  data.labels[indice] +': '+data.datasets[0].data[indice] + '';
+        //         }
+        //     }
+        // }
     }
 });
 
@@ -443,6 +452,16 @@ function lineChart(chartElem, data, labels) {
                 point: {
                     radius: 0    //hide data point indicators
                 }
+            },
+            tooltips: {
+                mode: 'index',
+                intersect: true
+                // callbacks: {
+                //     label: function(tooltipItem, data) { 
+                //         var indice = tooltipItem.index;                 
+                //         return  data.labels[indice] +': '+data.datasets[0].data[indice] + '';
+                //     }
+                // }
             },
             scales: {
                 xAxes: [{
