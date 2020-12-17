@@ -6,6 +6,12 @@ let pMain = "#1a237e"; //'rgb(26,35,126)';
     sLight = "#ffdd4b";
     sDark = "#c67c00";
 
+let normal = "#00c853";
+    lvl_1  = "#ffd740";
+    lvl_2  = "#ffc400";
+    lvl_3  = "#ffab00";
+    lvl_4  = "#ff6f00";
+
 // Event listeners
 // document.getElementById('button-routes').addEventListener('click', function(event){ window.location.href = "routes.html"});
 // document.getElementById('button-tasks').addEventListener('click', function(event){ window.location.href = "tasks.html"});
@@ -15,16 +21,17 @@ var myDoughnutChart = new Chart(ctx1, {
     type: 'doughnut',
     data: {
         datasets: [{
-            data: [95, 5],
+            data: [85, 5, 10],
             backgroundColor: [
-                pMain
+                pMain, lvl_3, lvl_4
             ]
         }],
     
         // These labels appear in the legend and in the tooltips when hovering different arcs
         labels: [
             'Work completed (%)',
-            'Work not completed (%)'
+            'Not completed with reason (%)',
+            'Not completed without reason (%)'
         ]
     },
     options: {
@@ -36,7 +43,7 @@ var myDoughnutChart = new Chart(ctx1, {
         },
         elements: {
             center: {
-                text: '95%',
+                text: '85%',
                 fontStyle: 'Arial', // Default is Arial
                 sidePadding: 50, // Default is 20 (as a percentage)
                 minFontSize: 10, // Default is 20 (in px), set to false and text will not wrap.
@@ -420,17 +427,7 @@ function lineChart(chartElem, data, labels) {
         type: 'line',
         data: { 
             labels: labels,
-            datasets: [{
-                label: 'Percentage of tasks completed',
-                borderColor: pMain,
-                fill: false,
-                backgroundColor: pMain,
-                barPercentage: 0.5,
-                barThickness: 6,
-                maxBarThickness: 8,
-                minBarLength: 2,
-                data: data
-            }]
+            datasets: data
         },
         options: {
             legend: {
@@ -477,7 +474,37 @@ function lineChart(chartElem, data, labels) {
 /** Chart 2: Completed work over time */
 let completedWorkChart = new Promise(resolve => {
     let labels = getDateLabels();
-    let data =  Array.from({length: labels.length}, () => Math.random()*20 + 30);
+    let data =  [{
+        label: 'Work completed',
+        borderColor: pMain,
+        fill: false,
+        backgroundColor: pMain,
+        barPercentage: 0.5,
+        barThickness: 6,
+        maxBarThickness: 8,
+        minBarLength: 2,
+        data: Array.from({length: labels.length}, () => Math.random()*20 + 30)
+    },{
+        label: 'Not completed with reason',
+        borderColor: lvl_3,
+        fill: false,
+        backgroundColor: lvl_3,
+        barPercentage: 0.5,
+        barThickness: 6,
+        maxBarThickness: 8,
+        minBarLength: 2,
+        data: Array.from({length: labels.length}, () => Math.random()*20)
+    },{
+        label: 'Not completed without reason',
+        borderColor: lvl_4,
+        fill: false,
+        backgroundColor: lvl_4,
+        barPercentage: 0.5,
+        barThickness: 6,
+        maxBarThickness: 8,
+        minBarLength: 2,
+        data: Array.from({length: labels.length}, () => Math.random()*10)
+    }]
     resolve([data, labels])
 }).then(data => {
     let ctx = document.getElementById('workLoadChart').getContext('2d');
@@ -488,7 +515,17 @@ let completedWorkChart = new Promise(resolve => {
 //Chart 5: Level of Completed and Not Completed Work per Asset 
 let completedWorkAssetChart = new Promise((resolve) => {
     let labels = getDateLabels();
-    let data =  Array.from({length: labels.length}, () => Math.random()*20 + 30);
+    let data = [{
+        label: 'Percentage of tasks completed',
+        borderColor: pMain,
+        fill: false,
+        backgroundColor: pMain,
+        barPercentage: 0.5,
+        barThickness: 6,
+        maxBarThickness: 8,
+        minBarLength: 2,
+        data: Array.from({length: labels.length}, () => Math.random()*20 + 30)
+    }];
     resolve([data, labels])
 }).then(data => {   
     let ctx6 = document.getElementById('executedWorkChart').getContext('2d');

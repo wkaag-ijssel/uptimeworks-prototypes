@@ -382,7 +382,7 @@ var myDoughnutChart = new Chart(ctx1, {
         datasets: [{
             data: [85, 5, 10],
             backgroundColor: [
-                pMain
+                pMain, lvl_3, lvl_4
             ]
         }],
         labels: [
