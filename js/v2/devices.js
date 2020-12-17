@@ -6,9 +6,30 @@ let pMain = "#1a237e"; //'rgb(26,35,126)';
     sLight = "#ffdd4b";
     sDark = "#c67c00";
 
-// Event listeners
-// document.getElementById('button-routes').addEventListener('click', function(event){ window.location.href = "routes.html"});
-// document.getElementById('button-tasks').addEventListener('click', function(event){ window.location.href = "tasks.html"});
+
+let tabs = document.getElementsByClassName('tablinks');
+let dataMetric = document.getElementsByClassName('tab-metric');
+let dataDiff = document.getElementsByClassName('percentage-value');
+
+function changeTab(evt, chartName, dataInput) {
+    let i, tablinks;
+    
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    };
+
+    // change metric data
+    // chartName.data.datasets[0] = dataInput[0];
+    // chartName.data.datasets[1] = dataInput[1];
+    // chartName.data.datasets[0].label = 'n. of ' + evt.currentTarget.getElementsByClassName("sub-title")[0].innerText.toLowerCase();
+
+    // change ref/threshold data
+    // chartName.data.datasets[1].data = refInput;
+
+    // chart1.update();
+    evt.currentTarget.className += " active";
+}
 
 function doughnutChart(ct, data) {
     return new Chart(ct, {
@@ -386,7 +407,7 @@ let uBridgeChart = new Chart(ctx4, {
     options: {
         legend: {
             display: true,
-            position: 'right'
+            position: 'bottom'
         },
         responsive: true,
         maintainAspectRatio: false,
@@ -672,6 +693,26 @@ let alarmReportChartPromise = new Promise((resolve) => {
     console.log(result);
     let ctx10 = document.getElementById('alarmReportChart').getContext('2d');
     let normalFullChart = stackedBarChart(ctx10, result[0], result[1])
+});
+
+let readingChart = new Promise((resolve) => {
+    let data = [{
+        label: 'Alarm',
+        backgroundColor: pMain,
+        data: Array.from({length: 10}, () => Math.floor(Math.random() * 200)).sort((a, b) => a - b)
+    }, {
+        label: 'Report',
+        backgroundColor: pLight,
+        data: Array.from({length: 10}, () => Math.floor(Math.random() * 20))
+    }];
+    let labels = ['Device x', 'Device x', 'Device x', 'Device x', 'Device x', 'Device x', 'device x', 'device x', 'device x', 'device x'];
+
+
+    resolve([data, labels]);
+}).then(result => { 
+    console.log(result);
+    let ctx14 = document.getElementById('readingChart').getContext('2d');
+    let readingChart = stackedBarChart(ctx14, result[0], result[1])
 });
 
 
