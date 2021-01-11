@@ -191,6 +191,10 @@ let chart1 = new Chart(ctx5, {
                 position: 'right',
                 ticks: {
                     beginAtZero: true
+                },
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Nr. of tasks'
                 }
             }]
         }
@@ -465,11 +469,22 @@ let myBar = new Chart(ctx, {
         scales: {
             xAxes: [{
                 stacked: true,
+                xAxes: [{
+                    position: 'bottom',
+                    gridLines: {
+                        display: false,
+                    },
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Nr. of tasks'
+                    }
+                }],
             }],
             yAxes: [{
                 stacked: true
             }]
         },
+        
     }
 });
 
@@ -577,12 +592,109 @@ let costsChartPromise = new Promise((resolve) => {
                     position: 'right',
                     ticks: {
                         suggestedMax: targetValue*1.2
+                    },
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Costs saved (€)'
                     }
                 }]
             }
         }
     }); 
 })
+
+//Chart 6: Scatter plot (response/advice time)
+let getDataPromise = new Promise((resolve) => {
+    let array1 = Array.from({length: 5}, () => Math.floor(Math.random() * 30)); // time to action
+    let array2 = Array.from({length: 5}, () => Math.floor(Math.random() * 30)); // response time: advice issued - date sent
+    let scatterArray = [];
+
+    //Create a array of objects, required input format for scatter plot.
+    array1.forEach((item_x, index) => {
+        scatterArray.push({
+            x : item_x, 
+            y : array2[index]
+        });
+    });
+    resolve(scatterArray);
+}).then(dataset => {   
+    let ctx6 = document.getElementById('adviceResponseChart').getContext('2d');
+    let data = {
+        labels: ['Report X', 'Report Y', 'Report Z', 'Report A', 'Report B'],
+        datasets: [{
+            type: 'scatter',
+            // label: 'Report',
+            showLine: false,
+            backgroundColor: pMain,
+            data: dataset
+        },{
+            type: 'line',
+            // label: 'target',
+            data: [{
+                x: 0,
+                y: 0
+            },{
+                x: 30, 
+                y: 30 
+            }],
+            // borderColor: pDark,
+            borderWidth: 1,
+            borderDash: [5,2],
+            fill: false,
+            PointStyle: 'none',
+            radius: 0
+        }]
+    };
+
+    let executedWorkChart = new Chart(ctx6, {
+        data: data,
+        options: {
+            legend: {
+                display: false,
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                xAxes: [{
+                    type: 'linear',
+                    position: 'bottom',
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Time to Action (days)'
+                    }
+                }],
+                yAxes: [{
+                    type: 'linear',
+                    position: 'left',
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Response Time (days)'
+                    }
+                }]
+            },
+            tooltips: {
+                enabled: true,
+                callbacks: {
+                    title: function(tooltipItem, data) {
+                        let title = data.labels[tooltipItem[0].index];
+                        return title;
+                    },
+                    label: function(tooltipItem, data) {
+                        return ['time to action: ' + tooltipItem.xLabel + ' days', 'response time: ' + tooltipItem.yLabel + ' days'];
+                    }
+                }
+            },
+            onClick: function(evt, activeElements) {
+                if (activeElements[0]) {
+                    let elementIndex = activeElements[0]._index;
+                    console.log('report item selected: ', data.labels[elementIndex])   
+
+                    //Load report item in pop-up, or in new page.
+                }
+            }
+        }
+    });
+});
 
 
 
