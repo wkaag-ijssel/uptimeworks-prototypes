@@ -715,7 +715,6 @@ let readingChart = new Promise((resolve) => {
     let readingChart = stackedBarChart(ctx14, result[0], result[1])
 });
 
-
 let createuBridgeRow = () => {
     let row = [
         ['uBridgeFakeName' + Math.floor(Math.random() * 20).toString(), false],
