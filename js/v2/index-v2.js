@@ -227,14 +227,16 @@ var myDoughnutChart = new Chart(ctx4, {
     type: 'doughnut',
     data: {
         datasets: [{
-            data: [95, 5],
+            data: [65, 5, 10,20],
             backgroundColor: [
-                pMain
+                pMain, lvl_3, lvl_4
             ]
         }],
         labels: [
-            'Normal (%)',
-            'Alarm (%)'
+            'Normal',
+            'Warning',
+            'Alarm',
+            'Unknown'
         ]
     },
     options: {
@@ -246,7 +248,7 @@ var myDoughnutChart = new Chart(ctx4, {
         },
         elements: {
             center: {
-                text: '95%',
+                text: '65%',
                 fontStyle: 'Arial', 
                 sidePadding: 50, 
                 minFontSize: 10, 
@@ -262,14 +264,17 @@ var myDoughnutChart = new Chart(ctx2, {
     type: 'doughnut',
     data:  {
         datasets: [{
-            data: [82, 18],
+            data: [85, 2, 3, 3, 7],
             backgroundColor: [
-                pMain
+                pMain, lvl_1, lvl_2, lvl_3, lvl_4
             ]
         }],
         labels: [
-            'No report (%)',
-            'Report (%)'
+            'Normal',
+            'Lvl_1',
+            'Lvl_2',
+            'Lvl_3',
+            'Lvl_4'
         ]
     },
     options: {
@@ -281,7 +286,7 @@ var myDoughnutChart = new Chart(ctx2, {
         },
         elements: {
             center: {
-                text: '82%',
+                text: '85%',
                 fontStyle: 'Arial', 
                 sidePadding: 50,
                 minFontSize: 10, 
@@ -626,7 +631,8 @@ let getDataPromise = new Promise((resolve) => {
             // label: 'Report',
             showLine: false,
             backgroundColor: pMain,
-            data: dataset
+            data: dataset,
+            pointBackgroundColor: [pMain, pMain, pMain, '#f5f5f5', '#f5f5f5', '#f5f5f5']
         },{
             type: 'line',
             // label: 'target',
