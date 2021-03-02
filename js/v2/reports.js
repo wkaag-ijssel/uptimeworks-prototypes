@@ -21,14 +21,17 @@ var myDoughnutChart = new Chart(ctx4, {
     type: 'doughnut',
     data: {
         datasets: [{
-            data: [82, 18],
+            data: [85, 2, 3, 3, 7],
             backgroundColor: [
-                pMain
+                pMain, lvl_1, lvl_2, lvl_3, lvl_4
             ]
         }],
         labels: [
-            'healthy assets (%)',
-            'failing assets (%)'
+            'Normal',
+            'Lvl_1',
+            'Lvl_2',
+            'Lvl_3',
+            'Lvl_4'
         ]
     },
     options: {
@@ -40,7 +43,7 @@ var myDoughnutChart = new Chart(ctx4, {
         },
         elements: {
             center: {
-                text: '82%',
+                text: '85%',
                 fontStyle: 'Arial', 
                 sidePadding: 50, 
                 minFontSize: 10, 
@@ -462,7 +465,35 @@ let reportTypeChart = new Promise((resolve) => {
     resolve([data, labels]);
 }).then(result => {  
     let ctx4 = document.getElementById('reportTypeChart').getContext('2d');
-    let reportTypeChart = stackedBarChart(ctx4, result[0], result[1])
+    // let reportTypeChart = stackedBarChart(ctx4, result[0], result[1])
+    let reportTypeChart = new Chart(ctx4, {
+        type: 'bar',
+        data: { 
+            labels: ['Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x'],
+            datasets: [{
+                label: 'Alarms',
+                data: Array.from({length: 9}, () => Math.floor(Math.random() * 40)),
+                fill: true,
+                backgroundColor: pMain,
+                pointStyle: 'line'
+            }], 
+        },
+        options: {
+            legend: {
+                display: false,
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                xAxes: [{
+                    stacked: true,
+                }],
+                yAxes: [{
+                    stacked: true
+                }]
+            }
+        }
+    });
 });
 
 //Type of report

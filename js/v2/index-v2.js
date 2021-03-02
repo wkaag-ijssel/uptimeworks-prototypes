@@ -172,6 +172,10 @@ let chart1 = new Chart(ctx5, {
                 radius: 0
             }
         },
+        tooltips: {
+            mode: 'index',
+            intersect: false
+        },
         scales: {
             xAxes: [{
                 gridLines: {
@@ -229,7 +233,7 @@ var myDoughnutChart = new Chart(ctx4, {
         datasets: [{
             data: [65, 5, 10,20],
             backgroundColor: [
-                pMain, lvl_3, lvl_4
+                pMain, lvl_2, lvl_4
             ]
         }],
         labels: [
@@ -389,15 +393,16 @@ var myDoughnutChart = new Chart(ctx1, {
     type: 'doughnut',
     data: {
         datasets: [{
-            data: [85, 5, 10],
+            data: [80, 5, 5, 10],
             backgroundColor: [
-                pMain, lvl_3, lvl_4
+                pMain, lvl_1, lvl_2, lvl_4
             ]
         }],
         labels: [
             'Completed (%)',
-            'Not compl. with reason (%)',
-            'Not compl. without reason (%)'
+            'Overdue',
+            'Not completed - reason (%)',
+            'Not completed - no reason (%)'
         ]
     },
     options: {
@@ -409,7 +414,7 @@ var myDoughnutChart = new Chart(ctx1, {
         },
         elements: {
             center: {
-                text: '95%',
+                text: '80%',
                 fontStyle: 'Arial', 
                 sidePadding: 50,    
                 minFontSize: 10,    
@@ -463,7 +468,11 @@ let myBar = new Chart(ctx, {
         legend: {
             display: true,
             position: 'right',
-            // position: 'top'
+            labels: {
+                boxWidth: 20,
+                fontSize: 10,
+                // usePointStyle: true
+            }
         },
         tooltips: {
             mode: 'index',
@@ -553,20 +562,21 @@ let costsChartPromise = new Promise((resolve) => {
                 lineWidth: 0.1,
                 pointStyle: 'line',
                 lineTension: 0
-            },{
-                label: 'Target',
-                data: data[0],
-                fill: false,
-                borderColor: pMain,
-                lineWidth: 0.1,
-                borderDash: [7,3],
-                pointStyle: 'line',
-                lineTension: 0
+            // },{
+            //     label: 'Target',
+            //     data: data[0],
+            //     fill: false,
+            //     borderColor: pMain,
+            //     lineWidth: 0.1,
+            //     borderDash: [7,3],
+            //     pointStyle: 'line',
+            //     lineTension: 0
+            // }]
             }]
         },
         options: {
             legend: {
-                display: true,
+                display: false,
                 position: "bottom",
                 labels: {
                     usePointStyle: true

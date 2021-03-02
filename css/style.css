@@ -352,3 +352,9 @@ label {
 }
 
 .topright:hover {color: red;}
+
+.device {
+  width: 100px;
+  height: 100px;
+  border-color: #111;
+}

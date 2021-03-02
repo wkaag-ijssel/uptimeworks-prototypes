@@ -6,6 +6,11 @@ let pMain = "#1a237e"; //'rgb(26,35,126)';
     sLight = "#ffdd4b";
     sDark = "#c67c00";
 
+let uBridgeCharts = document.getElementsByClassName('uBridge');
+console.log(uBridgeCharts)
+let uMoteCharts = document.getElementsByClassName('uMote');
+console.log(uMoteCharts)
+
 
 let tabs = document.getElementsByClassName('tablinks');
 let dataMetric = document.getElementsByClassName('tab-metric');
@@ -15,19 +20,23 @@ function changeTab(evt, chartName, dataInput) {
     let i, tablinks;
     
     tablinks = document.getElementsByClassName("tablinks");
+
+    if (uBridgeCharts[0].display == 'block') {
+        console.log('yes?')
+        Array.from(uBridgeCharts).forEach(div => {
+            console.log(div)
+            div.display = 'none'
+            console.log(div)
+        });
+        Array.from(uMoteCharts).forEach(div => div.display = 'block');
+    } else {
+        Array.from(uBridgeCharts).forEach(div => div.display = 'block');
+        Array.from(uMoteCharts).forEach(div => div.display = 'none');
+    }
+
     for (i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     };
-
-    // change metric data
-    // chartName.data.datasets[0] = dataInput[0];
-    // chartName.data.datasets[1] = dataInput[1];
-    // chartName.data.datasets[0].label = 'n. of ' + evt.currentTarget.getElementsByClassName("sub-title")[0].innerText.toLowerCase();
-
-    // change ref/threshold data
-    // chartName.data.datasets[1].data = refInput;
-
-    // chart1.update();
     evt.currentTarget.className += " active";
 }
 
@@ -367,9 +376,9 @@ labels.forEach((test, index) => {
 });
 
 /** uBridge chart normal/spectra readings **/
-let ctx4 = document.getElementById('workLoadChart').getContext('2d');
+let ctx4 = document.getElementById('uBridgeChart').getContext('2d');
 let uBridgeChart = new Chart(ctx4, {
-    type: 'bar',
+    type: 'line',
     data: { 
         labels: labels,
         datasets: [{
@@ -377,30 +386,30 @@ let uBridgeChart = new Chart(ctx4, {
             borderColor: pMain,
             fill: false,
             backgroundColor: pMain,
-            barPercentage: 0.5,
-            barThickness: 6,
-            maxBarThickness: 8,
-            minBarLength: 2,
+            // barPercentage: 0.5,
+            // barThickness: 6,
+            // maxBarThickness: 8,
+            // minBarLength: 2,
             data: Array.from({length: labels.length}, () => Math.floor(Math.random()*5) + 100)
         },{
             label: 'Spectra',
             borderColor: pDark,
             fill: false,
             backgroundColor: pDark,
-            barPercentage: 0.5,
-            barThickness: 6,
-            maxBarThickness: 8,
-            minBarLength: 2,
+            // barPercentage: 0.5,
+            // barThickness: 6,
+            // maxBarThickness: 8,
+            // minBarLength: 2,
             data: Array.from({length: labels.length}, () => Math.floor(Math.random()*5) + 2)
         },{
             label: 'Report items',
             borderColor: sMain,
             fill: false,
             backgroundColor: sMain,
-            barPercentage: 0.5,
-            barThickness: 6,
-            maxBarThickness: 8,
-            minBarLength: 2,
+            // barPercentage: 0.5,
+            // barThickness: 6,
+            // maxBarThickness: 8,
+            // minBarLength: 2,
             data: Array.from({length: labels.length}, () => Math.floor(Math.random()*3))
         }]
     },
@@ -426,7 +435,7 @@ let uBridgeChart = new Chart(ctx4, {
         },
         scales: {
             xAxes: [{
-                stacked: true,
+                stacked: false,
                 gridLines: {
                     display: false,
                 },
@@ -440,7 +449,7 @@ let uBridgeChart = new Chart(ctx4, {
                 }
             }],
             yAxes: [{
-                stacked: true,
+                stacked: false,
                 position: 'right',
                 ticks: {
                     beginAtZero: true,
@@ -452,9 +461,9 @@ let uBridgeChart = new Chart(ctx4, {
 });
 
 /** Chart 2: Completed work over time */
-let ctx5 = document.getElementById('uMoteReadingsChart').getContext('2d');
+let ctx5 = document.getElementById('uMoteChart').getContext('2d');
 let uMoteChart = new Chart(ctx5, {
-    type: 'bar',
+    type: 'line',
     data: { 
         labels: labels,
         datasets: [{
@@ -462,30 +471,18 @@ let uMoteChart = new Chart(ctx5, {
             borderColor: pMain,
             fill: false,
             backgroundColor: pMain,
-            barPercentage: 0.5,
-            barThickness: 6,
-            maxBarThickness: 8,
-            minBarLength: 2,
             data: Array.from({length: labels.length}, () => Math.floor(Math.random()*5) + 10)
         },{
             label: 'Spectra',
             borderColor: pMain,
             fill: false,
             backgroundColor: pDark,
-            barPercentage: 0.5,
-            barThickness: 6,
-            maxBarThickness: 8,
-            minBarLength: 2,
             data: Array.from({length: labels.length}, () => Math.floor(Math.random()*5) + 5)
         },{
             label: 'Report items',
             borderColor: sMain,
             fill: false,
             backgroundColor: sMain,
-            barPercentage: 0.5,
-            barThickness: 6,
-            maxBarThickness: 8,
-            minBarLength: 2,
             data: Array.from({length: labels.length}, () => Math.floor(Math.random()*3))
         }]
     },
@@ -525,7 +522,7 @@ let uMoteChart = new Chart(ctx5, {
                 }
             }],
             yAxes: [{
-                stacked: true,
+                stacked: false,
                 position: 'right',
                 ticks: {
                     beginAtZero: true,
@@ -735,4 +732,5 @@ let createuMoteRow = () => {
     ];
     return row
 };
+
 createTable('uMoteTable', '#uMoteTable-body', createuMoteRow, 40, uMoteChart);

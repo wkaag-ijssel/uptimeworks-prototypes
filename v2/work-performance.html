@@ -29,7 +29,7 @@
                     <a href="devices.html">Devices</a>
                 <p>ASSET CONDITION</p>
                     <a href="reports.html">Reports</a>
-                    <!-- <a href="alarms.html">Measurements</a>                 -->
+                    <a href="trends.html">Trends</a>                
             </div>
         </div>
         <div class="col-md-10">
@@ -59,10 +59,10 @@
             <div class="col-md-12 row">
 
                 <!-- item 1-->
-                <div class="dashboard-item col-md-6">
+                <div class="dashboard-item col-md-5">
                     <div class="dashboard-content">
                         <div class="title">
-                            <h6>Work Order Compliance</h6>
+                            <h6>Job Compliance</h6>
                             <p class="underline">How many work orders were completed?</p>
                         </div>
                         <div class="col-md-12 row">
@@ -90,19 +90,39 @@
                     </div>
                 </div>
 
+                <!-- item 1-->
+                <div class="dashboard-item col-md-7">
+                    <div class="dashboard-content">
+                        <div class="title">
+                            <label for="intervalSelector"><h6>Test graph</h6></label>
+                            <select id="intervalSelector">
+                                <option value="day">Day</option>
+                                <option value="week">Week</option>
+                            </select>
+                            <p class="underline">Nr. of Completed Work over time</p>
+                        </div>
+                        <div style="height: 250px;">
+                            <canvas id="workPerAssetChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New row -->
+            <div class="col-md-12 row">
+
                 <!-- item 2 -->
-                <div class="dashboard-item col-md-6">
+                <div class="dashboard-item col-md-12">
                     <div class="dashboard-content">
                         <div class="title">
                             <label for="intervalSelector"><h6>Completed Work Orders per</h6></label>
                             <select id="intervalSelector">
                                 <option value="day">Day</option>
                                 <option value="week">Week</option>
-                                <option value="month">Month</option>
                             </select>
                             <p class="underline">Nr. of Completed Work over time</p>
                         </div>
-                        <div style="height: 180px;">
+                        <div style="height: 250px;">
                             <canvas id="workLoadChart"></canvas>
                         </div>
                     </div>
@@ -154,6 +174,11 @@
                                 <div class="mdc-button__ripple"></div>
                                 <i class="material-icons mdc-button__icon" aria-hidden="true">refresh</i>
                                 <span class="mdc-button__label">Reset</span>
+                            </button>
+                            <button class="mdc-button mdc-button--outlined" style="float: right; transform: scale(0.85);">
+                                <div class="mdc-button__ripple"></div>
+                                <span class="mdc-button__label">Add to Report</span>
+                                <i class="material-icons mdc-button__icon" aria-hidden="true">description</i>
                             </button>
                         </div>
                     </div>

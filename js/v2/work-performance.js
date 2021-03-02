@@ -12,6 +12,12 @@ let normal = "#00c853";
     lvl_3  = "#ffab00";
     lvl_4  = "#ff6f00";
 
+let normal_rgb = "rgba(26, 35, 126, .2)";
+    lvl_1_rgb  = "rgba(255, 215, 64, .2)";
+    lvl_2_rgb  = "rgba(255, 196, 0, .2)";
+    lvl_3_rgb  = "rgba(255, 171, 0, .2)";
+    lvl_4_rgb  = "rgba(255, 111, 0, .2)";
+
 // Event listeners
 // document.getElementById('button-routes').addEventListener('click', function(event){ window.location.href = "routes.html"});
 // document.getElementById('button-tasks').addEventListener('click', function(event){ window.location.href = "tasks.html"});
@@ -23,7 +29,7 @@ var myDoughnutChart = new Chart(ctx1, {
         datasets: [{
             data: [85, 5, 10],
             backgroundColor: [
-                pMain, lvl_3, lvl_4
+                pMain, lvl_2, lvl_4
             ]
         }],
     
@@ -431,7 +437,7 @@ function changeData (chart, data) {
 }
 
 
-function lineChart(chartElem, data, labels) {
+function lineChart (chartElem, data, labels) {
     return new Chart(chartElem, {
         type: 'line',
         data: { 
@@ -440,7 +446,14 @@ function lineChart(chartElem, data, labels) {
         },
         options: {
             legend: {
-                display: false,
+                display: true,
+                position: 'right',
+                align: 'end',
+                labels: {
+                    boxWidth: 20,
+                    fontSize: 10,
+                    // usePointStyle: true
+                }
             },
             responsive: true,
             maintainAspectRatio: false,
@@ -455,18 +468,12 @@ function lineChart(chartElem, data, labels) {
             },
             tooltips: {
                 mode: 'index',
-                intersect: true
-                // callbacks: {
-                //     label: function(tooltipItem, data) { 
-                //         var indice = tooltipItem.index;                 
-                //         return  data.labels[indice] +': '+data.datasets[0].data[indice] + '';
-                //     }
-                // }
+                intersect: false
             },
             scales: {
                 xAxes: [{
                     gridLines: {
-                        display: false,
+                        display: true,
                     },
                     ticks: {
                         autoSkip: true,
@@ -481,14 +488,95 @@ function lineChart(chartElem, data, labels) {
                     position: 'right',
                     ticks: {
                         beginAtZero: true
-                    }
+                    },
+                    stacked: true
                 }]
             }
         }
     });
 }
 
-
+let ctx11 = document.getElementById('workPerAssetChart').getContext('2d');
+let workPerAssetChart = new Chart(ctx11, {
+    type: 'bar',
+    data: { 
+        labels: ['Lubrication', 'Vibration', 'Inspection', 'Process', 'Thermo', 'Other'],
+        datasets: [{
+            label: 'Work completed',
+            borderColor: pMain,
+            backgroundColor: pMain,
+            data: Array.from({length: 6}, () => Math.round(Math.random()*20 + 30)),
+            fill: 'origin',
+        },{
+            label: 'Work not completed - shutdown',
+            borderColor: lvl_3,
+            backgroundColor: lvl_3,
+            data: Array.from({length: 6}, () => Math.round(Math.random()*5 + 5)),
+            fill: '-1'
+        },{
+            label: 'Work not completed - inaccessible',
+            borderColor: lvl_3,
+            backgroundColor: lvl_3,
+            data: Array.from({length: 6}, () => Math.round(Math.random()*20 + 25)),
+            fill: '-1'
+        },{
+            label: 'Work not completed - no reason given',
+            borderColor: lvl_4,
+            backgroundColor: lvl_4,
+            data: Array.from({length: 6}, () => Math.round(Math.random()*10)),
+            fill: '-2'
+        }]
+    },
+    options: {
+        legend: {
+            display: false,
+            position: 'right',
+            align: 'end',
+            labels: {
+                boxWidth: 20,
+                fontSize: 10,
+                // usePointStyle: true
+            }
+        },
+        responsive: true,
+        maintainAspectRatio: false,
+        elements: {
+            line: {
+                tension: 0,  // disables bezier curves
+                borderWidth: 1
+            },
+            point: {
+                radius: 0    //hide data point indicators
+            }
+        },
+        tooltips: {
+            mode: 'index',
+            intersect: false
+        },
+        scales: {
+            xAxes: [{
+                gridLines: {
+                    display: true,
+                },
+                ticks: {
+                    autoSkip: true,
+                    maxRotation: 0,
+                    minRotation: 0,
+                    minorTick: {
+                        fontSize: 7
+                    }
+                }
+            }],
+            yAxes: [{
+                position: 'right',
+                ticks: {
+                    beginAtZero: true
+                },
+                stacked: false
+            }]
+        }
+    }
+});
 
 /** Chart 2: Completed work over time */
 let completedWorkChart = new Promise(resolve => {
@@ -496,33 +584,24 @@ let completedWorkChart = new Promise(resolve => {
     let data =  [{
         label: 'Work completed',
         borderColor: pMain,
-        fill: false,
-        backgroundColor: pMain,
-        barPercentage: 0.5,
-        barThickness: 6,
-        maxBarThickness: 8,
-        minBarLength: 2,
-        data: Array.from({length: labels.length}, () => Math.random()*20 + 30)
+        backgroundColor: normal_rgb,
+        // steppedLine: 'middle',
+        data: Array.from({length: labels.length}, () => Math.random()*20 + 30),
+        fill: 'origin',
     },{
         label: 'Not completed with reason',
         borderColor: lvl_3,
-        fill: false,
-        backgroundColor: lvl_3,
-        barPercentage: 0.5,
-        barThickness: 6,
-        maxBarThickness: 8,
-        minBarLength: 2,
-        data: Array.from({length: labels.length}, () => Math.random()*20)
+        backgroundColor: lvl_3_rgb,
+        // steppedLine: 'middle',
+        data: Array.from({length: labels.length}, () => Math.random()*20),
+        fill: '-1'
     },{
         label: 'Not completed without reason',
         borderColor: lvl_4,
-        fill: false,
-        backgroundColor: lvl_4,
-        barPercentage: 0.5,
-        barThickness: 6,
-        maxBarThickness: 8,
-        minBarLength: 2,
-        data: Array.from({length: labels.length}, () => Math.random()*10)
+        backgroundColor: lvl_4_rgb,
+        // steppedLine: 'middle',
+        data: Array.from({length: labels.length}, () => Math.random()*10),
+        fill: '-2'
     }]
     resolve([data, labels])
 }).then(data => {

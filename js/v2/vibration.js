@@ -42,7 +42,6 @@ let _workorders = workorders.concat(Array.from({length: date_range.length * futu
 let _readings = readings.concat(Array.from({length: date_range.length * future}, () => 30));
 let _reports = reports.concat(Array.from({length: date_range.length * future}, () => Math.floor(Math.random() * 20)));
 
-
 // Workorder data
 let workorders_data = [{
     label: 'total',
@@ -230,12 +229,12 @@ Chart.pluginService.register({
 
 
 //Chart 5: Job Compliance per Task Type
-let ctx1 = document.getElementById('taskCompletion').getContext('2d');
+let ctx1 = document.getElementById('alarmStatus').getContext('2d');
 var myDoughnutChart = new Chart(ctx1, {
     type: 'doughnut',
     data: {
         datasets: [{
-            data: [85, 5, 10],
+            data: [65, 5, 10,20],
             backgroundColor: [
                 pMain, lvl_3, lvl_4
             ]
@@ -243,7 +242,8 @@ var myDoughnutChart = new Chart(ctx1, {
         labels: [
             'Normal',
             'Warning',
-            'Alarm'
+            'Alarm',
+            'Unknown'
         ]
     },
     options: {
@@ -255,7 +255,45 @@ var myDoughnutChart = new Chart(ctx1, {
         },
         elements: {
             center: {
-                text: '95%',
+                text: '65%',
+                fontStyle: 'Arial', 
+                sidePadding: 50,    
+                minFontSize: 10,    
+                lineHeight: 10    
+            }
+        }
+    }
+});
+
+//Chart 5: Job Compliance per Task Type
+let ctx2 = document.getElementById('reportStatus').getContext('2d');
+var myDoughnutChart = new Chart(ctx2, {
+    type: 'doughnut',
+    data: {
+        datasets: [{
+            data: [85, 2, 3, 3, 7],
+            backgroundColor: [
+                pMain, lvl_1, lvl_2, lvl_3, lvl_4
+            ]
+        }],
+        labels: [
+            'Normal',
+            'Lvl_1',
+            'Lvl_2',
+            'Lvl_3',
+            'Lvl_4'
+        ]
+    },
+    options: {
+        cutoutPercentage: 70,
+        responsive: true,
+        maintainAspectRatio: false,
+        legend: {
+            display: false
+        },
+        elements: {
+            center: {
+                text: '85%',
                 fontStyle: 'Arial', 
                 sidePadding: 50,    
                 minFontSize: 10,    
@@ -299,8 +337,8 @@ let costsChartPromise = new Promise((resolve) => {
     }
 
     let date = getDateLabels();
-    let savings = Array.from({length: date.length}, () => Math.floor(Math.random() * 30));
-    let target = Array.from({length: date.length}, () => Math.floor(Math.random() * 120));
+    let savings = Array.from({length: date.length}, () => Math.floor((Math.random()*10)+ 30));
+    let target = Array.from({length: date.length}, () => Math.floor((Math.random()*30) + 120));
 
     resolve([target, date, savings]);
 }).then(data => {
