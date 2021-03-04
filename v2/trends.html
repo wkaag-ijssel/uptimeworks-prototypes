@@ -56,17 +56,48 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            
+            </div>           
+
             <div class="col-md-12 row">
-                <div class="dashboard-item col-md-12">
+                <!-- item 1-->
+                <div class="dashboard-item col-md-5">
                     <div class="dashboard-content">
                         <div class="title">
-                            <h6>% Completed Work Orders per Route</h6>
+                            <h6>Asset Health by Alarms </h6>
+                            <p class="underline">What is the estimated condition of your assets?</p>
+                        </div>
+                        <div class="col-md-12 row">
+                            
+                            <div class="col-md-6">                       
+                                <div class="chart" style="height: 180px;">
+                                    <canvas id="assetHealth"></canvas>
+                                </div>
+                            </div>
+                            <div class="col-md-6" style="padding-left: 20px;">
+                                <div>
+                                    <p class="sub-title">Reports Generated</p>
+                                    <p class="value">300</p>
+                                </div>
+                                <div class="margin-top-20">
+                                    <p class="sub-title">Reports Acknowledged</p>
+                                    <p class="value">270</p>
+                                </div>
+                                <div class="margin-top-20">
+                                    <p class="sub-title">Highest Priority Report</p>
+                                    <p class="value">Report x: jdjdjdjd</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-item col-md-7">
+                    <div class="dashboard-content">
+                        <div class="title">
+                            <h6>Site condition based on Generated Alarms</h6>
                             <p class="underline">For The 5 routes with the lowest % Completed Work</p>
                         </div>
-                        <div class="chart" style="height: 300px;">
-                            <canvas id="routeCompletion"></canvas>
+                        <div class="chart">
+                            <div id="cal-heatmap"></div>
                         </div>
                     </div>
                 </div>
@@ -95,14 +126,14 @@
                 </div>
             </div>
 
-            <div class="col-md-12 row">
+            <div class="col-md-6 row">
                 <div class="dashboard-item col-md-12">
                     <div class="mdc-data-table">
                         <table id="assetOverTime" class="mdc-data-table__table" aria-label="Dessert calories">
                             <thead>
                                 <tr class="mdc-data-table__header-row">                                    
                                     <th class="mdc-data-table__header-cell" role="columnheader" scope="col">ID</th>
-                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col" data-sorted="no">Measured Machine</th>
+                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col" data-sorted="no">Equipment</th>
                                     <th class="mdc-data-table__header-cell" role="columnheader" scope="col" data-sorted="no">Facility</th>
                                     <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric  hover-icon" role="columnheader" scope="col" data-sorted="no"><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i>January</th>
                                     <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric  hover-icon" role="columnheader" scope="col" data-sorted="no"><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i>February</th>
@@ -118,9 +149,6 @@
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-12 row">
-                <div id="cal-heatmap"></div>
         </div>
     </div>
 </body>
@@ -135,29 +163,33 @@
     <script type="text/javascript">
         var cal = new CalHeatMap();
 
-        fetch("test-date.json")
+        fetch("result.json")
         .then(res => {
-            console.log(res.json)
-            cal.init({
-                // itemSelector: "#example-g",
-                domain: "month",
-                subDomain: "x_day",
-                data: res.json(),
-                start: new Date(2020, 11, 5),
-                cellSize: 20,
-                cellPadding: 5,
-                domainGutter: 20,
-                range: 6,
-                domainDynamicDimension: false,
-                previousSelector: "#example-g-PreviousDomain-selector",
-                nextSelector: "#example-g-NextDomain-selector",
-                domainLabelFormat: function(date) {
-                    moment.lang("en");
-                    return moment(date).format("MMMM").toUpperCase();
-                },
-                subDomainTextFormat: "%d",
-                legend: [20, 40, 60, 80]
-            });})
+            res.json().then(data => {
+                console.log(data)
+                
+                cal.init({
+                    // itemSelector: "#example-g",
+                    domain: "month",
+                    subDomain: "x_day",
+                    data: data,
+                    start: new Date(2020, 11, 5),
+                    cellSize: 20,
+                    cellPadding: 5,
+                    domainGutter: 20,
+                    range: 4,
+                    domainDynamicDimension: false,
+                    previousSelector: "#example-g-PreviousDomain-selector",
+                    nextSelector: "#example-g-NextDomain-selector",
+                    domainLabelFormat: function(date) {
+                        moment.lang("en");
+                        return moment(date).format("MMMM").toUpperCase();
+                    },
+                    subDomainTextFormat: "%d",
+                    legend: [20, 40, 60, 80]
+                });
+            })
+        })
         .then((out) => {
             console.log('Checkout this JSON! ', out);
         })

@@ -92,9 +92,22 @@ function loadRowWithColor(table_id, data){
             newCell.className = "mdc-data-table__cell mdc-data-table__cell--numeric"
 
             if (data[i][0] == 1) {
-                newCell.style = "background-color: " + pMain
+                newCell.style = "background-color: " + pMain + "; color: " + pMain;
+                // Object.assign(newCell.style,{
+                //     "background-color": pMain,
+                //     color: pMain,
+                //     margin:"5px",
+                //     display: 'block'
+                // });
             } else {
-                newCell.style = "background-color: " + lvl_4
+                // Object.assign(newCell.style, {
+                //     "background-color": "red",
+                //     color: "red",
+                //     margin: "5px",
+                //     display: "block"
+
+
+                // });
             }
         } else {
             newCell.className = "mdc-data-table__cell"
@@ -293,141 +306,126 @@ function createSecondTable(){
 }
 createSecondTable();
 
-function getRouteInsight(route){
-    let start = document.getElementById('pre-route-insight');
-    let insight = document.getElementById('route-insight');
 
-    start.style.display = 'none';
-    insight.style.display = 'block';
-}
-
-// Chart 1: route completion over time
-let ctx5 = document.getElementById('routeCompletion').getContext('2d');
-let workloadPerIndividual = new Chart(ctx5, {
-    type: 'line',
-    data: { 
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+//Chart 2: asset health by alarms generated
+let ctx4 = document.getElementById('assetHealth').getContext('2d');
+var myDoughnutChart = new Chart(ctx4, {
+    type: 'doughnut',
+    data: {
         datasets: [{
-                label: 'Route X',
-                data: Array.from({length: 12}, () => Math.floor(Math.random() * 20)+80),
-                fill: false,
-                borderColor: pMain,
-                borderWidth: 1,
-                pointStyle: 'circle',
-                pointStrokeColor: "rgba(255, 255, 255, 0)"
-            },
-            {
-                label: "Route Y",
-                fill: false,
-                borderColor: pMain,
-                data: Array.from({length: 12}, () => Math.floor(Math.random() * 20)+80),
-                borderWidth: 1,
-                pointStyle: 'circle',
-                pointStrokeColor: "rgba(255, 255, 255, 0)"
-            },
-            {
-                label: "Route Z",
-                fill: false,
-                borderColor: pMain,
-                data: Array.from({length: 12}, () => Math.floor(Math.random() * 20)+80),
-                borderWidth: 1,
-                pointStyle: 'circle',
-                pointStrokeColor: "rgba(255, 255, 255, 0)"
-            },
-            {
-                label: "Route A",
-                fill: false,
-                borderColor: pMain,
-                data: Array.from({length: 12}, () => Math.floor(Math.random() * 20)+80),
-                borderWidth: 1,
-                pointStyle: 'circle',
-                pointStrokeColor: "rgba(255, 255, 255, 0)"
-            },
-            {
-                label: "Route B",
-                fill: false,
-                borderColor: pMain,
-                data: Array.from({length: 12}, () => Math.floor(Math.random() * 20)+80),
-                borderWidth: 1,
-                pointStyle: 'circle',
-                pointStrokeColor: "rgba(255, 255, 255, 0)"
-            },
-            {
-                label: "Route C",
-                fill: false,
-                borderColor: pMain,
-                data: Array.from({length: 12}, () => Math.floor(Math.random() * 20)+80),
-                borderWidth: 1,
-                pointStyle: 'circle',
-                pointStrokeColor: "rgba(255, 255, 255, 0)"
-            },
-            {
-                label: "Route D",
-                fill: false,
-                borderColor: pMain,
-                data: Array.from({length: 12}, () => Math.floor(Math.random() * 100)),
-                borderWidth: 1,
-                pointStyle: 'circle',
-                pointStrokeColor: "rgba(255, 255, 255, 0)"
-        }]
+            data: [65, 5, 10,20],
+            backgroundColor: [
+                pMain, lvl_2, lvl_4
+            ]
+        }],
+        labels: [
+            'Normal',
+            'Warning',
+            'Alarm',
+            'Unknown'
+        ]
     },
     options: {
-        legend: {
-            display: false,
-            position: 'bottom',
-            align: 'start'
-        },
+        cutoutPercentage: 70,
         responsive: true,
         maintainAspectRatio: false,
+        legend: {
+            display: false
+        },
         elements: {
-            line: {
-                tension: 0
-            },
-            point: {
-                radius: 0
+            center: {
+                text: '65%',
+                fontStyle: 'Arial', 
+                sidePadding: 50, 
+                minFontSize: 10, 
+                lineHeight: 10 
             }
-        },
-        tooltips: {
-            mode: 'nearest',
-            intersect: false
-        },
-        hover: {
-            mode: 'dataset',
-            intersect: false
-        },
-        scales: {
-            xAxes: [{
-                gridLines: {
-                    display: false,
-                },
-            }],
-            yAxes: [{
-                position: 'right',
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        },
-        onHover: function onHover (evt, activeElements) {
-            if (!activeElements || !activeElements.length) {
-                this.data.datasets.forEach((dataset) => {
-                    dataset.borderColor = pMain;
-                });
-            } else {
-                let activeIndex = activeElements[0]._datasetIndex;
-                this.data.datasets.forEach((dataset, index) => {
-                    (index == activeIndex) ? setActive() : setFade();
-                    function setActive(){ 
-                        dataset.borderColor = 'red'; 
-                    } //to do: prevent showing pointer on hover
-                    function setFade(){ dataset.borderColor = "rgb(200, 200, 200)"; }
-                });
-            }
-            this.update();
-            return;
-        },
-        'onClick': function onClick (evt, activeElements) {
-            getRouteInsight(activeElements);
         }
+    }
+});
+
+
+Chart.defaults.doughnut.cutoutPercentage  = 0.7;
+Chart.pluginService.register({
+    beforeDraw: function(chart) {
+      if (chart.config.options.elements.center) {
+        // Get ctx from string
+        var ctx = chart.chart.ctx;
+
+        // Get options from the center object in options
+        var centerConfig = chart.config.options.elements.center;
+        var fontStyle = centerConfig.fontStyle || 'Arial';
+        var txt = centerConfig.text;
+        var color = centerConfig.color || '#000';
+        var maxFontSize = centerConfig.maxFontSize || 40;
+        var sidePadding = centerConfig.sidePadding || 20;
+        var sidePaddingCalculated = (sidePadding / 100) * (chart.innerRadius * 2)
+        // Start with a base font of 30px
+        ctx.font = "30px " + fontStyle;
+
+        // Get the width of the string and also the width of the element minus 10 to give it 5px side padding
+        var stringWidth = ctx.measureText(txt).width;
+        var elementWidth = (chart.innerRadius * 2) - sidePaddingCalculated;
+
+        // Find out how much the font can grow in width.
+        var widthRatio = elementWidth / stringWidth;
+        var newFontSize = Math.floor(30 * widthRatio);
+        var elementHeight = (chart.innerRadius * 2);
+
+        // Pick a new font size so it will not be larger than the height of label.
+        var fontSizeToUse = Math.min(newFontSize, elementHeight, maxFontSize);
+        var minFontSize = centerConfig.minFontSize;
+        var lineHeight = centerConfig.lineHeight || 25;
+        var wrapText = false;
+
+        if (minFontSize === undefined) {
+          minFontSize = 20;
+        }
+
+        if (minFontSize && fontSizeToUse < minFontSize) {
+          fontSizeToUse = minFontSize;
+          wrapText = true;
+        }
+
+        // Set font settings to draw it correctly.
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        var centerX = ((chart.chartArea.left + chart.chartArea.right) / 2);
+        var centerY = ((chart.chartArea.top + chart.chartArea.bottom) / 2);
+        ctx.font = fontSizeToUse + "px " + fontStyle;
+        ctx.fillStyle = color;
+
+        if (!wrapText) {
+          ctx.fillText(txt, centerX, centerY);
+          return;
+        }
+
+        var words = txt.split(' ');
+        var line = '';
+        var lines = [];
+
+        // Break words up into multiple lines if necessary
+        for (var n = 0; n < words.length; n++) {
+          var testLine = line + words[n] + ' ';
+          var metrics = ctx.measureText(testLine);
+          var testWidth = metrics.width;
+          if (testWidth > elementWidth && n > 0) {
+            lines.push(line);
+            line = words[n] + ' ';
+          } else {
+            line = testLine;
+          }
+        }
+
+        // Move the center up depending on line height and number of lines
+        centerY -= (lines.length / 2) * lineHeight;
+
+        for (var n = 0; n < lines.length; n++) {
+          ctx.fillText(lines[n], centerX, centerY);
+          centerY += lineHeight;
+        }
+        //Draw text in center
+        ctx.fillText(line, centerX, centerY);
+      }
     }
 });
