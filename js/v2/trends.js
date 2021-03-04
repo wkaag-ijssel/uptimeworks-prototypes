@@ -6,6 +6,12 @@ let pMain = "#1a237e"; //'rgb(26,35,126)';
     sLight = "#ffdd4b";
     sDark = "#c67c00";
 
+let normal = "#00c853";
+    lvl_1  = "#ffd740";
+    lvl_2  = "#ffc400";
+    lvl_3  = "#ffab00";
+    lvl_4  = "#ff6f00";
+
 var sun = new Image();
 var moon = new Image();
 var earth = new Image();
@@ -53,6 +59,28 @@ function loadRow(table_id, data){
     let rowsCount = document.getElementById(table_id).rows[0].cells.length;
 
     // Insert a row in the table at the last row
+    console.log(tableRef)
+    let newRow   = tableRef.insertRow();
+    newRow.className = "mdc-data-table__row";
+    for(let i = 0; i < rowsCount; i++){
+        let newCell  = newRow.insertCell(i);
+        newCell.innerHTML = data[i][0];
+
+        if(data[i][1] == true){
+            newCell.className = "mdc-data-table__cell mdc-data-table__cell--numeric"
+        } else {
+            newCell.className = "mdc-data-table__cell"
+        }
+    }
+};
+
+// Load row
+function loadRowWithColor(table_id, data){
+    let tableRef = document.getElementById(table_id).getElementsByTagName('tbody')[0];
+    let rowsCount = document.getElementById(table_id).rows[0].cells.length;
+
+    // Insert a row in the table at the last row
+    console.log(tableRef)
     let newRow   = tableRef.insertRow();
     newRow.className = "mdc-data-table__row";
 
@@ -62,6 +90,12 @@ function loadRow(table_id, data){
 
         if(data[i][1] == true){
             newCell.className = "mdc-data-table__cell mdc-data-table__cell--numeric"
+
+            if (data[i][0] == 1) {
+                newCell.style = "background-color: " + pMain
+            } else {
+                newCell.style = "background-color: " + lvl_4
+            }
         } else {
             newCell.className = "mdc-data-table__cell"
         }
@@ -105,7 +139,7 @@ function createTable(){
 
                 let sorted = column.getAttribute("data-sorted");
                 if(sorted == "no"){
-                    sortTableDescending(i);
+                    sortTableDescending(i, "routeTable");
                     sortedToFalse();
                     column.setAttribute("data-sorted", "desc");
 
@@ -113,7 +147,7 @@ function createTable(){
                     icon.innerHTML = "arrow_upward";
                     icon.style.visibility = "visible";
                 } else if(sorted == "desc"){
-                    sortTableAscending(i);
+                    sortTableAscending(i, "routeTable");
                     sortedToFalse();
                     column.setAttribute("data-sorted", "asc");
 
@@ -121,7 +155,7 @@ function createTable(){
                     icon.innerHTML = "arrow_downward";
                     icon.style.visibility = "visible";
                 } else if(sorted == "asc"){
-                    sortTableDescending(i);
+                    sortTableDescending(i, "routeTable");
                     sortedToFalse();
                     column.setAttribute("data-sorted", "desc");
 
@@ -137,9 +171,9 @@ function createTable(){
 createTable();
 
 //Ascending
-function sortTableAscending(col) {
+function sortTableAscending(col, id) {
     let table, rows, switching, i, x, y, shouldSwitch;
-    table = document.getElementById("routeTable");
+    table = document.getElementById(id);
     switching = true;
 
     while (switching) {
@@ -162,9 +196,9 @@ function sortTableAscending(col) {
     }
 }
 
-function sortTableDescending(col){
+function sortTableDescending(col, id){
     let table, rows, switching, i, x, y, shouldSwitch;
-    table = document.getElementById("routeTable");
+    table = document.getElementById(id);
     switching = true;
 
     while (switching) {
@@ -190,18 +224,22 @@ function sortTableDescending(col){
 
 //onload
 function createSecondTable(){
-    let months = ['Bridle 5.1', 'Bridle 5.2', 'Bridle 6.1', 'Bridle 6.2', 'Bridle 7.1', 'Bridle 7.2']
+    let ids = ['A11', 'A12', 'B12', 'C12', 'C13', 'D12']
+    let machines = ['Bridle 5.1', 'Bridle 5.2', 'Bridle 6.1', 'Bridle 6.2', 'Bridle 7.1', 'Bridle 7.2']
+    let facilities = ['KBW', 'KBW','KBW','KBW','KBW','KBW']
     //Generate rows
     for(let i = 0; i < 6; i++){
         let data = [
-            [months[i], false],
-            [631, true],
-            [Math.floor(Math.random() * 100) + 100, true],
-            [Math.floor(Math.random() * 300), true],
-            [Math.floor(Math.random() * 150), true],
-            [Math.floor(Math.random() * 150), true]
+            [ids[i], false],
+            [machines[i], false],
+            [facilities[i], false],
+            [Math.round(Math.random()), true],
+            [Math.round(Math.random()), true],
+            [Math.round(Math.random()), true],
+            [Math.round(Math.random()), true],
+            [Math.round(Math.random()), true]
         ];
-        loadRow('assetOverTime', data);
+        loadRowWithColor('assetOverTime', data);
     };
 
     //Event listeners for specific headers ('hover-icon' class)
@@ -224,7 +262,7 @@ function createSecondTable(){
 
                 let sorted = column.getAttribute("data-sorted");
                 if(sorted == "no"){
-                    sortTableDescending(i);
+                    sortTableDescending(i,'assetOverTime');
                     sortedToFalse();
                     column.setAttribute("data-sorted", "desc");
 
@@ -232,7 +270,7 @@ function createSecondTable(){
                     icon.innerHTML = "arrow_upward";
                     icon.style.visibility = "visible";
                 } else if(sorted == "desc"){
-                    sortTableAscending(i);
+                    sortTableAscending(i, 'assetOverTime');
                     sortedToFalse();
                     column.setAttribute("data-sorted", "asc");
 
@@ -240,7 +278,7 @@ function createSecondTable(){
                     icon.innerHTML = "arrow_downward";
                     icon.style.visibility = "visible";
                 } else if(sorted == "asc"){
-                    sortTableDescending(i);
+                    sortTableDescending(i, 'assetOverTime');
                     sortedToFalse();
                     column.setAttribute("data-sorted", "desc");
 

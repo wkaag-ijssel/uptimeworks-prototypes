@@ -5,8 +5,10 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/3d92c0de9b.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.js"></script>
-    <script src="../js/v2/sketch.js"></script>
+    
+    <script type="text/javascript" src="//d3js.org/d3.v3.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.css" />
 
     <!--Datapicker-->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
@@ -98,13 +100,15 @@
                     <div class="mdc-data-table">
                         <table id="assetOverTime" class="mdc-data-table__table" aria-label="Dessert calories">
                             <thead>
-                                <tr class="mdc-data-table__header-row">
-                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Measured Machines</th>
-                                    <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric hover-icon" role="columnheader" scope="col" data-sorted="no">January</th>
-                                    <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric hover-icon" role="columnheader" scope="col" data-sorted="no">February</th>
-                                    <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric hover-icon" role="columnheader" scope="col" data-sorted="no">March</th>
-                                    <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric hover-icon" role="columnheader" scope="col" data-sorted="no">April</th>
-                                    <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric hover-icon" role="columnheader" scope="col" data-sorted="no">May</th>
+                                <tr class="mdc-data-table__header-row">                                    
+                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col">ID</th>
+                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col" data-sorted="no">Measured Machine</th>
+                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col" data-sorted="no">Facility</th>
+                                    <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric  hover-icon" role="columnheader" scope="col" data-sorted="no"><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i>January</th>
+                                    <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric  hover-icon" role="columnheader" scope="col" data-sorted="no"><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i>February</th>
+                                    <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric  hover-icon" role="columnheader" scope="col" data-sorted="no"><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i>March</th>
+                                    <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric  hover-icon" role="columnheader" scope="col" data-sorted="no"><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i>April</th>
+                                    <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric  hover-icon" role="columnheader" scope="col" data-sorted="no"><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i>May</th>
                                 </tr>
                             </thead>
                             <tbody id="assetOverTime-body" class="mdc-data-table__content">
@@ -115,17 +119,8 @@
                 </div>
             </div>
 
-            <!-- <div class="col-md-12 row" id="heatmapCanvas"></div>
-
-            <div class="download-container">
-                <div class="download-center">
-                    <button class="mdc-button mdc-button--raised">
-                        <div class="mdc-button__ripple"></div>
-                        <i class="material-icons mdc-button__icon" aria-hidden="true">cloud_download</i>
-                        <span class="mdc-button__label">Download as PDF</span>
-                    </button>
-                </div>
-            </div> -->
+            <div class="col-md-12 row">
+                <div id="cal-heatmap"></div>
         </div>
     </div>
 </body>
@@ -136,4 +131,37 @@
     <script src="../js/v2/trends.js"></script>
     <script src="../js/functions.js"></script>
     <!-- <script src="js/datatable.js"></script> -->
+    
+    <script type="text/javascript">
+        var cal = new CalHeatMap();
+
+        fetch("test-date.json")
+        .then(res => {
+            console.log(res.json)
+            cal.init({
+                // itemSelector: "#example-g",
+                domain: "month",
+                subDomain: "x_day",
+                data: res.json(),
+                start: new Date(2020, 11, 5),
+                cellSize: 20,
+                cellPadding: 5,
+                domainGutter: 20,
+                range: 6,
+                domainDynamicDimension: false,
+                previousSelector: "#example-g-PreviousDomain-selector",
+                nextSelector: "#example-g-NextDomain-selector",
+                domainLabelFormat: function(date) {
+                    moment.lang("en");
+                    return moment(date).format("MMMM").toUpperCase();
+                },
+                subDomainTextFormat: "%d",
+                legend: [20, 40, 60, 80]
+            });})
+        .then((out) => {
+            console.log('Checkout this JSON! ', out);
+        })
+        .catch(err => { throw err });
+    </script>
+</div>
 </footer>

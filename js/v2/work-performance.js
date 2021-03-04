@@ -12,11 +12,11 @@ let normal = "#00c853";
     lvl_3  = "#ffab00";
     lvl_4  = "#ff6f00";
 
-let normal_rgb = "rgba(26, 35, 126, .2)";
-    lvl_1_rgb  = "rgba(255, 215, 64, .2)";
-    lvl_2_rgb  = "rgba(255, 196, 0, .2)";
-    lvl_3_rgb  = "rgba(255, 171, 0, .2)";
-    lvl_4_rgb  = "rgba(255, 111, 0, .2)";
+let normal_rgb = "rgba(26, 35, 126, .4)";
+    lvl_1_rgb  = "rgba(255, 215, 64, .4)";
+    lvl_2_rgb  = "rgba(255, 196, 0, .4)";
+    lvl_3_rgb  = "rgba(255, 171, 0, .4)";
+    lvl_4_rgb  = "rgba(255, 111, 0, .6)";
 
 // Event listeners
 // document.getElementById('button-routes').addEventListener('click', function(event){ window.location.href = "routes.html"});
@@ -27,15 +27,17 @@ var myDoughnutChart = new Chart(ctx1, {
     type: 'doughnut',
     data: {
         datasets: [{
-            data: [85, 5, 10],
+            data: [75, 10, 2, 3, 10],
             backgroundColor: [
-                pMain, lvl_2, lvl_4
+                pMain, pLight, lvl_1, lvl_2, lvl_4
             ]
         }],
     
         // These labels appear in the legend and in the tooltips when hovering different arcs
         labels: [
-            'Work completed (%)',
+            'Work completed on time(%)',
+            'Work completed too late (%)',
+            'Overdue (%)',
             'Not completed with reason (%)',
             'Not completed without reason (%)'
         ]
@@ -583,21 +585,24 @@ let completedWorkChart = new Promise(resolve => {
     let labels = getDateLabels();
     let data =  [{
         label: 'Work completed',
-        borderColor: pMain,
+        borderColor: 'white', //pMain,
+        borderWidth: 2,
         backgroundColor: normal_rgb,
         // steppedLine: 'middle',
         data: Array.from({length: labels.length}, () => Math.random()*20 + 30),
         fill: 'origin',
     },{
         label: 'Not completed with reason',
-        borderColor: lvl_3,
+        borderColor: 'white', //lvl_3,
+        borderWidth: 2,
         backgroundColor: lvl_3_rgb,
         // steppedLine: 'middle',
         data: Array.from({length: labels.length}, () => Math.random()*20),
         fill: '-1'
     },{
         label: 'Not completed without reason',
-        borderColor: lvl_4,
+        borderColor: 'white', //lvl_4,
+        borderWidth: 2,
         backgroundColor: lvl_4_rgb,
         // steppedLine: 'middle',
         data: Array.from({length: labels.length}, () => Math.random()*10),

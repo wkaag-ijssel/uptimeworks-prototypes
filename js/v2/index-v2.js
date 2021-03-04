@@ -142,68 +142,74 @@ for (i = 0; i<dataMetric.length; i++) {
     dataMetric[i].innerHTML += dataSum;
 }
 
+const createLineChart = (graph, data) => {
+    return new Chart(graph, {
+        type: 'line',
+        data: {
+            labels: date_range,
+            datasets: data
+        },
+        options: {
+            legend: {
+                display: false,
+                position: 'right',
+                align: 'end',
+                labels: {
+                    boxWidth: 20,
+                    fontSize: 10,
+                    // usePointStyle: true
+                }
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+            elements: {
+                line: {
+                    tension: 0,
+                    borderWidth: 2
+                },
+                point:{
+                    radius: 0
+                }
+            },
+            tooltips: {
+                mode: 'index',
+                intersect: false
+            },
+            scales: {
+                xAxes: [{
+                    gridLines: {
+                        display: false,
+                    },
+                    ticks: {
+                        maxTicksLimit: 15,
+                        autoSkip: true, //!important
+                        maxRotation: 0, 
+                        minRotation: 0
+                    }
+                }],
+                yAxes: [{
+                    gridLines: {
+                        display:true,
+                    },
+                    position: 'right',
+                    ticks: {
+                        beginAtZero: true
+                    },
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Amount'
+                    }
+                }]
+            }
+        }
+    });
+};
+
+
+
 // Line graph
 let ctx5 = document.getElementById('myChart_1').getContext('2d');
-let chart1 = new Chart(ctx5, {
-    type: 'line',
-    data: {
-        labels: date_range,
-        datasets: workorders_data
-    },
-    options: {
-        legend: {
-            display: false,
-            position: 'right',
-            align: 'end',
-            labels: {
-                boxWidth: 20,
-                fontSize: 10,
-                // usePointStyle: true
-            }
-        },
-        responsive: true,
-        maintainAspectRatio: false,
-        elements: {
-            line: {
-                tension: 0,
-                borderWidth: 2
-            },
-            point:{
-                radius: 0
-            }
-        },
-        tooltips: {
-            mode: 'index',
-            intersect: false
-        },
-        scales: {
-            xAxes: [{
-                gridLines: {
-                    display: false,
-                },
-                ticks: {
-                    maxTicksLimit: 15,
-                    autoSkip: true, //!important
-                    maxRotation: 0, 
-                    minRotation: 0
-                }
-            }],
-            yAxes: [{
-                gridLines: {
-                    display:true,
-                },
-                position: 'right',
-                ticks: {
-                    beginAtZero: true
-                },
-                scaleLabel: {
-                    display: true,
-                    labelString: 'Nr. of tasks'
-                }
-            }]
-        }
-    }
-});
+let chart1 = createLineChart(ctx5, readings_data);
 
 function changeTab(evt, chartName, dataInput) {
     let i, tablinks;
@@ -213,14 +219,11 @@ function changeTab(evt, chartName, dataInput) {
       tablinks[i].className = tablinks[i].className.replace(" active", "");
     };
 
-    // change metric data
-    chartName.data.datasets[0] = dataInput[0];
-    chartName.data.datasets[1] = dataInput[1];
+    chartName.data.datasets = dataInput;
     chartName.data.datasets[0].label = 'n. of ' + evt.currentTarget.getElementsByClassName("sub-title")[0].innerText.toLowerCase();
 
     // change ref/threshold data
     // chartName.data.datasets[1].data = refInput;
-
     chart1.update();
     evt.currentTarget.className += " active";
 }
@@ -393,14 +396,15 @@ var myDoughnutChart = new Chart(ctx1, {
     type: 'doughnut',
     data: {
         datasets: [{
-            data: [80, 5, 5, 10],
+            data: [60, 20, 5, 5, 10],
             backgroundColor: [
-                pMain, lvl_1, lvl_2, lvl_4
+                pMain, pLight, lvl_1, lvl_2, lvl_4
             ]
         }],
         labels: [
-            'Completed (%)',
-            'Overdue',
+            'Completed on time (%)',
+            'Completed too late (%)',
+            'Overdue (%)',
             'Not completed - reason (%)',
             'Not completed - no reason (%)'
         ]
@@ -453,7 +457,30 @@ let myBar = new Chart(ctx, {
                 Math.floor(Math.random() * 10)
             ]
         }, {
-            label: 'Not executed',
+            label: 'Not executed - inaccesible',
+            backgroundColor: lvl_1,
+            data: [
+                Math.floor(Math.random() * 5),
+                Math.floor(Math.random() * 5),
+                Math.floor(Math.random() * 5),
+                Math.floor(Math.random() * 5),
+                Math.floor(Math.random() * 5),
+                Math.floor(Math.random() * 5)
+            ]
+        }, {
+            label: 'Not executed - due to shutdown',
+            backgroundColor: lvl_2,
+            data: [
+                Math.floor(Math.random() * 5),
+                Math.floor(Math.random() * 5),
+                Math.floor(Math.random() * 5),
+                Math.floor(Math.random() * 5),
+                Math.floor(Math.random() * 5),
+                Math.floor(Math.random() * 5)
+            ]
+        }, {
+            label: 'Not executed - no reason',
+            backgroundColor: lvl_4,
             data: [
                 Math.floor(Math.random() * 5),
                 Math.floor(Math.random() * 5),
@@ -590,7 +617,8 @@ let costsChartPromise = new Promise((resolve) => {
             responsive: true,
             maintainAspectRatio: false,
             tooltips: {
-                mode: 'index'
+                mode: 'index',
+                intersect: false
             },
             scales: {
                 xAxes: [{
