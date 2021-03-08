@@ -541,9 +541,9 @@ let costsChartPromise = new Promise((resolve) => {
             var dates = [],
                 currentDate = startDate,
                 addDays = function(days) {
-                var date = new Date(this.valueOf());
-                date.setDate(date.getDate() + days);
-                return date;
+                    var date = new Date(this.valueOf());
+                    date.setDate(date.getDate() + days);
+                    return date;
                 };
             while (currentDate <= endDate) {
             dates.push(currentDate);

@@ -15,6 +15,36 @@ let normal = "#00c853";
 // Job compliance
 let date_range = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
+// Usage
+const getDateLabels = () => {
+    // Returns an array of dates between the two dates
+    let getDates = (startDate, endDate) => {
+        var dates = [],
+            currentDate = startDate,
+            addDays = function(days) {
+                var date = new Date(this.valueOf());
+                date.setDate(date.getDate() + days);
+                return date;
+            };
+        while (currentDate <= endDate) {
+        dates.push(currentDate);
+        currentDate = addDays.call(currentDate, 1);
+        }
+        return dates;
+    };
+
+    let dates = getDates(new Date("1 Nov 2020"), new Date("30 Nov 2020"));  
+    let labels = dates;
+    labels.forEach((test, index) => {
+        let month = test.getMonth();
+        let day = test.getDate();
+        labels[index] = day + '-' + month + '-2020';
+    });
+    return labels
+}
+
+let dates = getDateLabels();
+
 //Chart 2: asset health by alarms generated
 let ctx4 = document.getElementById('assetHealth').getContext('2d');
 var myDoughnutChart = new Chart(ctx4, {
@@ -439,63 +469,51 @@ function sortArrays(data) {
 }
 
 //Type of report
-let reportTypeChart = new Promise((resolve) => {
-    let data = [{
-    //     label: 'Normal',
-    //     backgroundColor: normal,
-    //     data: Array.from({length: 6}, () => Math.floor(Math.random() * 3))
-    // }, {
-        label: 'Lvl 1',
-        backgroundColor: lvl_1,
-        data: Array.from({length: 6}, () => Math.floor(Math.random() * 5))
-    }, {
-        label: 'Lvl 2',
-        backgroundColor: lvl_2,
-        data: Array.from({length: 6}, () => Math.floor(Math.random() * 5))
-    }, {
-        label: 'Lvl 3',
-        backgroundColor: lvl_3,
-        data: Array.from({length: 6}, () => Math.floor(Math.random() * 5))
-    }, {
-        label: 'Lvl 4',
-        backgroundColor: lvl_4,
-        data: Array.from({length: 6}, () => Math.floor(Math.random() * 5))
-    }];
-    let labels = ['Lubrication', 'Inspection', 'Process', 'Vibration', 'Thermographic', 'Other'];
-    let sortedData = sortArrays(data)
-
-    resolve([data, labels]);
-}).then(result => {  
-    let ctx4 = document.getElementById('reportTypeChart').getContext('2d');
-    // let reportTypeChart = stackedBarChart(ctx4, result[0], result[1])
-    let reportTypeChart = new Chart(ctx4, {
-        type: 'bar',
-        data: { 
-            labels: ['Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x'],
-            datasets: [{
-                label: 'Alarms',
-                data: Array.from({length: 9}, () => Math.floor(Math.random() * 40)),
-                fill: true,
-                backgroundColor: pMain,
-                pointStyle: 'line'
-            }], 
+let ctx9 = document.getElementById('reportTypeChart').getContext('2d');
+let reportTypeChart = new Chart(ctx9, {
+    type: 'bar',
+    data: { 
+        labels: dates,
+        datasets: [{
+            label: 'Reports',
+            data: Array.from({length: dates.length}, () => Math.floor(Math.random() * 5)),
+            fill: true,
+            backgroundColor: pMain,
+            pointStyle: 'line'
+        }], 
+    },
+    options: {
+        legend: {
+            display: false,
         },
-        options: {
-            legend: {
-                display: false,
-            },
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                xAxes: [{
-                    stacked: true,
-                }],
-                yAxes: [{
-                    stacked: true
-                }]
-            }
+        
+        tooltips: {
+            mode: 'index',
+            intersect: false
+        },
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            xAxes: [{
+                // gridLines: true,
+                stacked: false,
+                ticks: {
+                    maxTicksLimit: 15,
+                    autoSkip: true, //!important
+                    maxRotation: 0, 
+                    minRotation: 0
+                }
+            }],
+            yAxes: [{
+                stacked: false,
+                ticks: {
+                    beginAtZero: true,
+                    stepSize: 1,
+                    suggestedMax: 5
+                }
+            }]
         }
-    });
+    }
 });
 
 //Type of report
