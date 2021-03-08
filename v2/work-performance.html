@@ -135,7 +135,7 @@
                 <!-- Item 1 -->
                 <div class="dashboard-item col-md-12">
                     <div class="dashboard-content">
-                        <div class="col-md-12 row">
+                        <div class="row">
                             <div class="col-md-6">
                                 <div class="title">
                                     <label for="interval"><h6 class="tab-title">Job Compliance per Route</h6></label>
@@ -161,6 +161,9 @@
                                             <path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/>
                                         </svg>
                                     </span>
+                                    <span title="Add to report" class="dashboard-icon-button" style=" border-left: 2px solid lightgrey;"><i class="far fa-file"></i></span>
+                                    <span title="Show percentages" class="dashboard-icon-button" ><i class="fas fa-percentage"></i></span>
+                                    <span title="Reset" class="dashboard-icon-button"><i class="fas fa-undo"></i></span>
                                     <p class="underline">Over all jobs in selected time period</p>
                                 </div>
 
@@ -168,18 +171,6 @@
                                     <canvas id="jobCompliance"></canvas>
                                 </div>
                             </div>
-                            
-                                    
-                            <button class="mdc-button mdc-button--outlined" style="float: right; transform: scale(0.85);">
-                                <div class="mdc-button__ripple"></div>
-                                <i class="material-icons mdc-button__icon" aria-hidden="true">refresh</i>
-                                <span class="mdc-button__label">Reset</span>
-                            </button>
-                            <button class="mdc-button mdc-button--outlined" style="float: right; transform: scale(0.85);">
-                                <div class="mdc-button__ripple"></div>
-                                <span class="mdc-button__label">Add to Report</span>
-                                <i class="material-icons mdc-button__icon" aria-hidden="true">description</i>
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -191,7 +182,7 @@
                 <!-- Item 1 -->
                 <div class="dashboard-item col-md-12">
                     <div class="dashboard-content">
-                        <div class="col-md-12 row">
+                        <div class="row">
                             <div class="col-md-6">
                                 <div class="title">
                                     <label for="interval"><h6 class="tab-title">Job Compliance per Asset</h6></label>
@@ -206,18 +197,16 @@
                             <div class="col-md-6">
                                 <div class="title">
                                     <label for="workEquipment"><h6 class="tab-title">Completed Jobs per Asset</h6></label>
+                                    <span title="Add to report" class="dashboard-icon-button" style=" border-left: 2px solid lightgrey;"><i class="far fa-file"></i></span>
+                                    <span title="Show percentages" class="dashboard-icon-button" ><i class="fas fa-percentage"></i></span>
+                                    <span title="Show line chart" class="dashboard-icon-button" ><i class="fas fa-chart-line"></i></span>
+                                    <span title="Reset" class="dashboard-icon-button"><i class="fas fa-undo"></i></span>
                                     <p class="underline">Average Work Compliance over Time</p>
                                 </div>
-                                
                                 <div class="chart" style="height: 300px;">
                                     <canvas id="executedWorkChart" ></canvas>
                                 </div>
                             </div>
-                            <button class="mdc-button mdc-button--outlined" style="float: right; transform: scale(0.85);">
-                                <div class="mdc-button__ripple"></div>
-                                <i class="material-icons mdc-button__icon" aria-hidden="true">refresh</i>
-                                <span class="mdc-button__label">Reset</span>
-                            </button>
                         </div>
                     </div>
                 </div>
