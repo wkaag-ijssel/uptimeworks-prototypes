@@ -65,12 +65,12 @@ function loadRow(table_id, data){
     for(let i = 0; i < rowsCount; i++){
         let newCell  = newRow.insertCell(i);
         newCell.innerHTML = data[i][0];
-
-        if(data[i][1] == true){
-            newCell.className = "mdc-data-table__cell mdc-data-table__cell--numeric"
-        } else {
-            newCell.className = "mdc-data-table__cell"
-        }
+        newCell.className = "mdc-data-table__cell"
+        // if(data[i][1] == true){
+        //     newCell.className = "mdc-data-table__cell mdc-data-table__cell--numeric"
+        // } else {
+        //     newCell.className = "mdc-data-table__cell"
+        // }
     }
 };
 
@@ -87,9 +87,9 @@ function loadRowWithColor(table_id, data){
     for(let i = 0; i < rowsCount; i++){
         let newCell  = newRow.insertCell(i);
         newCell.innerHTML = data[i][0];
-
+        newCell.className = "mdc-data-table__cell"
         if(data[i][1] == true){
-            newCell.className = "mdc-data-table__cell mdc-data-table__cell--numeric"
+            // newCell.className = "mdc-data-table__cell mdc-data-table__cell--numeric"
 
             if (data[i][0] == 1) {
                 newCell.style = "background-color: " + pMain + "; color: " + pMain;
@@ -110,7 +110,7 @@ function loadRowWithColor(table_id, data){
                 // });
             }
         } else {
-            newCell.className = "mdc-data-table__cell"
+            // newCell.className = "mdc-data-table__cell"
         }
     }
 };
@@ -122,12 +122,12 @@ function createTable(){
     for(let i = 0; i < 5; i++){
         let data = [
             [months[i], false],
-            [631, true],
-            [Math.floor(Math.random() * 100) + 100, true],
-            [Math.floor(Math.random() * 300), true],
-            [Math.floor(Math.random() * 150), true],
-            [Math.floor(Math.random() * 150), true],
-            [Math.floor(Math.random() * 150), true],
+            [631, false],
+            [Math.floor(Math.random() * 100) + 100, false],
+            [Math.floor(Math.random() * 300), false],
+            [Math.floor(Math.random() * 150), false],
+            [Math.floor(Math.random() * 150), false],
+            [Math.floor(Math.random() * 150), false],
         ];
         loadRow('routeTable', data);
     };
@@ -156,7 +156,7 @@ function createTable(){
                     sortedToFalse();
                     column.setAttribute("data-sorted", "desc");
 
-                    let icon = column.firstChild;
+                    let icon = column.children[1];
                     icon.innerHTML = "arrow_upward";
                     icon.style.visibility = "visible";
                 } else if(sorted == "desc"){
@@ -164,7 +164,7 @@ function createTable(){
                     sortedToFalse();
                     column.setAttribute("data-sorted", "asc");
 
-                    let icon = column.firstChild;
+                    let icon = column.children[1];
                     icon.innerHTML = "arrow_downward";
                     icon.style.visibility = "visible";
                 } else if(sorted == "asc"){
@@ -172,7 +172,7 @@ function createTable(){
                     sortedToFalse();
                     column.setAttribute("data-sorted", "desc");
 
-                    let icon = column.firstChild;
+                    let icon = column.children[1];
                     icon.innerHTML = "arrow_upward";
                     icon.style.visibility = "visible";
                 }
@@ -279,7 +279,7 @@ function createSecondTable(){
                     sortedToFalse();
                     column.setAttribute("data-sorted", "desc");
 
-                    let icon = column.firstChild;
+                    let icon = column.children[1];
                     icon.innerHTML = "arrow_upward";
                     icon.style.visibility = "visible";
                 } else if(sorted == "desc"){
@@ -287,7 +287,7 @@ function createSecondTable(){
                     sortedToFalse();
                     column.setAttribute("data-sorted", "asc");
 
-                    let icon = column.firstChild;
+                    let icon = column.children[1];
                     icon.innerHTML = "arrow_downward";
                     icon.style.visibility = "visible";
                 } else if(sorted == "asc"){
@@ -295,7 +295,7 @@ function createSecondTable(){
                     sortedToFalse();
                     column.setAttribute("data-sorted", "desc");
 
-                    let icon = column.firstChild;
+                    let icon = column.children[1];
                     icon.innerHTML = "arrow_upward";
                     icon.style.visibility = "visible";
                 }

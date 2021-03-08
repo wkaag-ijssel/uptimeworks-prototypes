@@ -214,10 +214,11 @@ function loadRow(){
 
     let data = [
         ['Report ' + Math.floor(Math.random() * 20).toString(), false],
+        ['Equipment ' + Math.floor(Math.random() * 20), false],
+        ['Diag type ' + Math.floor(Math.random() * 10), false],
         [Math.floor(Math.random() * 5), true],
         ['Yes', false],
         ['21-10-2020', false],
-        ['Equipment ' + Math.floor(Math.random() * 20), false],
         ['Person ' + Math.floor(Math.random() * 20), false],
         [
             '<button class="mdc-icon-button material-icons">mail_outline</button>', 
@@ -228,12 +229,13 @@ function loadRow(){
     for(let i = 0; i < rowsCount; i++){
         let newCell  = newRow.insertCell(i);
         newCell.innerHTML = data[i][0];
+        newCell.className = "mdc-data-table__cell"
 
-        if(data[i][1] == true){
-            newCell.className = "mdc-data-table__cell mdc-data-table__cell--numeric"
-        } else {
-            newCell.className = "mdc-data-table__cell"
-        }
+        // if(data[i][1] == true){
+        //     newCell.className = "mdc-data-table__cell mdc-data-table__cell--numeric"
+        // } else {
+        //     newCell.className = "mdc-data-table__cell"
+        // }
     }
 
     newRow.children[3].addEventListener('click', function() {
@@ -272,7 +274,7 @@ function createTable(){
                     sortedToFalse();
                     column.setAttribute("data-sorted", "desc");
 
-                    let icon = column.firstChild;
+                    let icon = column.children[1];
                     icon.innerHTML = "arrow_upward";
                     icon.style.visibility = "visible";
                 } else if(sorted == "desc"){
@@ -280,7 +282,7 @@ function createTable(){
                     sortedToFalse();
                     column.setAttribute("data-sorted", "asc");
 
-                    let icon = column.firstChild;
+                    let icon = column.children[1];
                     icon.innerHTML = "arrow_downward";
                     icon.style.visibility = "visible";
                 } else if(sorted == "asc"){
@@ -288,7 +290,7 @@ function createTable(){
                     sortedToFalse();
                     column.setAttribute("data-sorted", "desc");
 
-                    let icon = column.firstChild;
+                    let icon = column.children[1];
                     icon.innerHTML = "arrow_upward";
                     icon.style.visibility = "visible";
                 }

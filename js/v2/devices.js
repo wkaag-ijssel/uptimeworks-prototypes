@@ -182,12 +182,12 @@ function createTable(table_id, table_body_id, row_data, nr_of_devices, chartname
         for (let i = 0; i < rowsCount; i++) {
             let newCell  = newRow.insertCell(i);
             newCell.innerHTML = data[i][0];
-
-            if (data[i][1] == true) {
-                newCell.className = "mdc-data-table__cell mdc-data-table__cell--numeric"
-            } else {
-                newCell.className = "mdc-data-table__cell"
-            }
+            newCell.className = "mdc-data-table__cell"
+            // if (data[i][1] == true) {
+            //     newCell.className = "mdc-data-table__cell mdc-data-table__cell--numeric"
+            // } else {
+            //     newCell.className = "mdc-data-table__cell"
+            // }
         };
     };
 
@@ -215,7 +215,7 @@ function createTable(table_id, table_body_id, row_data, nr_of_devices, chartname
                     sortedToFalse();
                     column.setAttribute("data-sorted", "desc");
 
-                    let icon = column.firstChild;
+                    let icon = column.children[1];
                     icon.innerHTML = "arrow_upward";
                     icon.style.visibility = "visible";
                 } else if (sorted == "desc") {
@@ -223,7 +223,7 @@ function createTable(table_id, table_body_id, row_data, nr_of_devices, chartname
                     sortedToFalse();
                     column.setAttribute("data-sorted", "asc");
 
-                    let icon = column.firstChild;
+                    let icon = column.children[1];
                     icon.innerHTML = "arrow_downward";
                     icon.style.visibility = "visible";
                 } else if (sorted == "asc") {
@@ -231,7 +231,7 @@ function createTable(table_id, table_body_id, row_data, nr_of_devices, chartname
                     sortedToFalse();
                     column.setAttribute("data-sorted", "desc");
 
-                    let icon = column.firstChild;
+                    let icon = column.children[1];
                     icon.innerHTML = "arrow_upward";
                     icon.style.visibility = "visible";
                 }
