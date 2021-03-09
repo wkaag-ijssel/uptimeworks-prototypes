@@ -648,32 +648,66 @@ let costsChartPromise = new Promise((resolve) => {
 
 //Chart 6: Scatter plot (response/advice time)
 let getDataPromise = new Promise((resolve) => {
-    let array1 = Array.from({length: 5}, () => Math.floor(Math.random() * 30)); // time to action
-    let array2 = Array.from({length: 5}, () => Math.floor(Math.random() * 30)); // response time: advice issued - date sent
-    let scatterArray = [];
-
+    let array1 = Array.from({length: 10}, () => Math.floor(Math.random() * 30)); // time to action
+    let array2 = Array.from({length: 10}, () => Math.floor(Math.random() * 30)); // response time: advice issued - date sent
+    let array3 = Array.from({length: 5}, () => Math.floor(Math.random() * 30)); // time to action
+    let array4 = Array.from({length: 5}, () => Math.floor(Math.random() * 30)); // response time: advice issued - date sent
+    let array5 = Array.from({length: 2}, () => Math.floor(Math.random() * 30)); // time to action
+    let array6 = Array.from({length: 2}, () => Math.floor(Math.random() * 30)); // response time: advice issued - date sent
+    let open = [];
+    let acknowledged = [];
+    let overdue = [];
+    let labels = [];
     //Create a array of objects, required input format for scatter plot.
     array1.forEach((item_x, index) => {
-        scatterArray.push({
+        open.push({
             x : item_x, 
             y : array2[index]
         });
+        labels.push('report ' + index)
     });
-    resolve(scatterArray);
+    array3.forEach((item_x, index) => {
+        acknowledged.push({
+            x : item_x, 
+            y : array4[index]
+        });
+    });
+    array5.forEach((item_x, index) => {
+        overdue.push({
+            x : item_x, 
+            y : array6[index]
+        });
+    });
+    resolve([open, acknowledged, overdue, labels]);
 }).then(dataset => {   
+    console.log(dataset)
     let ctx6 = document.getElementById('adviceResponseChart').getContext('2d');
     let data = {
-        labels: ['Report X', 'Report Y', 'Report Z', 'Report A', 'Report B'],
+        labels: dataset[3],
         datasets: [{
+            label: 'Open',
             type: 'scatter',
-            // label: 'Report',
+            showLine: false,
+            backgroundColor: lvl_1,
+            data: dataset[0],
+            pointBackgroundColor: lvl_1 //[pMain, pMain, pMain, '#f5f5f5', '#f5f5f5', '#f5f5f5']
+        },{
+            label: 'Acknowledged',
+            type: 'scatter',
             showLine: false,
             backgroundColor: pMain,
-            data: dataset,
-            pointBackgroundColor: [pMain, pMain, pMain, '#f5f5f5', '#f5f5f5', '#f5f5f5']
+            data: dataset[1],
+            pointBackgroundColor: pMain//[pMain, pMain, pMain, '#f5f5f5', '#f5f5f5', '#f5f5f5']
+        },{
+            label: 'Overdue',
+            type: 'scatter',
+            showLine: false,
+            backgroundColor: lvl_4,
+            data: dataset[2],
+            pointBackgroundColor: lvl_4//[pMain, pMain, pMain, '#f5f5f5', '#f5f5f5', '#f5f5f5']
         },{
             type: 'line',
-            // label: 'target',
+            label: 'target',
             data: [{
                 x: 0,
                 y: 0
@@ -694,7 +728,14 @@ let getDataPromise = new Promise((resolve) => {
         data: data,
         options: {
             legend: {
-                display: false,
+                display: true,
+                position: 'right',
+                labels: {
+                    filter: function(item, chart) {
+                        // Logic to remove a particular legend item goes here
+                        return !item.text.includes('target');
+                    }
+                }
             },
             responsive: true,
             maintainAspectRatio: false,
