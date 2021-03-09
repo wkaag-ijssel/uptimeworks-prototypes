@@ -247,7 +247,7 @@ function loadRow(){
         ['Equipment ' + Math.floor(Math.random() * 20), false],
         ['Diag type ' + Math.floor(Math.random() * 10), false],
         [Math.floor(Math.random() * 5), true],
-        ['Yes', false],
+        ['Acknowledged', false],
         ['21-10-2020', false],
         ['Person ' + Math.floor(Math.random() * 20), false],
         [
@@ -433,7 +433,13 @@ function stackedBarChart(chart, data, labels, usePerc = false) {
                             } else {
                                 return value;
                             }
-                        }
+                        },
+                        minRotation: 0,
+                        maxRotation: 0
+                    },
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Number of Reports'
                     }
                 }],
                 yAxes: [{
@@ -520,27 +526,23 @@ let reportTypeChart = new Chart(ctx9, {
 let criticalPromise = new Promise((resolve) => {
     let numberOfAssets = 10;
     let data = [{
-    //     label: 'Normal',
-    //     backgroundColor: normal,
-    //     data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 3))
-    // }, {
-        label: 'Lvl 1',
+        label: 'Acknowledged',
+        backgroundColor: pMain,
+        data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 5))
+    }, {
+        label: 'Archive',
+        backgroundColor: pLight,
+        data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 5))
+    }, {
+        label: 'Open',
         backgroundColor: lvl_1,
         data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 5))
     }, {
-        label: 'Lvl 2',
-        backgroundColor: lvl_2,
-        data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 5))
-    }, {
-        label: 'Lvl 3',
+        label: 'Overdue',
         backgroundColor: lvl_3,
         data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 5))
-    }, {
-        label: 'Lvl 4',
-        backgroundColor: lvl_4,
-        data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 5))
-    }];
-    let labels = ['Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x'];
+    }, ];
+    let labels = ['AC Motor', 'Bearing Block', 'Centrifugal Pump', 'Component 4', 'Component 5', 'Component 6', 'Component 7', 'Component 8', 'Component 9', 'Component 10'];
     resolve([data, labels]);
 }).then(result => {  
     let ctx = document.getElementById('criticalAssetChart').getContext('2d');
@@ -551,31 +553,23 @@ let criticalPromise = new Promise((resolve) => {
 let typePromise = new Promise((resolve) => {
     let numberOfAssets = 10;
     let data = [{
-        label: 'Thermographic',
-        backgroundColor: pDark,
-        data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 3))
-    }, {
-        label: 'Vibration',
+        label: 'Acknowledged',
         backgroundColor: pMain,
         data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 5))
     }, {
-        label: 'Process',
+        label: 'Archive',
         backgroundColor: pLight,
         data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 5))
     }, {
-        label: 'Inspection',
-        backgroundColor: sMain,
+        label: 'Open',
+        backgroundColor: lvl_1,
         data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 5))
     }, {
-        label: 'Lubrication',
-        backgroundColor: sLight,
+        label: 'Overdue',
+        backgroundColor: lvl_3,
         data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 5))
-    }, {
-        label: 'Other',
-        backgroundColor: sLight,
-        data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 5))
-    }];
-    let labels = ['Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x', 'Asset x'];
+    }, ];
+    let labels = ['Unbalance', 'Looseness', 'Low Oil', 'Diag 4', 'Diag 5', 'Diag 6', 'Diag 7', 'Diag 8', 'Diag 9', 'Diag 10'];
     resolve([data, labels]);
 }).then(result => {  
     let ctx = document.getElementById('typeAssetChart').getContext('2d');

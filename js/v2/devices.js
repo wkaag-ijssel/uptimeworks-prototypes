@@ -183,11 +183,6 @@ function createTable(table_id, table_body_id, row_data, nr_of_devices, chartname
             let newCell  = newRow.insertCell(i);
             newCell.innerHTML = data[i][0];
             newCell.className = "mdc-data-table__cell"
-            // if (data[i][1] == true) {
-            //     newCell.className = "mdc-data-table__cell mdc-data-table__cell--numeric"
-            // } else {
-            //     newCell.className = "mdc-data-table__cell"
-            // }
         };
     };
 
@@ -202,7 +197,7 @@ function createTable(table_id, table_body_id, row_data, nr_of_devices, chartname
                         if(columns[i] !== column && columns[i].classList.contains('hover-icon')){
                             let otherCol = columns[i];
                             otherCol.setAttribute("data-sorted", "no");
-                            let icon = otherCol.firstChild;
+                            let icon = otherCol.children[1];
                             icon.innerHTML = "arrow_upward";
                             icon.style.visibility = "hidden";
                         }
@@ -716,7 +711,9 @@ let createuBridgeRow = () => {
     let row = [
         ['uBridgeFakeName' + Math.floor(Math.random() * 20).toString(), false],
         [Math.floor(Math.random() * 2000), true],
+        [Math.floor(Math.random() * 50), true],
         [Math.floor(Math.random() * 30), true],
+        ['2020-09-' + Math.floor(Math.random() * 30), false],
         ['Asset ' + Math.floor(Math.random() * 10), false]
     ];
     return row

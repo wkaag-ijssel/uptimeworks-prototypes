@@ -489,9 +489,10 @@ function lineChart (chartElem, data, labels) {
                 yAxes: [{
                     position: 'right',
                     ticks: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        // stepSize: 1
                     },
-                    stacked: true
+                    stacked: false
                 }]
             }
         }
@@ -572,7 +573,7 @@ let workPerAssetChart = new Chart(ctx11, {
             yAxes: [{
                 position: 'right',
                 ticks: {
-                    beginAtZero: true
+                    beginAtZero: true,
                 },
                 stacked: false
             }]
@@ -585,28 +586,31 @@ let completedWorkChart = new Promise(resolve => {
     let labels = getDateLabels();
     let data =  [{
         label: 'Work completed',
-        borderColor: 'white', //pMain,
+        borderColor: pMain,
         borderWidth: 2,
-        backgroundColor: normal_rgb,
+        fill: false,
+        backgroundColor: pMain,
         // steppedLine: 'middle',
-        data: Array.from({length: labels.length}, () => Math.random()*20 + 30),
-        fill: 'origin',
+        data: Array.from({length: labels.length}, () => Math.floor(Math.random()*20 + 30))
+        // fill: 'origin',
     },{
         label: 'Not completed with reason',
-        borderColor: 'white', //lvl_3,
+        borderColor: lvl_3,
         borderWidth: 2,
-        backgroundColor: lvl_3_rgb,
+        fill: false,
+        backgroundColor: lvl_3,
         // steppedLine: 'middle',
-        data: Array.from({length: labels.length}, () => Math.random()*20),
-        fill: '-1'
+        data: Array.from({length: labels.length}, () => Math.floor(Math.random()*20))
+        // fill: '-1'
     },{
         label: 'Not completed without reason',
-        borderColor: 'white', //lvl_4,
+        borderColor: lvl_4,
         borderWidth: 2,
-        backgroundColor: lvl_4_rgb,
+        fill: false,
+        backgroundColor: lvl_4,
         // steppedLine: 'middle',
-        data: Array.from({length: labels.length}, () => Math.random()*10),
-        fill: '-2'
+        data: Array.from({length: labels.length}, () => Math.floor(Math.random()*10))
+        // fill: '-2'
     }]
     resolve([data, labels])
 }).then(data => {

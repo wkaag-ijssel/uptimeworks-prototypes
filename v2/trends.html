@@ -105,47 +105,104 @@
 
             <div class="col-md-12 row">
                 <div class="dashboard-item col-md-12">
-                    <div class="mdc-data-table">
-                        <table id="routeTable" class="mdc-data-table__table" aria-label="Dessert calories">
-                            <thead>
-                                <tr class="mdc-data-table__header-row">
-                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col"></th>
-                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col" data-sorted="no"><b>Total Machines</b></th>
-                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col" data-sorted="no"><b>Measured Machines</b></th>
-                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col" data-sorted="no"><b>Machines (Alarm)</b></th>
-                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col" data-sorted="no"><b>Machines (%)</b></th>
-                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col" data-sorted="no"><b>Machines (Normal)</b></th>
-                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col" data-sorted="no"><b>Machines (%)</b></th>
-                                </tr>
-                            </thead>
-                            <tbody id="routeTable-body" class="mdc-data-table__content">
-                                <!-- Auto generated cells -->
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+                    <div class="dashboard-content">
+                        <div class="col-md-12 row">
+                            <div class="col-md-12">
+                                <div class="tab tab-left">
+                                    <button class="tablinks active" onclick="changeTab(event, 'uBridge')">
+                                        <h6 class="sub-title">Total</h6>
+                                        <p class="tab-metric"></p>
+                                    </button>
+                                    <button class="tablinks" onclick="changeTab(event, 'uMote')">
+                                        <h6 class="sub-title">Vibration</h6>
+                                        <p class="tab-metric"></p>
+                                    </button>
+                                    <button class="tablinks" onclick="changeTab(event, 'uMote')">
+                                        <h6 class="sub-title">Oil</h6>
+                                        <p class="tab-metric"></p>
+                                    </button>
+                                    <button class="tablinks" onclick="changeTab(event, 'uMote')">
+                                        <h6 class="sub-title">Visual</h6>
+                                        <p class="tab-metric"></p>
+                                    </button>
+                                    <button class="tablinks" onclick="changeTab(event, 'uMote')">
+                                        <h6 class="sub-title">Infrared</h6>
+                                        <p class="tab-metric"></p>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
 
-            <div class="col-md-12 row">
-                <div class="dashboard-item col-md-6">
-                    <div class="mdc-data-table">
-                        <table id="assetOverTime" class="mdc-data-table__table" aria-label="Dessert calories">
-                            <thead>
-                                <tr class="mdc-data-table__header-row">                                    
-                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col"><b>ID</b></th>
-                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col" data-sorted="no"><b>Equipment</b></th>
-                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col" data-sorted="no"><b>Facility</b></th>
-                                    <th class="mdc-data-table__header-cell hover-icon" role="columnheader" scope="col" data-sorted="no"><b>January</b><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i></th>
-                                    <th class="mdc-data-table__header-cell hover-icon" role="columnheader" scope="col" data-sorted="no"><b>February</b><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i></th>
-                                    <th class="mdc-data-table__header-cell hover-icon" role="columnheader" scope="col" data-sorted="no"><b>March</b><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i></th>
-                                    <th class="mdc-data-table__header-cell hover-icon" role="columnheader" scope="col" data-sorted="no"><b>April</b><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i></th>
-                                    <th class="mdc-data-table__header-cell hover-icon" role="columnheader" scope="col" data-sorted="no"><b>May</b><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i></th>
-                                </tr>
-                            </thead>
-                            <tbody id="assetOverTime-body" class="mdc-data-table__content">
-                                <!-- Auto generated cells -->
-                            </tbody>
-                        </table>
+                        <!-- New row -->
+                        <div class="col-md-12 row">
+
+                            <!-- item 2 -->
+                            <div class="dashboard-item col-md-12">
+                                <div class="dashboard-content">
+                                    <div class="title">
+                                        <select id="intervalSelector">
+                                            <option value="day">Equipment</option>
+                                            <option value="week">Facility</option>
+                                        </select>
+                                        <label for="intervalSelector"><h6>Condition per Day</h6></label>
+                                        <span title="Add to report" class="dashboard-icon-button" style=" border-left: 2px solid lightgrey;"><i class="far fa-file"></i></span>
+                                        <span title="Show percentages" class="dashboard-icon-button" ><i class="fas fa-percentage"></i></span>
+                                        <p class="underline">Based on generated warnings and alarm</p>
+                                    </div>
+                                    <div style="height: 250px;">
+                                        <canvas id="AssetConditionOverTime"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 row">
+                            <div class="dashboard-item col-md-12">
+                                <div class="mdc-data-table">
+                                    <table id="routeTable" class="mdc-data-table__table" aria-label="Dessert calories">
+                                        <thead>
+                                            <tr class="mdc-data-table__header-row">
+                                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col"></th>
+                                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col" data-sorted="no"><b>Total Machines</b></th>
+                                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col" data-sorted="no"><b>Measured Machines</b></th>
+                                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col" data-sorted="no"><b>Machines (Alarm)</b></th>
+                                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col" data-sorted="no"><b>Machines (%)</b></th>
+                                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col" data-sorted="no"><b>Machines (Normal)</b></th>
+                                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col" data-sorted="no"><b>Machines (%)</b></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="routeTable-body" class="mdc-data-table__content">
+                                            <!-- Auto generated cells -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 row">
+                            <div class="dashboard-item col-md-7">
+                                <div class="mdc-data-table">
+                                    <table id="assetOverTime" class="mdc-data-table__table" aria-label="Dessert calories">
+                                        <thead>
+                                            <tr class="mdc-data-table__header-row">                                    
+                                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col"><b>ID</b></th>
+                                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col" data-sorted="no"><b>Equipment</b></th>
+                                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col" data-sorted="no"><b>Facility</b></th>
+                                                <th class="mdc-data-table__header-cell hover-icon" role="columnheader" scope="col" data-sorted="no"><b>January</b><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i></th>
+                                                <th class="mdc-data-table__header-cell hover-icon" role="columnheader" scope="col" data-sorted="no"><b>February</b><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i></th>
+                                                <th class="mdc-data-table__header-cell hover-icon" role="columnheader" scope="col" data-sorted="no"><b>March</b><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i></th>
+                                                <th class="mdc-data-table__header-cell hover-icon" role="columnheader" scope="col" data-sorted="no"><b>April</b><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i></th>
+                                                <th class="mdc-data-table__header-cell hover-icon" role="columnheader" scope="col" data-sorted="no"><b>May</b><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="assetOverTime-body" class="mdc-data-table__content">
+                                            <!-- Auto generated cells -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>

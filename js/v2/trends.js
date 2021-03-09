@@ -16,7 +16,33 @@ var sun = new Image();
 var moon = new Image();
 var earth = new Image();
 
+// Usage
+function getDateLabels() {
+    // Returns an array of dates between the two dates
+    let getDates = (startDate, endDate) => {
+        var dates = [],
+            currentDate = startDate,
+            addDays = function(days) {
+            var date = new Date(this.valueOf());
+            date.setDate(date.getDate() + days);
+            return date;
+            };
+        while (currentDate <= endDate) {
+        dates.push(currentDate);
+        currentDate = addDays.call(currentDate, 1);
+        }
+        return dates;
+    };
 
+    let dates = getDates(new Date("1 Mar 2015"), new Date("12 May 2015"));  
+    let labels = dates
+    labels.forEach((test, index) => {
+        let month = test.getMonth();
+        let day = test.getDate();
+        labels[index] = day + '-' + month + '-2020';
+    });
+    return labels
+}
 
 /**
  * @param {*} chartName The chart variable name
@@ -59,129 +85,35 @@ function loadRow(table_id, data){
     let rowsCount = document.getElementById(table_id).rows[0].cells.length;
 
     // Insert a row in the table at the last row
-    console.log(tableRef)
     let newRow   = tableRef.insertRow();
     newRow.className = "mdc-data-table__row";
+
     for(let i = 0; i < rowsCount; i++){
         let newCell  = newRow.insertCell(i);
         newCell.innerHTML = data[i][0];
         newCell.className = "mdc-data-table__cell"
-        // if(data[i][1] == true){
-        //     newCell.className = "mdc-data-table__cell mdc-data-table__cell--numeric"
-        // } else {
-        //     newCell.className = "mdc-data-table__cell"
-        // }
     }
 };
 
 // Load row
-function loadRowWithColor(table_id, data){
-    let tableRef = document.getElementById(table_id).getElementsByTagName('tbody')[0];
-    let rowsCount = document.getElementById(table_id).rows[0].cells.length;
+// function loadRowWithColor(table_id, data){
+//     let tableRef = document.getElementById(table_id).getElementsByTagName('tbody')[0];
+//     let rowsCount = document.getElementById(table_id).rows[0].cells.length;
 
-    // Insert a row in the table at the last row
-    console.log(tableRef)
-    let newRow   = tableRef.insertRow();
-    newRow.className = "mdc-data-table__row";
+//     // Insert a row in the table at the last row
+//     console.log(tableRef)
+//     let newRow   = tableRef.insertRow();
+//     newRow.className = "mdc-data-table__row";
 
-    for(let i = 0; i < rowsCount; i++){
-        let newCell  = newRow.insertCell(i);
-        newCell.innerHTML = data[i][0];
-        newCell.className = "mdc-data-table__cell"
-        if(data[i][1] == true){
-            // newCell.className = "mdc-data-table__cell mdc-data-table__cell--numeric"
-
-            if (data[i][0] == 1) {
-                newCell.style = "background-color: " + pMain + "; color: " + pMain;
-                // Object.assign(newCell.style,{
-                //     "background-color": pMain,
-                //     color: pMain,
-                //     margin:"5px",
-                //     display: 'block'
-                // });
-            } else {
-                // Object.assign(newCell.style, {
-                //     "background-color": "red",
-                //     color: "red",
-                //     margin: "5px",
-                //     display: "block"
-
-
-                // });
-            }
-        } else {
-            // newCell.className = "mdc-data-table__cell"
-        }
-    }
-};
-
-//onload
-function createTable(){
-    let months = ['January', 'February', 'March', 'April', 'May']
-    //Generate rows
-    for(let i = 0; i < 5; i++){
-        let data = [
-            [months[i], false],
-            [631, false],
-            [Math.floor(Math.random() * 100) + 100, false],
-            [Math.floor(Math.random() * 300), false],
-            [Math.floor(Math.random() * 150), false],
-            [Math.floor(Math.random() * 150), false],
-            [Math.floor(Math.random() * 150), false],
-        ];
-        loadRow('routeTable', data);
-    };
-
-    //Event listeners for specific headers ('hover-icon' class)
-    let columns = document.getElementById('routeTable').getElementsByTagName('th');
-    for(let i = 0; i < columns.length; i++){
-        let column = columns[i];
-        if(column.classList.contains("hover-icon")){
-            column.addEventListener('click', function(event) {
-                function sortedToFalse(){
-                    for(let i = 0; i < columns.length; i++){
-                        if(columns[i] !== column && columns[i].classList.contains('hover-icon')){
-                            let otherCol = columns[i];
-                            otherCol.setAttribute("data-sorted", "no");
-                            let icon = otherCol.firstChild;
-                            icon.innerHTML = "arrow_upward";
-                            icon.style.visibility = "hidden";
-                        }
-                    };
-                };
-
-                let sorted = column.getAttribute("data-sorted");
-                if(sorted == "no"){
-                    sortTableDescending(i, "routeTable");
-                    sortedToFalse();
-                    column.setAttribute("data-sorted", "desc");
-
-                    let icon = column.children[1];
-                    icon.innerHTML = "arrow_upward";
-                    icon.style.visibility = "visible";
-                } else if(sorted == "desc"){
-                    sortTableAscending(i, "routeTable");
-                    sortedToFalse();
-                    column.setAttribute("data-sorted", "asc");
-
-                    let icon = column.children[1];
-                    icon.innerHTML = "arrow_downward";
-                    icon.style.visibility = "visible";
-                } else if(sorted == "asc"){
-                    sortTableDescending(i, "routeTable");
-                    sortedToFalse();
-                    column.setAttribute("data-sorted", "desc");
-
-                    let icon = column.children[1];
-                    icon.innerHTML = "arrow_upward";
-                    icon.style.visibility = "visible";
-                }
-            });
-        }
-    }
-    return;
-}
-createTable();
+//     for(let i = 0; i < rowsCount; i++){
+//         let newCell  = newRow.insertCell(i);
+//         newCell.innerHTML = data[i][0];
+//         newCell.className = "mdc-data-table__cell"
+//         if (data[i][0] == 1) {
+//                 newCell.style = "background-color: " + pMain + "; color: " + pMain;
+//         }
+//     }
+// };
 
 //Ascending
 function sortTableAscending(col, id) {
@@ -236,27 +168,16 @@ function sortTableDescending(col, id){
 
 
 //onload
-function createSecondTable(){
-    let ids = ['A11', 'A12', 'B12', 'C12', 'C13', 'D12']
-    let machines = ['Bridle 5.1', 'Bridle 5.2', 'Bridle 6.1', 'Bridle 6.2', 'Bridle 7.1', 'Bridle 7.2']
-    let facilities = ['KBW', 'KBW','KBW','KBW','KBW','KBW']
+function createTable(tableID, data){
+    // console.log(data)
     //Generate rows
-    for(let i = 0; i < 6; i++){
-        let data = [
-            [ids[i], false],
-            [machines[i], false],
-            [facilities[i], false],
-            [Math.round(Math.random()), true],
-            [Math.round(Math.random()), true],
-            [Math.round(Math.random()), true],
-            [Math.round(Math.random()), true],
-            [Math.round(Math.random()), true]
-        ];
-        loadRowWithColor('assetOverTime', data);
+    for(let i = 0; i < data.length; i++){
+        console.log(data[i])
+        loadRow(tableID, data[i]);
     };
 
     //Event listeners for specific headers ('hover-icon' class)
-    let columns = document.getElementById('assetOverTime').getElementsByTagName('th');
+    let columns = document.getElementById(tableID).getElementsByTagName('th');
     for(let i = 0; i < columns.length; i++){
         let column = columns[i];
         if(column.classList.contains("hover-icon")){
@@ -266,7 +187,7 @@ function createSecondTable(){
                         if(columns[i] !== column && columns[i].classList.contains('hover-icon')){
                             let otherCol = columns[i];
                             otherCol.setAttribute("data-sorted", "no");
-                            let icon = otherCol.firstChild;
+                            let icon = otherCol.children[1];
                             icon.innerHTML = "arrow_upward";
                             icon.style.visibility = "hidden";
                         }
@@ -275,7 +196,7 @@ function createSecondTable(){
 
                 let sorted = column.getAttribute("data-sorted");
                 if(sorted == "no"){
-                    sortTableDescending(i,'assetOverTime');
+                    sortTableDescending(i, tableID);
                     sortedToFalse();
                     column.setAttribute("data-sorted", "desc");
 
@@ -283,7 +204,7 @@ function createSecondTable(){
                     icon.innerHTML = "arrow_upward";
                     icon.style.visibility = "visible";
                 } else if(sorted == "desc"){
-                    sortTableAscending(i, 'assetOverTime');
+                    sortTableAscending(i, tableID);
                     sortedToFalse();
                     column.setAttribute("data-sorted", "asc");
 
@@ -291,7 +212,7 @@ function createSecondTable(){
                     icon.innerHTML = "arrow_downward";
                     icon.style.visibility = "visible";
                 } else if(sorted == "asc"){
-                    sortTableDescending(i, 'assetOverTime');
+                    sortTableDescending(i, tableID);
                     sortedToFalse();
                     column.setAttribute("data-sorted", "desc");
 
@@ -304,8 +225,45 @@ function createSecondTable(){
     }
     return;
 }
-createSecondTable();
 
+let months = ['January', 'February', 'March', 'April', 'May']
+let routeTableData = [];
+//Generate rows
+for (let i = 0; i < 5; i++) {
+    routeTableData[i] = [
+        [months[i], false],
+        [631, false],
+        [Math.floor(Math.random() * 100) + 100, false],
+        [Math.floor(Math.random() * 300), false],
+        [Math.floor(Math.random() * 150), false],
+        [Math.floor(Math.random() * 150), false],
+        [Math.floor(Math.random() * 150), false],
+    ];
+}
+console.log('route: ', routeTableData)
+createTable('routeTable', routeTableData);
+
+
+
+let ids = ['A11', 'A12', 'B12', 'C12', 'C13', 'D12']
+let machines = ['Bridle 5.1', 'Bridle 5.2', 'Bridle 6.1', 'Bridle 6.2', 'Bridle 7.1', 'Bridle 7.2']
+let facilities = ['KBW', 'KBW','KBW','KBW','KBW','KBW']
+let assetOverTimeData = [];
+
+//Generate rows
+for (let i = 0; i < 6; i++) {
+    assetOverTimeData[i] = [
+        [ids[i], false],
+        [machines[i], false],
+        [facilities[i], false],
+        [Math.round(Math.random()), true],
+        [Math.round(Math.random()), true],
+        [Math.round(Math.random()), true],
+        [Math.round(Math.random()), true],
+        [Math.round(Math.random()), true]
+    ];
+}
+createTable('assetOverTime', assetOverTimeData);
 
 //Chart 2: asset health by alarms generated
 let ctx4 = document.getElementById('assetHealth').getContext('2d');
@@ -429,3 +387,107 @@ Chart.pluginService.register({
       }
     }
 });
+
+/** Chart 2: Completed work over time */
+let completedWorkChart = new Promise(resolve => {
+    let labels = getDateLabels();
+    let data =  [{
+        label: 'Assets - no alarm',
+        borderColor: 'white',
+        borderWidth: 1,
+        fill: true,
+        backgroundColor: pMain,
+        // steppedLine: 'middle',
+        data: Array.from({length: labels.length}, () => Math.floor(Math.random()*10 + 100))
+        // fill: '-1'
+    },{
+        label: 'Assets - no threshold/measurement',
+        borderColor: 'white',
+        borderWidth: 1,
+        fill: true,
+        // backgroundColor: pMain,
+        // steppedLine: 'middle',
+        data: Array.from({length: labels.length}, () => Math.floor(Math.random()*5))
+        // fill: 'origin',
+    },{
+        label: 'Assets - warning',
+        borderColor: 'white',
+        borderWidth: 1,
+        fill: true,
+        backgroundColor: lvl_1,
+        // steppedLine: 'middle',
+        data: Array.from({length: labels.length}, () => Math.floor(Math.random()*10))
+        // fill: '-2'
+    },{
+        label: 'Assets - alarm',
+        borderColor: 'white',
+        borderWidth: 1,
+        fill: true,
+        backgroundColor: lvl_4,
+        // steppedLine: 'middle',
+        data: Array.from({length: labels.length}, () => Math.floor(Math.random()*10))
+        // fill: '-2'
+    }]
+    resolve([data, labels])
+}).then(data => {
+    let ctx = document.getElementById('AssetConditionOverTime').getContext('2d');
+    let overTimeChart = new Chart(ctx, {
+        type: 'bar',
+        data: { 
+            labels: data[1],
+            datasets: data[0]
+        },
+        options: {
+            legend: {
+                display: true,
+                position: 'right',
+                align: 'end',
+                labels: {
+                    boxWidth: 20,
+                    fontSize: 10,
+                    // usePointStyle: true
+                }
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+            elements: {
+                line: {
+                    tension: 0,  // disables bezier curves
+                    borderWidth: 1
+                },
+                point: {
+                    radius: 0    //hide data point indicators
+                }
+            },
+            tooltips: {
+                mode: 'index',
+                intersect: false
+            },
+            scales: {
+                xAxes: [{
+                    gridLines: {
+                        display: true,
+                    },
+                    ticks: {
+                        autoSkip: true,
+                        maxRotation: 0,
+                        minRotation: 0,
+                        minorTick: {
+                            fontSize: 7
+                        }
+                    },
+                    stacked: true
+                }],
+                yAxes: [{
+                    position: 'right',
+                    ticks: {
+                        beginAtZero: false,
+                        // stepSize: 1
+                        // min: 80
+                    },
+                    stacked: true
+                }]
+            }
+        }
+    });
+})
