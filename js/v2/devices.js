@@ -6,6 +6,12 @@ let pMain = "#1a237e"; //'rgb(26,35,126)';
     sLight = "#ffdd4b";
     sDark = "#c67c00";
 
+let normal = "#00c853";
+    lvl_1  = "#ffd740";
+    lvl_2  = "#ffc400";
+    lvl_3  = "#ffab00";
+    lvl_4  = "#ff6f00";
+
 let uBridgeCharts = document.getElementsByClassName('uBridge');
 console.log(uBridgeCharts)
 let uMoteCharts = document.getElementsByClassName('uMote');
@@ -371,8 +377,8 @@ labels.forEach((test, index) => {
 });
 
 /** uBridge chart normal/spectra readings **/
-let ctx4 = document.getElementById('uBridgeChart').getContext('2d');
-let uBridgeChart = new Chart(ctx4, {
+let ctx4 = document.getElementById('uBridgeReadingChart').getContext('2d');
+let uBridgeReadingChart = new Chart(ctx4, {
     type: 'line',
     data: { 
         labels: labels,
@@ -381,37 +387,104 @@ let uBridgeChart = new Chart(ctx4, {
             borderColor: pMain,
             fill: false,
             backgroundColor: pMain,
-            // barPercentage: 0.5,
-            // barThickness: 6,
-            // maxBarThickness: 8,
-            // minBarLength: 2,
             data: Array.from({length: labels.length}, () => Math.floor(Math.random()*5) + 100)
         },{
             label: 'Spectra',
-            borderColor: pDark,
+            borderColor: lvl_2,
             fill: false,
-            backgroundColor: pDark,
-            // barPercentage: 0.5,
-            // barThickness: 6,
-            // maxBarThickness: 8,
-            // minBarLength: 2,
+            backgroundColor: lvl_2,
             data: Array.from({length: labels.length}, () => Math.floor(Math.random()*5) + 2)
-        },{
-            label: 'Report items',
-            borderColor: sMain,
-            fill: false,
-            backgroundColor: sMain,
-            // barPercentage: 0.5,
-            // barThickness: 6,
-            // maxBarThickness: 8,
-            // minBarLength: 2,
-            data: Array.from({length: labels.length}, () => Math.floor(Math.random()*3))
         }]
     },
     options: {
         legend: {
             display: true,
-            position: 'bottom'
+            position: 'right',
+            align: 'end',
+            labels: {
+                boxWidth: 20,
+                fontSize: 10,
+                // usePointStyle: true
+            }
+        },
+        responsive: true,
+        maintainAspectRatio: false,
+        elements: {
+            line: {
+                tension: 0, // disables bezier curves
+                borderWidth: 1
+            },
+            point:{
+                radius: 0 //hide data point indicators
+            }
+        },
+        tooltips: {
+            mode: 'index',
+            intersect: false
+        },
+        scales: {
+            xAxes: [{
+                stacked: false,
+                gridLines: {
+                    display: false,
+                },
+                ticks: {
+                    autoSkip: true,
+                    maxRotation: 0,
+                    minRotation: 0,
+                    minorTick: {
+                        fontSize: 7
+                    }
+                }
+            }],
+            yAxes: [{
+                stacked: false,
+                position: 'right',
+                ticks: {
+                    beginAtZero: true,
+                    suggestedMax: 10,
+                }
+            }]
+        }
+    }
+});
+
+/** uBridge chart normal/spectra readings **/
+let ctx = document.getElementById('uBridgeDataChart').getContext('2d');
+let uBridgeChart = new Chart(ctx, {
+    type: 'line',
+    data: { 
+        labels: labels,
+        datasets: [{
+            label: 'Growth (MB)',
+            borderColor: lvl_2,
+            fill: false,
+            backgroundColor: lvl_2,
+            data: Array.from({length: labels.length}, () => Math.floor(Math.random()*50 + 20))
+        },{
+            label: 'Storage Total (GB)',
+            borderColor: pDark,
+            fill: false,
+            backgroundColor: pDark,
+            data: Array.from({length: labels.length}, () => Math.floor(Math.random()*5) + 20)
+        },{
+            label: 'Storage Capacity (GB)',
+            borderColor: 'grey',
+            fill: false,
+            backgroundColor: 'grey',
+            data: Array.from({length: labels.length}, () => 35)
+        }]
+    },
+    options: {
+        legend: {
+            display: true,
+            position: 'right',
+            align: 'end',
+            labels: {
+                boxWidth: 20,
+                fontSize: 10,
+                // usePointStyle: true
+            }
         },
         responsive: true,
         maintainAspectRatio: false,

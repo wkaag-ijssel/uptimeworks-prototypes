@@ -534,7 +534,7 @@ let criticalPromise = new Promise((resolve) => {
         backgroundColor: pLight,
         data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 5))
     }, {
-        label: 'Open',
+        label: 'Issued',
         backgroundColor: lvl_1,
         data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 5))
     }, {
@@ -561,7 +561,7 @@ let typePromise = new Promise((resolve) => {
         backgroundColor: pLight,
         data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 5))
     }, {
-        label: 'Open',
+        label: 'Issued',
         backgroundColor: lvl_1,
         data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 5))
     }, {

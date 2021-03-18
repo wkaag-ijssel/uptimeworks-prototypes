@@ -221,7 +221,7 @@ function sortByData(data, labels){
 
 //work order compliance per route
 let routeDataPromise = new Promise((resolve) => {
-    let data = Array.from({length: 12}, () => Math.random());
+    let data = Array.from({length: 12}, () => Math.random() * 100);
     let colours = Array.from({length: 12}, () => pMain)
     let labels = [
         ['Route #6'],
@@ -372,7 +372,14 @@ function horizontalBarChart(chartElem, data, labels, colors = pMain){
             },
             scales: {
                 xAxes: [{
-                    stacked: true
+                    stacked: true,
+                    ticks: {
+                        min: 0,
+                        max: 100,
+                        callback: function(value, index, values) {
+                            return value + '%';
+                        }
+                    }
                 }],
                 yAxes: [{
                     stacked: true,
@@ -475,7 +482,7 @@ function lineChart (chartElem, data, labels) {
             scales: {
                 xAxes: [{
                     gridLines: {
-                        display: true,
+                        display: false,
                     },
                     ticks: {
                         autoSkip: true,
@@ -492,7 +499,10 @@ function lineChart (chartElem, data, labels) {
                         beginAtZero: true,
                         // stepSize: 1
                     },
-                    stacked: false
+                    stacked: false,
+                    gridLines: {
+                        display: true,
+                    }
                 }]
             }
         }
@@ -503,31 +513,13 @@ let ctx11 = document.getElementById('workPerAssetChart').getContext('2d');
 let workPerAssetChart = new Chart(ctx11, {
     type: 'bar',
     data: { 
-        labels: ['Lubrication', 'Vibration', 'Inspection', 'Process', 'Thermo', 'Other'],
+        labels: ['Total', 'No Reason', 'Shutdown', 'Inaccessible', 'Covid', 'Other'],
         datasets: [{
-            label: 'Work completed',
+            label: 'Jobs',
             borderColor: pMain,
             backgroundColor: pMain,
-            data: Array.from({length: 6}, () => Math.round(Math.random()*20 + 30)),
+            data: Array.from({length: 6}, () => Math.round(Math.random()*20)),
             fill: 'origin',
-        },{
-            label: 'Work not completed - shutdown',
-            borderColor: lvl_3,
-            backgroundColor: lvl_3,
-            data: Array.from({length: 6}, () => Math.round(Math.random()*5 + 5)),
-            fill: '-1'
-        },{
-            label: 'Work not completed - inaccessible',
-            borderColor: lvl_3,
-            backgroundColor: lvl_3,
-            data: Array.from({length: 6}, () => Math.round(Math.random()*20 + 25)),
-            fill: '-1'
-        },{
-            label: 'Work not completed - no reason given',
-            borderColor: lvl_4,
-            backgroundColor: lvl_4,
-            data: Array.from({length: 6}, () => Math.round(Math.random()*10)),
-            fill: '-2'
         }]
     },
     options: {
@@ -559,7 +551,7 @@ let workPerAssetChart = new Chart(ctx11, {
         scales: {
             xAxes: [{
                 gridLines: {
-                    display: true,
+                    display: false,
                 },
                 ticks: {
                     autoSkip: true,
@@ -575,66 +567,166 @@ let workPerAssetChart = new Chart(ctx11, {
                 ticks: {
                     beginAtZero: true,
                 },
-                stacked: false
+                stacked: false,
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Nr. of Jobs'
+                },
+                gridLines: {
+                    display: true,
+                }
             }]
         }
     }
 });
 
 /** Chart 2: Completed work over time */
+let generatedWorkChart = new Promise(resolve => {
+    let labels = getDateLabels();
+    let data =  [{
+        label: 'Generated (Scheduled)',
+        borderColor: pMain,
+        borderWidth: 1,
+        fill: false,
+        backgroundColor: pMain,
+        data: Array.from({length: labels.length}, () => Math.floor(Math.random()*20 + 30))
+    },{
+        label: 'Generated (Ad-hoc)',
+        borderColor: pLight,
+        borderWidth: 1,
+        fill: false,
+        backgroundColor: pLight,
+        data: Array.from({length: labels.length}, () => Math.floor(Math.random()*10))
+    },{
+        label: 'Overdue',
+        borderColor: lvl_1,
+        borderWidth: 1,
+        fill: false,
+        backgroundColor: lvl_1,
+        data: Array.from({length: labels.length}, () => Math.floor(Math.random()*10))
+    }
+    // ,{
+    //     label: 'Completed',
+    //     borderColor: 'lightgrey',
+    //     borderWidth: 2,
+    //     fill: false,
+    //     backgroundColor: 'lightgrey',
+    //     data: Array.from({length: labels.length}, () => Math.floor(Math.random()*20 + 30))
+    // }
+]
+    resolve([data, labels])
+}).then(data => {
+    let ctx = document.getElementById('generatedWorkChart').getContext('2d');
+    let generatedWorkChart = lineChart(ctx, data[0], data[1])
+})
+
+/** Chart 2: Completed work over time */
 let completedWorkChart = new Promise(resolve => {
     let labels = getDateLabels();
     let data =  [{
-        label: 'Work completed',
+        label: 'Completed (On Time)',
         borderColor: pMain,
-        borderWidth: 2,
+        borderWidth: 1,
         fill: false,
         backgroundColor: pMain,
-        // steppedLine: 'middle',
         data: Array.from({length: labels.length}, () => Math.floor(Math.random()*20 + 30))
-        // fill: 'origin',
     },{
-        label: 'Not completed with reason',
+        label: 'Completed (Too Late)',
+        borderColor: pLight,
+        borderWidth: 1,
+        fill: false,
+        backgroundColor: pLight,
+        data: Array.from({length: labels.length}, () => Math.floor(Math.random()*20))
+    },{
+        label: 'Not Completed (Reason)',
         borderColor: lvl_3,
-        borderWidth: 2,
+        borderWidth: 1,
         fill: false,
         backgroundColor: lvl_3,
-        // steppedLine: 'middle',
         data: Array.from({length: labels.length}, () => Math.floor(Math.random()*20))
-        // fill: '-1'
     },{
-        label: 'Not completed without reason',
+        label: 'Not Completed (No Reason)',
         borderColor: lvl_4,
-        borderWidth: 2,
+        borderWidth: 1,
         fill: false,
         backgroundColor: lvl_4,
-        // steppedLine: 'middle',
         data: Array.from({length: labels.length}, () => Math.floor(Math.random()*10))
-        // fill: '-2'
-    }]
+    }
+    // ,{
+    //     label: 'Generated',
+    //     borderColor: 'lightgrey',
+    //     borderWidth: 2,
+    //     fill: false,
+    //     backgroundColor: 'lightgrey',
+    //     data: Array.from({length: labels.length}, () => Math.floor(Math.random()*20 + 30))
+    // },
+]
     resolve([data, labels])
 }).then(data => {
-    let ctx = document.getElementById('workLoadChart').getContext('2d');
-    let overTimeChart = lineChart(ctx, data[0], data[1])
+    let ctx2 = document.getElementById('completedWorkChart').getContext('2d');
+    let completedWorkChart = lineChart(ctx2, data[0], data[1])
 })
 
 
 //Chart 5: Level of Completed and Not Completed Work per Asset 
 let completedWorkAssetChart = new Promise((resolve) => {
-    let labels = getDateLabels();
-    let data = [{
-        label: 'Percentage of tasks completed',
-        borderColor: pMain,
-        fill: false,
-        backgroundColor: pMain,
-        barPercentage: 0.5,
-        barThickness: 6,
-        maxBarThickness: 8,
-        minBarLength: 2,
-        data: Array.from({length: labels.length}, () => Math.random()*20 + 30)
-    }];
-    resolve([data, labels])
+    let data_1 = Array.from({length: 6}, () => Math.floor(Math.random() * 85));
+    let data_2 = Array.from({length: 6}, () => Math.floor(Math.random() * 10));
+    let data_3 = []
+    for (var i = 0;i<data_1.length;i++) {
+        data_3.push(100 - data_1[i] - data_2[i]) 
+    };
+  
+    let labels = ['Lubrication', 'Inspection', 'Process', 'Vibration', 'Thermographic', 'Other'];
+
+
+    resolve([data_1, data_2, data_3, labels]);
+    // resolve([data, labels])
 }).then(data => {   
     let ctx6 = document.getElementById('executedWorkChart').getContext('2d');
-    let executedWorkChart = lineChart(ctx6, data[0], data[1]);
+    let executedWorkChart = new Chart(ctx6, {
+        type: 'horizontalBar',
+        data: {
+            labels: data[3],
+            datasets: [{
+                label: 'Completed',
+                backgroundColor: pMain,
+                data: data[0]
+            }, {
+                label: 'Overdue',
+                backgroundColor: pLight,
+                data: data[1]
+            }, {
+                label: 'Not Completed',
+                data: data[2]
+            }]
+        },
+        options: {
+            tooltips: {
+                mode: 'index',
+                intersect: false
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                xAxes: [{
+                    stacked: true,
+                    ticks: {
+                        min: 0,
+                        max: 100,
+                        callback: function(value, index, values) {
+                            return value + '%';
+                        }
+                    }
+                }],
+                yAxes: [{
+                    stacked: true
+                }]
+            },
+            legend: {
+                display: false,
+                position: 'bottom'
+            }
+        }
+    });
 });

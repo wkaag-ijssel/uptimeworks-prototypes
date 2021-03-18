@@ -63,7 +63,7 @@
                     <div class="dashboard-content">
                         <div class="title">
                             <h6>Job Compliance</h6>
-                            <p class="underline">How many jobs were completed?</p>
+                            <p class="underline">In the last 30 days</p>
                         </div>
                         <div class="col-md-12 row">
                             
@@ -74,16 +74,16 @@
                             </div>
                             <div class="col-md-6" style="padding-left: 20px;">
                                 <div>
-                                    <p class="sub-title">Generated Jobs</p>
+                                    <p class="sub-title">Generated</p>
                                     <p class="value">300</p>
                                 </div>
                                 <div class="margin-top-20">
-                                    <p class="sub-title">Completed Jobs</p>
-                                    <p class="value">270</p>
+                                    <p class="sub-title">Not Completed (No Reason)</p>
+                                    <p class="value">5</p>
                                 </div>
                                 <div class="margin-top-20">
-                                    <p class="sub-title">Not Completed Jobs</p>
-                                    <p class="value">30</p>
+                                    <p class="sub-title">Not Completed (Reason)</p>
+                                    <p class="value">3</p>
                                 </div>
                             </div>
                         </div>
@@ -94,15 +94,39 @@
                 <div class="dashboard-item col-md-7">
                     <div class="dashboard-content">
                         <div class="title">
-                            <label for="intervalSelector"><h6>Test graph</h6></label>
+                            <select id="intervalSelector">
+                                <option>Total</option>
+                                <option>Vibration</option>
+                                <option>Oil</option>
+                                <option>Visual Inspection</option>
+                                <option>Infrared</option>
+                            </select>
+                            <label for="intervalSelector"><h6>Not Completed Jobs per Reason</h6></label>
+                            <p class="underline">The Nr. of Jobs per reason given over the selected period</p>
+                        </div>
+                        <div style="height: 180px;">
+                            <canvas id="workPerAssetChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New row -->
+            <div class="col-md-12 row">
+
+                <!-- item 2 -->
+                <div class="dashboard-item col-md-12">
+                    <div class="dashboard-content">
+                        <div class="title">
+                            <label for="intervalSelector"><h6>Generated Jobs per</h6></label>
                             <select id="intervalSelector">
                                 <option value="day">Day</option>
                                 <option value="week">Week</option>
                             </select>
                             <p class="underline">Nr. of Completed Work over time</p>
                         </div>
-                        <div style="height: 180px;">
-                            <canvas id="workPerAssetChart"></canvas>
+                        <div style="height: 250px;">
+                            <canvas id="generatedWorkChart"></canvas>
                         </div>
                     </div>
                 </div>
@@ -123,7 +147,7 @@
                             <p class="underline">Nr. of Completed Work over time</p>
                         </div>
                         <div style="height: 250px;">
-                            <canvas id="workLoadChart"></canvas>
+                            <canvas id="completedWorkChart"></canvas>
                         </div>
                     </div>
                 </div>
@@ -138,6 +162,13 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="title">
+                                    <select id="intervalSelector">
+                                        <option>Total</option>
+                                        <option>Vibration</option>
+                                        <option>Oil</option>
+                                        <option>Visual Inspection</option>
+                                        <option>Infrared</option>
+                                    </select>
                                     <label for="interval"><h6 class="tab-title">Job Compliance per Route</h6></label>
                                     <!-- https://www.w3schools.com/css/tryit.asp?filename=trycss_tooltip -->
                                     <span data-title="The percentage of completed work orders within the selected time period per route. Click on a route to see more information about it.">
@@ -185,6 +216,13 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="title">
+                                    <select id="intervalSelector">
+                                        <option>Total</option>
+                                        <option>Vibration</option>
+                                        <option>Oil</option>
+                                        <option>Visual Inspection</option>
+                                        <option>Infrared</option>
+                                    </select>
                                     <label for="interval"><h6 class="tab-title">Job Compliance per Asset</h6></label>
                                     <p class="underline">Sorted by lowest job compliance</p>
                                 </div>
@@ -196,10 +234,9 @@
                             <!-- item 3 -->
                             <div class="col-md-6">
                                 <div class="title">
-                                    <label for="workEquipment"><h6 class="tab-title">Completed Jobs per Asset</h6></label>
+                                    <label for="workEquipment"><h6 class="tab-title">Job Compliance per Task Type</h6></label>
                                     <span title="Add to report" class="dashboard-icon-button" style=" border-left: 2px solid lightgrey;"><i class="far fa-file"></i></span>
                                     <span title="Show percentages" class="dashboard-icon-button" ><i class="fas fa-percentage"></i></span>
-                                    <span title="Show line chart" class="dashboard-icon-button" ><i class="fas fa-chart-line"></i></span>
                                     <span title="Reset" class="dashboard-icon-button"><i class="fas fa-undo"></i></span>
                                     <p class="underline">Average Work Compliance over Time</p>
                                 </div>
