@@ -27,8 +27,8 @@ const getDateLabels = () => {
                 return date;
             };
         while (currentDate <= endDate) {
-        dates.push(currentDate);
-        currentDate = addDays.call(currentDate, 1);
+            dates.push(currentDate);
+            currentDate = addDays.call(currentDate, 1);
         }
         return dates;
     };
@@ -57,11 +57,11 @@ var myDoughnutChart = new Chart(ctx4, {
             ]
         }],
         labels: [
-            'Normal',
-            'Lvl_1',
-            'Lvl_2',
-            'Lvl_3',
-            'Lvl_4'
+            'Normal / No Report',
+            'Warning - 1',
+            'Alarm Low - 2',
+            'Alarm High - 3',
+            'Alarm Critical - 4'
         ]
     },
     options: {
@@ -237,7 +237,7 @@ Chart.pluginService.register({
 function loadRow(){
     let tableRef = document.getElementById('routeTable').getElementsByTagName('tbody')[0];
     let rowsCount = document.getElementById('routeTable').rows[0].cells.length;
-
+    let alarmLevels = ['Warning - 1', 'Alarm Low - 2', 'Alarm High - 3', 'Alarm Critical - 4']
     // Insert a row in the table at the last row
     let newRow   = tableRef.insertRow();
     newRow.className = "mdc-data-table__row";
@@ -246,8 +246,9 @@ function loadRow(){
         ['Report ' + Math.floor(Math.random() * 20).toString(), false],
         ['Equipment ' + Math.floor(Math.random() * 20), false],
         ['Diag type ' + Math.floor(Math.random() * 10), false],
-        [Math.floor(Math.random() * 5), true],
+        [alarmLevels[Math.floor(Math.random() * 4)], true],
         ['Acknowledged', false],
+        ['12345', false],
         ['21-10-2020', false],
         ['Person ' + Math.floor(Math.random() * 20), false],
         [
@@ -260,12 +261,6 @@ function loadRow(){
         let newCell  = newRow.insertCell(i);
         newCell.innerHTML = data[i][0];
         newCell.className = "mdc-data-table__cell"
-
-        // if(data[i][1] == true){
-        //     newCell.className = "mdc-data-table__cell mdc-data-table__cell--numeric"
-        // } else {
-        //     newCell.className = "mdc-data-table__cell"
-        // }
     }
 
     newRow.children[3].addEventListener('click', function() {
@@ -327,32 +322,6 @@ function createTable(){
             });
         }
     }
-
-    //Add eventlisteners to each row
-    // let tableRows = document.querySelectorAll('#routeTable-body tr');
-    // let start = document.getElementById('pre-route-insight');
-    // let insight = document.getElementById('route-insight');
-
-    // tableRows.forEach(e => e.addEventListener("click", function() {
-    //     console.log(e)
-    //     // Here, `this` refers to the element the event was hooked on
-    //     tableRows.forEach(row => { 
-    //         if(row === e){
-    //             if(row.style.backgroundColor == "rgb(150, 156, 224)" ){
-    //                 row.style.backgroundColor = "white";
-    //                 start.style.display = 'none';
-    //                 insight.style.display = 'block';
-    //             } else {
-    //                 row.style.backgroundColor = "rgb(150, 156, 224)";  
-    //                 start.style.display = 'none';
-    //                 getRouteInsight();
-    //                 insight.style.display = 'block';
-    //             }
-    //         } else {
-    //             row.style.backgroundColor = "white";
-    //         }
-    //     });
-    // }));
     return;
 }
 createTable();
@@ -448,7 +417,12 @@ function stackedBarChart(chart, data, labels, usePerc = false) {
             },
             legend: {
                 display: true,
-                position: 'right'
+                position: 'right',
+                labels: {
+                    boxWidth: 20,
+                    fontSize: 10,
+                    // usePointStyle: true
+                }
             }
         }
     });
@@ -492,7 +466,6 @@ let reportTypeChart = new Chart(ctx9, {
         legend: {
             display: false,
         },
-        
         tooltips: {
             mode: 'index',
             intersect: false
@@ -501,7 +474,9 @@ let reportTypeChart = new Chart(ctx9, {
         maintainAspectRatio: false,
         scales: {
             xAxes: [{
-                // gridLines: true,
+                gridLines: {
+                    display: false,
+                },
                 stacked: false,
                 ticks: {
                     maxTicksLimit: 15,
@@ -510,8 +485,13 @@ let reportTypeChart = new Chart(ctx9, {
                     minRotation: 0
                 }
             }],
-            yAxes: [{
+            yAxes: [{                
+                position: 'right',
                 stacked: false,
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Reports'
+                },
                 ticks: {
                     beginAtZero: true,
                     stepSize: 1,
@@ -526,14 +506,18 @@ let reportTypeChart = new Chart(ctx9, {
 let criticalPromise = new Promise((resolve) => {
     let numberOfAssets = 10;
     let data = [{
-        label: 'Acknowledged',
+        label: 'Completed',
         backgroundColor: pMain,
         data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 5))
     }, {
-        label: 'Archive',
+        label: 'Acknowledged',
         backgroundColor: pLight,
         data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 5))
-    }, {
+    },{
+        label: 'Declined',
+        backgroundColor: 'lightgrey',
+        data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 5))
+    },{
         label: 'Issued',
         backgroundColor: lvl_1,
         data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 5))
@@ -553,14 +537,18 @@ let criticalPromise = new Promise((resolve) => {
 let typePromise = new Promise((resolve) => {
     let numberOfAssets = 10;
     let data = [{
-        label: 'Acknowledged',
+        label: 'Completed',
         backgroundColor: pMain,
         data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 5))
-    }, {
-        label: 'Archive',
+    },{
+        label: 'Acknowledged',
         backgroundColor: pLight,
         data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 5))
-    }, {
+    },{
+        label: 'Declined',
+        backgroundColor: 'lightgrey',
+        data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 5))
+    },  {
         label: 'Issued',
         backgroundColor: lvl_1,
         data: Array.from({length: numberOfAssets}, () => Math.floor(Math.random() * 5))

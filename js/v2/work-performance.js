@@ -35,11 +35,11 @@ var myDoughnutChart = new Chart(ctx1, {
     
         // These labels appear in the legend and in the tooltips when hovering different arcs
         labels: [
-            'Work completed on time(%)',
-            'Work completed too late (%)',
+            'Completed (On Time)(%)',
+            'Completed (Too Late) (%)',
             'Overdue (%)',
-            'Not completed with reason (%)',
-            'Not completed without reason (%)'
+            'Not Completed (With Reason) (%)',
+            'Not Completed (No Reason) (%)'
         ]
     },
     options: {
@@ -278,34 +278,45 @@ let assetDataPromise = new Promise((resolve) => {
 let ctx4, jobComplianceChart;
 //Chart: work order compliance per task type
 let jobCompliancePromise = new Promise((resolve) => {
-    let data_1 = Array.from({length: 6}, () => Math.floor(Math.random() * 85));
+    let data_1 = Array.from({length: 6}, () => Math.floor(Math.random() * 15 + 50));
     let data_2 = Array.from({length: 6}, () => Math.floor(Math.random() * 10));
-    let data_3 = []
+    let data_3 = Array.from({length: 6}, () => Math.floor(Math.random() * 15));
+    let data_4 = Array.from({length: 6}, () => Math.floor(Math.random() * 5));
+    let data_5 = []
     for (var i = 0;i<data_1.length;i++) {
-        data_3.push(100 - data_1[i] - data_2[i]) 
+        data_5.push(100 - data_1[i] - data_2[i] - data_3[i] - data_4[i]) 
     };
   
     let labels = ['Lubrication', 'Inspection', 'Process', 'Vibration', 'Thermographic', 'Other'];
 
 
-    resolve([data_1, data_2, data_3, labels]);
+    resolve([data_1, data_2, data_3, data_4, data_5, labels]);
 }).then(data => {  
     ctx4 = document.getElementById('jobCompliance').getContext('2d');
     jobComplianceChart = new Chart(ctx4, {
         type: 'horizontalBar',
         data: {
-            labels: data[3],
+            labels: data[5],
             datasets: [{
                 label: 'Completed',
                 backgroundColor: pMain,
                 data: data[0]
-            }, {
-                label: 'Overdue',
+            },{
+                label: 'Completed (Too Late)',
                 backgroundColor: pLight,
                 data: data[1]
             }, {
-                label: 'Not Completed',
+                label: 'Overdue',
+                backgroundColor: lvl_1,  
                 data: data[2]
+            }, {
+                label: 'Not Completed (With Reason)',         
+                backgroundColor: lvl_3,
+                data: data[3]
+            },{
+                label: 'Not Completed (No Reason)',      
+                backgroundColor: lvl_4,
+                data: data[4]
             }]
         },
         options: {
@@ -331,8 +342,13 @@ let jobCompliancePromise = new Promise((resolve) => {
                 }]
             },
             legend: {
-                display: false,
-                position: 'bottom'
+                display: true,
+                position: 'right',
+                labels: {
+                    boxWidth: 20,
+                    fontSize: 10,
+                    // usePointStyle: true
+                }
             }
         }
     });
@@ -408,7 +424,6 @@ function horizontalBarChart(chartElem, data, labels, colors = pMain){
                 return;
             },
             'onClick': function onClick (evt, activeElements) {
-                // try {
                 let activeIndex = activeElements[0]._index;
                 let dataset = this.data.datasets[0];
                 let max = this.data.datasets[0].data.length;
@@ -430,9 +445,6 @@ function horizontalBarChart(chartElem, data, labels, colors = pMain){
                 
 
                 this.update();
-                // } catch(error) { 
-                //     isSelected = false; 
-                // }
             }
         }
     });
@@ -502,6 +514,10 @@ function lineChart (chartElem, data, labels) {
                     stacked: false,
                     gridLines: {
                         display: true,
+                    },
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Nr. of Jobs'
                     }
                 }]
             }
@@ -586,33 +602,32 @@ let generatedWorkChart = new Promise(resolve => {
     let data =  [{
         label: 'Generated (Scheduled)',
         borderColor: pMain,
-        borderWidth: 1,
+        borderWidth: 2,
         fill: false,
         backgroundColor: pMain,
         data: Array.from({length: labels.length}, () => Math.floor(Math.random()*20 + 30))
     },{
         label: 'Generated (Ad-hoc)',
         borderColor: pLight,
-        borderWidth: 1,
+        borderWidth: 2,
         fill: false,
         backgroundColor: pLight,
         data: Array.from({length: labels.length}, () => Math.floor(Math.random()*10))
     },{
-        label: 'Overdue',
+        label: 'Open (In Time)',
+        borderColor: 'lightgrey',
+        borderWidth: 2,
+        fill: false,
+        backgroundColor: 'lightgrey',
+        data: Array.from({length: labels.length}, () => Math.floor(Math.random()*10 + 30))
+    },{
+        label: 'Open (Overdue)',
         borderColor: lvl_1,
-        borderWidth: 1,
+        borderWidth: 2,
         fill: false,
         backgroundColor: lvl_1,
         data: Array.from({length: labels.length}, () => Math.floor(Math.random()*10))
     }
-    // ,{
-    //     label: 'Completed',
-    //     borderColor: 'lightgrey',
-    //     borderWidth: 2,
-    //     fill: false,
-    //     backgroundColor: 'lightgrey',
-    //     data: Array.from({length: labels.length}, () => Math.floor(Math.random()*20 + 30))
-    // }
 ]
     resolve([data, labels])
 }).then(data => {
@@ -626,40 +641,32 @@ let completedWorkChart = new Promise(resolve => {
     let data =  [{
         label: 'Completed (On Time)',
         borderColor: pMain,
-        borderWidth: 1,
+        borderWidth: 2,
         fill: false,
         backgroundColor: pMain,
         data: Array.from({length: labels.length}, () => Math.floor(Math.random()*20 + 30))
     },{
         label: 'Completed (Too Late)',
         borderColor: pLight,
-        borderWidth: 1,
+        borderWidth: 2,
         fill: false,
         backgroundColor: pLight,
         data: Array.from({length: labels.length}, () => Math.floor(Math.random()*20))
     },{
         label: 'Not Completed (Reason)',
         borderColor: lvl_3,
-        borderWidth: 1,
+        borderWidth: 2,
         fill: false,
         backgroundColor: lvl_3,
         data: Array.from({length: labels.length}, () => Math.floor(Math.random()*20))
     },{
         label: 'Not Completed (No Reason)',
         borderColor: lvl_4,
-        borderWidth: 1,
+        borderWidth: 2,
         fill: false,
         backgroundColor: lvl_4,
         data: Array.from({length: labels.length}, () => Math.floor(Math.random()*10))
     }
-    // ,{
-    //     label: 'Generated',
-    //     borderColor: 'lightgrey',
-    //     borderWidth: 2,
-    //     fill: false,
-    //     backgroundColor: 'lightgrey',
-    //     data: Array.from({length: labels.length}, () => Math.floor(Math.random()*20 + 30))
-    // },
 ]
     resolve([data, labels])
 }).then(data => {
@@ -670,35 +677,43 @@ let completedWorkChart = new Promise(resolve => {
 
 //Chart 5: Level of Completed and Not Completed Work per Asset 
 let completedWorkAssetChart = new Promise((resolve) => {
-    let data_1 = Array.from({length: 6}, () => Math.floor(Math.random() * 85));
+    let data_1 = Array.from({length: 6}, () => Math.floor(Math.random() * 50));
     let data_2 = Array.from({length: 6}, () => Math.floor(Math.random() * 10));
-    let data_3 = []
-    for (var i = 0;i<data_1.length;i++) {
-        data_3.push(100 - data_1[i] - data_2[i]) 
-    };
+    let data_3 = Array.from({length: 6}, () => Math.floor(Math.random() * 15));
+    let data_4 = Array.from({length: 6}, () => Math.floor(Math.random() * 5));
+    let data_5 = Array.from({length: 6}, () => Math.floor(Math.random() * 5));
   
     let labels = ['Lubrication', 'Inspection', 'Process', 'Vibration', 'Thermographic', 'Other'];
 
 
-    resolve([data_1, data_2, data_3, labels]);
+    resolve([data_1, data_2, data_3, data_4, data_5, labels]);
     // resolve([data, labels])
 }).then(data => {   
     let ctx6 = document.getElementById('executedWorkChart').getContext('2d');
     let executedWorkChart = new Chart(ctx6, {
         type: 'horizontalBar',
         data: {
-            labels: data[3],
+            labels: data[5],
             datasets: [{
                 label: 'Completed',
                 backgroundColor: pMain,
                 data: data[0]
-            }, {
-                label: 'Overdue',
+            },{
+                label: 'Completed (Too Late)',
                 backgroundColor: pLight,
                 data: data[1]
             }, {
-                label: 'Not Completed',
+                label: 'Overdue',
+                backgroundColor: lvl_1,  
                 data: data[2]
+            }, {
+                label: 'Not Completed (With Reason)',         
+                backgroundColor: lvl_3,
+                data: data[3]
+            },{
+                label: 'Not Completed (No Reason)',      
+                backgroundColor: lvl_4,
+                data: data[4]
             }]
         },
         options: {
@@ -713,10 +728,9 @@ let completedWorkAssetChart = new Promise((resolve) => {
                     stacked: true,
                     ticks: {
                         min: 0,
-                        max: 100,
-                        callback: function(value, index, values) {
-                            return value + '%';
-                        }
+                        // callback: function(value, index, values) {
+                        //     return value + '%';
+                        // }
                     }
                 }],
                 yAxes: [{
@@ -724,8 +738,13 @@ let completedWorkAssetChart = new Promise((resolve) => {
                 }]
             },
             legend: {
-                display: false,
-                position: 'bottom'
+                display: true,
+                position: 'right',
+                labels: {
+                    boxWidth: 20,
+                    fontSize: 10,
+                    // usePointStyle: true
+                }
             }
         }
     });

@@ -57,11 +57,12 @@
             <div class="col-md-12 row">
 
                 <!-- item 1-->
-                <div class="dashboard-item col-md-5">
+                <div class="dashboard-item col-md-6">
                     <div class="dashboard-content">
                         <div class="title">
-                            <h6>Asset Health by Reports Generated </h6>
-                            <p class="underline">What is the estimated condition of your assets?</p>
+                            <label><h6>Asset Health by Reports Issued </h6></label>                            
+                            <span title="Add to report" class="dashboard-icon-button" style=" border-left: 2px solid lightgrey;"><i class="far fa-file"></i></span>
+                            <p class="underline">In the last 30 days</p>
                         </div>
                         <div class="col-md-12 row">
                             
@@ -72,27 +73,28 @@
                             </div>
                             <div class="col-md-6" style="padding-left: 20px;">
                                 <div>
-                                    <p class="sub-title">Reports Generated</p>
+                                    <p class="sub-title">Issued</p>
                                     <p class="value">300</p>
                                 </div>
                                 <div class="margin-top-20">
-                                    <p class="sub-title">Reports Acknowledged</p>
-                                    <p class="value">270</p>
+                                    <p class="sub-title">Acknowledged / Declined</p>
+                                    <p class="value">270 / 30</p>
                                 </div>
                                 <div class="margin-top-20">
-                                    <p class="sub-title">Highest Priority Report</p>
-                                    <p class="value">Report x: jdjdjdjd</p>
+                                    <p class="sub-title">Completed / Open</p>
+                                    <p class="value">70 / 200</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="dashboard-item col-md-7">
+                <div class="dashboard-item col-md-6">
                     <div class="dashboard-content">
                         <div class="title">
                             <!-- <label for="interval"><h6 class="tab-title">Report items and Criticiality per Task Type</h6></label> -->
-                            <label for="interval"><h6 class="tab-title">Generated Reports over Time</h6></label>
+                            <label for="interval"><h6 class="tab-title">Issued Reports over Time</h6></label>
+                            <span title="Add to report" class="dashboard-icon-button" style=" border-left: 2px solid lightgrey;"><i class="far fa-file"></i></span>                 
                             <p class="underline">When are reports created in the selected period?</p>
                         </div>
 
@@ -107,7 +109,8 @@
                 <div class="dashboard-item col-md-6">
                     <div class="dashboard-content">
                         <div class="title">
-                            <label for="interval"><h6 class="tab-title">Generated Reports and Status per Equipment Type</h6></label>
+                            <label for="interval"><h6 class="tab-title">Issued Reports and Status per Equipment Type</h6></label>
+                            <span title="Add to report" class="dashboard-icon-button" style=" border-left: 2px solid lightgrey;"><i class="far fa-file"></i></span>
                             <p class="underline">Sorted by most report items</p>
                         </div>
 
@@ -121,7 +124,8 @@
                     <div class="dashboard-content">
                         <div class="title">
                             <!-- <label for="interval"><h6 class="tab-title">Report items and Type per Asset</h6></label> -->
-                            <label for="interval"><h6 class="tab-title">Generated Reports and Status per Diagnosis Type</h6></label>
+                            <label for="interval"><h6 class="tab-title">Issued Reports and Status per Diagnosis Type</h6></label>
+                            <span title="Add to report" class="dashboard-icon-button" style=" border-left: 2px solid lightgrey;"><i class="far fa-file"></i></span>
                             <p class="underline">Sorted by most report items</p>
                         </div>
 
@@ -144,6 +148,7 @@
                                     <th class="mdc-data-table__header-cell" role="columnheader" scope="col"><b>Diagnosis</b></th>
                                     <th class="mdc-data-table__header-cell hover-icon" role="columnheader" scope="col" data-sorted="no"><b>Criticiality</b><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i></th>
                                     <th class="mdc-data-table__header-cell" role="columnheader" scope="col"><b>Status</b></th>
+                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col"><b>WO-nr.</b></th>
                                     <th class="mdc-data-table__header-cell" role="columnheader" scope="col"><b>Date</b></th>
                                     <th class="mdc-data-table__header-cell" role="columnheader" scope="col"><b>Contact</b></th>
                                     <th class="mdc-data-table__header-cell" role="columnheader" scope="col"></th>

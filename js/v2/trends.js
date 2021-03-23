@@ -263,7 +263,7 @@ for (let i = 0; i < 6; i++) {
         [Math.round(Math.random()), true]
     ];
 }
-createTable('assetOverTime', assetOverTimeData);
+// createTable('assetOverTime', assetOverTimeData);
 
 //Chart 2: asset health by alarms generated
 let ctx4 = document.getElementById('assetHealth').getContext('2d');

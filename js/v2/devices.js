@@ -412,7 +412,7 @@ let uBridgeReadingChart = new Chart(ctx4, {
         elements: {
             line: {
                 tension: 0, // disables bezier curves
-                borderWidth: 1
+                borderWidth: 2
             },
             point:{
                 radius: 0 //hide data point indicators
@@ -443,6 +443,10 @@ let uBridgeReadingChart = new Chart(ctx4, {
                 ticks: {
                     beginAtZero: true,
                     suggestedMax: 10,
+                },
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Number'
                 }
             }]
         }
@@ -456,22 +460,16 @@ let uBridgeChart = new Chart(ctx, {
     data: { 
         labels: labels,
         datasets: [{
-            label: 'Growth (MB)',
-            borderColor: lvl_2,
-            fill: false,
-            backgroundColor: lvl_2,
-            data: Array.from({length: labels.length}, () => Math.floor(Math.random()*50 + 20))
-        },{
-            label: 'Storage Total (GB)',
+            label: 'Total',
             borderColor: pDark,
             fill: false,
             backgroundColor: pDark,
             data: Array.from({length: labels.length}, () => Math.floor(Math.random()*5) + 20)
         },{
-            label: 'Storage Capacity (GB)',
-            borderColor: 'grey',
+            label: 'Max. Capacity',
+            borderColor: 'lightgrey',
             fill: false,
-            backgroundColor: 'grey',
+            backgroundColor: 'lightgrey',
             data: Array.from({length: labels.length}, () => 35)
         }]
     },
@@ -491,7 +489,7 @@ let uBridgeChart = new Chart(ctx, {
         elements: {
             line: {
                 tension: 0, // disables bezier curves
-                borderWidth: 1
+                borderWidth: 2
             },
             point:{
                 radius: 0 //hide data point indicators
@@ -522,6 +520,10 @@ let uBridgeChart = new Chart(ctx, {
                 ticks: {
                     beginAtZero: true,
                     suggestedMax: 10,
+                },
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Size (GB)'
                 }
             }]
         }

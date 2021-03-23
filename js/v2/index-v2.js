@@ -234,16 +234,17 @@ var myDoughnutChart = new Chart(ctx4, {
     type: 'doughnut',
     data: {
         datasets: [{
-            data: [65, 5, 10,20],
+            data: [65, 5, 10,10,10],
             backgroundColor: [
-                pMain, lvl_2, lvl_4
+                pMain, 'grey', 'lightgrey', lvl_2, lvl_4
             ]
         }],
         labels: [
-            'Normal',
+            'Normal',            
+            'No threshold',
+            'No measurements',
             'Warning',
             'Alarm',
-            'Unknown'
         ]
     },
     options: {
@@ -277,11 +278,11 @@ var myDoughnutChart = new Chart(ctx2, {
             ]
         }],
         labels: [
-            'Normal',
-            'Lvl_1',
-            'Lvl_2',
-            'Lvl_3',
-            'Lvl_4'
+            'Normal / No report',
+            'Warning - 1',
+            'Alarm Low - 2',
+            'Alarm High - 3',
+            'Alarm Critical - 4'
         ]
     },
     options: {
@@ -435,7 +436,7 @@ let myBar = new Chart(ctx, {
     data: {
         labels: ['Lubrication', 'Inspection', 'Process', 'Vibration', 'Thermographic', 'Other'],
         datasets: [{
-            label: 'Executed on time',
+            label: 'Completed',
             backgroundColor: pMain,
             data: [
                 Math.floor(Math.random() * 85),
@@ -446,7 +447,7 @@ let myBar = new Chart(ctx, {
                 Math.floor(Math.random() * 85)
             ]
         }, {
-            label: 'Executed too late',
+            label: 'Completed (Too Late)',
             backgroundColor: pLight,
             data: [
                 Math.floor(Math.random() * 10),
@@ -457,7 +458,7 @@ let myBar = new Chart(ctx, {
                 Math.floor(Math.random() * 10)
             ]
         }, {
-            label: 'Not executed - inaccesible',
+            label: 'Overdue',
             backgroundColor: lvl_1,
             data: [
                 Math.floor(Math.random() * 5),
@@ -468,7 +469,7 @@ let myBar = new Chart(ctx, {
                 Math.floor(Math.random() * 5)
             ]
         }, {
-            label: 'Not executed - due to shutdown',
+            label: 'Not Completed (with Reason)',
             backgroundColor: lvl_2,
             data: [
                 Math.floor(Math.random() * 5),
@@ -479,7 +480,7 @@ let myBar = new Chart(ctx, {
                 Math.floor(Math.random() * 5)
             ]
         }, {
-            label: 'Not executed - no reason',
+            label: 'Not Completed (no Reason)',
             backgroundColor: lvl_4,
             data: [
                 Math.floor(Math.random() * 5),
@@ -688,24 +689,26 @@ let getDataPromise = new Promise((resolve) => {
             label: 'Open',
             type: 'scatter',
             showLine: false,
-            backgroundColor: lvl_1,
+            backgroundColor: pMain,
             data: dataset[0],
-            pointBackgroundColor: lvl_1 //[pMain, pMain, pMain, '#f5f5f5', '#f5f5f5', '#f5f5f5']
+            pointBackgroundColor: pMain //[pMain, pMain, pMain, '#f5f5f5', '#f5f5f5', '#f5f5f5']
         },{
             label: 'Acknowledged',
             type: 'scatter',
             showLine: false,
-            backgroundColor: pMain,
+            backgroundColor: 'lightgrey',
             data: dataset[1],
-            pointBackgroundColor: pMain//[pMain, pMain, pMain, '#f5f5f5', '#f5f5f5', '#f5f5f5']
-        },{
-            label: 'Overdue',
-            type: 'scatter',
-            showLine: false,
-            backgroundColor: lvl_4,
-            data: dataset[2],
-            pointBackgroundColor: lvl_4//[pMain, pMain, pMain, '#f5f5f5', '#f5f5f5', '#f5f5f5']
-        },{
+            pointBackgroundColor: 'lightgrey'//[pMain, pMain, pMain, '#f5f5f5', '#f5f5f5', '#f5f5f5']
+        }
+        // ,{
+        //     label: 'Overdue',
+        //     type: 'scatter',
+        //     showLine: false,
+        //     backgroundColor: lvl_4,
+        //     data: dataset[2],
+        //     pointBackgroundColor: lvl_4//[pMain, pMain, pMain, '#f5f5f5', '#f5f5f5', '#f5f5f5']
+        // }
+        ,{
             type: 'line',
             label: 'target',
             data: [{
@@ -731,6 +734,9 @@ let getDataPromise = new Promise((resolve) => {
                 display: true,
                 position: 'right',
                 labels: {
+                    boxWidth: 20,
+                    fontSize: 10,
+                    // usePointStyle: true
                     filter: function(item, chart) {
                         // Logic to remove a particular legend item goes here
                         return !item.text.includes('target');
