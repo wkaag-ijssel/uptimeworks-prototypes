@@ -394,7 +394,7 @@ let completedWorkChart = new Promise(resolve => {
     let data =  [{
         label: 'Assets - no alarm',
         borderColor: 'white',
-        borderWidth: 1,
+        borderWidth: 0,
         fill: true,
         backgroundColor: pMain,
         // steppedLine: 'middle',
@@ -403,7 +403,7 @@ let completedWorkChart = new Promise(resolve => {
     },{
         label: 'Assets - no threshold/measurement',
         borderColor: 'white',
-        borderWidth: 1,
+        borderWidth: 0,
         fill: true,
         // backgroundColor: pMain,
         // steppedLine: 'middle',
@@ -412,7 +412,7 @@ let completedWorkChart = new Promise(resolve => {
     },{
         label: 'Assets - warning',
         borderColor: 'white',
-        borderWidth: 1,
+        borderWidth: 0,
         fill: true,
         backgroundColor: lvl_1,
         // steppedLine: 'middle',
@@ -421,7 +421,7 @@ let completedWorkChart = new Promise(resolve => {
     },{
         label: 'Assets - alarm',
         borderColor: 'white',
-        borderWidth: 1,
+        borderWidth: 0,
         fill: true,
         backgroundColor: lvl_4,
         // steppedLine: 'middle',
@@ -466,7 +466,7 @@ let completedWorkChart = new Promise(resolve => {
             scales: {
                 xAxes: [{
                     gridLines: {
-                        display: true,
+                        display: false,
                     },
                     ticks: {
                         autoSkip: true,
@@ -479,13 +479,20 @@ let completedWorkChart = new Promise(resolve => {
                     stacked: true
                 }],
                 yAxes: [{
+                    gridLines: {
+                        display: true,
+                    },
                     position: 'right',
                     ticks: {
                         beginAtZero: false,
                         // stepSize: 1
                         // min: 80
                     },
-                    stacked: true
+                    stacked: true,
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Nr. of Assets'
+                    }
                 }]
             }
         }

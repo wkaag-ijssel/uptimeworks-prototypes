@@ -391,3 +391,35 @@ label {
   padding: 5px 7px;
   border-radius: 2px;
 }
+
+/* let  pMain = "#1a237e"; //'rgb(26,35,126)';
+        pLight = "#534bae";
+        pDark = "#000051";
+        sMain = "#ffab00";
+        sLight = "#ffdd4b";
+        sDark = "#c67c00";
+
+let normal = "#00c853";
+    lvl_1  = "#ffd740";
+    lvl_2  = "#ffc400";
+    lvl_3  = "#ffab00";
+    lvl_4  = "#ff6f00"; */
+
+.q1 {
+  color: #ff6f00!important;
+}
+.q2 {
+  color: #ffab00!important;
+}
+.q3 {
+  color: #ffc400!important;
+}
+.q4 {
+  color: #534bae!important;
+}
+.q5 {
+  color: #1a237e!important;
+}
+.q6 {
+  color: #000051!important;
+}

@@ -250,6 +250,7 @@ function createTable(table_id, table_body_id, row_data, nr_of_devices, chartname
                     row.style.backgroundColor = "white";
                 } else {
                     row.style.backgroundColor = "rgb(150, 156, 224)";
+                    row.style.fontSize = "bold"
                 }
             } else {
                 row.style.backgroundColor = "white";
@@ -454,7 +455,7 @@ let uBridgeReadingChart = new Chart(ctx4, {
 });
 
 /** uBridge chart normal/spectra readings **/
-let ctx = document.getElementById('uBridgeDataChart').getContext('2d');
+let ctx = document.getElementById('databaseChart').getContext('2d');
 let uBridgeChart = new Chart(ctx, {
     type: 'line',
     data: { 
@@ -475,7 +476,7 @@ let uBridgeChart = new Chart(ctx, {
     },
     options: {
         legend: {
-            display: true,
+            display: false,
             position: 'right',
             align: 'end',
             labels: {
@@ -519,7 +520,7 @@ let uBridgeChart = new Chart(ctx, {
                 position: 'right',
                 ticks: {
                     beginAtZero: true,
-                    suggestedMax: 10,
+                    suggestedMax: 40,
                 },
                 scaleLabel: {
                     display: true,

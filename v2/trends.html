@@ -75,25 +75,21 @@
                             </div>
                             <div class="col-md-6" style="padding-left: 20px;">
                                 <div>
-                                    <p class="sub-title">Reports Generated</p>
+                                    <p class="sub-title">Measurements</p>
                                     <p class="value">300</p>
                                 </div>
                                 <div class="margin-top-20">
-                                    <p class="sub-title">Reports Acknowledged</p>
+                                    <p class="sub-title">Alarms</p>
                                     <p class="value">270</p>
-                                </div>
-                                <div class="margin-top-20">
-                                    <p class="sub-title">Highest Priority Report</p>
-                                    <p class="value">Report x: jdjdjdjd</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="dashboard-item col-md-7">
-                    <div class="dashboard-content">
+                    <div class="dashboard-content" id="trend-calendar">
                         <div class="title">
-                            <h6>Site Condition based on Generated Alarms</h6>
+                            <h6>Site Condition based on Asset Health</h6>
                             <p class="underline">In the last X months</p>
                         </div>
                         <div class="chart">
@@ -140,7 +136,7 @@
                             <div class="dashboard-item col-md-12">
                                 <div class="dashboard-content">
                                     <div class="title">
-                                        <h6>Number of Assets per Asset Status</h6></label>
+                                        <label><h6>Daily Condition Status per Measured Asset</h6></label>
                                         <span title="Add to report" class="dashboard-icon-button" style=" border-left: 2px solid lightgrey;"><i class="far fa-file"></i></span>
                                         <span title="Show percentages" class="dashboard-icon-button" ><i class="fas fa-percentage"></i></span>
                                         <p class="underline">Number of assets with an normal, warning, unknown or alarm status per day</p>
@@ -174,30 +170,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- <div class="col-md-12 row">
-                            <div class="dashboard-item col-md-7">
-                                <div class="mdc-data-table">
-                                    <table id="assetOverTime" class="mdc-data-table__table" aria-label="Dessert calories">
-                                        <thead>
-                                            <tr class="mdc-data-table__header-row">                                    
-                                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col"><b>ID</b></th>
-                                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col" data-sorted="no"><b>Equipment</b></th>
-                                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col" data-sorted="no"><b>Facility</b></th>
-                                                <th class="mdc-data-table__header-cell hover-icon" role="columnheader" scope="col" data-sorted="no"><b>January</b><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i></th>
-                                                <th class="mdc-data-table__header-cell hover-icon" role="columnheader" scope="col" data-sorted="no"><b>February</b><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i></th>
-                                                <th class="mdc-data-table__header-cell hover-icon" role="columnheader" scope="col" data-sorted="no"><b>March</b><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i></th>
-                                                <th class="mdc-data-table__header-cell hover-icon" role="columnheader" scope="col" data-sorted="no"><b>April</b><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i></th>
-                                                <th class="mdc-data-table__header-cell hover-icon" role="columnheader" scope="col" data-sorted="no"><b>May</b><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="assetOverTime-body" class="mdc-data-table__content">
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div> -->
-
                     </div>
                 </div>
             </div>
@@ -220,6 +192,10 @@
             res.json().then(data => {
                 console.log(data)
                 
+                elem = document.getElementById('trend-calendar')
+                range = Math.floor(elem.offsetWidth / 170)
+
+                console.log(range)
                 cal.init({
                     // itemSelector: "#example-g",
                     domain: "month",
@@ -238,7 +214,7 @@
                         return moment(date).format("MMMM").toUpperCase();
                     },
                     subDomainTextFormat: "%d",
-                    legend: [20, 40, 60, 80]
+                    legend: [20, 40, 60, 90, 95, 99]
                 });
             })
         })
