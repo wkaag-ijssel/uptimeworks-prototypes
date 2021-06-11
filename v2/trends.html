@@ -34,7 +34,8 @@
                     <a  href="devices.html">Devices</a>
                 <p>ASSET CONDITION</p>
                     <a  href="reports.html">Reports</a>
-                    <a  class="active" href="#">Trends</a>                
+                    <a  class="active" href="#">Trends</a>
+                    <a  href="vibration.html">Vibration</a>                   
             </div>
         </div>
         <div class="col-md-10">
@@ -90,7 +91,7 @@
                     <div class="dashboard-content" id="trend-calendar">
                         <div class="title">
                             <h6>Site Condition based on Asset Health</h6>
-                            <p class="underline">In the last X months</p>
+                            <p class="underline">Percentage of Assets without any alarms</p>
                         </div>
                         <div class="chart">
                             <div id="cal-heatmap"></div>
@@ -185,36 +186,40 @@
     <!-- <script src="js/datatable.js"></script> -->
     
     <script type="text/javascript">
-        var cal = new CalHeatMap();
+        let cal = new CalHeatMap();
+
+        const getRange = () => {
+            return new Promise((resolve) => {
+                elem = document.getElementById('trend-calendar');
+                range = Math.floor(elem.offsetWidth / 170);
+
+                resolve(range);
+            });
+        };
 
         fetch("result.json")
         .then(res => {
             res.json().then(data => {
-                console.log(data)
-                
-                elem = document.getElementById('trend-calendar')
-                range = Math.floor(elem.offsetWidth / 170)
-
-                console.log(range)
-                cal.init({
-                    // itemSelector: "#example-g",
-                    domain: "month",
-                    subDomain: "x_day",
-                    data: data,
-                    start: new Date(2020, 11, 5),
-                    cellSize: 20,
-                    cellPadding: 5,
-                    domainGutter: 20,
-                    range: 4,
-                    domainDynamicDimension: false,
-                    previousSelector: "#example-g-PreviousDomain-selector",
-                    nextSelector: "#example-g-NextDomain-selector",
-                    domainLabelFormat: function(date) {
-                        moment.lang("en");
-                        return moment(date).format("MMMM").toUpperCase();
-                    },
-                    subDomainTextFormat: "%d",
-                    legend: [20, 40, 60, 90, 95, 99]
+                getRange().then(range => {
+                    cal.init({
+                        domain: "month",
+                        subDomain: "x_day",
+                        data: data,
+                        start: new Date(2020, 11, 5),
+                        cellSize: 20,
+                        cellPadding: 5,
+                        domainGutter: 20,
+                        range: range,
+                        domainDynamicDimension: false,
+                        previousSelector: "#example-g-PreviousDomain-selector",
+                        nextSelector: "#example-g-NextDomain-selector",
+                        domainLabelFormat: function(date) {
+                            moment.lang("en");
+                            return moment(date).format("MMMM").toUpperCase();
+                        },
+                        subDomainTextFormat: "%d",
+                        legend: [20, 40, 60, 90, 95, 99]
+                    });
                 });
             })
         })

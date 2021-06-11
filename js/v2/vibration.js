@@ -229,7 +229,7 @@ Chart.pluginService.register({
 
 
 //Chart 5: Job Compliance per Task Type
-let ctx1 = document.getElementById('alarmStatus').getContext('2d');
+let ctx1 = document.getElementById('todayStatus').getContext('2d');
 var myDoughnutChart = new Chart(ctx1, {
     type: 'doughnut',
     data: {
@@ -266,7 +266,7 @@ var myDoughnutChart = new Chart(ctx1, {
 });
 
 //Chart 5: Job Compliance per Task Type
-let ctx2 = document.getElementById('reportStatus').getContext('2d');
+let ctx2 = document.getElementById('monthStatus').getContext('2d');
 var myDoughnutChart = new Chart(ctx2, {
     type: 'doughnut',
     data: {
@@ -303,11 +303,50 @@ var myDoughnutChart = new Chart(ctx2, {
     }
 });
 
+//Chart 5: Job Compliance per Task Type
+let ctx3 = document.getElementById('threeMonthStatus').getContext('2d');
+var myDoughnutChart = new Chart(ctx3, {
+    type: 'doughnut',
+    data: {
+        datasets: [{
+            data: [85, 2, 3, 3, 7],
+            backgroundColor: [
+                pMain, lvl_1, lvl_2, lvl_3, lvl_4
+            ]
+        }],
+        labels: [
+            'Normal',
+            'Lvl_1',
+            'Lvl_2',
+            'Lvl_3',
+            'Lvl_4'
+        ]
+    },
+    options: {
+        cutoutPercentage: 70,
+        responsive: true,
+        maintainAspectRatio: false,
+        legend: {
+            display: false
+        },
+        elements: {
+            center: {
+                text: '85%',
+                fontStyle: 'Arial', 
+                sidePadding: 50,    
+                minFontSize: 10,    
+                lineHeight: 10    
+            }
+        }
+    }
+});
+
+
 
 const targetValue = 100
 
 //Chart 7: Transaction costs 
-let costsChartPromise = new Promise((resolve) => {
+let accChartPromise = new Promise((resolve) => {
     // Usage
     const getDateLabels = () => {
         // Returns an array of dates between the two dates
@@ -326,50 +365,57 @@ let costsChartPromise = new Promise((resolve) => {
             return dates;
         };
 
-        let dates = getDates(new Date("14 Oct 2020"), new Date("14 Jan 2021"));  
+        let dates = getDates(new Date("1 May 2021"), new Date("14 Jun 2021"));  
         let labels = dates;
         labels.forEach((test, index) => {
-            let month = test.getMonth();
+            let month = test.getMonth() + 1;
             let day = test.getDate();
-            labels[index] = day + '-' + month + '-2020';
+            labels[index] = day + '-' + month + '-2021';
         });
         return labels
     }
 
     let date = getDateLabels();
-    let savings = Array.from({length: date.length}, () => Math.floor((Math.random()*10)+ 30));
-    let target = Array.from({length: date.length}, () => Math.floor((Math.random()*30) + 120));
+    let avg = Array.from({length: date.length}, () => Math.floor((Math.random()*10)+ 10));
+    let max = Array.from({length: date.length}, () => Math.floor((Math.random()*10)+ 20));
+    let min = Array.from({length: date.length}, () => Math.floor((Math.random()*10)));
 
-    resolve([target, date, savings]);
+    resolve([date, avg, max, min]);
 }).then(data => {
-    let ctx7 = document.getElementById('transactionSumChart').getContext('2d');
+    let ctx7 = document.getElementById('accelerationChart').getContext('2d');
     let chart7 = new Chart(ctx7, {
         type: 'line',
         data: { 
-            labels: data[1], //Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40)),
+            labels: data[0], //Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40)),
             datasets: [{
-                label: 'Accelaration',
-                data: data[2],
+                label: 'mean',
+                data: data[1],
                 fill: false,
                 borderColor: pMain,
-                borderWidth: 0.7,
+                borderWidth: 2,
                 pointStyle: 'line',
-                lineTension: 0,
-                yAxisID: 'A'
+                lineTension: 0
             },{
-                label: 'Velocity',
-                data: data[0],
+                label: 'max',
+                data: data[2],
                 fill: false,
-                borderColor: sMain,
-                borderWidth: 0.7,
+                borderColor: 'grey',
+                borderWidth: 2,
                 pointStyle: 'line',
-                lineTension: 0,
-                yAxisID: 'B'
+                lineTension: 0
+            },{
+                label: 'min',
+                data: data[3],
+                fill: false,
+                borderColor: 'lightgrey',
+                borderWidth: 2,
+                pointStyle: 'line',
+                lineTension: 0
             }]
         },
         options: {
             legend: {
-                display: false,
+                display: true,
                 position: "right",
                 labels: {
                     usePointStyle: true
@@ -397,22 +443,126 @@ let costsChartPromise = new Promise((resolve) => {
                     }
                 }],
                 yAxes: [{
-                    id: 'A',
                     position: 'left',
                     type: 'linear',
                     scaleLabel: {
                         display: true,
-                        labelString: '⎯⎯ Accelaration (g RMS)',
-                        fontColor: pMain
+                        labelString: 'Accelaration (g RMS)',
+                    },
+                    ticks: {
+                        beginAtZero: true,
+                        suggestedMax: 10
                     }
-                },{
-                    id: 'B',
-                    position: 'right',
+                }]
+            }
+        }
+    }); 
+})
+
+
+//Chart 7: Transaction costs 
+let velChartPromise = new Promise((resolve) => {
+    // Usage
+    const getDateLabels = () => {
+        // Returns an array of dates between the two dates
+        let getDates = (startDate, endDate) => {
+            var dates = [],
+                currentDate = startDate,
+                addDays = function(days) {
+                var date = new Date(this.valueOf());
+                date.setDate(date.getDate() + days);
+                return date;
+                };
+            while (currentDate <= endDate) {
+            dates.push(currentDate);
+            currentDate = addDays.call(currentDate, 1);
+            }
+            return dates;
+        };
+
+        let dates = getDates(new Date("1 May 2021"), new Date("14 Jun 2021"));  
+        let labels = dates;
+        labels.forEach((test, index) => {
+            let month = test.getMonth() + 1;
+            let day = test.getDate();
+            labels[index] = day + '-' + month + '-2021';
+        });
+        return labels
+    }
+
+    let date = getDateLabels();
+    let avg = Array.from({length: date.length}, () => Math.floor((Math.random()*10)+ 10));
+    let max = Array.from({length: date.length}, () => Math.floor((Math.random()*10)+ 20));
+    let min = Array.from({length: date.length}, () => Math.floor((Math.random()*10)));
+
+    resolve([date, avg, max, min]);
+}).then(data => {
+    let ctx4 = document.getElementById('velocityChart').getContext('2d');
+    let chart4 = new Chart(ctx4, {
+        type: 'line',
+        data: { 
+            labels: data[0], //Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40)),
+            datasets: [{
+                label: 'mean',
+                data: data[1],
+                fill: false,
+                borderColor: pMain,
+                borderWidth: 2,
+                pointStyle: 'line',
+                lineTension: 0,
+            },{
+                label: 'max',
+                data: data[2],
+                fill: false,
+                borderColor: 'grey',
+                borderWidth: 2,
+                pointStyle: 'line',
+                lineTension: 0,
+            },{
+                label: 'min',
+                data: data[3],
+                fill: false,
+                borderColor: 'lightgrey',
+                borderWidth: 2,
+                pointStyle: 'line',
+                lineTension: 0,
+            }]
+        },
+        options: {
+            legend: {
+                display: true,
+                position: "right",
+                labels: {
+                    usePointStyle: true
+                }
+            },
+            elements: {
+                point: {
+                    radius: 0
+                }
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+            tooltips: {
+                mode: 'index'
+            },
+            scales: {
+                xAxes: [{
+                    gridLines: {
+                        display: false,
+                    },
+                    ticks: {
+                        autoSkip: true,
+                        maxRotation: 0,
+                        autoSkipPadding: 20
+                    }
+                }],
+                yAxes: [{
+                    position: 'left',
                     type: 'linear',
                     scaleLabel: {
                         display: true,
-                        labelString: '⎯⎯ Velocity (mm/s)',
-                        fontColor: sMain
+                        labelString: 'Velocity (mm/s)',
                     }
                 }]
             }

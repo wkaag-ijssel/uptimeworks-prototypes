@@ -23,20 +23,22 @@
         <div class="col-md-2">
             <div class="vertical-menu" style='position: fixed;'>
                 <p>GENERAL</p>
-                    <a class="active" href="#">Homepage</a>
+                    <a  href="index-v2.html">Homepage</a>
                 <p>MAINTENANCE ACTIVITY</p>
                     <a  href="work-performance.html">Work</a>
                     <a  href="devices.html">Devices</a>
                 <p>ASSET CONDITION</p>
                     <a  href="reports.html">Reports</a>
+                    <a  href="trends.html">Trends</a>
+                    <a  class="active" href="#">Vibration</a>     
                     <!-- <a  href="alarms.html">Measurements</a>                 -->
             </div>
         </div>
         <div class="col-md-10">
             <div class="col-md-12 row">
                 <div class="col-md-10">
-                    <h3 id="dashboard-title">Homepage</h3>
-                    <p>Site</p>
+                    <h3 id="dashboard-title">Vibration</h3>
+                    <p>Site > Asset Condition > Vibration</p>
                 </div>
             </div>
 
@@ -44,10 +46,10 @@
             <div class="col-md-12 row">
 
                 <!-- item 1-->
-                <div class="dashboard-item col-md-4">
+                <div class="dashboard-item col-md-8">
                     <div class="dashboard-content">
                         <div class="title">
-                            <label><h6>Alarm Status</h6></label>
+                            <label><h6>Site Condition based on Vibration Alarms</h6></label>
                             <!-- <select>
                                 <option value="day">7 Days</option>
                                 <option value="week">30 Days</option>
@@ -62,9 +64,23 @@
                             <p class="underline">% of Healthy Assets based on Vibration</p>
                         </div>
                         <div class="col-md-12 row">
-                            <!-- <div class="col-md-6">   -->
-                            <div class="chart">
-                                <canvas id="alarmStatus"></canvas>
+                            <div class="col-md-4">  
+                                <div class="chart">
+                                    <canvas id="todayStatus"></canvas>
+                                </div>
+                                <p style="text-align: center;">Today</p>
+                            </div>
+                            <div class="col-md-4">  
+                                <div class="chart">
+                                    <canvas id="monthStatus"></canvas>
+                                </div>
+                                <p style="text-align: center;">Last Month</p>
+                            </div>
+                            <div class="col-md-4">  
+                                <div class="chart">
+                                    <canvas id="threeMonthStatus"></canvas>
+                                </div>
+                                <p style="text-align: center;">Last 3 Months</p>
                             </div>
                         </div>
                     </div>
@@ -74,12 +90,11 @@
                 <div class="dashboard-item col-md-4">
                     <div class="dashboard-content">
                         <div class="title">
-                            <label><h6>Report Status</h6></label>
-                            <!-- <select>
-                                <option value="day">7 Days</option>
-                                <option value="week">30 Days</option>
-                                <option value="month">90 Days</option>
-                            </select> -->
+                            <select>
+                                <option value="day">Acceleration</option>
+                                <option value="week">Velocity</option>
+                            </select>
+                            <label><h6> Statistics</h6></label>
                             <span data-title="Work order compliance as a percentage of the completed work against the not completed work.">
                                 <svg class="help" xmlns="http://www.w3.org/2000/svg" height="18" fill="lightgrey" viewBox="0 0 24 24" width="18">
                                     <path d="M0 0h24v24H0z" fill="none"/>
@@ -90,57 +105,60 @@
                         </div>
                         <div class="col-md-12 row">
                             <!-- <div class="col-md-6">   -->
-                            <div class="chart">
-                                <canvas id="reportStatus"></canvas>
+                            <div class="col-md-3">
+                                <p>test</p>
+                            </div>
+                            <div class="col-md-3">
+                                <p>mean</p>
+                            </div>
+                            <div class="col-md-3">
+                                <p>max</p>
+                            </div>                            
+                            <div class="col-md-3">
+                                <p>min</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-12 row"> 
-                <div class="dashboard-item col-md-11">
+                <div class="dashboard-item col-md-6">
                     <div class="dashboard-content">
                         <div class="title">
-                            <select>
-                                <option value="day">Mean</option>
-                                <option value="week">Min/Max</option>
-                            </select>
-                            <label><h6> Acceleration and Velocity per Day</h6></label>
+                            <label><h6>Acceleration Level per Day</h6></label>
                             <span data-title="Asset health as the nr. of assets with a report against the nr. of assets without.">
                                 <svg class="help" xmlns="http://www.w3.org/2000/svg" height="18" fill="lightgrey" viewBox="0 0 24 24" width="18">
                                     <path d="M0 0h24v24H0z" fill="none"/>
                                     <path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/>
                                 </svg>
                             </span>
-                            <p class="underline">Since 1st of November 2020</p>
+                            <p class="underline">Based on all vibration measurements on the site</p>
                         </div>
                         <div class="row">
                             <div class="col-md-12"> 
                                 <div class="chart" style="height: 240px;">
-                                    <canvas id="transactionSumChart"></canvas>
+                                    <canvas id="accelerationChart"></canvas>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-12 row"> 
-                <div class="dashboard-item col-md-11">
+                <div class="dashboard-item col-md-6">
                     <div class="dashboard-content">
                         <div class="title">
-                            <label><h6> Reported Incidents between {date} and {date}</h6></label>
+                            <label><h6>Velocity Level per Day</h6></label>
                             <span data-title="Asset health as the nr. of assets with a report against the nr. of assets without.">
                                 <svg class="help" xmlns="http://www.w3.org/2000/svg" height="18" fill="lightgrey" viewBox="0 0 24 24" width="18">
                                     <path d="M0 0h24v24H0z" fill="none"/>
                                     <path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/>
                                 </svg>
                             </span>
-                            <p class="underline">Since 1st of November 2020</p>
+                            <p class="underline">Based on all vibration measurements on the site</p>
                         </div>
                         <div class="row">
                             <div class="col-md-12"> 
                                 <div class="chart" style="height: 240px;">
-                                    <canvas id="reportChar"></canvas>
+                                    <canvas id="velocityChart"></canvas>
                                 </div>
                             </div>
                         </div>

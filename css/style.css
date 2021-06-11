@@ -406,20 +406,26 @@ let normal = "#00c853";
     lvl_4  = "#ff6f00"; */
 
 .q1 {
-  color: #ff6f00!important;
+  background-color: #ff6f00!important;
+  fill: #ff6f00!important;
 }
 .q2 {
-  color: #ffab00!important;
+  background-color: #ffab00!important;
+  fill: #ffab00!important;
 }
 .q3 {
-  color: #ffc400!important;
+  background-color: #ffc400!important;
+  fill: #ffc400!important;
 }
 .q4 {
-  color: #534bae!important;
+  background-color: #534bae!important;
+  fill:#534bae!important;
 }
 .q5 {
-  color: #1a237e!important;
+  background-color: #1a237e!important;
+  fill:  #1a237e!important;
 }
 .q6 {
-  color: #000051!important;
+  background-color: #000051!important;
+  fill: #000051!important;
 }
