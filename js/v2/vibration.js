@@ -447,7 +447,7 @@ let accChartPromise = new Promise((resolve) => {
                     type: 'linear',
                     scaleLabel: {
                         display: true,
-                        labelString: 'Accelaration (g RMS)',
+                        labelString: 'g RMS',
                     },
                     ticks: {
                         beginAtZero: true,
@@ -562,10 +562,160 @@ let velChartPromise = new Promise((resolve) => {
                     type: 'linear',
                     scaleLabel: {
                         display: true,
-                        labelString: 'Velocity (mm/s)',
+                        labelString: 'mm/s',
                     }
                 }]
             }
         }
     }); 
 })
+
+let badActorsPromise = new Promise((resolve) => {
+    const labels = ['Asset 1', 'Asset 2', 'Asset 3', 'Asset 4', 'Asset 5'];
+    const data = [0.1, 0.18, 0.22, 0.25, .4];
+
+    resolve([data, labels]);
+}).then(data => {
+    let ctx5 = document.getElementById('badActorsChart').getContext('2d');
+    let chart5 = new Chart(ctx5, {
+        type: 'horizontalBar',
+        data: { 
+            labels: data[1], //Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40)),
+            datasets: [{
+                data: data[0],
+                barPercentage: 0.5,
+                barThickness: 6,
+                maxBarThickness: 8,
+                minBarLength: 2,
+                backgroundColor: pMain
+            }]
+        },
+        options: {
+            legend: {
+                display: false,
+                position: "right",
+                labels: {
+                    usePointStyle: true
+                }
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+            tooltips: {
+                mode: 'index'
+            },
+            scales: {
+                xAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                    },
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'g RMS',
+                    }
+                }],
+            },
+        },
+    }); 
+})
+
+//Chart 7: Transaction costs 
+// let facilityPromise = new Promise((resolve) => {
+//     // Usage
+//     const getDateLabels = () => {
+//         // Returns an array of dates between the two dates
+//         let getDates = (startDate, endDate) => {
+//             var dates = [],
+//                 currentDate = startDate,
+//                 addDays = function(days) {
+//                 var date = new Date(this.valueOf());
+//                 date.setDate(date.getDate() + days);
+//                 return date;
+//                 };
+//             while (currentDate <= endDate) {
+//             dates.push(currentDate);
+//             currentDate = addDays.call(currentDate, 1);
+//             }
+//             return dates;
+//         };
+
+//         let dates = getDates(new Date("1 May 2021"), new Date("14 Jun 2021"));  
+//         let labels = dates;
+//         labels.forEach((test, index) => {
+//             let month = test.getMonth() + 1;
+//             let day = test.getDate();
+//             labels[index] = day + '-' + month + '-2021';
+//         });
+//         return labels
+//     }
+
+//     let date = getDateLabels();
+//     let avg = Array.from({length: date.length}, () => Math.floor((Math.random()*10)+ 10));
+//     let max = Array.from({length: date.length}, () => Math.floor((Math.random()*10)+ 20));
+//     let min = Array.from({length: date.length}, () => Math.floor((Math.random()*10)));
+
+//     resolve([date, avg, max, min]);
+// }).then(data => {
+//     let ctx6 = document.getElementById('facilityChart').getContext('2d');
+//     let chart6 = new Chart(ctx6, {
+//         type: 'line',
+//         data: { 
+//             labels: data[0], //Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40)),
+//             datasets: [{
+//                 label: 'Site',
+//                 data: data[1],
+//                 fill: false,
+//                 borderColor: 'grey',
+//                 borderWidth: 2,
+//                 pointStyle: 'line',
+//                 lineTension: 0,
+//             },{
+//                 label: 'Facility Y',
+//                 data: data[2],
+//                 fill: false,
+//                 borderColor: sMain,
+//                 borderWidth: 2,
+//                 pointStyle: 'line',
+//                 lineTension: 0,
+//             }]
+//         },
+//         options: {
+//             legend: {
+//                 display: true,
+//                 position: "right",
+//                 labels: {
+//                     usePointStyle: true
+//                 }
+//             },
+//             elements: {
+//                 point: {
+//                     radius: 0
+//                 }
+//             },
+//             responsive: true,
+//             maintainAspectRatio: false,
+//             tooltips: {
+//                 mode: 'index'
+//             },
+//             scales: {
+//                 xAxes: [{
+//                     gridLines: {
+//                         display: false,
+//                     },
+//                     ticks: {
+//                         autoSkip: true,
+//                         maxRotation: 0,
+//                         autoSkipPadding: 20
+//                     }
+//                 }],
+//                 yAxes: [{
+//                     position: 'left',
+//                     type: 'linear',
+//                     scaleLabel: {
+//                         display: true,
+//                         labelString: 'mm/s',
+//                     }
+//                 }]
+//             }
+//         }
+//     }); 
+// })
