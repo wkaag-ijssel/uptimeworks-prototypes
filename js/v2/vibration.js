@@ -1,146 +1,19 @@
 // Color scheme
-let pMain  = "#1a237e";
+const pMain  = "#1a237e";
     pLight = "#534bae";
     pDark  = "#000051";
     sMain  = "#ffab00";
     sLight = "#ffdd4b";
     sDark  = "#c67c00";
 
-let normal = "#00c853";
+const normal = "#00c853";
     lvl_1  = "#ffd740";
     lvl_2  = "#ffc400";
     lvl_3  = "#ffab00";
     lvl_4  = "#ff6f00";
 
 // Job compliance
-let date_range = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
-// Event listeners
-// document.getElementById('button-work-performance').addEventListener('click', function(event){ window.location.href = "work-performance.html"});
-// document.getElementById('button-finance-summary').addEventListener('click', function(event){ window.location.href = "financial.html"})
-// document.getElementById('button-alarms').addEventListener('click', function(event){ window.location.href = "alarms.html"});
-// document.getElementById('button-reports').addEventListener('click', function(event){ window.location.href = "reports.html"});
- 
-// Labels
-// let date_range = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'September', 'October', 'November', 'December'];
-// let date_range = [];
-// for(let i = 0; i<52; i += 1){
-//     date_range[i] = i+1;
-// };
-let past = .75
-let future = 1 - past
-
-// Dummy data
-let workorders = Array.from({length: date_range.length * past}, () => Math.floor(Math.random() * 40) + 30);
-let readings = Array.from({length: date_range.length * past}, () => Math.floor(Math.random() * 300) + 700);
-let reports = Array.from({length: date_range.length * past}, () => Math.floor(Math.random() * 10) + 25);
-let totalCosts = Array.from({length: date_range.length * past}, () => Math.floor(Math.random() * 30));
-let data = [workorders, readings, reports, totalCosts]
-
-// Dummy thresholds / references
-let _workorders = workorders.concat(Array.from({length: date_range.length * future}, () => Math.floor(Math.random() * 40)));
-let _readings = readings.concat(Array.from({length: date_range.length * future}, () => 30));
-let _reports = reports.concat(Array.from({length: date_range.length * future}, () => Math.floor(Math.random() * 20)));
-
-// Workorder data
-let workorders_data = [{
-    label: 'total',
-    data: workorders,
-    fill: false,
-    borderColor: pMain,
-    backgroundColor: pMain,
-    order: 1
-},{
-    label: "total",
-    type: 'line',
-    // steppedLine: 'middle',
-    fill: false,
-    borderColor: pLight,
-    borderDash: [5,2],
-    data: _workorders,
-    order: 2
-},{
-    label: 'lubrication',
-    data: readings,
-    fill: false,
-    borderColor: pMain,
-    backgroundColor: pMain,
-    order: 1
-},{
-    label: "lubrication",
-    type: 'line',
-    // steppedLine: 'middle',
-    fill: false,
-    borderColor: pLight,
-    borderDash: [5,2],
-    data: _readings,
-    order: 2
-},{
-    label: 'Inspection',
-    data: reports,
-    fill: false,
-    borderColor: pMain,
-    backgroundColor: pMain,
-    order: 1
-},{
-    label: "Inspection",
-    type: 'line',
-    // steppedLine: 'middle',
-    fill: false,
-    borderColor: pLight,
-    borderDash: [5,2],
-    data: _reports,
-    order: 2
-},];
-
-// 
-let readings_data = [{
-    label: 'n. of workorders',
-    data: readings,
-    fill: false,
-    borderColor: pMain,
-    backgroundColor: pMain,
-    order: 1
-},{
-    label: "Last year",
-    type: 'line',
-    // steppedLine: 'middle',
-    fill: false,
-    borderColor: pLight,
-    borderDash: [5,2],
-    data: _readings,
-    order: 2
-},];
-
-let reports_data = [{
-    label: 'n. of workorders',
-    data: reports,
-    fill: false,
-    borderColor: pMain,
-    backgroundColor: pMain,
-    order: 1
-},{
-    label: "Last year",
-    type: 'line',
-    // steppedLine: 'middle',
-    fill: false,
-    borderColor: pLight,
-    borderDash: [5,2],
-    data: _reports,
-    order: 2
-},]
-
-let ref = [_workorders, _readings, _reports]; 
-let tabs = document.getElementsByClassName('tablinks');
-let dataMetric = document.getElementsByClassName('tab-metric');
-let dataDiff = document.getElementsByClassName('percentage-value');
-
-// Initialize line graph
-for (i = 0; i<dataMetric.length; i++) {
-    let dataSum = data[i].reduce((a, b) => a + b, 0);
-    dataMetric[i].innerHTML += dataSum;
-}
-
+const date_range = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 Chart.defaults.doughnut.cutoutPercentage  = 0.7;
 Chart.pluginService.register({
@@ -243,7 +116,7 @@ var myDoughnutChart = new Chart(ctx1, {
             'Normal',
             'Warning',
             'Alarm',
-            'Unknown'
+            'No threshold/measurement'
         ]
     },
     options: {
@@ -271,17 +144,16 @@ var myDoughnutChart = new Chart(ctx2, {
     type: 'doughnut',
     data: {
         datasets: [{
-            data: [85, 2, 3, 3, 7],
+            data: [75, 10, 10,5],
             backgroundColor: [
-                pMain, lvl_1, lvl_2, lvl_3, lvl_4
+                pMain, lvl_3, lvl_4
             ]
         }],
         labels: [
             'Normal',
-            'Lvl_1',
-            'Lvl_2',
-            'Lvl_3',
-            'Lvl_4'
+            'Warning',
+            'Alarm',
+            'No threshold/measurement'
         ]
     },
     options: {
@@ -293,7 +165,7 @@ var myDoughnutChart = new Chart(ctx2, {
         },
         elements: {
             center: {
-                text: '85%',
+                text: '75%',
                 fontStyle: 'Arial', 
                 sidePadding: 50,    
                 minFontSize: 10,    
@@ -309,17 +181,16 @@ var myDoughnutChart = new Chart(ctx3, {
     type: 'doughnut',
     data: {
         datasets: [{
-            data: [85, 2, 3, 3, 7],
+            data: [95, 1, 3, 1],
             backgroundColor: [
-                pMain, lvl_1, lvl_2, lvl_3, lvl_4
+                pMain, lvl_3, lvl_4
             ]
         }],
         labels: [
             'Normal',
-            'Lvl_1',
-            'Lvl_2',
-            'Lvl_3',
-            'Lvl_4'
+            'Warning',
+            'Alarm',
+            'No thres./mes.'
         ]
     },
     options: {
@@ -331,7 +202,7 @@ var myDoughnutChart = new Chart(ctx3, {
         },
         elements: {
             center: {
-                text: '85%',
+                text: '95%',
                 fontStyle: 'Arial', 
                 sidePadding: 50,    
                 minFontSize: 10,    
@@ -570,7 +441,7 @@ let velChartPromise = new Promise((resolve) => {
     }); 
 })
 
-let badActorsPromise = new Promise((resolve) => {
+new Promise((resolve) => {
     const labels = ['Asset 1', 'Asset 2', 'Asset 3', 'Asset 4', 'Asset 5'];
     const data = [0.1, 0.18, 0.22, 0.25, .4];
 
@@ -617,105 +488,3 @@ let badActorsPromise = new Promise((resolve) => {
         },
     }); 
 })
-
-//Chart 7: Transaction costs 
-// let facilityPromise = new Promise((resolve) => {
-//     // Usage
-//     const getDateLabels = () => {
-//         // Returns an array of dates between the two dates
-//         let getDates = (startDate, endDate) => {
-//             var dates = [],
-//                 currentDate = startDate,
-//                 addDays = function(days) {
-//                 var date = new Date(this.valueOf());
-//                 date.setDate(date.getDate() + days);
-//                 return date;
-//                 };
-//             while (currentDate <= endDate) {
-//             dates.push(currentDate);
-//             currentDate = addDays.call(currentDate, 1);
-//             }
-//             return dates;
-//         };
-
-//         let dates = getDates(new Date("1 May 2021"), new Date("14 Jun 2021"));  
-//         let labels = dates;
-//         labels.forEach((test, index) => {
-//             let month = test.getMonth() + 1;
-//             let day = test.getDate();
-//             labels[index] = day + '-' + month + '-2021';
-//         });
-//         return labels
-//     }
-
-//     let date = getDateLabels();
-//     let avg = Array.from({length: date.length}, () => Math.floor((Math.random()*10)+ 10));
-//     let max = Array.from({length: date.length}, () => Math.floor((Math.random()*10)+ 20));
-//     let min = Array.from({length: date.length}, () => Math.floor((Math.random()*10)));
-
-//     resolve([date, avg, max, min]);
-// }).then(data => {
-//     let ctx6 = document.getElementById('facilityChart').getContext('2d');
-//     let chart6 = new Chart(ctx6, {
-//         type: 'line',
-//         data: { 
-//             labels: data[0], //Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40)),
-//             datasets: [{
-//                 label: 'Site',
-//                 data: data[1],
-//                 fill: false,
-//                 borderColor: 'grey',
-//                 borderWidth: 2,
-//                 pointStyle: 'line',
-//                 lineTension: 0,
-//             },{
-//                 label: 'Facility Y',
-//                 data: data[2],
-//                 fill: false,
-//                 borderColor: sMain,
-//                 borderWidth: 2,
-//                 pointStyle: 'line',
-//                 lineTension: 0,
-//             }]
-//         },
-//         options: {
-//             legend: {
-//                 display: true,
-//                 position: "right",
-//                 labels: {
-//                     usePointStyle: true
-//                 }
-//             },
-//             elements: {
-//                 point: {
-//                     radius: 0
-//                 }
-//             },
-//             responsive: true,
-//             maintainAspectRatio: false,
-//             tooltips: {
-//                 mode: 'index'
-//             },
-//             scales: {
-//                 xAxes: [{
-//                     gridLines: {
-//                         display: false,
-//                     },
-//                     ticks: {
-//                         autoSkip: true,
-//                         maxRotation: 0,
-//                         autoSkipPadding: 20
-//                     }
-//                 }],
-//                 yAxes: [{
-//                     position: 'left',
-//                     type: 'linear',
-//                     scaleLabel: {
-//                         display: true,
-//                         labelString: 'mm/s',
-//                     }
-//                 }]
-//             }
-//         }
-//     }); 
-// })

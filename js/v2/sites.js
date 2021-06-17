@@ -13,7 +13,7 @@ const normal = "#00c853";
       lvl_4  = "#ff6f00";
 
 // Job compliance
-const date_range = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const date_range = ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec','Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
 
 // Issued Reports over Time
 new Promise((resolve) => {
@@ -35,41 +35,56 @@ new Promise((resolve) => {
                 data: data[1],
                 fill: false,
                 borderColor: 'lightgrey',
+                backgroundColor: 'lightgrey',
                 borderWidth: 2,
                 pointStyle: 'line',
-                lineTension: 0
+                lineTension: 0,
+                pointHoverBackgroundColor: 'rgba(0, 0, 0, 0)',
+                pointHoverBorderColor: 'rgba(0, 0, 0, 0)',
             },{
                 label: 'this site',
                 data: data[2],
                 fill: false,
                 borderColor: sMain,
+                backgroundColor: sMain,
                 borderWidth: 2,
                 pointStyle: 'line',
-                lineTension: 0
+                lineTension: 0,
+                pointHoverBackgroundColor: 'rgba(0, 0, 0, 0)',
+                pointHoverBorderColor: 'rgba(0, 0, 0, 0)',
             },{
                 label: 'site B',
                 data: data[3],
                 fill: false,
                 borderColor: pMain,
+                backgroundColor: pMain,
                 borderWidth: 2,
                 pointStyle: 'line',
-                lineTension: 0
+                lineTension: 0,
+                pointHoverBackgroundColor: 'rgba(0, 0, 0, 0)',
+                pointHoverBorderColor: 'rgba(0, 0, 0, 0)',
             },{
                 label: 'site C',
                 data: data[4],
                 fill: false,
                 borderColor: pMain,
+                backgroundColor: pMain,
                 borderWidth: 2,
                 pointStyle: 'line',
-                lineTension: 0
+                lineTension: 0,
+                pointHoverBackgroundColor: 'rgba(0, 0, 0, 0)',
+                pointHoverBorderColor: 'rgba(0, 0, 0, 0)',
             },{
                 label: 'site D',
                 data: data[5],
                 fill: false,
                 borderColor: pMain,
+                backgroundColor: pMain,
                 borderWidth: 2,
                 pointStyle: 'line',
-                lineTension: 0
+                lineTension: 0,
+                pointHoverBackgroundColor: 'rgba(0, 0, 0, 0)',
+                pointHoverBorderColor: 'rgba(0, 0, 0, 0)',
             }]
         },
         options: {
@@ -222,41 +237,56 @@ new Promise((resolve) => {
                 data: data[1],
                 fill: false,
                 borderColor: 'lightgrey',
+                backgroundColor: 'lightgrey',
                 borderWidth: 2,
                 pointStyle: 'line',
-                lineTension: 0
+                lineTension: 0,
+                pointHoverBackgroundColor: 'rgba(0, 0, 0, 0)',
+                pointHoverBorderColor: 'rgba(0, 0, 0, 0)',
             },{
                 label: 'this site',
                 data: data[2],
                 fill: false,
                 borderColor: sMain,
+                backgroundColor: sMain,
                 borderWidth: 2,
                 pointStyle: 'line',
-                lineTension: 0
+                lineTension: 0,
+                pointHoverBackgroundColor: 'rgba(0, 0, 0, 0)',
+                pointHoverBorderColor: 'rgba(0, 0, 0, 0)',
             },{
                 label: 'site B',
                 data: data[3],
                 fill: false,
                 borderColor: pMain,
+                backgroundColor: pMain,
                 borderWidth: 2,
                 pointStyle: 'line',
-                lineTension: 0
+                lineTension: 0,
+                pointHoverBackgroundColor: 'rgba(0, 0, 0, 0)',
+                pointHoverBorderColor: 'rgba(0, 0, 0, 0)',
             },{
                 label: 'site C',
                 data: data[4],
                 fill: false,
                 borderColor: pMain,
+                backgroundColor: pMain,
                 borderWidth: 2,
                 pointStyle: 'line',
-                lineTension: 0
+                lineTension: 0,
+                pointHoverBackgroundColor: 'rgba(0, 0, 0, 0)',
+                pointHoverBorderColor: 'rgba(0, 0, 0, 0)',
             },{
                 label: 'site D',
                 data: data[5],
                 fill: false,
                 borderColor: pMain,
+                backgroundColor: pMain,
                 borderWidth: 2,
                 pointStyle: 'line',
-                lineTension: 0
+                lineTension: 0,
+                pointHoverBackgroundColor: 'rgba(0, 0, 0, 0)',
+                pointHoverBorderColor: 'rgba(0, 0, 0, 0)',
             }]
         },
         options: {
@@ -360,41 +390,56 @@ new Promise((resolve) => {
                 data: data[1],
                 fill: false,
                 borderColor: 'lightgrey',
+                backgroundColor: 'lightgrey',
                 borderWidth: 2,
                 pointStyle: 'line',
-                lineTension: 0
+                lineTension: 0,
+                pointHoverBackgroundColor: 'rgba(0, 0, 0, 0)',
+                pointHoverBorderColor: 'rgba(0, 0, 0, 0)',
             },{
                 label: 'this site',
                 data: data[2],
                 fill: false,
                 borderColor: sMain,
+                backgroundColor: sMain,
                 borderWidth: 2,
                 pointStyle: 'line',
-                lineTension: 0
+                lineTension: 0,
+                pointHoverBackgroundColor: 'rgba(0, 0, 0, 0)',
+                pointHoverBorderColor: 'rgba(0, 0, 0, 0)',
             },{
                 label: 'site B',
                 data: data[3],
                 fill: false,
                 borderColor: pMain,
+                backgroundColor: pMain,
                 borderWidth: 2,
                 pointStyle: 'line',
-                lineTension: 0
+                lineTension: 0,
+                pointHoverBackgroundColor: 'rgba(0, 0, 0, 0)',
+                pointHoverBorderColor: 'rgba(0, 0, 0, 0)',
             },{
                 label: 'site C',
                 data: data[4],
                 fill: false,
                 borderColor: pMain,
+                backgroundColor: pMain,
                 borderWidth: 2,
                 pointStyle: 'line',
-                lineTension: 0
+                lineTension: 0,
+                pointHoverBackgroundColor: 'rgba(0, 0, 0, 0)',
+                pointHoverBorderColor: 'rgba(0, 0, 0, 0)',
             },{
                 label: 'site D',
                 data: data[5],
                 fill: false,
                 borderColor: pMain,
+                backgroundColor: pMain,
                 borderWidth: 2,
                 pointStyle: 'line',
-                lineTension: 0
+                lineTension: 0,
+                pointHoverBackgroundColor: 'rgba(0, 0, 0, 0)',
+                pointHoverBorderColor: 'rgba(0, 0, 0, 0)',
             }]
         },
         options: {
