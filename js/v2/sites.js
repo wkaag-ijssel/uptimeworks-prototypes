@@ -208,7 +208,7 @@ new Promise((resolve) => {
                         beginAtZero: true,
                     },
                     scaleLabel: {
-                        display: true,
+                        display: false,
                         labelString: 'Facilities',
                     }
                 }],

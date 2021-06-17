@@ -215,9 +215,7 @@ var myDoughnutChart = new Chart(ctx3, {
 
 
 const targetValue = 100
-
-//Chart 7: Transaction costs 
-let accChartPromise = new Promise((resolve) => {
+new Promise((resolve) => {
     // Usage
     const getDateLabels = () => {
         // Returns an array of dates between the two dates
@@ -330,9 +328,7 @@ let accChartPromise = new Promise((resolve) => {
     }); 
 })
 
-
-//Chart 7: Transaction costs 
-let velChartPromise = new Promise((resolve) => {
+new Promise((resolve) => {
     // Usage
     const getDateLabels = () => {
         // Returns an array of dates between the two dates
@@ -369,7 +365,7 @@ let velChartPromise = new Promise((resolve) => {
     resolve([date, avg, max, min]);
 }).then(data => {
     let ctx4 = document.getElementById('velocityChart').getContext('2d');
-    let chart4 = new Chart(ctx4, {
+    new Chart(ctx4, {
         type: 'line',
         data: { 
             labels: data[0], //Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40)),
@@ -442,13 +438,13 @@ let velChartPromise = new Promise((resolve) => {
 })
 
 new Promise((resolve) => {
-    const labels = ['Asset 1', 'Asset 2', 'Asset 3', 'Asset 4', 'Asset 5'];
-    const data = [0.1, 0.18, 0.22, 0.25, .4];
+    const labels = ['Mean', 'Asset 4', 'Asset 1', 'Asset 3', 'Asset 10', 'Asset 7'];
+    const data = [0.18, 0.6, 0.55, 0.42, .39, .385];
 
     resolve([data, labels]);
 }).then(data => {
     let ctx5 = document.getElementById('badActorsChart').getContext('2d');
-    let chart5 = new Chart(ctx5, {
+    new Chart(ctx5, {
         type: 'horizontalBar',
         data: { 
             labels: data[1], //Array.from({length: date_range.length}, () => Math.floor(Math.random() * 40)),
@@ -458,7 +454,7 @@ new Promise((resolve) => {
                 barThickness: 6,
                 maxBarThickness: 8,
                 minBarLength: 2,
-                backgroundColor: pMain
+                backgroundColor: [sMain, pMain, pMain, pMain, pMain, pMain]
             }]
         },
         options: {
