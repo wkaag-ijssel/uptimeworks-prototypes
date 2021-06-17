@@ -455,7 +455,7 @@ new Promise((resolve) => {
                 maxBarThickness: 8,
                 minBarLength: 2,
                 backgroundColor: [sMain, pMain, pMain, pMain, pMain, pMain]
-            }]
+            },]
         },
         options: {
             legend: {
