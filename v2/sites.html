@@ -77,7 +77,7 @@
                                 </svg>
                             </span>
                             <span title="Add to report" class="dashboard-icon-button" style=" border-left: 2px solid lightgrey;"><i class="far fa-file"></i></span>
-                            <p class="underline">Based on <b>C</b>ritical <b>R</b>eports and <b>A</b>sets <b>M</b>onitored</p>
+                            <p class="underline">Based on <b>C</b>ritical <b>R</b>eports and <b>A</b>ssets <b>M</b>onitored</p>
                         </div>
                         <div class="row">
                             <div class="col-md-12"> 
@@ -89,7 +89,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-12 row" style="margin-bottom: 20px;"> 
+            <div class="col-md-12 row"> 
                 <div class="dashboard-item col-md-4">
                     <div class="dashboard-content">
                         <div class="title">
@@ -134,6 +134,88 @@
                                 <div class="chart" style="height: 240px;">
                                     <canvas id="overallAccVelChart"></canvas>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-12 row" > 
+                <div class="dashboard-item col-md-12">
+                    <div class="dashboard-content">
+                        <div class="title">                    
+                            <label><h6>Percentage of Assets on Vibration</h6></label>
+                            <select>
+                                <option value="week">Normal</option>
+                                <option value="day">Alarm</option>
+                                <option value="week">Warning</option>
+                                <option value="week">Not Measured/No Threshold</option>
+                            </select>   
+                            <label><h6>Status</h6></label>
+
+                            <span title="Add to report" class="dashboard-icon-button" style=" border-left: 2px solid lightgrey;"><i class="far fa-file"></i></span>
+                            <p class="underline">Daily Vibration Status per Site</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12"> 
+                                <div class="chart" style="height: 240px;">
+                                    <canvas id="vibrationStatusChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 row" style="margin-bottom: 20px;">
+                <!-- item 1-->
+                <div class="dashboard-item col-md-12">
+                    <div class="dashboard-content">
+                        <div class="title">
+                            <label><h6>Site Condition based on Vibration Alarms</h6></label>
+                            <!-- <select>
+                                <option value="day">7 Days</option>
+                                <option value="week">30 Days</option>
+                                <option value="month">90 Days</option>
+                            </select> -->
+                            <span data-title="Work order compliance as a percentage of the completed work against the not completed work.">
+                                <svg class="help" xmlns="http://www.w3.org/2000/svg" height="18" fill="lightgrey" viewBox="0 0 24 24" width="18">
+                                    <path d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/>
+                                </svg>
+                            </span>
+                            <p class="underline">At this moment</p>
+                        </div>
+                        <div class="col-md-12 row">
+                            <div class="col-md-4">  
+                                <div class="chart">
+                                    <canvas id="thisSite"></canvas>
+                                </div>
+                                <p style="text-align: center;">This Site</p>
+                            </div>
+                            <div class="col-md-2">  
+                                <div class="chart">
+                                    <canvas id="otherSite1"></canvas>
+                                </div>
+                                <p style="text-align: center;">Site D</p>
+                            </div>
+                            <div class="col-md-2">  
+                                <div class="chart">
+                                    <canvas id="otherSite2"></canvas>
+                                </div>
+                                <p style="text-align: center;">Site A</p>
+                            </div>
+                            <div class="col-md-2">  
+                                <div class="chart">
+                                    <canvas id="otherSite3"></canvas>
+                                </div>
+                                <p style="text-align: center;">Site F</p>
+                            </div>
+                            <div class="col-md-2">  
+                                <div class="chart">
+                                    <canvas id="otherSite4"></canvas>
+                                </div>
+                                <p style="text-align: center;">Site P</p>
                             </div>
                         </div>
                     </div>
