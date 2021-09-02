@@ -6,7 +6,7 @@ let pMain  = "#1a237e";
     sLight = "#ffdd4b";
     sDark  = "#c67c00";
 
-let normal = "#00c853";
+const normal = "#008b00";
     lvl_1  = "#ffd740";
     lvl_2  = "#ffc400";
     lvl_3  = "#ffab00";
@@ -53,7 +53,7 @@ var myDoughnutChart = new Chart(ctx4, {
         datasets: [{
             data: [85, 2, 3, 3, 7],
             backgroundColor: [
-                pMain, lvl_1, lvl_2, lvl_3, lvl_4
+                normal, lvl_1, lvl_2, lvl_3, lvl_4
             ]
         }],
         labels: [

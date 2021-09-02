@@ -30,7 +30,7 @@
                     <a  href="devices.html">Devices</a>
                 <p>ASSET CONDITION</p>
                     <a  href="reports.html">Reports</a>
-                    <a  href="trends.html">Trends</a>
+                    <a  href="trends.html">Condition Monitoring</a>
                     <a  href="vibration.html">Vibration</a>                  
             </div>
         </div>
@@ -125,7 +125,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="title">
-                                    <label><h6>Asset Health by Actual Alarms</h6></label>
+                                    <label><h6>Asset Health by CdM Alarms</h6></label>
                                     <span data-title="Asset health as the nr. of alarms against the nr. of measurements labelled normal.">
                                         <svg class="help" xmlns="http://www.w3.org/2000/svg" height="18" fill="lightgrey" viewBox="0 0 24 24" width="18">
                                             <path d="M0 0h24v24H0z" fill="none"/>
@@ -226,7 +226,7 @@
                             <div class="col-md-7">
                                 <div class="tab tab-right">
                                     <button class="tablinks active" onclick="changeTab(event, chart1, readings_data)">
-                                        <h6 class="sub-title">Readings</h6>
+                                        <h6 class="sub-title">Active Components</h6>
                                         <p class="tab-metric"></p>
                                     </button>
                                     <button class="tablinks" onclick="changeTab(event, chart1, reports_data)">
@@ -265,7 +265,14 @@
                                 </svg>
                             </span>
                             <span title="Add to report" class="dashboard-icon-button" style=" border-left: 2px solid lightgrey;"><i class="far fa-file"></i></span>
-                            <p class="underline">Since 1st of November 2020</p>
+                            <div>
+                                <!-- <label><p class="underline"></p></label> -->
+                                <select class="underline">
+                                    <option value="day">Since the 1st of August 2021</option>
+                                    <option value="halfyear">Last 90 days</option>
+                                    <option value="year">Last 365 days</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12"> 

@@ -6,7 +6,7 @@ let pMain = "#1a237e"; //'rgb(26,35,126)';
     sLight = "#ffdd4b";
     sDark = "#c67c00";
 
-let normal = "#00c853";
+let normal = "#008b00";
     lvl_1  = "#ffd740";
     lvl_2  = "#ffc400";
     lvl_3  = "#ffab00";
@@ -94,26 +94,6 @@ function loadRow(table_id, data){
         newCell.className = "mdc-data-table__cell"
     }
 };
-
-// Load row
-// function loadRowWithColor(table_id, data){
-//     let tableRef = document.getElementById(table_id).getElementsByTagName('tbody')[0];
-//     let rowsCount = document.getElementById(table_id).rows[0].cells.length;
-
-//     // Insert a row in the table at the last row
-//     console.log(tableRef)
-//     let newRow   = tableRef.insertRow();
-//     newRow.className = "mdc-data-table__row";
-
-//     for(let i = 0; i < rowsCount; i++){
-//         let newCell  = newRow.insertCell(i);
-//         newCell.innerHTML = data[i][0];
-//         newCell.className = "mdc-data-table__cell"
-//         if (data[i][0] == 1) {
-//                 newCell.style = "background-color: " + pMain + "; color: " + pMain;
-//         }
-//     }
-// };
 
 //Ascending
 function sortTableAscending(col, id) {
@@ -273,7 +253,7 @@ var myDoughnutChart = new Chart(ctx4, {
         datasets: [{
             data: [65, 5, 10,20],
             backgroundColor: [
-                pMain, lvl_2, lvl_4
+                normal, lvl_2, lvl_4
             ]
         }],
         labels: [
@@ -396,7 +376,7 @@ let completedWorkChart = new Promise(resolve => {
         borderColor: 'white',
         borderWidth: 0,
         fill: true,
-        backgroundColor: pMain,
+        backgroundColor: normal,
         // steppedLine: 'middle',
         data: Array.from({length: labels.length}, () => Math.floor(Math.random()*10 + 100))
         // fill: '-1'

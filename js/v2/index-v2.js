@@ -6,27 +6,14 @@ let pMain  = "#1a237e";
     sLight = "#ffdd4b";
     sDark  = "#c67c00";
 
-let normal = "#00c853";
+let normal = "#008b00"; //"#00c853";
     lvl_1  = "#ffd740";
     lvl_2  = "#ffc400";
     lvl_3  = "#ffab00";
-    lvl_4  = "#ff6f00";
+    lvl_4  = "#DD2C00";
 
 // Job compliance
 let date_range = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
-// Event listeners
-// document.getElementById('button-work-performance').addEventListener('click', function(event){ window.location.href = "work-performance.html"});
-// document.getElementById('button-finance-summary').addEventListener('click', function(event){ window.location.href = "financial.html"})
-// document.getElementById('button-alarms').addEventListener('click', function(event){ window.location.href = "alarms.html"});
-// document.getElementById('button-reports').addEventListener('click', function(event){ window.location.href = "reports.html"});
- 
-// Labels
-// let date_range = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'September', 'October', 'November', 'December'];
-// let date_range = [];
-// for(let i = 0; i<52; i += 1){
-//     date_range[i] = i+1;
-// };
 let past = .75
 let future = 1 - past
 
@@ -236,7 +223,7 @@ var myDoughnutChart = new Chart(ctx4, {
         datasets: [{
             data: [65, 5, 10,10,10],
             backgroundColor: [
-                pMain, 'grey', 'lightgrey', lvl_2, lvl_4
+                normal, 'grey', 'lightgrey', lvl_3, lvl_4
             ]
         }],
         labels: [
@@ -274,7 +261,7 @@ var myDoughnutChart = new Chart(ctx2, {
         datasets: [{
             data: [85, 2, 3, 3, 7],
             backgroundColor: [
-                pMain, lvl_1, lvl_2, lvl_3, lvl_4
+                normal, lvl_1, lvl_2, lvl_3, lvl_4
             ]
         }],
         labels: [

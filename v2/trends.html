@@ -35,15 +35,15 @@
                     <a  href="devices.html">Devices</a>
                 <p>ASSET CONDITION</p>
                     <a  href="reports.html">Reports</a>
-                    <a  class="active" href="#">Trends</a>
+                    <a  class="active" href="#">Condition Monitoring</a>
                     <a  href="vibration.html">Vibration</a>                   
             </div>
         </div>
         <div class="col-md-10">
             <div class="col-md-12 row">
                 <div class="col-md-6">
-                    <h3 id="dashboard-title">Trends</h3>
-                    <p>Site > Asset Condition > Trends</p>
+                    <h3 id="dashboard-title">Condition Monitoring</h3>
+                    <p>Site > Asset Condition > Condition Monitoring</p>
                 </div>
                 <div class="col-md-6 dashboard-item">
                     <div class="row margin-top-10">
@@ -65,8 +65,8 @@
                 <div class="dashboard-item col-md-5">
                     <div class="dashboard-content">
                         <div class="title">
-                            <h6>Asset Health by Alarms </h6>
-                            <p class="underline">At this moment</p>
+                            <h6>Asset Health by CdM Alarms </h6>
+                            <p class="underline">Based on the current asset status</p>
                         </div>
                         <div class="col-md-12 row">
                             
@@ -105,7 +105,7 @@
                 <div class="dashboard-item col-md-12">
                     <div class="dashboard-content">
                         <div class="col-md-12 row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="tab tab-left">
                                     <button class="tablinks active" onclick="changeTab(event, 'uBridge')">
                                         <h6 class="sub-title">Total</h6>
@@ -127,6 +127,19 @@
                                         <h6 class="sub-title">Infrared</h6>
                                         <p class="tab-metric"></p>
                                     </button>
+                                </div>
+                            </div>
+                            <div class="col-md-6 dashboard-item">
+                                <div class="row margin-top-10">
+                                    <div id="datepicker-div" class="col-md-4">
+                                        <p id="datepicker-label"></p>
+                                    </div>
+                                    <div class="col-md-8" id="dashboard-functions">
+                                        <div range="past" id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+                                            <i class="fa fa-calendar"></i>&nbsp;
+                                            <span></span> <i class="fa fa-caret-down"></i>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -184,7 +197,6 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="../js/v2/trends.js"></script>
     <script src="../js/functions.js"></script>
-    <!-- <script src="js/datatable.js"></script> -->
     
     <script type="text/javascript">
         let cal = new CalHeatMap();
@@ -219,7 +231,21 @@
                             return moment(date).format("MMMM").toUpperCase();
                         },
                         subDomainTextFormat: "%d",
-                        legend: [20, 40, 60, 90, 95, 99]
+
+                        // NEW CODE
+                        legend: [20, 50, 80, 95],
+                        itemName: ["asset", "assets"],
+                        legendTitleFormat: {
+                            lower: "less than {min}% of the {name}",
+                            inner: "between {down}% and {up}% of the {name}",
+                            upper: "more than {max}% of the {name}"
+                        },
+                        tooltip: true,
+                        subDomainTitleFormat: {
+                            empty: "{date}",
+                            filled: "{count}% of the {name} had no alarms {connector} {date}",
+                        }
+                        // END OF NEW CODE
                     });
                 });
             })

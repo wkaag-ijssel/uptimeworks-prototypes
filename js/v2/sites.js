@@ -6,7 +6,7 @@ const pMain  = "#1a237e";
       sLight = "#ffdd4b";
       sDark  = "#c67c00";
 
-const normal = "#00c853";
+const normal = "#008b00";
       lvl_1  = "#ffd740";
       lvl_2  = "#ffc400";
       lvl_3  = "#ffab00";
@@ -771,7 +771,7 @@ var myDoughnutChart = new Chart(ctx1, {
         datasets: [{
             data: [65, 5, 10,20],
             backgroundColor: [
-                pMain, lvl_3, lvl_4
+                normal, lvl_3, lvl_4
             ]
         }],
         labels: [
@@ -808,7 +808,7 @@ var myDoughnutChart = new Chart(ctx2, {
         datasets: [{
             data: [75, 10, 10,5],
             backgroundColor: [
-                pMain, lvl_3, lvl_4
+                normal, lvl_3, lvl_4
             ]
         }],
         labels: [
@@ -845,7 +845,7 @@ var myDoughnutChart = new Chart(ctx3, {
         datasets: [{
             data: [95, 1, 3, 1],
             backgroundColor: [
-                pMain, lvl_3, lvl_4
+                normal, lvl_3, lvl_4
             ]
         }],
         labels: [
@@ -882,7 +882,7 @@ var myDoughnutChart = new Chart(ctx6, {
         datasets: [{
             data: [99, 1, 0, 0],
             backgroundColor: [
-                pMain, lvl_3, lvl_4
+                normal, lvl_3, lvl_4
             ]
         }],
         labels: [
@@ -918,7 +918,7 @@ var myDoughnutChart = new Chart(ctx8, {
         datasets: [{
             data: [65, 1, 30, 1],
             backgroundColor: [
-                pMain, lvl_3, lvl_4
+                normal, lvl_3, lvl_4
             ]
         }],
         labels: [
