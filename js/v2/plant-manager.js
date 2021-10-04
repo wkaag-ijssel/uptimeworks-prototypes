@@ -165,14 +165,13 @@ new Promise((resolve) => {
     statusOverviewElement.innerHTML += `
     <div class="branch-status-box" style="width: 150px; height: 150px;">
       <div class="branch-status-title">
-          <span data-title=${asset}><h6 class="text-with-dots">${asset}</h6></span>
+          <h6 title="${asset}" class="text-with-dots">${asset}</h6>
       </div>
       <div class="branch-status-chart" style="width: 100px; height: 100px;">
           <canvas id=${chartName}></canvas>
       </div>
     </div>`
   }
-
   resolve()
 }).then(() => {
   for (let i = 0; i < 5; i++ ) {
