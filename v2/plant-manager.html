@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+    <meta charset="utf-8">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/3d92c0de9b.js" crossorigin="anonymous"></script>
+
+        <!--Datapicker-->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+        <!--Google material design-->
+        <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet" />
+        <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    </head>
+
+    <body class="dashboard">
+        <div class="col-md-12 row">
+            <div class="col-md-2">
+                <div class="vertical-menu" style='position: fixed;'>
+                    <p>GENERAL</p>
+                        <a  href="index-v2.html">Homepage</a>
+                        <a  href="sites.html">Sites</a>
+                    <p>MAINTENANCE ACTIVITY</p>
+                        <a  href="work-performance.html">Work</a>
+                        <a  href="devices.html">Devices</a>
+                    <p>ASSET CONDITION</p>
+                        <a  href="reports.html">Reports</a>
+                        <a  href="trends.html">Condition Monitoring</a>
+                        <a  class="active" href="vibration.html">Vibration</a>
+                </div>
+            </div>
+            <div class="col-md-10">
+                <div class="col-md-12 row">
+                    <div class="col-md-10">
+                        <h3 id="dashboard-title">Plant Manager</h3>
+                        <p>Site > Asset Condition > Plant Manager</p>
+                    </div>
+                </div>
+
+                <!-- Row 3 -->
+                <div id="status-overview" class="col-md-12 row"></div>
+            </div>
+        </div>
+    </body>
+</html>
+
+<footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="../js/v2/plant-manager.js"></script>
+</footer>

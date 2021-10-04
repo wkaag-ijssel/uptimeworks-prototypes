@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/3d92c0de9b.js" crossorigin="anonymous"></script>
+
+    <!--Datapicker-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+    <!--Google material design-->
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet" />
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+</head>
+
+<body class="dashboard container">
+    <div class="row h-100">
+
+        <!-- MENU -->
+        <div id="dashboard-menu" class="col-md-2"></div>
+
+        <!-- CONTENT -->
+        <div class="col-md-10" style="margin-bottom: 20px;">
+            <div class="service-dashboard-item row">
+                <div class="col-md-12 row margin-bottom-30 uBridge" style="padding-right: 4px!important; display: block;">
+                    <div class="col-md-12" style="padding-left: 15px; padding-right: 0px!important;">
+                        <div class="mdc-data-table">
+                            <table id="uBridgeTable" class="mdc-data-table__table" aria-label="Devices list">
+                                <thead>
+                                    <tr class="mdc-data-table__header-row">
+                                        <th class="mdc-data-table__header-cell" role="columnheader" scope="col" ><b>Device</b></th>
+                                        <th class="mdc-data-table__header-cell hover-icon" role="columnheader" scope="col" data-sorted="no"><b>Company</b><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i></th>
+                                        <th class="mdc-data-table__header-cell hover-icon" role="columnheader" scope="col" data-sorted="no"><b>Site</b><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i></th>
+                                        <th class="mdc-data-table__header-cell hover-icon" role="columnheader" scope="col" data-sorted="no"><b>Serial Nr.</b><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i></th>
+                                        <th class="mdc-data-table__header-cell" role="columnheader" scope="col"><b>Readings</b></th>
+                                        <th class="mdc-data-table__header-cell" role="columnheader" scope="col"><b>Last reading</b></th>
+                                        <th class="mdc-data-table__header-cell" role="columnheader" scope="col"><b>Status</b></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="uBridgeTable-body" class="mdc-data-table__content">
+                                    <!-- Auto generated cells -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="device-pop-up" class="device-pop-up" style="visibility: hidden;">
+                <div class="device-pop-up-header">
+                    <label><h6 class="center" style="margin-bottom: 0px; padding: 0px 10px 0px 10px">Device #1</h6></label>
+                    <span title="Add to report" class="dashboard-icon-button" onclick="hideDevice()"><i class="fa fa-times"></i></span>
+                </div>
+                <div class="row" style="margin: 0px 0px 0px 0px">
+                    <div class="device-pop-up-menu col-md-3">
+                        <div class="device-pop-up-option">
+                            <p>General</p>
+                        </div>
+                        <div class="device-pop-up-option">
+                            <p>Settings</p>
+                        </div>
+                        <div class="device-pop-up-option">
+                            <p>Log</p>
+                        </div>
+                    </div>
+                    <div class="device-pop-up-content col-md-9">
+                        <div>
+                            <p>Content</p>
+                            <select>
+                                <option>test</option>
+                                <option>test</option>
+                                <option>test</option>
+                            </select>   
+                        </div>
+                        <div>
+                            <p>Content</p>
+                        </div>
+                        <p>Content</p>
+                    </div>
+                </div>
+                <div class="device-pop-up-footer">
+                    <label><h6 class="center" style="margin-bottom: 0px; padding: 0px 10px 0px 10px">Device #1</h6></label>
+                    <span title="Add to report" class="dashboard-icon-button" onclick="hideDevice()"><i class="fa fa-times"></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
+
+<footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="js/table.js"></script>
+    <script src="js/index-table.js"></script>
+</footer>

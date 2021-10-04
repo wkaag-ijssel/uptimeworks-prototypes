@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/3d92c0de9b.js" crossorigin="anonymous"></script>
+
+    <!--Datapicker-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+    <!--Google material design-->
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet" />
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+</head>
+
+<body class="dashboard container">
+    <div class="row h-100">
+        <div id="dashboard-menu" class="col-md-2"></div>
+        <div class="col-md-10" style="margin-bottom: 20px;">
+            <div class="service-dashboard-item row">
+                <div class="col-md-12 row margin-bottom-30 uBridge" style="padding-right: 4px!important; display: block;">
+                    <div class="col-md-12" style="padding-left: 15px; padding-right: 0px!important;">
+                        <div class="mdc-data-table">
+                            <table id="uBridgeTable" class="mdc-data-table__table" aria-label="Devices list">
+                                <thead>
+                                    <tr class="mdc-data-table__header-row">
+                                        <th class="mdc-data-table__header-cell" role="columnheader" scope="col" ><b>Company</b></th>
+                                        <th class="mdc-data-table__header-cell hover-icon" role="columnheader" scope="col" data-sorted="no"><b>uClip</b><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i></th>
+                                        <th class="mdc-data-table__header-cell hover-icon" role="columnheader" scope="col" data-sorted="no"><b>uBridge</b><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i></th>
+                                        <th class="mdc-data-table__header-cell hover-icon" role="columnheader" scope="col" data-sorted="no"><b>uMote</b><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i></th>
+                                        <th class="mdc-data-table__header-cell hover-icon" role="columnheader" scope="col" data-sorted="no"><b>uBlock</b><i class="material-icons mdc-button__icon" aria-hidden="true">arrow_upward</i></th>
+                                        <th class="mdc-data-table__header-cell" role="columnheader" scope="col"><b>uAnalyst</b></th>
+                                        <th class="mdc-data-table__header-cell" role="columnheader" scope="col"><b>uWorks</b></th>
+                                        <th class="mdc-data-table__header-cell" role="columnheader" scope="col"><b>uMobile</b></th>
+                                        <th class="mdc-data-table__header-cell" role="columnheader" scope="col"><b>uSurvey</b></th>
+                                        <th class="mdc-data-table__header-cell" role="columnheader" scope="col"><b>uMobile</b></th>
+                                        <th class="mdc-data-table__header-cell" role="columnheader" scope="col"><b>Vibr. assets</b></th>
+                                        <th class="mdc-data-table__header-cell" role="columnheader" scope="col"><b>Lub. assets</b></th>
+                                        <th class="mdc-data-table__header-cell" role="columnheader" scope="col"><b>Oil Lab</b></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="uBridgeTable-body" class="mdc-data-table__content">
+                                    <!-- Auto generated cells -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
+
+<footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="js/table.js"></script>
+    <script src="js/finance.js"></script>
+</footer>

@@ -17,68 +17,23 @@
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 </head>
+                                            
+<!-- <div style="margin-right: 20px;">
+    <p class="metric-title">Total</p>
+    <p>5.2 GB</p>
+    <p class="metric-title">Total</p>
+    <p>5.2 GB</p>
+</div>
+<div>
+    <p class="metric-title">Growth</p>
+    <p>5.2 GB</p>
+    <p class="metric-title">Total</p>
+    <p>5.2 GB</p>
+</div> -->
 
 <body class="dashboard container">
-    <div class="row">
-        <div id="dashboard-menu" class="col-md-2">
-            <div class="sticky-top">
-                <div class="menu-option">
-                    <a class="service-menu-tab" href="index.html"><b>Devices</b></a>
-                    <a class="service-menu-tab active" href="#/"><b>Usage</b></a>
-                    <a class="service-menu-tab" href="activity.html"><b>Activity</b></a>
-                </div>
-                <div class="menu-option">
-                    <div style="height: auto"> 
-                        <a title="site view" class="dashboard-menu-icon">
-                            <i class="fas fa-bars"></i>
-                        </a>
-                        <a title="table view" class="dashboard-menu-icon">
-                            <i class="fas fa-table"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="menu-option">
-                    <p class="menu-option-title">Sorting</p>
-                    <select id="service-period" name="service-period">
-                        <option value="live">Alphabetical</option>
-                        <option value="today">Failure First</option>
-                    </select>
-                </div>
-                <div class="menu-option">
-                    <p class="menu-option-title">Type of Device</p>
-                    <input type="checkbox" id="ubridge" name="ubridge" value="ubridge" checked>
-                    <label for="vehicle1"> uBridge</label><br>
-                    <input type="checkbox" id="umote" name="umote" value="umote" checked>
-                    <label for="vehicle2"> uMote</label><br>
-                    <input type="checkbox" id="other" name="other" value="other" checked>
-                    <label for="other"> Other</label><br>
-                </div>
-                <div class="menu-option">
-                    <p class="menu-option-title">Status</p>
-                    <input type="checkbox" id="active" name="active" value="active" checked>
-                    <label for="active"> Active</label><br>
-                    <input type="checkbox" id="inactive" name="inactive" value="inactive" checked>
-                    <label for="inactive"> Inactive</label><br>
-                    <input type="checkbox" id="failure" name="failure" value="failure" checked>
-                    <label for="failure"> Failure</label><br>
-                </div>
-                <div class="menu-option">
-                    <p class="menu-option-title">Companies</p>
-                    <input type="checkbox" id="tatasteel" name="tatasteel" value="tatasteel" checked>
-                    <label for="tatasteel"> Tata Steel</label><br>
-                    <input type="checkbox" id="centrient" name="centrient" value="centrient" checked>
-                    <label for="centrient"> Centrient</label><br>
-                    <input type="checkbox" id="bunge" name="bunge" value="bunge" checked>
-                    <label for="bunge"> Bunge</label><br>
-                    <input type="checkbox" id="rederij" name="rederij" value="rederij">
-                    <label for="rederij"> Rijksrederij</label><br>
-                    <input type="checkbox" id="heineken" name="heineken" value="heineken">
-                    <label for="heineken"> Heneiken</label><br>
-                    <input type="checkbox" id="solidus" name="solidus" value="solidus">
-                    <label for="solidus"> Solidus</label><br>
-                </div>
-            </div>
-        </div>
+    <div class="row h-100">
+        <div id="dashboard-menu" class="col-md-2"></div>
         <div class="col-md-10" style="margin-bottom: 20px;">
             <div class="service-dashboard-item row">
                 <div class="service-dashboard-content col-md-12">
@@ -89,29 +44,43 @@
                         <div class="service-dashboard-title">
                             <label><h6>Site #1</h6></label>
                         </div>
-                        <div class="service-devices row">
-                            <div class="col-md-2" style="display: flex; padding: 0px; bottom: 0px">
-                                <div style="margin-right: 20px;">
-                                    <p class="metric-title">Total</p>
-                                    <p>5.2 GB</p>
-                                    <p class="metric-title">Total</p>
-                                    <p>5.2 GB</p>
+                        <div class="service-devices">
+                            <div class="col-md-12 custom-row" style="padding-left: 0px;">
+                                <div class="service-site-content col-md-6 row" style="margin-right: 10px;">
+                                    <div class="service-dashboard-title" style="width: 100%">
+                                        <label><h6>Asset Health by </h6></label>
+                                        <select>
+                                            <option value="CdM">Condition Monitoring</option>
+                                            <option value="Reports">Reports</option>
+                                            <option value="Vibration">Vibration Only</option>
+                                        </select>
+                                        <label><h6> Alarms</h6></label>
+                                    </div>
+                                    <div class="col-md-4" style="padding: 0px; bottom: 0px">
+                                        <div class="chart" style="height: 140px;">
+                                            <canvas id="assetHealth"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="chart" style="width: 100%; height: 180px; float: right">
+                                            <canvas id="cloudChart"></canvas>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div>
-                                    <p class="metric-title">Growth</p>
-                                    <p>5.2 GB</p>
-                                    <p class="metric-title">Total</p>
-                                    <p>5.2 GB</p>
-                                </div>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="chart" style="width: 100%; height: 130px; float: right">
-                                    <canvas id="storageChart"></canvas>
-                                </div>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="chart" style="width: 100%; height: 130px; float: right">
-                                    <canvas id="cloudChart"></canvas>
+                                <div class="service-dashboard-content col-md-6 row" style="margin-left: 10px;">                            
+                                    <div class="service-dashboard-title" style="width: 100%">
+                                        <label><h6>Job Compliance</h6></label>
+                                    </div>
+                                    <div class="col-md-4" style="padding: 0px; bottom: 0px">    
+                                        <div class="chart" style="height: 140px;">
+                                            <canvas id="estimatedUptime"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="chart" style="width: 100%; height: 180px; float: right">
+                                            <canvas id="storageChart"></canvas>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

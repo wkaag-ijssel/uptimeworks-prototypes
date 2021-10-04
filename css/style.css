@@ -434,3 +434,46 @@ let normal = "#00c853";
 .subdomain-text {
   fill: white!important;
 }
+
+/**
+BEGIN STYLING PLANT-MANAGER EXAMPLE
+**/
+.branch-status-box {
+  /*Mdc layout*/
+  padding: 10px 10px 10px 10px;
+  background-color: white;
+  border-radius: 4px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(0,0,0,.12);
+  height: 100%;
+  cursor: pointer;
+  margin-right: 10px;
+  z-index: 900;
+  /* justify-content: center; */
+}
+
+.branch-status-box:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3); 
+}
+
+.branch-status-title {
+  text-align: center;
+  margin: 0px 10px 0px 10px;
+}
+
+.branch-status-chart {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.text-with-dots {
+  display: block;
+  max-width: 98%;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+}
+/**
+END STYLING PLANT-MANAGER EXAMPLE
+**/

@@ -1,19 +1,3 @@
-// Color scheme
-let pMain  = "#1a237e";
-    pLight = "#534bae";
-    pDark  = "#000051";
-    sMain  = "#ffab00";
-    sLight = "#ffdd4b";
-    sDark  = "#c67c00";
-
-let normal = "#00c853";
-    lvl_1  = "#ffd740";
-    lvl_2  = "#ffc400";
-    lvl_3  = "#ffab00";
-    lvl_4  = "#ff6f00";
-
-// Job compliance
-let date_range = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 //onload
 function createTable(table_id, table_body_id, row_data, nr_of_devices, chartname){
@@ -191,15 +175,3 @@ function sortTableDescending(col, table_id) {
         }
     }
 }
-const createuBridgeRow = () => {
-    let row = [
-        ['uBridgeFakeName' + Math.floor(Math.random() * 20).toString(), false],
-        [Math.floor(Math.random() * 2000), true],
-        [Math.floor(Math.random() * 50), true],
-        [Math.floor(Math.random() * 30), true],
-        ['2020-09-' + Math.floor(Math.random() * 30), false],
-        ['Asset ' + Math.floor(Math.random() * 10), false]
-    ];
-    return row
-};
-createTable('uBridgeTable', '#uBridgeTable-body', createuBridgeRow, 30);
