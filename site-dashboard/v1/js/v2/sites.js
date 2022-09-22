@@ -1,3 +1,5 @@
+import {MatMenuModule} from '@angular/material/menu';
+
 // Color scheme
 const pMain  = "#1a237e";
       pLight = "#534bae";

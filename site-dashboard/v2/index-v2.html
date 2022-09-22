@@ -16,6 +16,69 @@
     <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet" />
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+    <!-- Switch Toggle style -->
+    <style>
+        .switch {
+          position: relative;
+          display: inline-block;
+          width: 30px;
+          height: 17px;
+        }
+        
+        .switch input { 
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+        
+        .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #ccc;
+          -webkit-transition: .4s;
+          transition: .4s;
+        }
+        
+        .slider:before {
+          position: absolute;
+          content: "";
+          height: 13px;
+          width: 13px;
+          left: 2px;
+          bottom: 2px;
+          background-color: white;
+          -webkit-transition: .4s;
+          transition: .4s;
+        }
+        
+        input:checked + .slider {
+          background-color: #2196F3;
+        }
+        
+        input:focus + .slider {
+          box-shadow: 0 0 1px #2196F3;
+        }
+        
+        input:checked + .slider:before {
+          -webkit-transform: translateX(13px);
+          -ms-transform: translateX(13px);
+          transform: translateX(13px);
+        }
+        
+        /* Rounded sliders */
+        .slider.round {
+          border-radius: 17px;
+        }
+        
+        .slider.round:before {
+          border-radius: 50%;
+        }
+        </style>
 </head>
 
 <body class="dashboard">
@@ -45,44 +108,7 @@
             <!-- Row 1 -->
             <div class="col-md-12 row">
 
-                <!-- item 1 -->
-                <div class="dashboard-item col-md-4">
-                    <div class="dashboard-content">
-                        <div class="title">
-                            <h6>Assets Monitored</h6>                            
-                            <p class="underline">At this moment</p>
-                        
-                            <div class="row">
-                                <div class="summary-item col-md-6">
-                                    <p class="sub-title">Facilities</p>
-                                    <p class="value">4</p>
-                                </div>
-                                <div class="summary-item col-md-6">
-                                    <p class="sub-title">Machines</p>
-                                    <p class="value">30</p>
-                                </div>
-                                <div class="summary-item col-md-6">
-                                    <p class="sub-title">Components</p>
-                                    <p class="value">120</p>
-                                </div>
-                                <div class="summary-item col-md-6">
-                                    <p class="sub-title">Devices</p>
-                                    <p class="value">20</p>
-                                </div>
-                                <div class="summary-item col-md-6">
-                                    <p class="sub-title">Channels</p>
-                                    <p class="value">55</p>
-                                </div>
-                                <div class="summary-item col-md-6">
-                                    <p class="sub-title">Tasks</p>
-                                    <p class="value">340</p>
-                                </div>
-                            </div>
-                        </div> 
-                    </div>
-                </div>
-
-                <div class="dashboard-item col-md-8">
+                <div class="dashboard-item col-md-12">
                     <div class="dashboard-content">
                         <div class="row">
                             <div class="col-md-6">
@@ -97,13 +123,16 @@
                                     <p class="underline">In the last 30 days</p>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-7">  
+                                    <div class="col-md-8">  
                                         <div class="chart" style="height: 180px;">
                                             <canvas id="estimatedUptime"></canvas>
                                         </div>
                                     </div>
-                                    <div class="col-md-5">
-                                        <div class="margin-top-20">
+                                    <!-- <div class="col-md-3"> 
+                                        <div id="estimatedUptimeLegend" class="chart-legend"></div>
+                                    </div> -->
+                                    <div class="col-md-4">
+                                        <div class="">
                                             <p class="sub-title">Issued</p>
                                             <p class="value">3</p>
                                         </div>
@@ -133,22 +162,34 @@
                                         </svg>
                                     </span>
                                     <span title="Add to report" class="dashboard-icon-button" style=" border-left: 2px solid lightgrey;"><i class="far fa-file"></i></span>
+                                    <span title="Hide/show the assets with either no measurement or threshold set" style="
+                                    float: right; 
+                                    font-size:small;
+                                    color: darkgrey;
+                                    margin: 5px 5px 0 0;
+                                    padding-right: 5px;
+                                    padding-left: 5px;">Show Assets with 'No Status'&#160;<label class="switch"><input type="checkbox" checked><span class="slider round"></span></label></span>
                                     <p class="underline">At this moment</p>
                                 </div>  
                                 <div class="row">
-                                    <div class="col-md-7">  
+                                    <div class="col-md-8">  
                                         <div class="chart" style="height: 180px;">
                                             <canvas id="assetHealth"></canvas>
                                         </div>
                                     </div>
-                                    <div class="col-md-5">
-                                        <div class="margin-top-20">
-                                            <p class="sub-title">Measurements</p>
+                                    <div class="col-md-4">
+                                        <div class="">
+                                            <p class="sub-title">Active Assets</p>
                                             <p class="value">8329</p>
                                         </div>
 
                                         <div class="margin-top-20">
-                                            <p class="sub-title">Alarms</p>
+                                            <p class="sub-title">Measurements</p>
+                                            <p class="value">270</p>
+                                        </div>
+
+                                        <div class="margin-top-20">
+                                            <p class="sub-title">Assets with Alarms</p>
                                             <p class="value">270</p>
                                         </div>
                                     </div>
@@ -183,7 +224,7 @@
                         </div>
                         <div class="col-md-12 row">
                             <div class="col-md-6">  
-                                <div class="chart" style="height: 180px;">
+                                <div class="chart" style="height: 180px; width: 300px;">
                                     <canvas id="taskCompletion"></canvas>
                                 </div>
                             </div>
@@ -337,26 +378,42 @@
                 </div>
             </div>
 
-            <div class="col-md-12 row">
-                <!-- Item 1 -->
+            <div class="col-md-12 row">               
 
+                <!-- item 1 -->
                 <div class="dashboard-item col-md-5">
                     <div class="dashboard-content">
                         <div class="title">
-                            <label><h6>Action and Response Time per Report</h6></label>
-                            <span data-title="Response time is the time between 'issued' and 'completed'. Time to action is a report's advised max. number of days untill 'completed'.">
-                                <svg class="help" xmlns="http://www.w3.org/2000/svg" height="18" fill="lightgrey" viewBox="0 0 24 24" width="18">
-                                    <path d="M0 0h24v24H0z" fill="none"/>
-                                    <path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/>
-                                </svg>
-                            </span>
-                            <span title="Add to report" class="dashboard-icon-button" style=" border-left: 2px solid lightgrey;"><i class="far fa-file"></i></span>
-                            <p class="underline">In the last 30 days</p>
-                        </div>
-
-                        <div style="height: 270px; padding: 5px 25px 0px 15px;">
-                            <canvas id="adviceResponseChart"></canvas>
-                        </div>
+                            <h6>Assets Monitored</h6>                            
+                            <p class="underline">At this moment</p>
+                        
+                            <div class="row">
+                                <div class="summary-item col-md-6">
+                                    <p class="sub-title">Facilities</p>
+                                    <p class="value">4</p>
+                                </div>
+                                <div class="summary-item col-md-6">
+                                    <p class="sub-title">Machines</p>
+                                    <p class="value">30</p>
+                                </div>
+                                <div class="summary-item col-md-6">
+                                    <p class="sub-title">Components</p>
+                                    <p class="value">120</p>
+                                </div>
+                                <div class="summary-item col-md-6">
+                                    <p class="sub-title">Devices</p>
+                                    <p class="value">20</p>
+                                </div>
+                                <div class="summary-item col-md-6">
+                                    <p class="sub-title">Channels</p>
+                                    <p class="value">55</p>
+                                </div>
+                                <div class="summary-item col-md-6">
+                                    <p class="sub-title">Tasks</p>
+                                    <p class="value">340</p>
+                                </div>
+                            </div>
+                        </div> 
                     </div>
                 </div>
                 
@@ -382,6 +439,32 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="col-md-12 row">
+                
+                <!-- Item 1 -->
+
+                <div class="dashboard-item col-md-5">
+                    <div class="dashboard-content">
+                        <div class="title">
+                            <label><h6>Action and Response Time per Report</h6></label>
+                            <span data-title="Response time is the time between 'issued' and 'completed'. Time to action is a report's advised max. number of days untill 'completed'.">
+                                <svg class="help" xmlns="http://www.w3.org/2000/svg" height="18" fill="lightgrey" viewBox="0 0 24 24" width="18">
+                                    <path d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/>
+                                </svg>
+                            </span>
+                            <span title="Add to report" class="dashboard-icon-button" style=" border-left: 2px solid lightgrey;"><i class="far fa-file"></i></span>
+                            <p class="underline">In the last 30 days</p>
+                        </div>
+
+                        <div style="height: 270px; padding: 5px 25px 0px 15px;">
+                            <canvas id="adviceResponseChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

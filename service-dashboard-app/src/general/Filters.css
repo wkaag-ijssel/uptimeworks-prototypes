@@ -1,0 +1,39 @@
+/* Site dashboard icon-buttons */
+.dashboard-icon-button {
+    float: right;
+    color: darkgrey;
+    border: none;
+    background-color: white;
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+  
+  .dashboard-menu-icon {
+    color: darkgrey;
+    border: none;
+    background-color: white;
+    float: left;
+  }
+  
+  .dashboard-menu-icon:hover, .dashboard-icon-button:hover {
+    color: black;
+    cursor: pointer;
+  }
+  
+  .dashboard-menu-icon i, .dashboard-icon-button i {
+    background-color: white;
+    padding: 5px 7px;
+  }
+  
+  .dashboard-menu-icon i:hover, .dashboard-icon-button i:hover {
+    background-color: rgba(224, 224, 224, 0.5);
+    padding: 5px 7px;
+    border-radius: 2px;
+  }
+  
+  .dashboard-menu-icon i select, .dashboard-icon-button i select {
+    background-color:white;
+    color: black;
+    padding: 5px 7px;
+    border-radius: 2px;
+  }

@@ -1,0 +1,232 @@
+/* Begin Service Dashboard */
+a:hover {
+  color: black !important;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
+#dashboard-menu {
+  background-color: white;
+  padding: 0 0 0 0;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: rgba(0, 0, 0, 0.12);
+  font-size: small;
+  min-height: calc(100vh - 55px);
+}
+
+.menu-option {
+  padding: 20px 20px 20px 20px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: rgba(0, 0, 0, 0.12);
+}
+
+.menu-option-title {
+  font-weight: 700;
+  font-size: small;
+  margin-bottom: 10px;
+}
+
+.menu-option-sub-title {
+  font-weight: 500;
+  color: rgba(65, 65, 65);
+  margin-bottom: 3px;
+}
+
+.service-menu-tab {
+  margin-right: 15px;
+  font-size: small;
+  color: #c2c2c2;
+}
+
+.service-menu-tab.active {
+  color: black !important;
+}
+
+.service-dashboard-title {
+  padding: 15px 0px 0px 0px;
+  margin-bottom: 10px;
+  width: 100% !important;
+}
+
+.service-site-content {
+  margin-bottom: 10px;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  padding: 0px 20px 20px 20px;
+  background-color: white;
+  border-radius: 4px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.12);
+  height: 100% !important;
+}
+
+.metric-title {
+  font-weight: 700;
+  font-size: small;
+  margin-bottom: 5px;
+}
+
+.metric-stat {
+  margin-bottom: 0px;
+}
+
+.metric-indicator {
+  color: darkgrey;
+  font-size: small;
+  font-weight: 500;
+}
+
+.service-dashboard-content {
+  padding: 0px 30px 10px 30px !important;
+  margin-right: 0px !important;
+  background-color: white;
+  border-radius: 4px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.12);
+  height: 100%;
+}
+
+.service-dashboard-item {
+  padding: 20px 20px 0px 0px;
+}
+
+.service-device {
+  margin: 0 10px 10px 0px !important;
+  background-color: white;
+  border-radius: 4px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.12);
+  height: 100px;
+  width: 100px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.service-device:hover {
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.08);
+}
+
+.service-devices {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+.service-device-header {
+  background-color: lightgrey;
+  background-size: 100%;
+  color: white;
+  padding: 2px 5px 2px 5px !important;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.service-device-content {
+  padding: 2px 5px 2px 5px !important;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: rgba(0, 0, 0, 0.12);
+}
+
+.service-device-content h5 {
+  color: black;
+  font-size: 10px;
+  margin-bottom: 0px;
+}
+
+.service-device-content p {
+  margin: 5px;
+  font-size: 10px;
+  margin-bottom: 0px;
+}
+
+.service-device-content span {
+  font-size: 15px;
+  padding: 0px 2px 0px 2px;
+  margin-bottom: 0px;
+}
+
+.service-device-header h5 {
+  color: white;
+  font-size: 10px;
+  margin-bottom: 0px;
+}
+
+.api-status {
+  float: right;
+  padding: 3px 5px;
+  margin-left: 5px;
+  font-size: 10px;
+  font-weight: 600;
+  border: grey solid 1px;
+  border-radius: 3px;
+  background-color: lightgrey;
+  color: white;
+}
+
+.connected {
+  background-color: #008b00 /*#1a237e;*/;
+  color: white;
+}
+
+.warning {
+  background-color: rgba(255, 171, 0, 1);
+  color: white;
+}
+
+.error {
+  background-color: #d9534f;
+  color: white;
+}
+
+.no-padding {
+  padding: 0px !important;
+}
+
+.no-padding-left {
+  padding-left: 0px !important;
+}
+
+.no-padding-right {
+  padding-right: 0px !important;
+}
+
+.mdc-data-table {
+  height: 100% !important;
+}
+
+.mdc-data-table__row.small {
+  height: 32px !important;
+}
+
+.tab {
+  vertical-align: middle;
+  height: 54px;
+  padding: 15px;
+  border-bottom: 3px solid white;
+}
+
+.tab-title {
+  color: black;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.tab:hover {
+  border-bottom: 3px solid darkblue;
+  cursor: pointer;
+}
+
+.tab.active {
+  border-bottom: 3px solid darkblue;
+}
+/** End Service Dashboard **/
+
+.sticky-top {
+  top: 55px !important;
+}

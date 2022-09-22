@@ -1,9 +1,11 @@
 ﻿<!DOCTYPE html>
 <meta charset="utf-8">
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/3d92c0de9b.js" crossorigin="anonymous"></script>
 
     <!--Datapicker-->
@@ -13,72 +15,110 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
     <!--Google material design-->
-    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+        rel="stylesheet" />
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 </head>
-                                            
-<!-- <div style="margin-right: 20px;">
-    <p class="metric-title">Total</p>
-    <p>5.2 GB</p>
-    <p class="metric-title">Total</p>
-    <p>5.2 GB</p>
-</div>
-<div>
-    <p class="metric-title">Growth</p>
-    <p>5.2 GB</p>
-    <p class="metric-title">Total</p>
-    <p>5.2 GB</p>
-</div> -->
 
 <body class="dashboard container">
     <div class="row h-100">
         <div id="dashboard-menu" class="col-md-2"></div>
         <div class="col-md-10" style="margin-bottom: 20px;">
-            <div class="service-dashboard-item row">
+            <div id="customViewExample" class="service-dashboard-item row">
                 <div class="service-dashboard-content col-md-12">
                     <div class="service-dashboard-title">
-                        <label><h6>Company</h6></label>
+                        <label>
+                            <h6>Company (Custom View)</h6>
+                        </label>
                     </div>
                     <div class="service-site-content">
                         <div class="service-dashboard-title">
-                            <label><h6>Site #1</h6></label>
+                            <label>
+                                <h6>Site #1</h6>
+                            </label>
                         </div>
                         <div class="service-devices">
-                            <div class="col-md-12 custom-row" style="padding-left: 0px;">
-                                <div class="service-site-content col-md-6 row" style="margin-right: 10px;">
-                                    <div class="service-dashboard-title" style="width: 100%">
-                                        <label><h6>Asset Health by </h6></label>
-                                        <select>
-                                            <option value="CdM">Condition Monitoring</option>
-                                            <option value="Reports">Reports</option>
-                                            <option value="Vibration">Vibration Only</option>
-                                        </select>
-                                        <label><h6> Alarms</h6></label>
-                                    </div>
-                                    <div class="col-md-4" style="padding: 0px; bottom: 0px">
-                                        <div class="chart" style="height: 140px;">
-                                            <canvas id="assetHealth"></canvas>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-3 no-padding-left">
+                                        <div class="service-site-content row">
+                                            <div class="col-md-12" style="padding-top: 20px">
+                                                <p class="metric-title"><i class="fas fa-calendar-minus"></i> Work</p>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <p class="metric-stat">20 <span
+                                                                class="metric-indicator">open</span></p>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p class="metric-stat">480 <span
+                                                                class="metric-indicator">overdue</span></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <p class="metric-title"><i class="fas fa-file"></i> Reports</p>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <p class="metric-stat">10 <span class="metric-indicator"> in
+                                                                draft</span></p>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p class="metric-stat">5 <span class="metric-indicator"> in
+                                                                issued</span></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <p class="metric-title"><i class="fas fa-cogs"></i> Assets</p>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <p class="metric-stat">359 <span
+                                                                class="metric-indicator">total</span></p>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p class="metric-stat">348 <span
+                                                                class="metric-indicator">active</span></p>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-8">
-                                        <div class="chart" style="width: 100%; height: 180px; float: right">
-                                            <canvas id="cloudChart"></canvas>
+                                    <div class="col-md-2 no-padding-left">
+                                        <div class="service-site-content row">
+                                            <div class="service-dashboard-title">
+                                                <p class="metric-title">Asset Health</p>
+                                            </div>
+                                            <div class="col-md-12" style="padding: 0px; bottom: 0px">
+                                                <div class="chart" style="height: 140px;">
+                                                    <canvas id="health_1"></canvas>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="service-dashboard-content col-md-6 row" style="margin-left: 10px;">                            
-                                    <div class="service-dashboard-title" style="width: 100%">
-                                        <label><h6>Job Compliance</h6></label>
-                                    </div>
-                                    <div class="col-md-4" style="padding: 0px; bottom: 0px">    
-                                        <div class="chart" style="height: 140px;">
-                                            <canvas id="estimatedUptime"></canvas>
+                                    <div class="col-md-2 no-padding-left">
+                                        <div class="service-site-content row">
+                                            <div class="service-dashboard-title">
+                                                <p class="metric-title">Job Compliance</p>
+                                            </div>
+                                            <div class="col-md-12" style="padding: 0px; bottom: 0px">
+                                                <div class="chart" style="height: 140px;">
+                                                    <canvas id="job_1"></canvas>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-8">
-                                        <div class="chart" style="width: 100%; height: 180px; float: right">
-                                            <canvas id="storageChart"></canvas>
+                                    <div class="col-md-5 no-padding-left no-padding-right">
+                                        <div class="service-site-content row">
+                                            <div class="service-dashboard-title">
+                                                <p class="metric-title">Total Overdue Jobs per Day</p>
+                                            </div>
+                                            <div class="col-md-12 no-padding">
+                                                <div class="chart no-padding"
+                                                    style="width: 100%; height: 140px; float: right">
+                                                    <canvas id="trend_1"></canvas>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -87,123 +127,499 @@
                     </div>
                     <div class="service-site-content">
                         <div class="service-dashboard-title">
-                            <label><h6>Site #1</h6></label>
+                            <label>
+                                <h6>Site #2</h6>
+                            </label>
                         </div>
-                        <div class="service-devices row">
-                            <div class="col-md-2">
-
-                            </div>
-                            <div class="col-md-5">
-                                <div class="chart" style="width: 100%; height: 130px; float: right">
-                                    <canvas id="storageChart_1"></canvas>
-                                </div>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="chart" style="width: 100%; height: 130px; float: right">
-                                    <canvas id="cloudChart_1"></canvas>
+                        <div class="service-devices">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-3 no-padding-left">
+                                        <div class="service-site-content row">
+                                            <div class="col-md-12" style="padding-top: 20px">
+                                                <p class="metric-title"><i class="fas fa-calendar-minus"></i> Work</p>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <p class="metric-stat">20 <span
+                                                                class="metric-indicator">open</span></p>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p class="metric-stat">480 <span
+                                                                class="metric-indicator">overdue</span></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <p class="metric-title"><i class="fas fa-file"></i> Reports</p>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <p class="metric-stat">10 <span class="metric-indicator"> in
+                                                                draft</span></p>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p class="metric-stat">5 <span class="metric-indicator"> in
+                                                                issued</span></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <p class="metric-title"><i class="fas fa-cogs"></i> Assets</p>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <p class="metric-stat">359 <span
+                                                                class="metric-indicator">total</span></p>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p class="metric-stat">348 <span
+                                                                class="metric-indicator">active</span></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 no-padding-left">
+                                        <div class="service-site-content row">
+                                            <div class="service-dashboard-title">
+                                                <p class="metric-title">Asset Health</p>
+                                            </div>
+                                            <div class="col-md-12" style="padding: 0px; bottom: 0px">
+                                                <div class="chart" style="height: 140px;">
+                                                    <canvas id="health_2"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 no-padding-left">
+                                        <div class="service-site-content row">
+                                            <div class="service-dashboard-title">
+                                                <p class="metric-title">Job Compliance</p>
+                                            </div>
+                                            <div class="col-md-12" style="padding: 0px; bottom: 0px">
+                                                <div class="chart" style="height: 140px;">
+                                                    <canvas id="job_2"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5 no-padding-left no-padding-right">
+                                        <div class="service-site-content row">
+                                            <div class="service-dashboard-title">
+                                                <p class="metric-title">Total Overdue Jobs per Day</p>
+                                            </div>
+                                            <div class="col-md-12 no-padding">
+                                                <div class="chart no-padding"
+                                                    style="width: 100%; height: 140px; float: right">
+                                                    <canvas id="trend_2"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="service-dashboard-item row">
+            <div id="workViewExample" class="service-dashboard-item row">
                 <div class="service-dashboard-content col-md-12">
                     <div class="service-dashboard-title">
-                        <label><h6>Company</h6></label>
+                        <label>
+                            <h6>Company (Work View)</h6>
+                        </label>
                     </div>
                     <div class="service-site-content">
                         <div class="service-dashboard-title">
-                            <label><h6>Site #1</h6></label>
+                            <label>
+                                <h6>Site #1</h6>
+                            </label>
+                            <span title="Export" class="dashboard-icon-button"><i class="fas fa-file-download"></i></span>
                         </div>
-                        <div class="service-devices row">
-                            <div class="service-device">
-                                <div class="service-device-header">
-                                    <h5 class="center">Device #1</h5>
-                                </div>
-                                <div class="service-device-content">
-                                    <p>Content</p>
-                                </div>
-                            </div>
-                            <div class="service-device">
-                                <div class="service-device-header">
-                                    <h5 class="center">Device #1</h5>
-                                </div>
-                                <div class="service-device-content">
-                                    <p>Content</p>
+                        <div class="service-devices">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-2 no-padding-left">
+                                        <div class="service-site-content row">
+                                            <div class="service-dashboard-title">
+                                                <p class="metric-title">Job Compliance</p>
+                                            </div>
+                                            <div class="col-md-12" style="padding: 0px; bottom: 0px">
+                                                <div class="chart" style="height: 110px;">
+                                                    <canvas id="job_4"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 no-padding-left">
+                                        <div class="mdc-data-table"
+                                            style="overflow-x: auto; font-size: 12px!important;">
+                                            <table id="uBridgeTable" class="mdc-data-table__table"
+                                                aria-label="Devices list">
+                                                <thead>
+                                                    <tr class="mdc-data-table__header-row">
+                                                        <th class="mdc-data-table__header-cell" role="columnheader"
+                                                            scope="col"><b></b></th>
+                                                        <th class="mdc-data-table__header-cell hover-icon"
+                                                            role="columnheader" scope="col" data-sorted="no">
+                                                            <b>Total</b></th>
+                                                        <th class="mdc-data-table__header-cell hover-icon"
+                                                            role="columnheader" scope="col" data-sorted="no">
+                                                            <b>Active</b></th>
+                                                        <th class="mdc-data-table__header-cell hover-icon"
+                                                            role="columnheader" scope="col" data-sorted="no">
+                                                            <b>Inactive</b></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="uBridgeTable-body" class="mdc-data-table__content">
+                                                    <tr class="mdc-data-table__row small">
+                                                        <td class="mdc-data-table__cell"><b>Facilities</b></td>
+                                                        <td class="mdc-data-table__cell">3</td>
+                                                        <td class="mdc-data-table__cell">2</td>
+                                                        <td class="mdc-data-table__cell">1</td>
+                                                    </tr>
+                                                    <tr class="mdc-data-table__row small">
+                                                        <td class="mdc-data-table__cell"><b>Assets</b></td>
+                                                        <td class="mdc-data-table__cell">50</td>
+                                                        <td class="mdc-data-table__cell">47</td>
+                                                        <td class="mdc-data-table__cell">3</td>
+                                                    </tr>
+                                                    <tr class="mdc-data-table__row small">
+                                                        <td class="mdc-data-table__cell"><b>Components</b></td>
+                                                        <td class="mdc-data-table__cell">450</td>
+                                                        <td class="mdc-data-table__cell">380</td>
+                                                        <td class="mdc-data-table__cell">70</td>
+                                                    </tr>
+                                                    <tr class="mdc-data-table__row small">
+                                                        <td class="mdc-data-table__cell"><b>Tasks</b></td>
+                                                        <td class="mdc-data-table__cell">3000</td>
+                                                        <td class="mdc-data-table__cell">2900</td>
+                                                        <td class="mdc-data-table__cell">100</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 no-padding-left no-padding-right">
+                                        <div class="mdc-data-table"
+                                            style="overflow-x: auto; font-size: 12px!important;">
+                                            <table id="uBridgeTable" class="mdc-data-table__table"
+                                                aria-label="Devices list">
+                                                <thead>
+                                                    <tr class="mdc-data-table__header-row">
+                                                        <th class="mdc-data-table__header-cell" role="columnheader"
+                                                            scope="col"><b>Jobs</b></th>
+                                                        <th class="mdc-data-table__header-cell hover-icon"
+                                                            role="columnheader" scope="col" data-sorted="no">
+                                                            <b>Total</b>
+                                                        <th class="mdc-data-table__header-cell hover-icon"
+                                                            role="columnheader" scope="col" data-sorted="no">
+                                                            <b>Oil Sample</b>
+                                                        <th class="mdc-data-table__header-cell hover-icon"
+                                                            role="columnheader" scope="col" data-sorted="no">
+                                                            <b>Visual Insp.</b>
+                                                        <th class="mdc-data-table__header-cell hover-icon"
+                                                            role="columnheader" scope="col" data-sorted="no">
+                                                            <b>Ultrasound</b>
+                                                        <th class="mdc-data-table__header-cell hover-icon"
+                                                            role="columnheader" scope="col" data-sorted="no">
+                                                            <b>Vibration</b>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="uBridgeTable-body" class="mdc-data-table__content">
+                                                    <tr class="mdc-data-table__row small">
+                                                        <td class="mdc-data-table__cell"><b>Overdue</b></td>
+                                                        <td class="mdc-data-table__cell">3</td>
+                                                        <td class="mdc-data-table__cell">2</td>
+                                                        <td class="mdc-data-table__cell">1</td>
+                                                        <td class="mdc-data-table__cell">2</td>
+                                                        <td class="mdc-data-table__cell">1</td>
+                                                    </tr>
+                                                    <tr class="mdc-data-table__row small">
+                                                        <td class="mdc-data-table__cell"><b>No Date</b></td>
+                                                        <td class="mdc-data-table__cell">50</td>
+                                                        <td class="mdc-data-table__cell">47</td>
+                                                        <td class="mdc-data-table__cell">3</td>
+                                                        <td class="mdc-data-table__cell">2</td>
+                                                        <td class="mdc-data-table__cell">1</td>
+                                                    </tr>
+                                                    <tr class="mdc-data-table__row small">
+                                                        <td class="mdc-data-table__cell"><b>Error</b></td>
+                                                        <td class="mdc-data-table__cell">50</td>
+                                                        <td class="mdc-data-table__cell">47</td>
+                                                        <td class="mdc-data-table__cell">3</td>
+                                                        <td class="mdc-data-table__cell">2</td>
+                                                        <td class="mdc-data-table__cell">1</td>
+                                                    </tr>
+                                                    <tr class="mdc-data-table__row small">
+                                                        <td class="mdc-data-table__cell"><b>Active</b></td>
+                                                        <td class="mdc-data-table__cell">450</td>
+                                                        <td class="mdc-data-table__cell">380</td>
+                                                        <td class="mdc-data-table__cell">70</td>
+                                                        <td class="mdc-data-table__cell">2</td>
+                                                        <td class="mdc-data-table__cell">1</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="service-dashboard-item row">
+            <div id="reportViewExample" class="service-dashboard-item row">
                 <div class="service-dashboard-content col-md-12">
                     <div class="service-dashboard-title">
-                        <label><h6>Company</h6></label>
+                        <label>
+                            <h6>Company (Report View)</h6>
+                        </label>
                     </div>
                     <div class="service-site-content">
                         <div class="service-dashboard-title">
-                            <label><h6>Site #1</h6></label>
+                            <label>
+                                <h6>Site #1</h6>
+                            </label>
+                            <span title="Export" class="dashboard-icon-button"><i class="fas fa-file-download"></i></span>
                         </div>
-                        <div class="service-devices row">
-                            <div class="service-device">
-                                <div class="service-device-header">
-                                    <h5 class="center">Device #1</h5>
-                                </div>
-                                <div class="service-device-content">
-                                    <p>Content</p>
-                                </div>
-                            </div>
-                            <div class="service-device">
-                                <div class="service-device-header">
-                                    <h5 class="center">Device #1</h5>
-                                </div>
-                                <div class="service-device-content">
-                                    <p>Content</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="service-site-content">
-                        <div class="service-dashboard-title">
-                            <label><h6>Site #1</h6></label>
-                        </div>
-                        <div class="service-devices row">
-                            <div class="service-device">
-                                <div class="service-device-header">
-                                    <h5 class="center">Device #1</h5>
-                                </div>
-                                <div class="service-device-content">
-                                    <p>Content</p>
-                                </div>
-                            </div>
-                            <div class="service-device">
-                                <div class="service-device-header">
-                                    <h5 class="center">Device #1</h5>
-                                </div>
-                                <div class="service-device-content">
-                                    <p>Content</p>
+                        <div class="service-devices">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-2 no-padding-left">
+                                        <div class="service-site-content row">
+                                            <div class="service-dashboard-title">
+                                                <p class="metric-title">Asset Health</p>
+                                            </div>
+                                            <div class="col-md-12" style="padding: 0px; bottom: 0px">
+                                                <div class="chart" style="height: 110px;">
+                                                    <canvas id="health_5"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5 no-padding-left">
+                                        <div class="mdc-data-table"
+                                            style="overflow-x: auto; font-size: 12px!important;">
+                                            <table id="uBridgeTable" class="mdc-data-table__table"
+                                                aria-label="Devices list">
+                                                <thead>
+                                                    <tr class="mdc-data-table__header-row">
+                                                        <th class="mdc-data-table__header-cell" role="columnheader"
+                                                            scope="col"><b></b></th>
+                                                        <th class="mdc-data-table__header-cell hover-icon"
+                                                            role="columnheader" scope="col" data-sorted="no">
+                                                            <b>Total</b></th>
+                                                        <th class="mdc-data-table__header-cell hover-icon"
+                                                            role="columnheader" scope="col" data-sorted="no">
+                                                            <b>Lvl - 4</b></th>
+                                                        <th class="mdc-data-table__header-cell hover-icon"
+                                                            role="columnheader" scope="col" data-sorted="no">
+                                                            <b>Lvl - 3</b></th>
+                                                        <th class="mdc-data-table__header-cell hover-icon"
+                                                            role="columnheader" scope="col" data-sorted="no">
+                                                            <b>Lvl - 2</b></th>
+                                                        <th class="mdc-data-table__header-cell hover-icon"
+                                                            role="columnheader" scope="col" data-sorted="no">
+                                                            <b>Lvl - 1</b></th>
+                                                        <th class="mdc-data-table__header-cell hover-icon"
+                                                            role="columnheader" scope="col" data-sorted="no">
+                                                            <b>Normal</b></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="uBridgeTable-body" class="mdc-data-table__content">
+                                                    <tr class="mdc-data-table__row small">
+                                                        <td class="mdc-data-table__cell"><b>Draft</b></td>
+                                                        <td class="mdc-data-table__cell">20</td>
+                                                        <td class="mdc-data-table__cell">2</td>
+                                                        <td class="mdc-data-table__cell">4</td>
+                                                        <td class="mdc-data-table__cell">6</td>
+                                                        <td class="mdc-data-table__cell">2</td>
+                                                        <td class="mdc-data-table__cell">6</td>
+                                                    </tr>
+                                                    <tr class="mdc-data-table__row small">
+                                                        <td class="mdc-data-table__cell"><b>Issued</b></td>
+                                                        <td class="mdc-data-table__cell">10</td>
+                                                        <td class="mdc-data-table__cell">3</td>
+                                                        <td class="mdc-data-table__cell">1</td>
+                                                        <td class="mdc-data-table__cell">2</td>
+                                                        <td class="mdc-data-table__cell">4</td>
+                                                        <td class="mdc-data-table__cell">0</td>
+                                                    </tr>
+                                                    <tr class="mdc-data-table__row small">
+                                                        <td class="mdc-data-table__cell"><b>Open</b></td>
+                                                        <td class="mdc-data-table__cell">8</td>
+                                                        <td class="mdc-data-table__cell">2</td>
+                                                        <td class="mdc-data-table__cell">1</td>
+                                                        <td class="mdc-data-table__cell">2</td>
+                                                        <td class="mdc-data-table__cell">3</td>
+                                                        <td class="mdc-data-table__cell">0</td>
+                                                    </tr>
+                                                    <tr class="mdc-data-table__row small">
+                                                        <td class="mdc-data-table__cell"><b>Overdue</b></td>
+                                                        <td class="mdc-data-table__cell">2</td>
+                                                        <td class="mdc-data-table__cell">1</td>
+                                                        <td class="mdc-data-table__cell">0</td>
+                                                        <td class="mdc-data-table__cell">0</td>
+                                                        <td class="mdc-data-table__cell">1</td>
+                                                        <td class="mdc-data-table__cell">0</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5 no-padding-left no-padding-right">
+                                        <div class="service-site-content row">
+                                            <div class="service-dashboard-title">
+                                                <p class="metric-title">Reports Issued</p>
+                                            </div>
+                                            <div class="col-md-12 no-padding">
+                                                <div class="chart no-padding"
+                                                    style="width: 100%; height: 140px; float: right">
+                                                    <canvas id="trend_5"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div id="device-pop-up" class="service-site-content device-pop-up" style="visibility: hidden;">
-                <div class="service-device-header">
-                    <h5 class="center">Device #1</h5>
-                </div>
-                <div class="service-device-content">
-                    <p>Content</p>
+            <div id="databaseViewExample" class="service-dashboard-item row">
+                <div class="service-dashboard-content col-md-12">
+                    <div class="service-dashboard-title">
+                        <label>
+                            <h6>Company (Database View)</h6>
+                        </label>
+                    </div>
+                    <div class="service-site-content">
+                        <div class="service-dashboard-title">
+                            <label>
+                                <h6>Site #1</h6>
+                            </label>
+                            <span title="Export" class="dashboard-icon-button"><i class="fas fa-file-download"></i></span>
+                        </div>
+                        <div class="service-devices">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-2 no-padding-left">
+                                        <div class="service-site-content row">
+                                            <div class="service-dashboard-title">
+                                                <p class="metric-title">Asset Health</p>
+                                            </div>
+                                            <div class="col-md-12" style="padding: 0px; bottom: 0px">
+                                                <div class="chart" style="height: 110px;">
+                                                    <canvas id="health_5"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5 no-padding-left">
+                                        <div class="mdc-data-table"
+                                            style="overflow-x: auto; font-size: 12px!important;">
+                                            <table id="uBridgeTable" class="mdc-data-table__table"
+                                                aria-label="Devices list">
+                                                <thead>
+                                                    <tr class="mdc-data-table__header-row">
+                                                        <th class="mdc-data-table__header-cell" role="columnheader"
+                                                            scope="col"><b></b></th>
+                                                        <th class="mdc-data-table__header-cell hover-icon"
+                                                            role="columnheader" scope="col" data-sorted="no">
+                                                            <b>Total</b></th>
+                                                        <th class="mdc-data-table__header-cell hover-icon"
+                                                            role="columnheader" scope="col" data-sorted="no">
+                                                            <b>Lvl - 4</b></th>
+                                                        <th class="mdc-data-table__header-cell hover-icon"
+                                                            role="columnheader" scope="col" data-sorted="no">
+                                                            <b>Lvl - 3</b></th>
+                                                        <th class="mdc-data-table__header-cell hover-icon"
+                                                            role="columnheader" scope="col" data-sorted="no">
+                                                            <b>Lvl - 2</b></th>
+                                                        <th class="mdc-data-table__header-cell hover-icon"
+                                                            role="columnheader" scope="col" data-sorted="no">
+                                                            <b>Lvl - 1</b></th>
+                                                        <th class="mdc-data-table__header-cell hover-icon"
+                                                            role="columnheader" scope="col" data-sorted="no">
+                                                            <b>Normal</b></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="uBridgeTable-body" class="mdc-data-table__content">
+                                                    <tr class="mdc-data-table__row small">
+                                                        <td class="mdc-data-table__cell"><b>Draft</b></td>
+                                                        <td class="mdc-data-table__cell">20</td>
+                                                        <td class="mdc-data-table__cell">2</td>
+                                                        <td class="mdc-data-table__cell">4</td>
+                                                        <td class="mdc-data-table__cell">6</td>
+                                                        <td class="mdc-data-table__cell">2</td>
+                                                        <td class="mdc-data-table__cell">6</td>
+                                                    </tr>
+                                                    <tr class="mdc-data-table__row small">
+                                                        <td class="mdc-data-table__cell"><b>Issued</b></td>
+                                                        <td class="mdc-data-table__cell">10</td>
+                                                        <td class="mdc-data-table__cell">3</td>
+                                                        <td class="mdc-data-table__cell">1</td>
+                                                        <td class="mdc-data-table__cell">2</td>
+                                                        <td class="mdc-data-table__cell">4</td>
+                                                        <td class="mdc-data-table__cell">0</td>
+                                                    </tr>
+                                                    <tr class="mdc-data-table__row small">
+                                                        <td class="mdc-data-table__cell"><b>Open</b></td>
+                                                        <td class="mdc-data-table__cell">8</td>
+                                                        <td class="mdc-data-table__cell">2</td>
+                                                        <td class="mdc-data-table__cell">1</td>
+                                                        <td class="mdc-data-table__cell">2</td>
+                                                        <td class="mdc-data-table__cell">3</td>
+                                                        <td class="mdc-data-table__cell">0</td>
+                                                    </tr>
+                                                    <tr class="mdc-data-table__row small">
+                                                        <td class="mdc-data-table__cell"><b>Overdue</b></td>
+                                                        <td class="mdc-data-table__cell">2</td>
+                                                        <td class="mdc-data-table__cell">1</td>
+                                                        <td class="mdc-data-table__cell">0</td>
+                                                        <td class="mdc-data-table__cell">0</td>
+                                                        <td class="mdc-data-table__cell">1</td>
+                                                        <td class="mdc-data-table__cell">0</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5 no-padding-left no-padding-right">
+                                        <div class="service-site-content row">
+                                            <div class="service-dashboard-title">
+                                                <p class="metric-title">Reports Issued</p>
+                                            </div>
+                                            <div class="col-md-12 no-padding">
+                                                <div class="chart no-padding"
+                                                    style="width: 100%; height: 140px; float: right">
+                                                    <canvas id="trend_5"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        <div id="device-pop-up" class="service-site-content device-pop-up" style="visibility: hidden;">
+            <div class="service-device-header">
+                <h5 class="center">Device #1</h5>
+            </div>
+            <div class="service-device-content">
+                <p>Content</p>
+            </div>
+        </div>
+    </div>
     </div>
 </body>
-</html> 
+
+</html>
 
 <footer>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="js/table.js"></script>
     <script src="js/usage.js"></script>
 </footer>

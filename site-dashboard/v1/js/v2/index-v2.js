@@ -221,15 +221,14 @@ var myDoughnutChart = new Chart(ctx4, {
     type: 'doughnut',
     data: {
         datasets: [{
-            data: [65, 5, 10,10,10],
+            data: [50, 0, 10, 15],
             backgroundColor: [
-                normal, 'grey', 'lightgrey', lvl_3, lvl_4
+                normal, 'lightgrey', lvl_3, lvl_4
             ]
         }],
         labels: [
             'Normal',            
-            'No threshold',
-            'No measurements',
+            'No Status',
             'Warning',
             'Alarm',
         ]
@@ -239,11 +238,18 @@ var myDoughnutChart = new Chart(ctx4, {
         responsive: true,
         maintainAspectRatio: false,
         legend: {
-            display: false
+            display: false,
+            position: 'right',
+            align: 'end',
+            labels: {
+                boxWidth: 20,
+                fontSize: 10,
+                // usePointStyle: true
+            }
         },
         elements: {
             center: {
-                text: '65%',
+                text: '67%',
                 fontStyle: 'Arial', 
                 sidePadding: 50, 
                 minFontSize: 10, 
@@ -254,8 +260,8 @@ var myDoughnutChart = new Chart(ctx4, {
 });
 
 //Chart 3: asset health by reports generated
-let ctx2 = document.getElementById('estimatedUptime').getContext('2d');
-var myDoughnutChart = new Chart(ctx2, {
+const ctx2 = document.getElementById('estimatedUptime').getContext('2d');
+const estimatedUptimeChart = new Chart(ctx2, {
     type: 'doughnut',
     data:  {
         datasets: [{
@@ -277,7 +283,14 @@ var myDoughnutChart = new Chart(ctx2, {
         responsive: true,
         maintainAspectRatio: false,
         legend: {
-            display: false
+            display: true,
+            position: 'right',
+            align: 'end',
+            labels: {
+                boxWidth: 20,
+                fontSize: 10,
+                // usePointStyle: true
+            }
         },
         elements: {
             center: {
@@ -287,9 +300,28 @@ var myDoughnutChart = new Chart(ctx2, {
                 minFontSize: 10, 
                 lineHeight: 10
             }
+        },
+        legendCallback: function(chart) { 
+            console.log(chart)
+            var text = []; 
+            text.push('<ul class="' + chart.id + '-legend">'); 
+            for (var i = 0; i < chart.data.datasets.length; i++) { 
+                text.push('<li><span style="background-color:' + 
+                           chart.data.datasets[i].backgroundColor + 
+                           '"></span>'); 
+                if (chart.data.datasets[i].label) { 
+                    text.push(chart.data.datasets[i].label); 
+                } 
+                text.push('</li>'); 
+            } 
+            text.push('</ul>'); 
+            return text.join(''); 
         }
     }
 });
+
+
+// document.getElementById('estimatedUptimeLegend').innerHTML = estimatedUptimeChart.generateLegend();
 
 
 Chart.defaults.doughnut.cutoutPercentage  = 0.7;
@@ -402,7 +434,14 @@ var myDoughnutChart = new Chart(ctx1, {
         responsive: true,
         maintainAspectRatio: false,
         legend: {
-            display: false
+            display: true,
+            position: 'right',
+            align: 'end',
+            labels: {
+                boxWidth: 20,
+                fontSize: 10,
+                // usePointStyle: true
+            }
         },
         elements: {
             center: {

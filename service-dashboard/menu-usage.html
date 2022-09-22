@@ -2,7 +2,7 @@
     <div class="menu-option">
         <a class="service-menu-tab" href="index.html"><b>Devices</b></a>
         <a class="service-menu-tab active" href="#/"><b>Usage</b></a>
-        <a class="service-menu-tab" href="finance.html"><b>Finance</b></a>
+        <a class="service-menu-tab" href="finance.html"><b>Contract</b></a>
     </div>
     <div class="menu-option">
         <div style="height: auto"> 
@@ -15,29 +15,22 @@
         </div>
     </div>
     <div class="menu-option">
-        <p class="menu-option-title">Sorting</p>
-        <select id="service-period" name="service-period">
-            <option value="live">Alphabetical</option>
-            <option value="today">Failure First</option>
+        <p class="menu-option-title">Focus</p>
+        <select id="service-template" name="service-period">
+            <option value="Custom">Custom</option>
+            <option value="Work">Work</option>
+            <option value="Database">Database</option>
+            <option value="Reports">Reports</option>
         </select>
     </div>
     <div class="menu-option">
-        <p class="menu-option-title">Type of Device</p>
-        <input type="checkbox" id="ubridge" name="ubridge" value="ubridge" checked>
-        <label for="vehicle1"> uBridge</label><br>
-        <input type="checkbox" id="umote" name="umote" value="umote" checked>
-        <label for="vehicle2"> uMote</label><br>
-        <input type="checkbox" id="other" name="other" value="other" checked>
-        <label for="other"> Other</label><br>
-    </div>
-    <div class="menu-option">
-        <p class="menu-option-title">Status</p>
-        <input type="checkbox" id="active" name="active" value="active" checked>
-        <label for="active"> Active</label><br>
-        <input type="checkbox" id="inactive" name="inactive" value="inactive" checked>
-        <label for="inactive"> Inactive</label><br>
-        <input type="checkbox" id="failure" name="failure" value="failure" checked>
-        <label for="failure"> Failure</label><br>
+        <p class="menu-option-title">Sorting</p>
+        <select id="service-period" name="service-period">
+            <option value="live">Alphabetical</option>
+            <option value="today">Asset Health</option>
+            <option value="today">Job Compliance</option>
+            <option value="today">Total Overdue Jobs</option>
+        </select>
     </div>
     <div class="menu-option">
         <p class="menu-option-title">Companies</p>
@@ -53,5 +46,8 @@
         <label for="heineken"> Heneiken</label><br>
         <input type="checkbox" id="solidus" name="solidus" value="solidus">
         <label for="solidus"> Solidus</label><br>
+    </div>
+    <div id="menu-options-custom">
+        
     </div>
 </div>

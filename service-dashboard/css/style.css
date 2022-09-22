@@ -211,7 +211,14 @@ a:hover {
 
 .menu-option-title {
   font-weight: 700;
+  font-size: small;
   margin-bottom: 10px;
+}
+
+.menu-option-sub-title {
+  font-weight: 500;
+  color: rgba(65, 65, 65);
+  margin-bottom: 3px;
 }
 
 .service-menu-tab {
@@ -227,18 +234,37 @@ a:hover {
 .service-dashboard-title {
   padding: 15px 0px 0px 0px;
   margin-bottom: 10px;
+  width: 100%!important;
 }
 
 .service-site-content {
   margin-bottom: 10px;
   margin-left: 0px!important;
-  padding: 0px 20px 10px 20px;
+  margin-right: 0px!important;
+  padding: 0px 20px 20px 20px;
   background-color: white;
   border-radius: 4px;
   border-width: 1px;
   border-style: solid;
   border-color: rgba(0,0,0,.12);
-  /* height: 100%; */
+  height: 100%!important;
+}
+
+
+.metric-title {
+  font-weight: 700;
+  font-size: small;
+  margin-bottom: 5px;
+}
+
+.metric-stat {
+  margin-bottom: 0px;
+}
+
+.metric-indicator {
+  color: darkgrey;
+  font-size: small;
+  font-weight: 500;
 }
 
 .service-dashboard-content {
@@ -319,12 +345,6 @@ a:hover {
   margin-bottom: 0px;
 }
 
-.metric-title {
-  font-size: 13px;
-  font-weight: bold;
-  margin-bottom: 0px;
-}
-
 .api-status {
   float: right;
   padding: 3px 5px;
@@ -350,6 +370,26 @@ a:hover {
 .error {
   background-color: #d9534f;
   color: white;
+}
+
+.no-padding {
+  padding: 0px!important;
+}
+
+.no-padding-left {
+  padding-left: 0px!important;
+}
+
+.no-padding-right {
+  padding-right: 0px!important;
+}
+
+.mdc-data-table {
+  height: 100%!important;
+}
+
+.mdc-data-table__row.small {
+  height: 32px!important;
 }
 
 /** End Service Dashboard **/

@@ -175,3 +175,4 @@ function sortTableDescending(col, table_id) {
         }
     }
 }
+

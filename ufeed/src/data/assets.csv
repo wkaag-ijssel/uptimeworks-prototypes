@@ -1,0 +1,948 @@
+,id,name,topLevelFacilityName,topLevelFacilityDescription,facilityName,facilityDescription,machineName,machineDescription,componentName,componentDescription,uom,position,placement,channelName,channelNumber,deviceName,deviceType
+0,2a001ed5-1f77-4717-8cab-4f1f27a3021e,Acc. FFT RMS (10  - 10 KHz),KBW,,Bridle 5,,Bridle 5.1,,Motor,,g RMS,NDE,Horizontal,Ch01 10 KHz Acceleration,1,*Bridle5,uBridge
+1,929c6896-9955-48a3-bd81-a548a9b18573,Temperatuur,KBW,,Bridle 5,,Bridle 5.1,,Motor,,V,,,,,,Manual
+2,9067c716-6474-477d-bf5e-1d70d8083831,FFT Ovr (1  to 10 KHz) g PS (W:2.5 A:3.5),KBW,,Bridle 5,,Bridle 5.1,,Motor,,g RMS,DE,Horizontal,Ch02 10 KHz Acceleration,2,*Bridle5,uBridge
+3,8ca34a24-abbd-4d6d-9fdd-6263db6b6842,Mag (W:1.1 A:1.3),KBW,,Bridle 5,,Bridle 5.1,,Motor,,g pk,DE,Horizontal,Ch02 10 KHz Acceleration,2,*Bridle5,uBridge
+4,01b36238-d379-44df-b595-cbc5c7058c8b,RMS (W:3 A:3.5),KBW,,Bridle 5,,Bridle 5.1,,Motor,, RMS,DE,Horizontal,Ch02 10 KHz Acceleration,2,*Bridle5,uBridge
+5,38b1779f-e889-4b74-a86f-e5653c19c733,Mag (W:0.8 A:0.9),KBW,,Bridle 5,,Bridle 5.1,,Motor,,g pk,NDE,Horizontal,Ch01 10 KHz Acceleration,1,*Bridle5,uBridge
+6,87e2cf7f-2483-4336-9c12-d3396f3b4e62,RMS,KBW,,Bridle 5,,Bridle 5.1,,Motor,, RMS,NDE,Horizontal,Ch01 10 KHz Acceleration,1,*Bridle5,uBridge
+7,b5ddc880-67ef-4c65-a5ea-50a232e4b197,FFT Ovr (0  to 1000 Hz) g PS (W:0.8 A:1.2),KBW,,Bridle 5,,Bridle 5.1,,Motor,,g RMS,DE,Horizontal,Ch02 1000 Hz Enveloped,2,*Bridle5,uBridge
+8,d45419c3-6f5e-4f8a-93ee-12bfc7978adc,Acc. FFT RMS (0  - 1000 Hz),KBW,,Bridle 5,,Bridle 5.1,,Motor,,g RMS,NDE,Horizontal,Ch01 1000 Hz Enveloped,1,*Bridle5,uBridge
+9,889d6168-0bd3-47d8-ba7a-dbd9dd501520,Acc. FFT RMS (0  - 1000 Hz),KBW,,Bridle 5,,Bridle 5.1,,Motor,,g RMS,NDE,Horizontal,Ch01 1000 Hz Enveloped,1,*Bridle5,uBridge
+10,324e4163-9fbe-453b-a42d-98fa92e87166,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 5,,Bridle 5.1,,Motor,,mm/s RMS,DE,Horizontal,Ch02 1000 Hz Velocity,2,*Bridle5,uBridge
+11,626b527e-4149-4111-8a59-d119261b380c,"ISO, Velocity FFT RMS (10 -1000 Hz) (W:4.5 A:7.1)",KBW,,Bridle 5,,Bridle 5.1,,Motor,,mm/s rms,DE,Horizontal,Ch02 1000 Hz Velocity,2,*Bridle5,uBridge
+12,1b2ae741-726b-4ebe-a6bb-5589d452242f,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 5,,Bridle 5.1,,Motor,,mm/s RMS,DE,Axial,Ch03 1000 Hz Velocity,3,*Bridle5,uBridge
+13,1845a7e9-70e6-48e1-8d47-7e1c144128a3,"ISO, Velocity FFT RMS (10 -1000 Hz) (W:4.5 A:7.1)",KBW,,Bridle 5,,Bridle 5.1,,Motor,,mm/s rms,DE,Axial,Ch03 1000 Hz Velocity,3,*Bridle5,uBridge
+14,5540b903-470f-486b-a234-75079b0f6688,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 5,,Bridle 5.1,,Motor,,mm/s RMS,NDE,Horizontal,Ch01 1000 Hz Velocity,1,*Bridle5,uBridge
+15,e64d8baa-b0b2-4f7d-8a4c-b616576cc3f6,"ISO, Velocity FFT RMS (10 -1000 Hz) (W:4.5 A:7.1)",KBW,,Bridle 5,,Bridle 5.1,,Motor,,mm/s rms,NDE,Horizontal,Ch01 1000 Hz Velocity,1,*Bridle5,uBridge
+16,33732a18-ccad-49fb-8a7a-3dadf412567c,Acc. FFT RMS (1  - 10 KHz),KBW,,Bridle 5,,Bridle 5.1,,Tandwielkast,,g RMS,,Horizontal,Ch04 10 KHz Acceleration,4,*Bridle5,uBridge
+17,9b7839b5-57c7-4717-998f-04563388d0ec,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",KBW,,Bridle 5,,Bridle 5.1,,Tandwielkast,,g pk,,Horizontal,Ch04 10 KHz Acceleration,4,*Bridle5,uBridge
+18,e7f62318-773c-42cf-8b38-695028204f8c,"RMS, Acc. Wave RMS  [RMS]",KBW,,Bridle 5,,Bridle 5.1,,Tandwielkast,, RMS,,Horizontal,Ch04 10 KHz Acceleration,4,*Bridle5,uBridge
+19,a858b47f-a222-4130-9c15-f313a21d313c,Acc. FFT RMS (1  - 10 KHz),KBW,,Bridle 5,,Bridle 5.1,,Tandwielkast,,g RMS,DE,Horizontal,Ch05 10 KHz Acceleration,5,*Bridle5,uBridge
+20,06972172-f8fb-4888-9c6d-4154bc0cd239,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",KBW,,Bridle 5,,Bridle 5.1,,Tandwielkast,,g pk,DE,Horizontal,Ch05 10 KHz Acceleration,5,*Bridle5,uBridge
+21,6898b1f7-6242-45f5-9e34-86841921d4f5,"RMS, Acc. Wave RMS  [RMS]",KBW,,Bridle 5,,Bridle 5.1,,Tandwielkast,, RMS,DE,Horizontal,Ch05 10 KHz Acceleration,5,*Bridle5,uBridge
+22,3741f345-bb69-4c40-b956-58ade9cd985e,Acc. FFT RMS (0  - 500 Hz),KBW,,Bridle 5,,Bridle 5.1,,Tandwielkast,,g RMS,,Horizontal,Ch04 500 Hz Enveloped,4,*Bridle5,uBridge
+23,14cb820a-c01b-4bdc-b2b1-5c2e8051e661,Acc. FFT RMS (0  - 500 Hz),KBW,,Bridle 5,,Bridle 5.1,,Tandwielkast,,g RMS,,Horizontal,Ch04 500 Hz Enveloped,4,*Bridle5,uBridge
+24,1d790693-3cbe-4f7d-a528-48948c27448c,Acc. FFT RMS (0  - 1000 Hz),KBW,,Bridle 5,,Bridle 5.1,,Tandwielkast,,g RMS,DE,Horizontal,Ch05 1000 Hz Enveloped,5,*Bridle5,uBridge
+25,90fc9a3d-8622-4687-ab2b-dd53094c5b4e,Acc. FFT RMS (0  - 1000 Hz),KBW,,Bridle 5,,Bridle 5.1,,Tandwielkast,,g RMS,DE,Horizontal,Ch05 1000 Hz Enveloped,5,*Bridle5,uBridge
+26,09b2b3af-d5b7-4807-a83f-3b95f0fae371,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 5,,Bridle 5.1,,Tandwielkast,,mm/s RMS,,Horizontal,Ch04 1000 Hz Velocity,4,*Bridle5,uBridge
+27,3cfaa37a-b32d-4e8c-8fab-ca525c4a9148,"ISO, Velocity FFT RMS (10 -1000 Hz) (W:4.5 A:7.1)",KBW,,Bridle 5,,Bridle 5.1,,Tandwielkast,,mm/s rms,,Horizontal,Ch04 1000 Hz Velocity,4,*Bridle5,uBridge
+28,71be775b-795a-4cbe-b061-fdafa11514c0,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 5,,Bridle 5.1,,Tandwielkast,,mm/s RMS,DE,Horizontal,Ch05 1000 Hz Velocity,5,*Bridle5,uBridge
+29,4dd0b234-d5ba-423e-aba2-e906d9891708,"ISO, Velocity FFT RMS (10 -1000 Hz) (W:4.5 A:7.1)",KBW,,Bridle 5,,Bridle 5.1,,Tandwielkast,,mm/s rms,DE,Horizontal,Ch05 1000 Hz Velocity,5,*Bridle5,uBridge
+30,d61bcf1f-94ef-4996-ac5e-19e67b229e6e,Velocity FFT RMS (1 -200 Hz) (W:1.5 A:1.8),KBW,,Bridle 5,,Bridle 5.1,,Tandwielkast,,mm/s RMS,,Horizontal,Ch04 200 Hz Velocity,4,*Bridle5,uBridge
+31,480457a4-6fa3-482a-bcbe-1f3d8fba597b,Vel. FFT RMS (1  - 200 Hz),KBW,,Bridle 5,,Bridle 5.1,,Tandwielkast,,mm/s RMS,DE,Horizontal,Ch05 200 Hz Velocity,5,*Bridle5,uBridge
+32,1a7c3cf5-e2bd-4924-af5d-61677b83da8e,Vel. FFT RMS (1  - 200 Hz),KBW,,Bridle 5,,Bridle 5.1,,Tandwielkast,,mm/s RMS,DE,Horizontal,Ch05 200 Hz Velocity,5,*Bridle5,uBridge
+33,1f7819d9-cf70-46f2-bcf9-2f5ea023abc8,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 5,,Bridle 5.1,,Tandwielkast,,mm/s RMS,,Axial,Ch06 1000 Hz Velocity,6,*Bridle5,uBridge
+34,728b0eb5-b336-4f2a-8239-ed03a545522e,"ISO, Velocity FFT RMS (10 -1000 Hz) (W:4.5 A:7.1)",KBW,,Bridle 5,,Bridle 5.1,,Tandwielkast,,mm/s rms,,Axial,Ch06 1000 Hz Velocity,6,*Bridle5,uBridge
+35,091fd075-aef5-45b3-b492-119d1755a29b,Acc. FFT RMS (4  - 10 KHz),KBW,,Bridle 5,,Bridle 5.1,,Bridlerol,,g RMS,DE,Horizontal,Ch07 10 KHz Acceleration,7,*Bridle5,uBridge
+36,68c49fc3-056d-496a-951c-b3c9bc6f91e8,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",KBW,,Bridle 5,,Bridle 5.1,,Bridlerol,,g pk,DE,Horizontal,Ch07 10 KHz Acceleration,7,*Bridle5,uBridge
+37,84eef3d8-69b4-47cd-9475-873b9aa4fff9,"RMS, Acc. Wave RMS  [RMS]",KBW,,Bridle 5,,Bridle 5.1,,Bridlerol,, RMS,DE,Horizontal,Ch07 10 KHz Acceleration,7,*Bridle5,uBridge
+38,eeafab31-58cc-4396-a79e-62490d8c0d41,Acc. FFT RMS (0  - 500 Hz),KBW,,Bridle 5,,Bridle 5.1,,Bridlerol,,g RMS,DE,Horizontal,Ch07 500 Hz Enveloped,7,*Bridle5,uBridge
+39,21f99712-91d0-4d0e-815c-52139e2af202,Acc. FFT RMS (0  - 500 Hz),KBW,,Bridle 5,,Bridle 5.1,,Bridlerol,,g RMS,DE,Horizontal,Ch07 500 Hz Enveloped,7,*Bridle5,uBridge
+40,6b5214cd-fa8d-4f09-ac06-f03205284143,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 5,,Bridle 5.1,,Bridlerol,,mm/s RMS,DE,Horizontal,Ch07 1000 Hz Velocity,7,*Bridle5,uBridge
+41,6226222a-d478-41be-9e6c-47f961d14a65,"ISO, Vel. FFT RMS (10  - 1000 Hz) [ISO]",KBW,,Bridle 5,,Bridle 5.1,,Bridlerol,,mm/s rms,DE,Horizontal,Ch07 1000 Hz Velocity,7,*Bridle5,uBridge
+42,bc672929-752c-4295-8c40-cfa880dc731b,Acc. FFT RMS (4  - 10 KHz),KBW,,Bridle 5,,Bridle 5.1,,Bridlerol,,g RMS,NDE,Horizontal,Ch08 10 KHz Acceleration,8,*Bridle5,uBridge
+43,538fdc89-9fd6-426f-ab3f-0fe34313bb6c,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",KBW,,Bridle 5,,Bridle 5.1,,Bridlerol,,g pk,NDE,Horizontal,Ch08 10 KHz Acceleration,8,*Bridle5,uBridge
+44,1da33d45-e39d-44d5-937f-e2918c078834,"RMS, Acc. Wave RMS  [RMS]",KBW,,Bridle 5,,Bridle 5.1,,Bridlerol,, RMS,NDE,Horizontal,Ch08 10 KHz Acceleration,8,*Bridle5,uBridge
+45,bac61f8b-9485-437e-91b5-ced733dad33c,Acc. FFT RMS (0  - 500 Hz),KBW,,Bridle 5,,Bridle 5.1,,Bridlerol,,g RMS,NDE,Horizontal,Ch08 500 Hz Enveloped,8,*Bridle5,uBridge
+46,253518a0-a94c-4532-b05f-25f94094e207,Acc. FFT RMS (0  - 500 Hz),KBW,,Bridle 5,,Bridle 5.1,,Bridlerol,,g RMS,NDE,Horizontal,Ch08 500 Hz Enveloped,8,*Bridle5,uBridge
+47,ef77c81f-3fb4-457d-9f7e-f48932cc897c,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 5,,Bridle 5.1,,Bridlerol,,mm/s RMS,NDE,Horizontal,Ch08 1000 Hz Velocity,8,*Bridle5,uBridge
+48,018eddb1-761a-48fe-b0bd-d64a8e3c998c,"ISO, Vel. FFT RMS (10  - 1000 Hz) [ISO]",KBW,,Bridle 5,,Bridle 5.1,,Bridlerol,,mm/s rms,NDE,Horizontal,Ch08 1000 Hz Velocity,8,*Bridle5,uBridge
+49,ca497bea-684c-4f9a-8301-37cc17033f22,Toerental ,KBW,,Bridle 5,,Bridle 5.1,,Bridlerol,,rpm,,,Toerental ,1,*Bridle5,uBridge
+50,538a622c-8136-4ef8-9668-1d00927a3cc3,Temperatuur,KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Motor,V,,,,,,Manual
+51,f5c2bb6a-82ef-4ee9-a638-8b32329ffef9,Acc. FFT RMS (4  - 10 KHz),KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Motor,g RMS,DE,Horizontal,Ch10 10 KHz Acceleration,10,*Bridle5,uBridge
+52,6b87e142-6731-4cc4-93a8-37021db10651,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Motor,g pk,DE,Horizontal,Ch10 10 KHz Acceleration,10,*Bridle5,uBridge
+53,321ac993-e1aa-43fd-bffc-25669fde7201,"RMS, Acc. Wave RMS  [RMS]",KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Motor, RMS,DE,Horizontal,Ch10 10 KHz Acceleration,10,*Bridle5,uBridge
+54,be48691e-4e7d-4ba7-b4f5-99b5e1ec805b,Acc. FFT RMS (4  - 10 KHz),KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Motor,g RMS,NDE,Horizontal,Ch09 10 KHz Acceleration,9,*Bridle5,uBridge
+55,5c706c1e-f800-4651-b3dd-3de4e027c2de,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Motor,g pk,NDE,Horizontal,Ch09 10 KHz Acceleration,9,*Bridle5,uBridge
+56,7af05510-3b1f-4469-b8da-f2732ed79b08,"RMS, Acc. Wave RMS  [RMS]",KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Motor, RMS,NDE,Horizontal,Ch09 10 KHz Acceleration,9,*Bridle5,uBridge
+57,386d9b3e-baad-454c-b9f6-c7d20b6912d5,Acc. FFT RMS (0  - 1000 Hz),KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Motor,g RMS,DE,Horizontal,Ch10 1000 Hz Enveloped,10,*Bridle5,uBridge
+58,c3ba08a9-3eea-4ab8-8202-b9ce714a941d,Acc. FFT RMS (0  - 1000 Hz),KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Motor,g RMS,DE,Horizontal,Ch10 1000 Hz Enveloped,10,*Bridle5,uBridge
+59,323697fa-b820-4f86-bf0a-9ccb570c1354,Acc. FFT RMS (0  - 1000 Hz),KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Motor,g RMS,NDE,Horizontal,Ch09 1000 Hz Enveloped,9,*Bridle5,uBridge
+60,5c780efd-399b-4b2a-a9c4-d147d06beebf,Acc. FFT RMS (0  - 1000 Hz),KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Motor,g RMS,NDE,Horizontal,Ch09 1000 Hz Enveloped,9,*Bridle5,uBridge
+61,76972b1a-598b-4515-8a20-0e20f6940126,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Motor,mm/s RMS,DE,Axial,Ch11 1000 Hz Velocity,11,*Bridle5,uBridge
+62,2f3287e4-080b-40e9-8a99-4db44df98a35,"ISO, Velocity FFT RMS (10 -1000 Hz) (W:4.5 A:7.1)",KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Motor,mm/s rms,DE,Axial,Ch11 1000 Hz Velocity,11,*Bridle5,uBridge
+63,243d0c20-0ed2-4408-a08d-455d15e8b9c7,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Motor,mm/s RMS,DE,Horizontal,Ch10 1000 Hz Velocity,10,*Bridle5,uBridge
+64,0fa551bf-56ba-44d6-9e17-1fe816ef1f0f,"ISO, Velocity FFT RMS (10 -1000 Hz) (W:4.5 A:7.1)",KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Motor,mm/s rms,DE,Horizontal,Ch10 1000 Hz Velocity,10,*Bridle5,uBridge
+65,d001d51b-70f7-42eb-859f-96475e0cdbf5,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Motor,mm/s RMS,NDE,Horizontal,Ch09 1000 Hz Velocity,9,*Bridle5,uBridge
+66,ad262cdf-0590-416c-a23b-d4d442345a95,"ISO, Velocity FFT RMS (10 -1000 Hz) (W:4.5 A:7.1)",KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Motor,mm/s rms,NDE,Horizontal,Ch09 1000 Hz Velocity,9,*Bridle5,uBridge
+67,2fd692f6-aeff-4836-a3c5-3bb9f80b93a7,Acceleration FFT RMS (4 -10 KHz) (W:0.65 A:0.85),KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Tandwielkast,g RMS,,Horizontal,Ch12 10 KHz Acceleration,12,*Bridle5,uBridge
+68,f36907d9-5d11-4740-bec2-2c2db4bc811c,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Tandwielkast,g pk,,Horizontal,Ch12 10 KHz Acceleration,12,*Bridle5,uBridge
+69,7ed5c5c8-e727-4bb0-b31a-3c6f2eb3f39c,"RMS, Acc. Wave RMS  [RMS]",KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Tandwielkast, RMS,,Horizontal,Ch12 10 KHz Acceleration,12,*Bridle5,uBridge
+70,d94683ae-b17d-4625-984f-cfe1a81b8b3e,Acc. FFT RMS (4  - 10 KHz),KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Tandwielkast,g RMS,DE,Horizontal,Ch13 10 KHz Acceleration,13,*Bridle5,uBridge
+71,5f77cff3-3939-4e8e-b423-cbc444095e1c,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Tandwielkast,g pk,DE,Horizontal,Ch13 10 KHz Acceleration,13,*Bridle5,uBridge
+72,f17658d2-7ac7-4272-bc9a-9bbb52457a5a,"RMS, Acc. Wave RMS  [RMS]",KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Tandwielkast, RMS,DE,Horizontal,Ch13 10 KHz Acceleration,13,*Bridle5,uBridge
+73,52e7fe5a-cac8-489e-b04c-7b273bae92e0,Acc. FFT RMS (0  - 500 Hz),KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Tandwielkast,g RMS,,Horizontal,Ch12 500 Hz Enveloped,12,*Bridle5,uBridge
+74,4ce52603-995b-4cdb-8219-3d3d9905f184,Acc. FFT RMS (0  - 500 Hz),KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Tandwielkast,g RMS,,Horizontal,Ch12 500 Hz Enveloped,12,*Bridle5,uBridge
+75,fa9d2e37-8224-4eac-8867-efbdfc1cd988,Acc. FFT RMS (0  - 1000 Hz),KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Tandwielkast,g RMS,DE,Horizontal,Ch13 1000 Hz Enveloped,13,*Bridle5,uBridge
+76,0a54286a-e110-40eb-bd38-5aab2eb46e70,Acc. FFT RMS (0  - 1000 Hz),KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Tandwielkast,g RMS,DE,Horizontal,Ch13 1000 Hz Enveloped,13,*Bridle5,uBridge
+77,eb37aa0e-1f1d-493a-a646-b12c3493bae9,Velocity FFT RMS (10 -1000 Hz) (W:0.8 A:1.2),KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Tandwielkast,mm/s RMS,,Horizontal,Ch12 1000 Hz Velocity,12,*Bridle5,uBridge
+78,3a0784cf-81d3-4d5c-81a9-bc637d857950,"ISO, Velocity FFT RMS (10 -1000 Hz) (W:4.5 A:7.1)",KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Tandwielkast,mm/s rms,,Horizontal,Ch12 1000 Hz Velocity,12,*Bridle5,uBridge
+79,8573f93f-c604-4917-aca5-1d443d53bd8c,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Tandwielkast,mm/s RMS,DE,Horizontal,Ch13 1000 Hz Velocity,13,*Bridle5,uBridge
+80,cd634541-cab7-4314-baef-5e99ccb1a53b,"ISO, Vel. FFT RMS (10  - 1000 Hz) [ISO]",KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Tandwielkast,mm/s rms,DE,Horizontal,Ch13 1000 Hz Velocity,13,*Bridle5,uBridge
+81,fd5df175-a555-42ff-a348-775f9c656ea2,Velocity FFT RMS (1 -200 Hz) (W:5 A:5.5),KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Tandwielkast,mm/s RMS,,Horizontal,Ch12 200 Hz Velocity,12,*Bridle5,uBridge
+82,6252a590-5abb-4690-ab1f-d4d2821b1d60,Velocity FFT RMS (1 -200 Hz),KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Tandwielkast,mm/s RMS,,Horizontal,Ch12 200 Hz Velocity,12,*Bridle5,uBridge
+83,2ad1f468-d5d0-4412-a05d-1a685087bd8f,Velocity FFT RMS (1 -200 Hz) (W:1 A:1.5),KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Tandwielkast,mm/s RMS,DE,Horizontal,Ch13 200 Hz Velocity,13,*Bridle5,uBridge
+84,eb6eaa20-c95c-4590-803f-3bbe41807cb9,Velocity FFT RMS (1 -200 Hz),KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Tandwielkast,mm/s RMS,DE,Horizontal,Ch13 200 Hz Velocity,13,*Bridle5,uBridge
+85,6172ff96-b942-4733-b16c-04345e653cda,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Tandwielkast,mm/s RMS,,Axial,Ch14 1000 Hz Velocity,14,*Bridle5,uBridge
+86,f2a0f707-1bee-4141-88f7-b5127a742499,"ISO, Velocity FFT RMS (10 -1000 Hz) (W:4.5 A:7.1)",KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Tandwielkast,mm/s rms,,Axial,Ch14 1000 Hz Velocity,14,*Bridle5,uBridge
+87,3ecdd38d-5655-4e54-9f6b-45d0bfe6cdb5,Acceleration FFT RMS (4 -10 KHz) (W:0.05 A:0.08),KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Bridlerol,g RMS,DE,Horizontal,Ch15 10 KHz Acceleration,15,*Bridle5,uBridge
+88,ffe2375b-3351-4564-bb3e-d01a27e57a48,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Bridlerol,g pk,DE,Horizontal,Ch15 10 KHz Acceleration,15,*Bridle5,uBridge
+89,e43202d5-61ff-4a31-9f16-ab188d862df3,"RMS, Acc. Wave RMS  [RMS]",KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Bridlerol, RMS,DE,Horizontal,Ch15 10 KHz Acceleration,15,*Bridle5,uBridge
+90,4a45fc53-ca77-4f9c-9858-231e02a25c2e,FFT Ovr (1  to 10 KHz) g PS (W:0.08 A:0.12),KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Bridlerol,g RMS,NDE,Horizontal,Ch08 10 KHz Acceleration,16,*Bridle5,uBridge
+91,4c5bfbc6-d87e-4a9e-bca4-fe1e87aff7ff,Mag (W:0.06 A:0.08),KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Bridlerol,g pk,NDE,Horizontal,Ch08 10 KHz Acceleration,16,*Bridle5,uBridge
+92,e1ca71d2-83be-40f1-892d-7edb3d6c96b0,RMS (W:0.1 A:0.12),KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Bridlerol, RMS,NDE,Horizontal,Ch08 10 KHz Acceleration,16,*Bridle5,uBridge
+93,22544e33-1331-497d-8c12-4608689d491e,Toerental ,KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Bridlerol,rpm,,,Toerental ,2,*Bridle5,uBridge
+94,bebc513e-5ed2-45c4-a163-98895bc37732,Acc. FFT RMS (0  - 500 Hz),KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Bridlerol,g RMS,DE,Horizontal,Ch15 500 Hz Enveloped,15,*Bridle5,uBridge
+95,a2472b42-f18f-4cda-80fe-3f98ef769bdf,Acc. FFT RMS (0  - 500 Hz),KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Bridlerol,g RMS,DE,Horizontal,Ch15 500 Hz Enveloped,15,*Bridle5,uBridge
+96,36f51459-b408-49a6-8151-93b954697a10,FFT Ovr (0  to 500 Hz) g PS (W:0.03 A:0.04),KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Bridlerol,g RMS,NDE,Horizontal,Ch08 500 Hz Enveloped,16,*Bridle5,uBridge
+97,662274c6-4c9d-4bdf-9c65-c414bfeab4c1,FFT Ovr (0  to 500 Hz) g PS,KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Bridlerol,g RMS,NDE,Horizontal,Ch08 500 Hz Enveloped,16,*Bridle5,uBridge
+98,5cdb842a-a48a-423a-a9fa-f8aec7c855f7,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Bridlerol,mm/s RMS,DE,Horizontal,Ch15 1000 Hz Velocity,15,*Bridle5,uBridge
+99,e936c226-2b7f-4d68-892d-52695ab184d6,"ISO, Vel. FFT RMS (10  - 1000 Hz) [ISO]",KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Bridlerol,mm/s rms,DE,Horizontal,Ch15 1000 Hz Velocity,15,*Bridle5,uBridge
+100,25402401-599a-4a69-b27c-175739566b8d,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Bridlerol,mm/s RMS,NDE,Horizontal,Ch16 1000 Hz Velocity,16,*Bridle5,uBridge
+101,f98f861d-bb35-4f13-967d-8485c7b58cc9,"ISO, Vel. FFT RMS (10  - 1000 Hz) [ISO]",KBW,,Bridle 5,,Bridle 5.2,,Bridle 5.2,Bridlerol,mm/s rms,NDE,Horizontal,Ch16 1000 Hz Velocity,16,*Bridle5,uBridge
+102,518d2af9-9a00-40b2-a44a-334552b2cc47,Temperatuur,KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Motor,V,,,,,,Manual
+103,7f4ff3a9-31fd-4692-b174-6470df8f88be,Toerental ,KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Motor,rpm,,,Toerental ,1,Bridle6.1,uBridge
+104,474ec90c-405f-4a31-b1f9-9fd90ff51bf2,Acceleration FFT RMS (4 -10 KHz) (W:10 A:12),KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Motor,g RMS,DE,Horizontal,Ch02 10 KHz Acceleration,2,Bridle6.1,uBridge
+105,8cdd6036-1d1c-4053-929d-ec056a91c24b,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Motor,g pk,DE,Horizontal,Ch02 10 KHz Acceleration,2,Bridle6.1,uBridge
+106,d88d8632-aaa4-4a0a-b3bf-fc63a80ad0be,"RMS, Acc. Wave RMS  [RMS]",KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Motor, RMS,DE,Horizontal,Ch02 10 KHz Acceleration,2,Bridle6.1,uBridge
+107,239e2918-2fa8-4dab-b654-d9d1f504a039,Acc. FFT RMS (4  - 10 KHz),KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Motor,g RMS,DE,Axial,Ch03 10 KHz Acceleration,3,Bridle6.1,uBridge
+108,7aa83729-711c-405e-81d1-6b60bb79a543,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Motor,g pk,DE,Axial,Ch03 10 KHz Acceleration,3,Bridle6.1,uBridge
+109,eb9838c7-455e-4623-832a-0cf873b05ef6,"RMS, Acc. Wave RMS  [RMS]",KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Motor, RMS,DE,Axial,Ch03 10 KHz Acceleration,3,Bridle6.1,uBridge
+110,45e2a254-67f8-4bed-a883-6100d49a778f,Acceleration FFT RMS (4 -10 KHz) (W:6 A:7),KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Motor,g RMS,NDE,Horizontal,Ch01 10 KHz Acceleration,1,Bridle6.1,uBridge
+111,97ab83c8-2364-4137-810e-54cdb22574cd,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Motor,g pk,NDE,Horizontal,Ch01 10 KHz Acceleration,1,Bridle6.1,uBridge
+112,fef958cd-1b98-413b-b51d-30567215312f,"RMS, Acc. Wave RMS  [RMS]",KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Motor, RMS,NDE,Horizontal,Ch01 10 KHz Acceleration,1,Bridle6.1,uBridge
+113,7e118e1e-c917-47c4-b69c-7931f4e7a0c6,Acc. FFT RMS (0  - 1000 Hz),KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Motor,g RMS,DE,Axial,Ch03 1000 Hz Enveloped,3,Bridle6.1,uBridge
+114,33bd13b8-bc29-4a62-8ffe-f55e4adefe72,Acc. FFT RMS (0  - 1000 Hz),KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Motor,g RMS,DE,Axial,Ch03 1000 Hz Enveloped,3,Bridle6.1,uBridge
+115,0d0138b8-9d5a-4167-92e9-8c4a9bedec86,Acc. FFT RMS (0  - 1000 Hz),KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Motor,g RMS,DE,Horizontal,Ch02 1000 Hz Enveloped,2,Bridle6.1,uBridge
+116,a6af8201-c282-43a3-9022-0d481d1475e6,Acc. FFT RMS (0  - 1000 Hz),KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Motor,g RMS,DE,Horizontal,Ch02 1000 Hz Enveloped,2,Bridle6.1,uBridge
+117,51516340-7d76-41cb-aafe-a89a9cb4bc59,Acc. FFT RMS (0  - 1000 Hz),KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Motor,g RMS,NDE,Horizontal,Ch01 1000 Hz Enveloped,1,Bridle6.1,uBridge
+118,30ae3f23-6106-4adf-b556-4a23188fd6ad,Acc. FFT RMS (0  - 1000 Hz),KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Motor,g RMS,NDE,Horizontal,Ch01 1000 Hz Enveloped,1,Bridle6.1,uBridge
+119,b60523bc-b0ff-4895-85a4-e8bf2a8d1bed,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Motor,mm/s RMS,DE,Horizontal,Ch02 1000 Hz Velocity,2,Bridle6.1,uBridge
+120,fb89056f-140e-41c4-9119-f5859d598e44,"ISO, Velocity FFT RMS (10 -1000 Hz) (W:4.5 A:7.1)",KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Motor,mm/s rms,DE,Horizontal,Ch02 1000 Hz Velocity,2,Bridle6.1,uBridge
+121,264c5c3b-dc92-4cb3-9578-5b6804bda281,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Motor,mm/s RMS,DE,Axial,Ch03 1000 Hz Velocity,3,Bridle6.1,uBridge
+122,1e4184ef-8462-4751-bdab-1e9caa495c08,"ISO, Velocity FFT RMS (10 -1000 Hz) (W:4.5 A:7.1)",KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Motor,mm/s rms,DE,Axial,Ch03 1000 Hz Velocity,3,Bridle6.1,uBridge
+123,08f3e31d-0105-4572-a0c6-b8853f2e8259,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Motor,mm/s RMS,NDE,Horizontal,Ch01 1000 Hz Velocity,1,Bridle6.1,uBridge
+124,576cfc37-f8c4-445d-a037-cb9bf989405a,"ISO, Velocity FFT RMS (10 -1000 Hz) (W:4.5 A:7.1)",KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Motor,mm/s rms,NDE,Horizontal,Ch01 1000 Hz Velocity,1,Bridle6.1,uBridge
+125,ad7488b0-a115-4893-b681-270909298c5e,Acceleration FFT RMS (4 -10 KHz) (W:1.4 A:1.9),KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Tandwielkast,g RMS,,Horizontal,Ch04 10 KHz Acceleration,4,Bridle6.1,uBridge
+126,e6b7df4d-dcf6-4f5d-b251-a8129409ad67,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Tandwielkast,g pk,,Horizontal,Ch04 10 KHz Acceleration,4,Bridle6.1,uBridge
+127,b66e1793-a525-4853-86c8-717acc3b5269,"RMS, Acc. Wave RMS  [RMS]",KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Tandwielkast, RMS,,Horizontal,Ch04 10 KHz Acceleration,4,Bridle6.1,uBridge
+128,73d482a3-8666-4418-879e-b5e878464cb2,Acceleration FFT RMS (4 -10 KHz) (W:0.5 A:0.85),KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Tandwielkast,g RMS,DE,Horizontal,Ch05 10 KHz Acceleration,5,Bridle6.1,uBridge
+129,bcce62a4-848b-4256-88f4-b9530cc1913b,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Tandwielkast,g pk,DE,Horizontal,Ch05 10 KHz Acceleration,5,Bridle6.1,uBridge
+130,c4219160-305f-406f-b08c-bbec9537f47f,"RMS, Acc. Wave RMS  [RMS]",KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Tandwielkast, RMS,DE,Horizontal,Ch05 10 KHz Acceleration,5,Bridle6.1,uBridge
+131,e20b8d7a-ff73-4cd9-bd85-f3eec0798a77,Acc. FFT RMS (0  - 500 Hz),KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Tandwielkast,g RMS,,Horizontal,Ch04 500 Hz Enveloped,4,Bridle6.1,uBridge
+132,d54abccf-0bdd-4ddc-bb01-b9014cb89656,Acc. FFT RMS (0  - 500 Hz),KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Tandwielkast,g RMS,,Horizontal,Ch04 500 Hz Enveloped,4,Bridle6.1,uBridge
+133,5e6b2999-cfbb-4285-91b7-5af1942753c0,Acc. FFT RMS (0  - 1000 Hz),KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Tandwielkast,g RMS,DE,Horizontal,Ch05 1000 Hz Enveloped,5,Bridle6.1,uBridge
+134,b575f9d1-c56f-4cd8-ab9d-1df47bbd8b7b,Acc. FFT RMS (0  - 1000 Hz),KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Tandwielkast,g RMS,DE,Horizontal,Ch05 1000 Hz Enveloped,5,Bridle6.1,uBridge
+135,451b0134-40ac-4f41-b334-af8e118887a2,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Tandwielkast,mm/s RMS,,Horizontal,Ch04 1000 Hz Velocity,4,Bridle6.1,uBridge
+136,96e2aadc-2510-4a49-b61f-9656263bd58b,"ISO, Velocity FFT RMS (10 -1000 Hz) (W:4.5 A:7.1)",KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Tandwielkast,mm/s rms,,Horizontal,Ch04 1000 Hz Velocity,4,Bridle6.1,uBridge
+137,d1b979c0-3f71-44fd-94c3-9afc03658ff4,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Tandwielkast,mm/s RMS,DE,Horizontal,Ch05 1000 Hz Velocity,5,Bridle6.1,uBridge
+138,0dd8c157-00a7-48e7-a556-5d48a9de3f69,"ISO, Velocity FFT RMS (10 -1000 Hz) (W:4.5 A:7.1)",KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Tandwielkast,mm/s rms,DE,Horizontal,Ch05 1000 Hz Velocity,5,Bridle6.1,uBridge
+139,52c74c4b-9a83-494b-8759-30baf9af1463,Velocity FFT RMS (1 -200 Hz) (W:2.5 A:2.8),KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Tandwielkast,mm/s RMS,,Horizontal,Ch04 200 Hz Velocity,4,Bridle6.1,uBridge
+140,5a2d7165-903f-4587-afc5-7d43707ca50c,Velocity FFT RMS (1 -200 Hz),KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Tandwielkast,mm/s RMS,,Horizontal,Ch04 200 Hz Velocity,4,Bridle6.1,uBridge
+141,c5bf5bb4-7258-4fe6-b123-88713b5bed8a,Velocity FFT RMS (1 -200 Hz) (W:1.2 A:1.35),KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Tandwielkast,mm/s RMS,DE,Horizontal,Ch05 200 Hz Velocity,5,Bridle6.1,uBridge
+142,cb1625e7-1bff-4ada-a496-3d0dd53d74a0,Velocity FFT RMS (1 -200 Hz),KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Tandwielkast,mm/s RMS,DE,Horizontal,Ch05 200 Hz Velocity,5,Bridle6.1,uBridge
+143,c87316d8-f194-4292-9320-d90f18f05b68,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Tandwielkast,mm/s RMS,,Axial,Ch06 1000 Hz Velocity,6,Bridle6.1,uBridge
+144,94f5ec83-44ec-4a5a-a58f-a8faf3fed8d0,"ISO, Velocity FFT RMS (10 -1000 Hz) (W:4.5 A:7.1)",KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1,Tandwielkast,mm/s rms,,Axial,Ch06 1000 Hz Velocity,6,Bridle6.1,uBridge
+145,c8cc5bbf-cf77-4bbc-8765-6570d2b96ecb,Acceleration FFT RMS (4 -10 KHz) (W:0.2 A:0.4),KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1 ,Bridlerol,g RMS,DE,Horizontal,Ch07 10 KHz Acceleration,7,Bridle6.1,uBridge
+146,dbcb6d63-bd74-4492-b023-2529a1f95fdf,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1 ,Bridlerol,g pk,DE,Horizontal,Ch07 10 KHz Acceleration,7,Bridle6.1,uBridge
+147,891d9f6c-8b3c-4279-b6f2-7bd20af4edbd,"RMS, Acc. Wave RMS  [RMS]",KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1 ,Bridlerol, RMS,DE,Horizontal,Ch07 10 KHz Acceleration,7,Bridle6.1,uBridge
+148,9521d7a1-62cf-469a-9d24-67ba283425be,Acceleration FFT RMS (4 -10 KHz) (W:0.1 A:0.2),KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1 ,Bridlerol,g RMS,NDE,Horizontal,Ch08 10 KHz Acceleration,8,Bridle6.1,uBridge
+149,136a870f-c555-4ce1-8a1e-53acc497c9b4,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1 ,Bridlerol,g pk,NDE,Horizontal,Ch08 10 KHz Acceleration,8,Bridle6.1,uBridge
+150,b45fb298-37b8-4581-a9a5-5e3d3dea4921,"RMS, Acc. Wave RMS  [RMS]",KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1 ,Bridlerol, RMS,NDE,Horizontal,Ch08 10 KHz Acceleration,8,Bridle6.1,uBridge
+151,74aca0e2-ef1d-4066-976f-686826340ff9,Acc. FFT RMS (0  - 500 Hz),KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1 ,Bridlerol,g RMS,DE,Horizontal,Ch07 500 Hz Enveloped,7,Bridle6.1,uBridge
+152,1b54e66c-de4a-4710-aad7-697bb986bb1f,Acc. FFT RMS (0  - 500 Hz),KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1 ,Bridlerol,g RMS,DE,Horizontal,Ch07 500 Hz Enveloped,7,Bridle6.1,uBridge
+153,a5b5ece0-54e5-469e-89e4-35d3c4bb8a8a,Acc. FFT RMS (0  - 500 Hz),KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1 ,Bridlerol,g RMS,NDE,Horizontal,Ch08 500 Hz Enveloped,8,Bridle6.1,uBridge
+154,5188574e-a7a9-4174-a814-90953e54675f,Acc. FFT RMS (0  - 500 Hz),KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1 ,Bridlerol,g RMS,NDE,Horizontal,Ch08 500 Hz Enveloped,8,Bridle6.1,uBridge
+155,193a6373-d46f-4ff6-9cd7-6a389939bcb3,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1 ,Bridlerol,mm/s RMS,DE,Horizontal,Ch07 1000 Hz Velocity,7,Bridle6.1,uBridge
+156,17c96fec-9216-4fe7-9586-e3be979c426e,"ISO, Vel. FFT RMS (10  - 1000 Hz) [ISO]",KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1 ,Bridlerol,mm/s rms,DE,Horizontal,Ch07 1000 Hz Velocity,7,Bridle6.1,uBridge
+157,c72b3177-6353-4a2b-a7b7-6a0c2f424e99,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1 ,Bridlerol,mm/s RMS,NDE,Horizontal,Ch08 1000 Hz Velocity,8,Bridle6.1,uBridge
+158,a8bbd46a-49eb-4b21-a11c-1a44cc372441,"ISO, Vel. FFT RMS (10  - 1000 Hz) [ISO]",KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1 ,Bridlerol,mm/s rms,NDE,Horizontal,Ch08 1000 Hz Velocity,8,Bridle6.1,uBridge
+159,ea2af402-683b-4c47-9a1b-9ae5fcded72e,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1 ,Bridlerol,mm/s RMS,NDE,Axial,Ch09 1000 Hz Velocity,9,Bridle6.1,uBridge
+160,7ea92383-ed4c-41d2-b2ec-33975e5a0eae,"ISO, Vel. FFT RMS (10  - 1000 Hz) [ISO]",KBW,,Bridle 6,,Bridle 6.1,,Bridle 6.1 ,Bridlerol,mm/s rms,NDE,Axial,Ch09 1000 Hz Velocity,9,Bridle6.1,uBridge
+161,2abc38fc-e762-4061-bfb6-a08bbb58f047,Temperatuur,KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Motor,V,,,,,,Manual
+162,f10c3fbd-0af6-47a8-a2e6-7562f9691b9b,Toerental ,KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Motor,rpm,,,Toerental ,1,Bridle6.2,uBridge
+163,251b52d3-3c35-4bb0-b27a-3c5aa2442eef,Acceleration FFT RMS (4 -10 KHz) (W:2 A:4),KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Motor,g RMS,DE,Axial,Ch03 10 KHz Acceleration,3,Bridle6.2,uBridge
+164,3b626ef6-b8b1-44b7-b47b-f9eb4bfa7ac5,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Motor,g pk,DE,Axial,Ch03 10 KHz Acceleration,3,Bridle6.2,uBridge
+165,13bacf61-1a66-4f61-a690-d6121bae354d,"RMS, Acc. Wave RMS  [RMS]",KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Motor, RMS,DE,Axial,Ch03 10 KHz Acceleration,3,Bridle6.2,uBridge
+166,7db29d29-3a48-4e87-a15b-45bc4488ba2e,Acceleration FFT RMS (4 -10 KHz) (W:3 A:4),KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Motor,g RMS,DE,Horizontal,Ch02 10 KHz Acceleration,2,Bridle6.2,uBridge
+167,37498e4a-9c7d-45a7-9c08-b41fc361e450,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Motor,g pk,DE,Horizontal,Ch02 10 KHz Acceleration,2,Bridle6.2,uBridge
+168,71f20933-9094-42d1-ac10-278fa2e4431e,"RMS, Acc. Wave RMS  [RMS]",KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Motor, RMS,DE,Horizontal,Ch02 10 KHz Acceleration,2,Bridle6.2,uBridge
+169,73621b3a-ca28-40f9-ae34-96dec5345b8a,Acceleration FFT RMS (4 -10 KHz) (W:3 A:4),KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Motor,g RMS,NDE,Horizontal,Ch01 10 KHz Acceleration,1,Bridle6.2,uBridge
+170,47f4a054-7de4-411c-8c17-9ce78d65541d,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Motor,g pk,NDE,Horizontal,Ch01 10 KHz Acceleration,1,Bridle6.2,uBridge
+171,7ae6d285-6e5d-4692-a62b-4b88396a5f43,"RMS, Acc. Wave RMS  [RMS]",KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Motor, RMS,NDE,Horizontal,Ch01 10 KHz Acceleration,1,Bridle6.2,uBridge
+172,cc18bd37-13ba-44e2-87ca-ce1af0a28c9b,Acc. FFT RMS (0  - 1000 Hz),KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Motor,g RMS,DE,Horizontal,Ch02 1000 Hz Enveloped,2,Bridle6.2,uBridge
+173,6e9496c9-4901-470b-9261-8f478d086705,Acc. FFT RMS (0  - 1000 Hz),KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Motor,g RMS,DE,Horizontal,Ch02 1000 Hz Enveloped,2,Bridle6.2,uBridge
+174,b660294d-1980-4367-b8b0-38070abaf701,FFT Ovr (0  to 1000 Hz) g PS (W:0.35 A:0.45),KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Motor,g RMS,DE,Axial,Ch03 1000 Hz Enveloped,3,Bridle6.2,uBridge
+175,2d8720fa-0aab-4c74-b0ba-b0a709129609,FFT Ovr (0  to 1000 Hz) g PS,KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Motor,g RMS,DE,Axial,Ch03 1000 Hz Enveloped,3,Bridle6.2,uBridge
+176,0d045418-7e02-415d-965b-9e56308094bc,Acc. FFT RMS (0  - 1000 Hz),KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Motor,g RMS,NDE,Horizontal,Ch01 1000 Hz Enveloped,1,Bridle6.2,uBridge
+177,e325db61-818b-4fc3-b522-550293fed965,Acc. FFT RMS (0  - 1000 Hz),KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Motor,g RMS,NDE,Horizontal,Ch01 1000 Hz Enveloped,1,Bridle6.2,uBridge
+178,604d02b3-48be-4e35-80b4-5ecd9eeb38ac,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Motor,mm/s RMS,DE,Horizontal,Ch02 1000 Hz Velocity,2,Bridle6.2,uBridge
+179,ea82c6fe-f729-4dde-8a51-a5aa833698f5,"ISO, Vel. FFT RMS (10  - 1000 Hz) [ISO]",KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Motor,mm/s rms,DE,Horizontal,Ch02 1000 Hz Velocity,2,Bridle6.2,uBridge
+180,af7c0639-8148-4c3a-8d52-c8532d59198d,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Motor,mm/s RMS,DE,Axial,Ch03 1000 Hz Velocity,3,Bridle6.2,uBridge
+181,bd945188-557f-4d4c-adc4-5abd751eb218,"ISO, Vel. FFT RMS (10  - 1000 Hz) [ISO]",KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Motor,mm/s rms,DE,Axial,Ch03 1000 Hz Velocity,3,Bridle6.2,uBridge
+182,a5de2bf6-0ae2-4100-9b35-37b2aee88b32,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Motor,mm/s RMS,NDE,Horizontal,Ch01 1000 Hz Velocity,1,Bridle6.2,uBridge
+183,dfaf8e3e-56d0-49ac-9701-348470956429,"ISO, Velocity FFT RMS (10 -1000 Hz) (W:4.5 A:7.1)",KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Motor,mm/s rms,NDE,Horizontal,Ch01 1000 Hz Velocity,1,Bridle6.2,uBridge
+184,d4996872-c541-4a61-b4b4-e12c38c16168,Acc. FFT RMS (4  - 10 KHz),KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Tandwielkast,g RMS,,Horizontal,Ch04 10 KHz Acceleration,4,Bridle6.2,uBridge
+185,ee0e9c5d-d1f4-4558-b892-13542a1bb2a9,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Tandwielkast,g pk,,Horizontal,Ch04 10 KHz Acceleration,4,Bridle6.2,uBridge
+186,38005052-3d1c-4bda-9b5f-11c4fdc55118,"RMS, Acc. Wave RMS  [RMS]",KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Tandwielkast, RMS,,Horizontal,Ch04 10 KHz Acceleration,4,Bridle6.2,uBridge
+187,9727a89b-d4fa-4257-932a-4863b2308982,Acceleration FFT RMS (4 -10 KHz) (W:1 A:2),KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Tandwielkast,g RMS,DE,Horizontal,Ch05 10 KHz Acceleration,5,Bridle6.2,uBridge
+188,d3eff75c-bd4a-4fe4-9114-5aa8e470170e,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Tandwielkast,g pk,DE,Horizontal,Ch05 10 KHz Acceleration,5,Bridle6.2,uBridge
+189,69804b45-e59b-4fa1-b678-451e4e6d2e61,"RMS, Acc. Wave RMS  [RMS]",KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Tandwielkast, RMS,DE,Horizontal,Ch05 10 KHz Acceleration,5,Bridle6.2,uBridge
+190,d60b53bd-9116-4b0d-9aca-d321b5e044d6,Acc. FFT RMS (0  - 500 Hz),KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Tandwielkast,g RMS,,Horizontal,Ch04 500 Hz Enveloped,4,Bridle6.2,uBridge
+191,6a2e9e8e-197b-48b0-941b-42d9954dbfe5,Acc. FFT RMS (0  - 500 Hz),KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Tandwielkast,g RMS,,Horizontal,Ch04 500 Hz Enveloped,4,Bridle6.2,uBridge
+192,b533a912-0783-44cb-aa73-e69b3c46ca88,Acc. FFT RMS (0  - 1000 Hz),KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Tandwielkast,g RMS,DE,Horizontal,Ch05 1000 Hz Enveloped,5,Bridle6.2,uBridge
+193,cec8c476-d82e-42f4-b28b-ecc0c5f04f22,Acc. FFT RMS (0  - 1000 Hz),KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Tandwielkast,g RMS,DE,Horizontal,Ch05 1000 Hz Enveloped,5,Bridle6.2,uBridge
+194,ef98d53f-8287-44f4-b1de-91cb9f1ac5be,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Tandwielkast,mm/s RMS,,Horizontal,Ch04 1000 Hz Velocity,4,Bridle6.2,uBridge
+195,631f2e65-ee83-41a7-815d-738423d6da28,"ISO, Velocity FFT RMS (10 -1000 Hz) (W:4.5 A:7.1)",KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Tandwielkast,mm/s rms,,Horizontal,Ch04 1000 Hz Velocity,4,Bridle6.2,uBridge
+196,f292619f-7fb5-4999-9155-41ae9f41de13,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Tandwielkast,mm/s RMS,DE,Horizontal,Ch05 1000 Hz Velocity,5,Bridle6.2,uBridge
+197,09e595d1-e824-4a1b-b509-9f78c3a6dabe,"ISO, Vel. FFT RMS (10  - 1000 Hz) [ISO]",KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Tandwielkast,mm/s rms,DE,Horizontal,Ch05 1000 Hz Velocity,5,Bridle6.2,uBridge
+198,c8cff0a1-ad84-46e5-8d12-8c803dfe5c92,Velocity FFT RMS (1 -200 Hz) (W:4 A:6.5),KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Tandwielkast,mm/s RMS,,Horizontal,Ch04 200 Hz Velocity,4,Bridle6.2,uBridge
+199,f51cec1c-85c6-4d98-bb8d-9130283697bb,Velocity FFT RMS (1 -200 Hz),KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Tandwielkast,mm/s RMS,,Horizontal,Ch04 200 Hz Velocity,4,Bridle6.2,uBridge
+200,8d807f91-4d4d-4884-b58e-ee7d338c3b32,Velocity FFT RMS (1 -200 Hz) (W:0.8 A:1),KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Tandwielkast,mm/s RMS,DE,Horizontal,Ch05 200 Hz Velocity,5,Bridle6.2,uBridge
+201,3cde4445-39a5-4bf4-9a81-3c7d33269e69,Velocity FFT RMS (1 -200 Hz),KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Tandwielkast,mm/s RMS,DE,Horizontal,Ch05 200 Hz Velocity,5,Bridle6.2,uBridge
+202,4129a015-da25-4ef6-8495-56ec72d0e5e3,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Tandwielkast,mm/s RMS,,Axial,Ch06 1000 Hz Velocity,6,Bridle6.2,uBridge
+203,7094624c-5580-4f65-a35e-3e749f33df87,"ISO, Vel. FFT RMS (10  - 1000 Hz) [ISO]",KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Tandwielkast,mm/s rms,,Axial,Ch06 1000 Hz Velocity,6,Bridle6.2,uBridge
+204,95e62178-558a-4945-aa6d-9821189ba125,Acceleration FFT RMS (4 -10 KHz) (W:0.2 A:0.4),KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Bridlerol,g RMS,DE,Horizontal,Ch07 10 KHz Acceleration,7,Bridle6.2,uBridge
+205,fde58e30-f308-4523-ab0d-fc65628a1e82,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Bridlerol,g pk,DE,Horizontal,Ch07 10 KHz Acceleration,7,Bridle6.2,uBridge
+206,2367ba58-c770-4d6f-9706-a46bb7241264,"RMS, Acc. Wave RMS  [RMS]",KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Bridlerol, RMS,DE,Horizontal,Ch07 10 KHz Acceleration,7,Bridle6.2,uBridge
+207,97a9e88e-a61b-4077-9ff4-8732ad1a6572,FFT Ovr (1  to 10 KHz) g PS (W:0.5 A:1),KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Bridlerol,g RMS,NDE,Horizontal,Ch08 10 KHz Acceleration,8,Bridle6.2,uBridge
+208,dac9c992-2c1a-496f-af3f-0f05474b2258,Mag (W:0.12 A:0.14),KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Bridlerol,g pk,NDE,Horizontal,Ch08 10 KHz Acceleration,8,Bridle6.2,uBridge
+209,f2caa048-36b9-4a2f-9127-83514c95e86d,RMS,KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Bridlerol, RMS,NDE,Horizontal,Ch08 10 KHz Acceleration,8,Bridle6.2,uBridge
+210,2115c761-c7eb-4a69-b99d-9ae5fae17ee2,FFT Ovr (0  to 500 Hz) g PS (W:0.13 A:0.15),KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Bridlerol,g RMS,DE,Horizontal,Ch07 500 Hz Enveloped,7,Bridle6.2,uBridge
+211,2f2098e2-8b64-4727-81ce-a154d4732a21,FFT Ovr (0  to 500 Hz) g PS,KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Bridlerol,g RMS,DE,Horizontal,Ch07 500 Hz Enveloped,7,Bridle6.2,uBridge
+212,533ba7b4-f700-4304-a77f-7ed343249015,FFT Ovr (0  to 500 Hz) g PS (W:0.05 A:0.06),KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Bridlerol,g RMS,NDE,Horizontal,Ch08 500 Hz Enveloped,8,Bridle6.2,uBridge
+213,1cefceaf-9f86-433c-847f-3ec65e71d738,FFT Ovr (0  to 500 Hz) g PS,KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Bridlerol,g RMS,NDE,Horizontal,Ch08 500 Hz Enveloped,8,Bridle6.2,uBridge
+214,2ad6e5b2-3bec-4d77-b789-e30fc7bbf851,FFT Ovr (10  to 1000 Hz) mm/s PS (W:1 A:2),KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Bridlerol,mm/s RMS,DE,Horizontal,Ch07 1000 Hz Velocity,7,Bridle6.2,uBridge
+215,5b0600aa-be5c-4aed-b12c-4d328400f803,ISO (W:0.35 A:0.4),KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Bridlerol,mm/s RMS,DE,Horizontal,Ch07 1000 Hz Velocity,7,Bridle6.2,uBridge
+216,88642b3a-cbb3-4dba-992f-b1b3125c6d1e,FFT Ovr (10  to 1000 Hz) mm/s PS (W:4 A:6),KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Bridlerol,mm/s RMS,NDE,Horizontal,Ch09 1000 Hz Velocity,9,Bridle6.2,uBridge
+217,418faf71-43da-4f32-8ce9-0d01b8e1eac7,ISO (W:3 A:3.7),KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Bridlerol,mm/s RMS,NDE,Horizontal,Ch09 1000 Hz Velocity,9,Bridle6.2,uBridge
+218,5b3ae853-1890-4b7a-84ec-32634f2f8cd5,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Bridlerol,mm/s RMS,NDE,Horizontal,Ch08 1000 Hz Velocity,8,Bridle6.2,uBridge
+219,860b9716-8ec2-4682-8673-cd13bf5197cb,Vel. FFT RMS (2  - 1000 Hz),KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Bridlerol,mm/s RMS,NDE,Horizontal,Ch08 1000 Hz Velocity,8,Bridle6.2,uBridge
+220,69fd3a6d-3149-4b4b-b4e3-4c53c5346b86,"ISO, Vel. FFT RMS (10  - 1000 Hz) [ISO]",KBW,,Bridle 6,,Bridle 6.2,,Bridle 6.2,Bridlerol,mm/s rms,NDE,Horizontal,Ch08 1000 Hz Velocity,8,Bridle6.2,uBridge
+221,4bb685f0-4abf-4175-bc8d-40d62417e886,Temperatuur,KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Motor,V,,,,,,Manual
+222,f9ceef65-41d0-444a-9441-93c9d6aaa832,Acc. FFT RMS (4  - 10 KHz),KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Motor,g RMS,DE,Horizontal,Ch02 10 KHz Acceleration,2,Bridle7,uBridge
+223,24852bd4-c75f-4562-aa2c-a9c5be13aea9,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Motor,g pk,DE,Horizontal,Ch02 10 KHz Acceleration,2,Bridle7,uBridge
+224,d1965b70-c844-457c-bd39-0dfca8f91690,"RMS, Acc. Wave RMS  [RMS]",KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Motor, RMS,DE,Horizontal,Ch02 10 KHz Acceleration,2,Bridle7,uBridge
+225,cad60286-d6e0-4a00-b65f-0761daa1a7bc,Acc. FFT RMS (4  - 10 KHz),KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Motor,g RMS,NDE,Horizontal,Ch01 10 KHz Acceleration,1,Bridle7,uBridge
+226,72437cb1-e364-4e07-9fa7-ae26f8a33ab5,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Motor,g pk,NDE,Horizontal,Ch01 10 KHz Acceleration,1,Bridle7,uBridge
+227,e48f1518-92a6-4513-b440-fc4823a9e351,"RMS, Acc. Wave RMS  [RMS]",KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Motor, RMS,NDE,Horizontal,Ch01 10 KHz Acceleration,1,Bridle7,uBridge
+228,09be320f-6c6d-45ad-bcf1-1d0a14e1bc90,Acc. FFT RMS (0  - 1000 Hz),KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Motor,g RMS,DE,Horizontal,Ch02 1000 Hz Enveloped,2,Bridle7,uBridge
+229,3e9eacbb-bd50-4a22-b59a-c3a97c387f96,Acc. FFT RMS (0  - 1000 Hz),KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Motor,g RMS,DE,Horizontal,Ch02 1000 Hz Enveloped,2,Bridle7,uBridge
+230,20763130-8369-4863-a87a-5d162332656b,Acc. FFT RMS (0  - 1000 Hz),KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Motor,g RMS,NDE,Horizontal,Ch01 1000 Hz Enveloped,1,Bridle7,uBridge
+231,23516882-74cd-4a86-8ce2-f86173461b9c,Acc. FFT RMS (0  - 1000 Hz),KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Motor,g RMS,NDE,Horizontal,Ch01 1000 Hz Enveloped,1,Bridle7,uBridge
+232,27a2f54a-ec19-482a-a9f5-4356f61b89ef,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Motor,mm/s RMS,DE,Horizontal,Ch02 1000 Hz Velocity,2,Bridle7,uBridge
+233,70694b9e-8686-4e82-8040-8eb961985860,"ISO, Vel. FFT RMS (10  - 1000 Hz) [ISO]",KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Motor,mm/s rms,DE,Horizontal,Ch02 1000 Hz Velocity,2,Bridle7,uBridge
+234,746add01-4437-412d-9e85-53a92e47c902,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Motor,mm/s RMS,DE,Axial,Ch03 1000 Hz Velocity,3,Bridle7,uBridge
+235,c31e654d-b4db-43bf-9e5c-1cf736f27659,"ISO, Velocity FFT RMS (10 -1000 Hz) (W:4.5 A:7.1)",KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Motor,mm/s rms,DE,Axial,Ch03 1000 Hz Velocity,3,Bridle7,uBridge
+236,d984488c-16b4-465d-9862-d12bb6b672c3,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Motor,mm/s RMS,NDE,Horizontal,Ch01 1000 Hz Velocity,1,Bridle7,uBridge
+237,b39e413f-5d7e-44e9-89bc-8c6cf8813812,"ISO, Vel. FFT RMS (10  - 1000 Hz) [ISO]",KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Motor,mm/s rms,NDE,Horizontal,Ch01 1000 Hz Velocity,1,Bridle7,uBridge
+238,b3578183-fb8d-4e27-918f-65e63a6c52d7,Acc. FFT RMS (4  - 10 KHz),KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Tandwielkast,g RMS,,Horizontal,Ch04 10 KHz Acceleration,4,Bridle7,uBridge
+239,89df7a51-5bd9-48e6-880b-af1e304f52b4,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Tandwielkast,g pk,,Horizontal,Ch04 10 KHz Acceleration,4,Bridle7,uBridge
+240,8f76eb72-c850-4e09-b456-21480ff52f5c,"RMS, Acc. Wave RMS  [RMS]",KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Tandwielkast, RMS,,Horizontal,Ch04 10 KHz Acceleration,4,Bridle7,uBridge
+241,8182e4fa-75f1-47f5-acad-a0ed4492c90e,Acceleration FFT RMS (4 -10 KHz) (W:0.1 A:0.3),KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Tandwielkast,g RMS,DE,Horizontal,Ch05 10 KHz Acceleration,5,Bridle7,uBridge
+242,a2f47da8-ca50-4525-ae03-185632f6e740,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Tandwielkast,g pk,DE,Horizontal,Ch05 10 KHz Acceleration,5,Bridle7,uBridge
+243,62df41e7-6b3c-4d0e-b924-f4eea7c90462,"RMS, Acc. Wave RMS  [RMS]",KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Tandwielkast, RMS,DE,Horizontal,Ch05 10 KHz Acceleration,5,Bridle7,uBridge
+244,13fe6ef4-91c5-43f9-90bc-a83de4c534d5,Acc. FFT RMS (0  - 500 Hz),KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Tandwielkast,g RMS,,Horizontal,Ch04 500 Hz Enveloped,4,Bridle7,uBridge
+245,61a7f171-96fd-4164-948f-79bc16da59ac,Acc. FFT RMS (0  - 500 Hz),KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Tandwielkast,g RMS,,Horizontal,Ch04 500 Hz Enveloped,4,Bridle7,uBridge
+246,c85a63a0-66ba-49a2-a046-82275f642bbc,Acc. FFT RMS (0  - 1000 Hz),KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Tandwielkast,g RMS,DE,Horizontal,Ch05 1000 Hz Enveloped,5,Bridle7,uBridge
+247,f0cd0094-3784-4771-bd91-ed8317660e3a,Acc. FFT RMS (0  - 1000 Hz),KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Tandwielkast,g RMS,DE,Horizontal,Ch05 1000 Hz Enveloped,5,Bridle7,uBridge
+248,57034410-ee6d-4203-997b-675a2c62c02c,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Tandwielkast,mm/s RMS,,Horizontal,Ch04 1000 Hz Velocity,4,Bridle7,uBridge
+249,55e12b44-00d9-4b9e-bf4b-2c37cef74e70,"ISO, Vel. FFT RMS (10  - 1000 Hz) [ISO]",KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Tandwielkast,mm/s rms,,Horizontal,Ch04 1000 Hz Velocity,4,Bridle7,uBridge
+250,cddd5461-620a-4e24-990d-dcda2d16155b,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Tandwielkast,mm/s RMS,DE,Horizontal,Ch05 1000 Hz Velocity,5,Bridle7,uBridge
+251,ee58a250-6974-4258-9733-a00a8bf2d5f7,"ISO, Vel. FFT RMS (10  - 1000 Hz) [ISO]",KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Tandwielkast,mm/s rms,DE,Horizontal,Ch05 1000 Hz Velocity,5,Bridle7,uBridge
+252,0ee9d27a-32c5-4f01-af37-90dce00a4570,Vel. FFT RMS (1  - 200 Hz),KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Tandwielkast,mm/s RMS,,Horizontal,Ch04 200 Hz Velocity,4,Bridle7,uBridge
+253,d811f47e-84fc-4a1f-94ae-493a9b337005,Vel. FFT RMS (1  - 200 Hz),KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Tandwielkast,mm/s RMS,,Horizontal,Ch04 200 Hz Velocity,4,Bridle7,uBridge
+254,9dd9c401-f425-4ba0-9647-1433b3dfa1c2,Velocity FFT RMS (1 -200 Hz) (W:0.45 A:0.55),KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Tandwielkast,mm/s RMS,DE,Horizontal,Ch05 200 Hz Velocity,5,Bridle7,uBridge
+255,3dd8eb6a-f78e-4c09-93f5-c787489ed5cc,Velocity FFT RMS (1 -200 Hz),KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Tandwielkast,mm/s RMS,DE,Horizontal,Ch05 200 Hz Velocity,5,Bridle7,uBridge
+256,9eb00362-c4c1-45d0-9cc1-c389de994710,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Tandwielkast,mm/s RMS,,Axial,Ch06 1000 Hz Velocity,6,Bridle7,uBridge
+257,9231a273-23a7-4aec-a86b-5c0794ec2b2f,"ISO, Velocity FFT RMS (10 -1000 Hz) (W:4.5 A:7.1)",KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Tandwielkast,mm/s rms,,Axial,Ch06 1000 Hz Velocity,6,Bridle7,uBridge
+258,2115cad0-01d7-4cb2-a02c-9772f440dd7b,Acceleration FFT RMS (4 -10 KHz) (W:0.3 A:0.5),KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Bridlerol,g RMS,DE,Horizontal,Ch07 10 KHz Acceleration,7,Bridle7,uBridge
+259,1ce2ca66-9194-4b74-bfd7-4bc6b5bf6f6d,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Bridlerol,g pk,DE,Horizontal,Ch07 10 KHz Acceleration,7,Bridle7,uBridge
+260,9be290cf-dd55-436b-9689-9fee7181a423,"RMS, Acc. Wave RMS  [RMS]",KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Bridlerol, RMS,DE,Horizontal,Ch07 10 KHz Acceleration,7,Bridle7,uBridge
+261,819c6fc6-8049-44d5-9637-008521e08d82,Acceleration FFT RMS (4 -10 KHz) (W:0.3 A:0.5),KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Bridlerol,g RMS,NDE,Horizontal,Ch08 10 KHz Acceleration,8,Bridle7,uBridge
+262,0b51130f-f962-4437-a232-16ff11177833,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Bridlerol,g pk,NDE,Horizontal,Ch08 10 KHz Acceleration,8,Bridle7,uBridge
+263,d365513c-fee9-4c0c-a7be-dd90687c4026,"RMS, Acc. Wave RMS  [RMS]",KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Bridlerol, RMS,NDE,Horizontal,Ch08 10 KHz Acceleration,8,Bridle7,uBridge
+264,4f2ec3a0-c65f-4dfc-b89d-04dbf25876af,Toerental ,KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Bridlerol,rpm,,,Toerental ,1,Bridle7,uBridge
+265,1051d80f-26d0-4f1d-9e03-ec19a768a026,Acc. FFT RMS (0  - 500 Hz),KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Bridlerol,g RMS,DE,Horizontal,Ch07 500 Hz Enveloped,7,Bridle7,uBridge
+266,84844199-8962-4ab0-aefb-39ce0ab46d9c,Acc. FFT RMS (0  - 500 Hz),KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Bridlerol,g RMS,DE,Horizontal,Ch07 500 Hz Enveloped,7,Bridle7,uBridge
+267,8f3c06fa-1080-4672-8388-d1877499927d,Acc. FFT RMS (0  - 500 Hz),KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Bridlerol,g RMS,NDE,Horizontal,Ch08 500 Hz Enveloped,8,Bridle7,uBridge
+268,c0c69cc5-8cbd-44cf-9fee-dacf58c24066,Acc. FFT RMS (0  - 500 Hz),KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Bridlerol,g RMS,NDE,Horizontal,Ch08 500 Hz Enveloped,8,Bridle7,uBridge
+269,d621988f-3512-4716-9399-d2cf7fc7c167,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Bridlerol,mm/s RMS,DE,Horizontal,Ch07 1000 Hz Velocity,7,Bridle7,uBridge
+270,8b947c7e-19c5-4cb6-b871-2a9747c6eed0,"ISO, Vel. FFT RMS (10  - 1000 Hz) [ISO]",KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Bridlerol,mm/s rms,DE,Horizontal,Ch07 1000 Hz Velocity,7,Bridle7,uBridge
+271,9e78d37b-235b-4c44-b677-08f82395279f,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Bridlerol,mm/s RMS,NDE,Horizontal,Ch08 1000 Hz Velocity,8,Bridle7,uBridge
+272,4d49e60f-afb2-47db-b5d3-2b6d6d85f5b0,"ISO, Vel. FFT RMS (10  - 1000 Hz) [ISO]",KBW,,Bridle 7,,Bridle 7.1,,Bridle 7.1,Bridlerol,mm/s rms,NDE,Horizontal,Ch08 1000 Hz Velocity,8,Bridle7,uBridge
+273,13dba599-3838-4c98-b0ad-ca118f9ec605,Temperatuur,KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Motor,V,,,,,,Manual
+274,0958d6bb-8486-4316-bf77-bc5c6566838e,Acceleration FFT RMS (4 -10 KHz) (W:3.5 A:5),KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Motor,g RMS,DE,Horizontal,Ch10 10 KHz Acceleration,10,Bridle7,uBridge
+275,aeadbc22-ea6e-41b4-800f-6d93e25ac2c9,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Motor,g pk,DE,Horizontal,Ch10 10 KHz Acceleration,10,Bridle7,uBridge
+276,94806ade-7367-4329-91c8-a0831b838373,"RMS, Acc. Wave RMS  [RMS]",KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Motor, RMS,DE,Horizontal,Ch10 10 KHz Acceleration,10,Bridle7,uBridge
+277,68883f19-e361-49fc-aa52-f2285c3c47fe,Acc. FFT RMS (4  - 10 KHz),KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Motor,g RMS,NDE,Horizontal,Ch09 10 KHz Acceleration,9,Bridle7,uBridge
+278,715b623e-c6e5-4103-afc4-bcaa93250ca7,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Motor,g pk,NDE,Horizontal,Ch09 10 KHz Acceleration,9,Bridle7,uBridge
+279,4f3356f9-79e9-481c-8a25-d3baf9ddd8f7,"RMS, Acc. Wave RMS  [RMS]",KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Motor, RMS,NDE,Horizontal,Ch09 10 KHz Acceleration,9,Bridle7,uBridge
+280,b7d37ee4-f91a-4903-a2b3-286b974ce528,Acc. FFT RMS (0  - 1000 Hz),KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Motor,g RMS,DE,Horizontal,Ch10 1000 Hz Enveloped,10,Bridle7,uBridge
+281,00cf8005-bacb-437e-a80f-00c9c5b1c312,Acc. FFT RMS (0  - 1000 Hz),KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Motor,g RMS,DE,Horizontal,Ch10 1000 Hz Enveloped,10,Bridle7,uBridge
+282,1b17f8b2-521d-4285-85b0-aaf233706df9,Acc. FFT RMS (0  - 1000 Hz),KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Motor,g RMS,NDE,Horizontal,Ch09 1000 Hz Enveloped,9,Bridle7,uBridge
+283,d43c8197-8972-4f0d-b6d5-bbc6689388d8,Acc. FFT RMS (0  - 1000 Hz),KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Motor,g RMS,NDE,Horizontal,Ch09 1000 Hz Enveloped,9,Bridle7,uBridge
+284,7cd2922e-902a-4252-8d2f-3945f523d5d3,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Motor,mm/s RMS,DE,Axial,Ch11 1000 Hz Velocity,11,Bridle7,uBridge
+285,6b6178b4-acd1-450e-8829-fe464c3c56a0,"ISO, Vel. FFT RMS (10  - 1000 Hz) [ISO]",KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Motor,mm/s rms,DE,Axial,Ch11 1000 Hz Velocity,11,Bridle7,uBridge
+286,c5c27707-e029-43cb-a2e5-270c93b07acb,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Motor,mm/s RMS,DE,Horizontal,Ch10 1000 Hz Velocity,10,Bridle7,uBridge
+287,e6d018ca-6a32-4b56-96a3-1c0494822efa,"ISO, Vel. FFT RMS (10  - 1000 Hz) [ISO]",KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Motor,mm/s rms,DE,Horizontal,Ch10 1000 Hz Velocity,10,Bridle7,uBridge
+288,f0b2517e-fbfa-4a31-bd45-ce79227a514f,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Motor,mm/s RMS,NDE,Horizontal,Ch09 1000 Hz Velocity,9,Bridle7,uBridge
+289,34ee59cf-f5a2-43ef-ac9b-13c051c4aa9a,"ISO, Vel. FFT RMS (10  - 1000 Hz) [ISO]",KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Motor,mm/s rms,NDE,Horizontal,Ch09 1000 Hz Velocity,9,Bridle7,uBridge
+290,47342085-df2c-4091-b018-af81026b777d,Acceleration FFT RMS (4 -10 KHz) (W:5 A:7),KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Tandwielkast,g RMS,,Horizontal,Ch12 10 KHz Acceleration,12,Bridle7,uBridge
+291,574e23b0-852e-45c4-9daa-cca2cb784238,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Tandwielkast,g pk,,Horizontal,Ch12 10 KHz Acceleration,12,Bridle7,uBridge
+292,9de94ef9-bf45-4419-92ca-490d8ed1b85f,"RMS, Acc. Wave RMS  [RMS]",KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Tandwielkast, RMS,,Horizontal,Ch12 10 KHz Acceleration,12,Bridle7,uBridge
+293,4b05edf8-16f1-4575-b4b9-9f3cc8fa6ab9,Acc. FFT RMS (4  - 10 KHz),KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Tandwielkast,g RMS,DE,Horizontal,Ch13 10 KHz Acceleration,13,Bridle7,uBridge
+294,05e96fd7-7857-4f51-a00b-c0bcd9a9f211,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Tandwielkast,g pk,DE,Horizontal,Ch13 10 KHz Acceleration,13,Bridle7,uBridge
+295,9a0d5d96-2348-40cf-a40c-d1a23391f2e4,"RMS, Acc. Wave RMS  [RMS]",KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Tandwielkast, RMS,DE,Horizontal,Ch13 10 KHz Acceleration,13,Bridle7,uBridge
+296,90c39505-e436-4c36-9659-3342126836f2,Acc. FFT RMS (0  - 500 Hz),KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Tandwielkast,g RMS,,Horizontal,Ch12 500 Hz Enveloped,12,Bridle7,uBridge
+297,3b7d8f8a-5fe1-48f1-a32c-e1f3dc5aebbe,Acc. FFT RMS (0  - 500 Hz),KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Tandwielkast,g RMS,,Horizontal,Ch12 500 Hz Enveloped,12,Bridle7,uBridge
+298,e16d1c46-e147-4233-9022-b3b1449dedcf,Acc. FFT RMS (0  - 1000 Hz),KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Tandwielkast,g RMS,DE,Horizontal,Ch13 1000 Hz Enveloped,13,Bridle7,uBridge
+299,4cb8e49a-5d4f-4ef5-aa8c-d68839013d60,Acc. FFT RMS (0  - 1000 Hz),KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Tandwielkast,g RMS,DE,Horizontal,Ch13 1000 Hz Enveloped,13,Bridle7,uBridge
+300,c459cf10-53eb-4de2-9e27-0bb249a05570,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Tandwielkast,mm/s RMS,,Horizontal,Ch12 1000 Hz Velocity,12,Bridle7,uBridge
+301,b15be788-d82a-42fd-88c6-d77841696880,"ISO, Vel. FFT RMS (10  - 1000 Hz) [ISO]",KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Tandwielkast,mm/s rms,,Horizontal,Ch12 1000 Hz Velocity,12,Bridle7,uBridge
+302,e5f45aca-5983-4dd8-bbd7-9ee75b5c2a62,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Tandwielkast,mm/s RMS,DE,Horizontal,Ch13 1000 Hz Velocity,13,Bridle7,uBridge
+303,5aea8240-de11-41f1-9649-4a491028663f,"ISO, Vel. FFT RMS (10  - 1000 Hz) [ISO]",KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Tandwielkast,mm/s rms,DE,Horizontal,Ch13 1000 Hz Velocity,13,Bridle7,uBridge
+304,f64a9e8a-85b8-43ae-a651-a7bf301caa37,Vel. FFT RMS (1  - 200 Hz),KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Tandwielkast,mm/s RMS,,Horizontal,Ch12 200 Hz Velocity,12,Bridle7,uBridge
+305,f65483a8-0656-4308-bf46-eb37e687e44f,Vel. FFT RMS (1  - 200 Hz),KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Tandwielkast,mm/s RMS,,Horizontal,Ch12 200 Hz Velocity,12,Bridle7,uBridge
+306,63b75a19-6c78-46fa-9d09-646a5172d1f2,Velocity FFT RMS (1 -200 Hz) (W:4 A:5),KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Tandwielkast,mm/s RMS,DE,Horizontal,Ch13 200 Hz Velocity,13,Bridle7,uBridge
+307,f35b209c-4ffb-4948-9e5f-09c4541afa15,Vel. FFT RMS (1  - 200 Hz),KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Tandwielkast,mm/s RMS,DE,Horizontal,Ch13 200 Hz Velocity,13,Bridle7,uBridge
+308,ff85eea4-c395-472a-a88b-5d6688df9ab4,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Tandwielkast,mm/s RMS,,Axial,Ch14 1000 Hz Velocity,14,Bridle7,uBridge
+309,e79aa25b-debe-446e-979b-4108896e5a36,"ISO, Vel. FFT RMS (10  - 1000 Hz) [ISO]",KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Tandwielkast,mm/s rms,,Axial,Ch14 1000 Hz Velocity,14,Bridle7,uBridge
+310,b13ff622-ae47-4e26-9ee7-2c53421f9fb7,Acceleration FFT RMS (4 -10 KHz) (W:0.1 A:0.2),KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Bridlerol,g RMS,DE,Horizontal,Ch15 10 KHz Acceleration,15,Bridle7,uBridge
+311,e5ab1195-798d-4bb2-b8df-6c9a2833ec6e,"Mag, Acceleration FFT Mag (4 -10 KHz) (W:0.1 A:0.2)",KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Bridlerol,g pk,DE,Horizontal,Ch15 10 KHz Acceleration,15,Bridle7,uBridge
+312,5bf0ac6a-abcf-4f40-9ec8-d9ad03ec44fe,"RMS, Acc. Wave RMS  [RMS]",KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Bridlerol, RMS,DE,Horizontal,Ch15 10 KHz Acceleration,15,Bridle7,uBridge
+313,87455613-f983-4570-a376-f5f2c16ac775,Acceleration FFT RMS (4 -10 KHz) (W:0.1 A:0.3),KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Bridlerol,g RMS,NDE,Horizontal,Ch16 10 KHz Acceleration,16,Bridle7,uBridge
+314,186a00e4-a003-423c-8d8b-e19485f5cfb7,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Bridlerol,g pk,NDE,Horizontal,Ch16 10 KHz Acceleration,16,Bridle7,uBridge
+315,4af426f5-6ea7-42ac-a19a-526ac6dd85eb,"RMS, Acc. Wave RMS  [RMS]",KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Bridlerol, RMS,NDE,Horizontal,Ch16 10 KHz Acceleration,16,Bridle7,uBridge
+316,96755c75-dacc-4d93-9622-a3a993666009,Toerental ,KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Bridlerol,rpm,,,Toerental ,2,Bridle7,uBridge
+317,0b3c8608-2453-4858-9cf9-c31142f356a8,Acc. FFT RMS (0  - 500 Hz),KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Bridlerol,g RMS,DE,Horizontal,Ch15 500 Hz Enveloped,15,Bridle7,uBridge
+318,3a9e19ad-e46c-4e9e-bf89-bff86dc378d1,Acc. FFT RMS (0  - 500 Hz),KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Bridlerol,g RMS,DE,Horizontal,Ch15 500 Hz Enveloped,15,Bridle7,uBridge
+319,dcbb94b3-4961-406e-be11-3cbecf956744,Acc. FFT RMS (0  - 500 Hz),KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Bridlerol,g RMS,NDE,Horizontal,Ch16 500 Hz Enveloped,16,Bridle7,uBridge
+320,55bddc32-4c56-415d-8839-90c4428534f4,Acc. FFT RMS (0  - 500 Hz),KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Bridlerol,g RMS,NDE,Horizontal,Ch16 500 Hz Enveloped,16,Bridle7,uBridge
+321,15fb9497-5f7d-4893-b122-0baab7d76371,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Bridlerol,mm/s RMS,DE,Horizontal,Ch15 1000 Hz Velocity,15,Bridle7,uBridge
+322,6dec0df3-7d89-4716-8e41-79123bffbe22,"ISO, Vel. FFT RMS (10  - 1000 Hz) [ISO]",KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Bridlerol,mm/s rms,DE,Horizontal,Ch15 1000 Hz Velocity,15,Bridle7,uBridge
+323,fa0168cd-a470-4f69-900a-a1510c41b401,Vel. FFT RMS (10  - 1000 Hz),KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Bridlerol,mm/s RMS,NDE,Horizontal,Ch16 1000 Hz Velocity,16,Bridle7,uBridge
+324,cdee605e-dee9-4f31-90c6-43c01cad14c0,"ISO, Vel. FFT RMS (10  - 1000 Hz) [ISO]",KBW,,Bridle 7,,Bridle 7.2,,Bridle 7.2,Bridlerol,mm/s rms,NDE,Horizontal,Ch16 1000 Hz Velocity,16,Bridle7,uBridge
+325,0aeb4080-e76e-418f-aad5-5050fe8dc8f0,Temperatuur,TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Motor,V,,,,,,Manual
+326,15ddea7e-a5ff-44cd-bf17-28e02f2abc8f,Acc. FFT RMS (4  - 10 KHz),TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Motor,g RMS,DE,Horizontal,Ch02 10 KHz Acceleration,2,Bridle3a,uBridge
+327,096b8b61-766d-448b-be16-f6888e233d9a,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Motor,g pk,DE,Horizontal,Ch02 10 KHz Acceleration,2,Bridle3a,uBridge
+328,d1b5e1e8-e5db-4610-95ac-443d9afd59b3,"RMS, Acc. Wave RMS  [RMS]",TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Motor, RMS,DE,Horizontal,Ch02 10 KHz Acceleration,2,Bridle3a,uBridge
+329,d4860ee9-2a42-4685-bb87-78e088518b1e,Acc. FFT RMS (1  - 10 KHz),TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Motor,g RMS,DE,Axial,Ch03 10 KHz Acceleration,3,Bridle3a,uBridge
+330,69b72213-b2fb-4a31-845f-666edd55c1ee,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Motor,g pk,DE,Axial,Ch03 10 KHz Acceleration,3,Bridle3a,uBridge
+331,17e0a6d3-a498-4d5e-9399-b3c83c0f147b,"RMS, Acc. Wave RMS  [RMS]",TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Motor, RMS,DE,Axial,Ch03 10 KHz Acceleration,3,Bridle3a,uBridge
+332,1a8b5ed8-a29d-4a32-91de-1837d9128a13,Acc. FFT RMS (4  - 10 KHz),TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Motor,g RMS,NDE,Horizontal,Ch01 10 KHz Acceleration,1,Bridle3a,uBridge
+333,24519559-f143-4807-99ce-c62a9065e3a5,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Motor,g pk,NDE,Horizontal,Ch01 10 KHz Acceleration,1,Bridle3a,uBridge
+334,0b8d8145-10f4-49ac-8af5-d8cdc04d9711,"RMS, Acc. Wave RMS  [RMS]",TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Motor, RMS,NDE,Horizontal,Ch01 10 KHz Acceleration,1,Bridle3a,uBridge
+335,53f0ef96-8c22-494e-8f31-00151c5c4410,Acceleration FFT RMS (0 -1000 Hz) (W:0.6 A:0.7),TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Motor,g RMS,DE,Horizontal,Ch02 1000 Hz Enveloped,2,Bridle3a,uBridge
+336,a714423f-5a19-4b51-b690-ed1030a3e35e,Acc. FFT RMS (0  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Motor,g RMS,DE,Horizontal,Ch02 1000 Hz Enveloped,2,Bridle3a,uBridge
+337,7744071c-0696-4a43-9c6e-5b01a44c7ebc,Acc. FFT RMS (0  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Motor,g RMS,DE,Axial,Ch03 1000 Hz Enveloped,3,Bridle3a,uBridge
+338,d85ca96d-0970-4064-b0c7-3607a1f42360,Acc. FFT RMS (0  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Motor,g RMS,DE,Axial,Ch03 1000 Hz Enveloped,3,Bridle3a,uBridge
+339,8d84ecd4-0528-4dff-b122-02a1ddf78709,Acc. FFT RMS (0  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Motor,g RMS,NDE,Horizontal,Ch01 1000 Hz Enveloped,1,Bridle3a,uBridge
+340,4ccf13bb-8ca8-456f-b1db-ce6fb1e539d6,Acc. FFT RMS (0  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Motor,g RMS,NDE,Horizontal,Ch01 1000 Hz Enveloped,1,Bridle3a,uBridge
+341,896456e7-5b87-4490-a25d-40ebd61dd008,Vel. FFT RMS (10  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Motor,mm/s RMS,DE,Axial,Ch03 1000 Hz Velocity,3,Bridle3a,uBridge
+342,c3c24a08-43eb-4187-aa05-8474ef3e3aae,"ISO, Vel. FFT Mag (10  - 1000 Hz) [ISO]",TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Motor,mm/s pk,DE,Axial,Ch03 1000 Hz Velocity,3,Bridle3a,uBridge
+343,8d18001d-a8e1-4ff7-ba71-ffc35bf9b8f0,Vel. FFT RMS (10  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Motor,mm/s RMS,DE,Horizontal,Ch02 1000 Hz Velocity,2,Bridle3a,uBridge
+344,61672e4c-3e78-4fa6-adfd-2cd3e9e26a6b,"ISO, Vel. FFT Mag (10  - 1000 Hz) [ISO]",TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Motor,mm/s pk,DE,Horizontal,Ch02 1000 Hz Velocity,2,Bridle3a,uBridge
+345,a361fa6f-e35c-4bce-9bd1-a4de88622fca,Vel. FFT RMS (10  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Motor,mm/s RMS,NDE,Horizontal,Ch01 1000 Hz Velocity,1,Bridle3a,uBridge
+346,750d9929-8605-4e6b-9d48-1ca34299f5e2,"ISO, Vel. FFT Mag (10  - 1000 Hz) [ISO]",TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Motor,mm/s pk,NDE,Horizontal,Ch01 1000 Hz Velocity,1,Bridle3a,uBridge
+347,f0b2a648-1ad1-48c6-b76f-d627f019331d,Acc. FFT RMS (4  - 10 KHz),TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Tandwielkast,g RMS,,Horizontal,Ch04 10 KHz Acceleration,4,Bridle3a,uBridge
+348,d8dfb5bb-fec5-46b4-8c28-573790d31199,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Tandwielkast,g pk,,Horizontal,Ch04 10 KHz Acceleration,4,Bridle3a,uBridge
+349,26a76d10-93ba-4364-a7c5-0cdb67a3ae5a,"RMS, Acc. Wave RMS  [RMS]",TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Tandwielkast, RMS,,Horizontal,Ch04 10 KHz Acceleration,4,Bridle3a,uBridge
+350,aa3442b3-9976-44b4-aa06-97cc433e9afd,Acc. FFT RMS (4  - 10 KHz),TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Tandwielkast,g RMS,DE,Horizontal,Ch05 10 KHz Acceleration,5,Bridle3a,uBridge
+351,c637069b-f661-4da6-9f60-5487a55f5af7,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Tandwielkast,g pk,DE,Horizontal,Ch05 10 KHz Acceleration,5,Bridle3a,uBridge
+352,5d12db45-0bf6-41a4-ad9a-0601e1b4c623,"RMS, Acc. Wave RMS  [RMS]",TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Tandwielkast, RMS,DE,Horizontal,Ch05 10 KHz Acceleration,5,Bridle3a,uBridge
+353,315d24f5-87da-4bb8-8600-beeeeac5bd30,Acc. FFT RMS (0  - 500 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Tandwielkast,g RMS,,Horizontal,Ch04 500 Hz Enveloped,4,Bridle3a,uBridge
+354,599c75c9-8495-41b3-901e-e43b9340fa2b,Acc. FFT RMS (0  - 500 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Tandwielkast,g RMS,,Horizontal,Ch04 500 Hz Enveloped,4,Bridle3a,uBridge
+355,852a5f2e-88a1-45dc-ad4b-d903101862d7,Acc. FFT RMS (0  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Tandwielkast,g RMS,DE,Horizontal,Ch05 1000 Hz Enveloped,5,Bridle3a,uBridge
+356,2c82d506-be89-41aa-a0bc-dd1b766c87f0,Acc. FFT RMS (0  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Tandwielkast,g RMS,DE,Horizontal,Ch05 1000 Hz Enveloped,5,Bridle3a,uBridge
+357,236e24f1-bc56-4d56-aff3-4b6f61142bf6,Vel. FFT RMS (10  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Tandwielkast,mm/s RMS,,Horizontal,Ch04 1000 Hz Velocity,4,Bridle3a,uBridge
+358,20aecb36-d488-4ee3-a8d4-14c4d6b298e4,"ISO, Vel. FFT Mag (10  - 1000 Hz) [ISO]",TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Tandwielkast,mm/s pk,,Horizontal,Ch04 1000 Hz Velocity,4,Bridle3a,uBridge
+359,8b95d563-2a47-4f06-8eaa-526c8ecfe929,Vel. FFT RMS (10  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Tandwielkast,mm/s RMS,DE,Horizontal,Ch05 1000 Hz Velocity,5,Bridle3a,uBridge
+360,df48380e-6073-49ca-af12-0aab3ac4b2e2,"ISO, Vel. FFT Mag (10  - 1000 Hz) [ISO]",TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Tandwielkast,mm/s pk,DE,Horizontal,Ch05 1000 Hz Velocity,5,Bridle3a,uBridge
+361,a4ef4da3-9c4b-4aab-95ea-1db81043f5ae,Velocity FFT RMS (1 -200 Hz) (W:3.2 A:3.5),TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Tandwielkast,mm/s RMS,,Horizontal,Ch04 200 Hz Velocity,4,Bridle3a,uBridge
+362,16a50931-d174-43df-9227-87eca442603f,Velocity FFT RMS (1 -200 Hz) (Stats),TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Tandwielkast,mm/s RMS,,Horizontal,Ch04 200 Hz Velocity,4,Bridle3a,uBridge
+363,e6e9ba8e-18c8-44ea-bfb1-5c8914423e1c,FFT Ovr (10  to 2 KHz) mm/s PS (W:3.8 A:4.2),TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Tandwielkast,mm/s RMS,DE,Horizontal,Ch05 2 KHz Velocity,5,Bridle3a,uBridge
+364,efc1fedd-00ae-40fa-83e7-71def6245401,FFT Ovr (10  to 2 KHz) mm/s PS,TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Tandwielkast,mm/s RMS,DE,Horizontal,Ch05 2 KHz Velocity,5,Bridle3a,uBridge
+365,1bd1a792-8402-4caa-8690-69e18ad076da,Vel. FFT RMS (10  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Tandwielkast,mm/s RMS,,Axial,Ch06 1000 Hz Velocity,6,Bridle3a,uBridge
+366,1bc089cb-0188-4257-af1e-6e170b568c1c,"ISO, Vel. FFT Mag (10  - 1000 Hz) [ISO]",TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Tandwielkast,mm/s pk,,Axial,Ch06 1000 Hz Velocity,6,Bridle3a,uBridge
+367,a057c112-17c3-466b-917c-ec69f4312cd4,Acc. FFT RMS (4  - 10 KHz),TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Bridlerol,g RMS,DE,Horizontal,Ch07 10 KHz Acceleration,7,Bridle3a,uBridge
+368,2b9278a0-c1af-48d2-a4dd-a067ca877ac4,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Bridlerol,g pk,DE,Horizontal,Ch07 10 KHz Acceleration,7,Bridle3a,uBridge
+369,2c2f34fd-6cc5-45a4-842b-d6d295d99646,"RMS, Acc. Wave RMS  [RMS]",TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Bridlerol, RMS,DE,Horizontal,Ch07 10 KHz Acceleration,7,Bridle3a,uBridge
+370,01c1ea8b-aff5-4216-82d8-8cb66c6c1acd,Acc. FFT RMS (4  - 10 KHz),TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Bridlerol,g RMS,NDE,Horizontal,Ch08 10 KHz Acceleration,8,Bridle3a,uBridge
+371,22e0060f-29ac-4693-9748-b14e9f470d86,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Bridlerol,g pk,NDE,Horizontal,Ch08 10 KHz Acceleration,8,Bridle3a,uBridge
+372,82790a7f-2797-484a-87f4-7238ae3ad81e,"RMS, Acc. Wave RMS  [RMS]",TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Bridlerol, RMS,NDE,Horizontal,Ch08 10 KHz Acceleration,8,Bridle3a,uBridge
+373,ebe49bcf-c21e-469c-8dd8-b051ae7198e0,Toerental ,TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Bridlerol,rpm,,,Toerental ,1,Bridle3a,uBridge
+374,ebfa03ab-e384-4401-a88e-5af4147464c7,Acc. FFT RMS (0  - 500 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Bridlerol,g RMS,DE,Horizontal,Ch07 500 Hz Enveloped,7,Bridle3a,uBridge
+375,8fc0c3e0-498a-46b0-85f0-336fc3a5a6f1,Acc. FFT RMS (0  - 500 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Bridlerol,g RMS,DE,Horizontal,Ch07 500 Hz Enveloped,7,Bridle3a,uBridge
+376,5d23f649-884d-41e6-9995-d92d93ade8d6,Acc. FFT RMS (0  - 500 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Bridlerol,g RMS,NDE,Horizontal,Ch08 500 Hz Enveloped,8,Bridle3a,uBridge
+377,6bb431d8-6725-4e31-a096-b1cf87a55a60,Acc. FFT RMS (0  - 500 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Bridlerol,g RMS,NDE,Horizontal,Ch08 500 Hz Enveloped,8,Bridle3a,uBridge
+378,6142fca0-ccb8-4b19-887e-2220318db0eb,Vel. FFT RMS (10  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Bridlerol,mm/s RMS,DE,Horizontal,Ch07 1000 Hz Velocity,7,Bridle3a,uBridge
+379,ad6e8744-594b-4967-a3a5-0fd5fe8bfb13,"ISO, Vel. FFT Mag (10  - 1000 Hz) [ISO]",TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Bridlerol,mm/s pk,DE,Horizontal,Ch07 1000 Hz Velocity,7,Bridle3a,uBridge
+380,0b795054-6135-4689-b157-3a64f6b13f7a,Vel. FFT RMS (10  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Bridlerol,mm/s RMS,NDE,Horizontal,Ch08 1000 Hz Velocity,8,Bridle3a,uBridge
+381,292d3e0a-fa13-43a8-97fc-3096a4a1a231,"ISO, Vel. FFT Mag (10  - 1000 Hz) [ISO]",TSP,,Bridle 3a,,Bridle 3a_rol 1,,Bridle 3a_rol 1,Bridlerol,mm/s pk,NDE,Horizontal,Ch08 1000 Hz Velocity,8,Bridle3a,uBridge
+382,4425574c-7473-408b-ac16-46f5c50175a0,Temperatuur,TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Motor,V,,,,,,Manual
+383,906912fb-c794-491b-b3a7-8f0bdf335dfb,Acc. FFT RMS (4  - 10 KHz),TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Motor,g RMS,DE,Axial,Ch11 10 KHz Acceleration,11,Bridle3a,uBridge
+384,fe2c2a65-5dfd-4ffd-8c2c-b8c5bb985f64,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Motor,g pk,DE,Axial,Ch11 10 KHz Acceleration,11,Bridle3a,uBridge
+385,7c05e994-e733-4909-bb1b-acc2450c3753,"RMS, Acc. Wave RMS  [RMS]",TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Motor, RMS,DE,Axial,Ch11 10 KHz Acceleration,11,Bridle3a,uBridge
+386,40043e32-6996-4906-8437-39edb9ad3919,Acc. FFT RMS (4  - 10 KHz),TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Motor,g RMS,DE,Horizontal,Ch10 10 KHz Acceleration,10,Bridle3a,uBridge
+387,f91b577b-b5a1-4b35-b1ae-b7a108c104cf,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Motor,g pk,DE,Horizontal,Ch10 10 KHz Acceleration,10,Bridle3a,uBridge
+388,a2ae2674-add5-48e0-97a5-6440873eabe6,"RMS, Acc. Wave RMS  [RMS]",TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Motor, RMS,DE,Horizontal,Ch10 10 KHz Acceleration,10,Bridle3a,uBridge
+389,c6ef1aaf-b636-4d6b-ba5e-7b3d326d5923,Acc. FFT RMS (4  - 10 KHz),TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Motor,g RMS,NDE,Horizontal,Ch09 10 KHz Acceleration,9,Bridle3a,uBridge
+390,21cfa008-689f-481d-815d-34fe6ecff6f4,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Motor,g pk,NDE,Horizontal,Ch09 10 KHz Acceleration,9,Bridle3a,uBridge
+391,e1503f32-7a03-475b-86b9-0a87ed0b668b,"RMS, Acc. Wave RMS  [RMS]",TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Motor, RMS,NDE,Horizontal,Ch09 10 KHz Acceleration,9,Bridle3a,uBridge
+392,c998b15c-9ca3-4307-ba15-871c065bcd10,Acc. FFT RMS (0  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Motor,g RMS,DE,Horizontal,Ch10 1000 Hz Enveloped,10,Bridle3a,uBridge
+393,cfa90a3a-618c-418a-af2b-374a1a6c1683,Acc. FFT RMS (0  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Motor,g RMS,DE,Horizontal,Ch10 1000 Hz Enveloped,10,Bridle3a,uBridge
+394,8cf12e28-625c-476f-a278-191ea098fc4e,Acc. FFT RMS (0  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Motor,g RMS,DE,Axial,Ch11 1000 Hz Enveloped,11,Bridle3a,uBridge
+395,0219f92f-ab56-4a0d-8e26-497903105330,Acc. FFT RMS (0  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Motor,g RMS,DE,Axial,Ch11 1000 Hz Enveloped,11,Bridle3a,uBridge
+396,1035ef6d-87ad-4f5e-b98f-083f49d6b288,Acc. FFT RMS (0  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Motor,g RMS,NDE,Horizontal,Ch09 1000 Hz Enveloped,9,Bridle3a,uBridge
+397,de710b2f-15e2-4478-a095-6ca5fc89cf51,Acc. FFT RMS (0  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Motor,g RMS,NDE,Horizontal,Ch09 1000 Hz Enveloped,9,Bridle3a,uBridge
+398,a013b23c-21a1-4df4-99e2-94f9170d88dd,Vel. FFT RMS (10  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Motor,mm/s RMS,DE,Horizontal,Ch10 1000 Hz Velocity,10,Bridle3a,uBridge
+399,7cd0f626-fcc7-41e5-ac62-725707092ce2,"ISO, Vel. FFT Mag (10  - 1000 Hz) [ISO]",TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Motor,mm/s pk,DE,Horizontal,Ch10 1000 Hz Velocity,10,Bridle3a,uBridge
+400,f7741c85-5b70-45f7-a0ef-aa5fa08b867a,Vel. FFT RMS (10  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Motor,mm/s RMS,DE,Axial,Ch11 1000 Hz Velocity,11,Bridle3a,uBridge
+401,ec0daba5-74b9-4329-b5c6-301e2bcfd25e,"ISO, Vel. FFT Mag (10  - 1000 Hz) [ISO]",TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Motor,mm/s pk,DE,Axial,Ch11 1000 Hz Velocity,11,Bridle3a,uBridge
+402,d2fe92b6-5822-4ba9-a898-5caaa6e99cf5,Vel. FFT RMS (10  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Motor,mm/s RMS,NDE,Horizontal,Ch09 1000 Hz Velocity,9,Bridle3a,uBridge
+403,4acb97aa-a588-4044-8102-e905358d73d0,"ISO, Vel. FFT Mag (10  - 1000 Hz) [ISO]",TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Motor,mm/s pk,NDE,Horizontal,Ch09 1000 Hz Velocity,9,Bridle3a,uBridge
+404,2a19a38f-bb23-4d72-bbd6-02328601ad39,Acc. FFT RMS (4  - 10 KHz),TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Tandwielkast,g RMS,,Horizontal,Ch12 10 KHz Acceleration,12,Bridle3a,uBridge
+405,3c9ff991-d477-49d7-b1e9-dca89d22741e,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Tandwielkast,g pk,,Horizontal,Ch12 10 KHz Acceleration,12,Bridle3a,uBridge
+406,e3285ba0-56e6-4e02-9938-5896178592f8,"RMS, Acc. Wave RMS  [RMS]",TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Tandwielkast, RMS,,Horizontal,Ch12 10 KHz Acceleration,12,Bridle3a,uBridge
+407,a712c19b-089a-422b-989c-a387d8f646f9,Acc. FFT RMS (4  - 10 KHz),TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Tandwielkast,g RMS,DE,Horizontal,Ch13 10 KHz Acceleration,13,Bridle3a,uBridge
+408,e741f8bc-4d74-40aa-b93c-798f9d9059c4,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Tandwielkast,g pk,DE,Horizontal,Ch13 10 KHz Acceleration,13,Bridle3a,uBridge
+409,c2e5e76b-9b87-47fa-9522-60d0ea556f9d,"RMS, Acc. Wave RMS  [RMS]",TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Tandwielkast, RMS,DE,Horizontal,Ch13 10 KHz Acceleration,13,Bridle3a,uBridge
+410,92c433f8-1770-4951-b351-0607db09939a,Acc. FFT RMS (0  - 500 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Tandwielkast,g RMS,,Horizontal,Ch12 500 Hz Enveloped,12,Bridle3a,uBridge
+411,d351265f-e192-44ff-be37-11d713e693e9,Acc. FFT RMS (0  - 500 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Tandwielkast,g RMS,,Horizontal,Ch12 500 Hz Enveloped,12,Bridle3a,uBridge
+412,56c2bce0-5433-42d1-86cf-0176b63a536e,Acc. FFT RMS (0  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Tandwielkast,g RMS,DE,Horizontal,Ch13 1000 Hz Enveloped,13,Bridle3a,uBridge
+413,b2474580-e38a-4fba-bcb3-7a64d3247cd4,Acc. FFT RMS (0  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Tandwielkast,g RMS,DE,Horizontal,Ch13 1000 Hz Enveloped,13,Bridle3a,uBridge
+414,7ccd0a50-2f84-46d5-bb46-cddd4ae9aff0,Vel. FFT RMS (10  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Tandwielkast,mm/s RMS,,Horizontal,Ch12 1000 Hz Velocity,12,Bridle3a,uBridge
+415,41cf22c3-de6a-4d76-9b96-bdf134d76229,"ISO, Vel. FFT Mag (10  - 1000 Hz) [ISO]",TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Tandwielkast,mm/s pk,,Horizontal,Ch12 1000 Hz Velocity,12,Bridle3a,uBridge
+416,c5ea263a-86b2-4075-967c-ff99e66fe855,Vel. FFT RMS (10  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Tandwielkast,mm/s RMS,DE,Horizontal,Ch13 1000 Hz Velocity,13,Bridle3a,uBridge
+417,147ea59f-6ca7-4fa9-b801-24047913000c,"ISO, Vel. FFT Mag (10  - 1000 Hz) [ISO]",TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Tandwielkast,mm/s pk,DE,Horizontal,Ch13 1000 Hz Velocity,13,Bridle3a,uBridge
+418,83f94596-0b8e-4a7d-bee3-6d962cb2cdde,Velocity FFT RMS (1 -200 Hz) (W:4.6 A:5),TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Tandwielkast,mm/s RMS,,Horizontal,Ch12 200 Hz Velocity,12,Bridle3a,uBridge
+419,6206d79c-4dcb-4ab9-b7d5-9abb08ef37bd,Velocity FFT RMS (1 -200 Hz) (Stats),TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Tandwielkast,mm/s RMS,,Horizontal,Ch12 200 Hz Velocity,12,Bridle3a,uBridge
+420,c9582b52-6bbf-411f-90ad-49aeb885b8c4,FFT Ovr (10  to 2 KHz) mm/s PS (W:3.6 A:3.9),TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Tandwielkast,mm/s RMS,DE,Horizontal,Ch05 2 KHz Velocity,13,Bridle3a,uBridge
+421,7cbfa32b-68d4-48ff-abe7-3a2e8fdd3118,FFT Ovr (10  to 2 KHz) mm/s PS,TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Tandwielkast,mm/s RMS,DE,Horizontal,Ch05 2 KHz Velocity,13,Bridle3a,uBridge
+422,b16d3fba-53eb-4ff9-9cb8-fc4ca3923cd2,Vel. FFT RMS (10  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Tandwielkast,mm/s RMS,,Axial,Ch14 1000 Hz Velocity,14,Bridle3a,uBridge
+423,e1a821b8-d7e3-4b42-938f-ee53c2cd4e24,"ISO, Vel. FFT Mag (10  - 1000 Hz) [ISO]",TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Tandwielkast,mm/s pk,,Axial,Ch14 1000 Hz Velocity,14,Bridle3a,uBridge
+424,d68de437-7253-4420-b6b5-e077ada60d77,Acc. FFT RMS (4  - 10 KHz),TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Bridlerol,g RMS,DE,Horizontal,Ch15 10 KHz Acceleration,15,Bridle3a,uBridge
+425,a157ddb6-1aec-40bd-86ee-f7c6882a4df4,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Bridlerol,g pk,DE,Horizontal,Ch15 10 KHz Acceleration,15,Bridle3a,uBridge
+426,54b109a1-dada-49c6-b4fd-7ac957bc8bfc,"RMS, Acc. Wave RMS  [RMS]",TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Bridlerol, RMS,DE,Horizontal,Ch15 10 KHz Acceleration,15,Bridle3a,uBridge
+427,4ccdf891-0c5c-44ae-a34b-bff9c1868f84,Acc. FFT RMS (4  - 10 KHz),TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Bridlerol,g RMS,NDE,Horizontal,Ch16 10 KHz Acceleration,16,Bridle3a,uBridge
+428,526f087a-7ef9-4fa4-b527-aafccc80f9b1,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Bridlerol,g pk,NDE,Horizontal,Ch16 10 KHz Acceleration,16,Bridle3a,uBridge
+429,303dc133-73c6-408f-a205-12d9d8196f55,"RMS, Acc. Wave RMS  [RMS]",TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Bridlerol, RMS,NDE,Horizontal,Ch16 10 KHz Acceleration,16,Bridle3a,uBridge
+430,f7639c33-bcd2-4ebf-b02d-6a143a1d7f84,Toerental ,TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Bridlerol,rpm,,,Toerental ,2,Bridle3a,uBridge
+431,00e03b49-a995-4768-be1f-bd941c091eec,Acc. FFT RMS (0  - 500 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Bridlerol,g RMS,DE,Horizontal,Ch15 500 Hz Enveloped,15,Bridle3a,uBridge
+432,ea3b3499-cbc3-4560-b9e2-191d6b6e14e9,Acc. FFT RMS (0  - 500 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Bridlerol,g RMS,DE,Horizontal,Ch15 500 Hz Enveloped,15,Bridle3a,uBridge
+433,b0ab9cb9-48cc-40e5-b0ed-57e52e5e4a91,Acc. FFT RMS (0  - 500 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Bridlerol,g RMS,NDE,Horizontal,Ch16 500 Hz Enveloped,16,Bridle3a,uBridge
+434,92eb3c51-a338-4d5c-b278-e51b7ee57c3e,Acc. FFT RMS (0  - 500 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Bridlerol,g RMS,NDE,Horizontal,Ch16 500 Hz Enveloped,16,Bridle3a,uBridge
+435,0a19d609-edd4-4004-92bf-72e35fc84c0e,Vel. FFT RMS (10  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Bridlerol,mm/s RMS,DE,Horizontal,Ch15 1000 Hz Velocity,15,Bridle3a,uBridge
+436,315618ee-5378-4e17-a6fa-c768beb070d9,"ISO, Vel. FFT Mag (10  - 1000 Hz) [ISO]",TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Bridlerol,mm/s pk,DE,Horizontal,Ch15 1000 Hz Velocity,15,Bridle3a,uBridge
+437,c36250f7-467d-48b3-9973-c3198c3da5c3,Vel. FFT RMS (10  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Bridlerol,mm/s RMS,NDE,Horizontal,Ch16 1000 Hz Velocity,16,Bridle3a,uBridge
+438,95408748-6b2a-4ab0-97a8-99c1672273c8,"ISO, Vel. FFT Mag (10  - 1000 Hz) [ISO]",TSP,,Bridle 3a,,Bridle 3a_rol 2,,Bridle 3a_rol 2,Bridlerol,mm/s pk,NDE,Horizontal,Ch16 1000 Hz Velocity,16,Bridle3a,uBridge
+439,edc2b3dd-58af-41f2-add6-75a4a0216215,Temperatuur,TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Motor,V,,,,,,Manual
+440,1e9f519c-f4ee-4d1b-992b-dcb68c0908a9,Acceleration FFT RMS (4 -10 KHz) (Stats),TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Motor,g RMS,DE,Horizontal,Ch02 10 KHz Acceleration,2,Bridle3a2,uBridge
+441,257228bb-8522-4699-be6b-c6588841dd18,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Motor,g pk,DE,Horizontal,Ch02 10 KHz Acceleration,2,Bridle3a2,uBridge
+442,c5a7280f-a7eb-4894-9a53-300be23cb2c8,"RMS, Acc. Wave RMS  [RMS]",TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Motor, RMS,DE,Horizontal,Ch02 10 KHz Acceleration,2,Bridle3a2,uBridge
+443,bc678f93-9f7e-44e2-acff-d3aba86dbf1f,Acceleration FFT RMS (4 -10 KHz) (Stats),TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Motor,g RMS,DE,Axial,Ch03 10 KHz Acceleration,3,Bridle3a2,uBridge
+444,3125fdfc-7981-42d3-857b-c74c4fa30890,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Motor,g pk,DE,Axial,Ch03 10 KHz Acceleration,3,Bridle3a2,uBridge
+445,672dfff9-b4d9-47b1-9fcc-33e33a75cd5d,"RMS, Acc. Wave RMS  [RMS]",TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Motor, RMS,DE,Axial,Ch03 10 KHz Acceleration,3,Bridle3a2,uBridge
+446,e71a6522-ec5e-4cda-87f1-f3e7b7f64b42,Acc. FFT RMS (4  - 10 KHz),TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Motor,g RMS,NDE,Horizontal,Ch01 10 KHz Acceleration,1,Bridle3a2,uBridge
+447,4833cc2a-e392-4ad3-86cb-6438bc468c93,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Motor,g pk,NDE,Horizontal,Ch01 10 KHz Acceleration,1,Bridle3a2,uBridge
+448,420be994-9643-4b3d-bdd2-997cc5ed826e,"RMS, Acc. Wave RMS  [RMS]",TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Motor, RMS,NDE,Horizontal,Ch01 10 KHz Acceleration,1,Bridle3a2,uBridge
+449,aedd894d-91cd-4b00-9f79-c0aabcb83a66,Acc. FFT RMS (0  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Motor,g RMS,DE,Horizontal,Ch02 1000 Hz Enveloped,2,Bridle3a2,uBridge
+450,43602949-7d61-4aa6-8fef-1ceb26f35d87,Acc. FFT RMS (0  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Motor,g RMS,DE,Horizontal,Ch02 1000 Hz Enveloped,2,Bridle3a2,uBridge
+451,d7f72f51-866f-4d72-b051-7d9c01c6c23d,Acc. FFT RMS (0  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Motor,g RMS,DE,Axial,Ch03 1000 Hz Enveloped,3,Bridle3a2,uBridge
+452,c6c378f9-88a6-423a-95b9-f0e6e9e79f94,Acc. FFT RMS (0  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Motor,g RMS,DE,Axial,Ch03 1000 Hz Enveloped,3,Bridle3a2,uBridge
+453,af980620-9fa0-4754-bae2-8b3c1317353d,Acc. FFT RMS (0  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Motor,g RMS,NDE,Horizontal,Ch01 1000 Hz Enveloped,1,Bridle3a2,uBridge
+454,80fa1876-00bb-4d29-849c-62923975fd45,Acc. FFT RMS (0  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Motor,g RMS,NDE,Horizontal,Ch01 1000 Hz Enveloped,1,Bridle3a2,uBridge
+455,19e3ab6c-3a2b-4511-8a59-4c2e242d79c9,Vel. FFT RMS (10  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Motor,mm/s RMS,DE,Horizontal,Ch02 1000 Hz Velocity,2,Bridle3a2,uBridge
+456,5f6a4a76-8e9a-4852-be51-f4ee651b56cd,"ISO, Vel. FFT Mag (10  - 1000 Hz) [ISO]",TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Motor,mm/s pk,DE,Horizontal,Ch02 1000 Hz Velocity,2,Bridle3a2,uBridge
+457,c2270404-d262-4072-ae9e-ac9770cbc4b6,Vel. FFT RMS (10  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Motor,mm/s RMS,DE,Axial,Ch03 1000 Hz Velocity,3,Bridle3a2,uBridge
+458,e4df8f14-73f0-469e-b573-2a5e42581552,"ISO, Vel. FFT Mag (10  - 1000 Hz) [ISO]",TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Motor,mm/s pk,DE,Axial,Ch03 1000 Hz Velocity,3,Bridle3a2,uBridge
+459,fc46273a-ba0c-4dd2-a5cd-75fb1864e93b,Vel. FFT RMS (10  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Motor,mm/s RMS,NDE,Horizontal,Ch01 1000 Hz Velocity,1,Bridle3a2,uBridge
+460,05b9ded0-d4f1-4b71-9c35-bfc7f7dc345f,"ISO, Vel. FFT Mag (10  - 1000 Hz) [ISO]",TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Motor,mm/s pk,NDE,Horizontal,Ch01 1000 Hz Velocity,1,Bridle3a2,uBridge
+461,69959670-2267-4ff0-9fa0-b8c27f3b2261,Acc. FFT RMS (4  - 10 KHz),TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Tandwielkast,g RMS,,Horizontal,Ch04 10 KHz Acceleration,4,Bridle3a2,uBridge
+462,d35a9283-9bef-416b-8ee9-fdb4a68e174e,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Tandwielkast,g pk,,Horizontal,Ch04 10 KHz Acceleration,4,Bridle3a2,uBridge
+463,137ad43b-6d35-4f88-ad31-ae8b7e6b8795,"RMS, Acc. Wave RMS  [RMS]",TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Tandwielkast, RMS,,Horizontal,Ch04 10 KHz Acceleration,4,Bridle3a2,uBridge
+464,6808f761-18bb-401b-b867-0e954aa744e0,Acc. FFT RMS (4  - 10 KHz),TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Tandwielkast,g RMS,DE,Horizontal,Ch05 10 KHz Acceleration,5,Bridle3a2,uBridge
+465,2ff5030b-80bf-45dd-bd15-93d33e5be376,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Tandwielkast,g pk,DE,Horizontal,Ch05 10 KHz Acceleration,5,Bridle3a2,uBridge
+466,216eebff-cbfe-4d37-b35d-1e21248ec2da,"RMS, Acc. Wave RMS  [RMS]",TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Tandwielkast, RMS,DE,Horizontal,Ch05 10 KHz Acceleration,5,Bridle3a2,uBridge
+467,68988d31-4000-4fdd-99ff-3bb5efcd819d,Acc. FFT RMS (0  - 500 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Tandwielkast,g RMS,,Horizontal,Ch04 500 Hz Enveloped,4,Bridle3a2,uBridge
+468,ac74ae2d-0677-4a18-8ab2-8246308808d7,Acc. FFT RMS (0  - 500 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Tandwielkast,g RMS,,Horizontal,Ch04 500 Hz Enveloped,4,Bridle3a2,uBridge
+469,a10b2ee2-5f40-4cc9-ac88-4f8a1994b794,Acc. FFT RMS (0  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Tandwielkast,g RMS,DE,Horizontal,Ch05 1000 Hz Enveloped,5,Bridle3a2,uBridge
+470,1edf787d-8659-47b9-9174-d6c8bfd2deda,Acc. FFT RMS (0  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Tandwielkast,g RMS,DE,Horizontal,Ch05 1000 Hz Enveloped,5,Bridle3a2,uBridge
+471,b0913301-200f-4ef4-98ba-b7307f6090e5,Vel. FFT RMS (10  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Tandwielkast,mm/s RMS,,Horizontal,Ch04 1000 Hz Velocity,4,Bridle3a2,uBridge
+472,d35e6d43-f149-4ea1-b6fd-3a1f28c582a3,"ISO, Vel. FFT Mag (10  - 1000 Hz) [ISO]",TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Tandwielkast,mm/s pk,,Horizontal,Ch04 1000 Hz Velocity,4,Bridle3a2,uBridge
+473,bf69adb5-cc8c-484b-8afa-f0a4187d6922,Vel. FFT RMS (10  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Tandwielkast,mm/s RMS,DE,Horizontal,Ch05 1000 Hz Velocity,5,Bridle3a2,uBridge
+474,c16c6e13-cc93-4078-af80-449cbd0de129,"ISO, Vel. FFT Mag (10  - 1000 Hz) [ISO]",TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Tandwielkast,mm/s pk,DE,Horizontal,Ch05 1000 Hz Velocity,5,Bridle3a2,uBridge
+475,efaffeca-87cc-412f-8249-d8df6ec606e4,FFT Ovr (10  to 2 KHz) mm/s PS (W:2.8 A:3),TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Tandwielkast,mm/s RMS,,Horizontal,Ch04 2 KHz Velocity,4,Bridle3a2,uBridge
+476,73110e30-1d27-4a2c-ad06-a2a61ccce380,FFT Ovr (10  to 2 KHz) mm/s PS,TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Tandwielkast,mm/s RMS,,Horizontal,Ch04 2 KHz Velocity,4,Bridle3a2,uBridge
+477,2ea9c65f-e52f-470b-a227-5c601079db75,FFT Ovr (10  to 2 KHz) mm/s PS (W:3.3 A:3.6),TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Tandwielkast,mm/s RMS,DE,Horizontal,Ch05 2 KHz Velocity,5,Bridle3a2,uBridge
+478,10eedb5b-ecec-47ca-bba2-fe0d3f2efee8,FFT Ovr (10  to 2 KHz) mm/s PS,TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Tandwielkast,mm/s RMS,DE,Horizontal,Ch05 2 KHz Velocity,5,Bridle3a2,uBridge
+479,d242de5c-7a26-4ffb-9e1b-23528dd7276d,Vel. FFT RMS (10  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Tandwielkast,mm/s RMS,,Axial,Ch06 1000 Hz Velocity,6,Bridle3a2,uBridge
+480,0232a4a6-274d-452e-8c18-1fd4ed4aa79c,"ISO, Vel. FFT Mag (10  - 1000 Hz) [ISO]",TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Tandwielkast,mm/s pk,,Axial,Ch06 1000 Hz Velocity,6,Bridle3a2,uBridge
+481,ebedb895-3793-44e9-875f-8a04f2f361e9,Acc. FFT RMS (4  - 10 KHz),TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Bridlerol,g RMS,DE,Horizontal,Ch07 10 KHz Acceleration,7,Bridle3a2,uBridge
+482,c983ea9c-b49b-4a50-8272-2fa997fa0aac,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Bridlerol,g pk,DE,Horizontal,Ch07 10 KHz Acceleration,7,Bridle3a2,uBridge
+483,8dc220b5-cf3d-42f3-80aa-a3cc6f2dbb9a,"RMS, Acc. Wave RMS  [RMS]",TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Bridlerol, RMS,DE,Horizontal,Ch07 10 KHz Acceleration,7,Bridle3a2,uBridge
+484,1b384e9e-a9c5-4d59-a2c8-0fa85d7fc02f,Acc. FFT RMS (4  - 10 KHz),TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Bridlerol,g RMS,NDE,Horizontal,Ch08 10 KHz Acceleration,8,Bridle3a2,uBridge
+485,1b49839b-6b16-4650-9fa3-d805e45e88db,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Bridlerol,g pk,NDE,Horizontal,Ch08 10 KHz Acceleration,8,Bridle3a2,uBridge
+486,1a6bb707-45dd-4c88-afec-9b3d70af0b83,"RMS, Acc. Wave RMS  [RMS]",TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Bridlerol, RMS,NDE,Horizontal,Ch08 10 KHz Acceleration,8,Bridle3a2,uBridge
+487,7d36f831-5a2c-419c-a381-f61b08c55599,Toerental ,TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Bridlerol,rpm,,,Toerental ,1,Bridle3a2,uBridge
+488,27ae6cc4-4151-4812-a40d-e5fe58387930,Acc. FFT RMS (0  - 500 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Bridlerol,g RMS,DE,Horizontal,Ch07 500 Hz Enveloped,7,Bridle3a2,uBridge
+489,78704388-ae0e-4bd0-b919-263d852da71d,Acc. FFT RMS (0  - 500 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Bridlerol,g RMS,DE,Horizontal,Ch07 500 Hz Enveloped,7,Bridle3a2,uBridge
+490,4898f620-ff2e-4f95-bc43-6260c58f3c78,Acc. FFT RMS (0  - 500 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Bridlerol,g RMS,NDE,Horizontal,Ch08 500 Hz Enveloped,8,Bridle3a2,uBridge
+491,eb065efa-fb03-4d4a-913d-c9bfeeb930e7,Acc. FFT RMS (0  - 500 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Bridlerol,g RMS,NDE,Horizontal,Ch08 500 Hz Enveloped,8,Bridle3a2,uBridge
+492,1d9c02ab-9fe3-417f-af55-0d30ea090b97,Vel. FFT RMS (10  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Bridlerol,mm/s RMS,DE,Horizontal,Ch07 1000 Hz Velocity,7,Bridle3a2,uBridge
+493,945d7c4a-5c61-40a0-8253-52f0750a6904,"ISO, Vel. FFT Mag (10  - 1000 Hz) [ISO]",TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Bridlerol,mm/s pk,DE,Horizontal,Ch07 1000 Hz Velocity,7,Bridle3a2,uBridge
+494,3028b0ca-c3fb-43fc-8f9d-032ed09e1bfd,Vel. FFT RMS (10  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Bridlerol,mm/s RMS,NDE,Horizontal,Ch08 1000 Hz Velocity,8,Bridle3a2,uBridge
+495,69515ddd-e307-4455-b2ce-f75193d1ee8f,"ISO, Vel. FFT Mag (10  - 1000 Hz) [ISO]",TSP,,Bridle 3a,,Bridle 3a_rol 3,,Bridle 3a_rol 3,Bridlerol,mm/s pk,NDE,Horizontal,Ch08 1000 Hz Velocity,8,Bridle3a2,uBridge
+496,b4bf07f1-d32c-4c72-9c8e-02b01c6ee28b,Temperatuur,TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Motor,V,,,,,,Manual
+497,9d11cb6f-76eb-4799-b9ec-545da1c6de05,Acc. FFT RMS (1  - 10 KHz),TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Motor,g RMS,DE,Axial,Ch11 10 KHz Acceleration,11,Bridle3a2,uBridge
+498,97687636-cc58-48d1-91fa-00c00adaf763,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Motor,g pk,DE,Axial,Ch11 10 KHz Acceleration,11,Bridle3a2,uBridge
+499,98ba649e-6316-4411-bb94-6b10d587468e,"RMS, Acc. Wave RMS  [RMS]",TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Motor, RMS,DE,Axial,Ch11 10 KHz Acceleration,11,Bridle3a2,uBridge
+500,c1c21ea8-acee-49ff-8ef0-eefa6ce48de6,Acceleration FFT RMS (4 -10 KHz) (Stats),TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Motor,g RMS,DE,Horizontal,Ch10 10 KHz Acceleration,10,Bridle3a2,uBridge
+501,177c8a87-3d07-417e-ae50-b6312dae0710,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Motor,g pk,DE,Horizontal,Ch10 10 KHz Acceleration,10,Bridle3a2,uBridge
+502,29a35ea8-2778-4727-8f36-7601fb3730d0,"RMS, Acc. Wave RMS  [RMS]",TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Motor, RMS,DE,Horizontal,Ch10 10 KHz Acceleration,10,Bridle3a2,uBridge
+503,7fd8b8cf-9c6b-4dd5-b631-dcec88f4f1d5,Acc. FFT RMS (4  - 10 KHz),TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Motor,g RMS,NDE,Horizontal,Ch09 10 KHz Acceleration,9,Bridle3a2,uBridge
+504,731039e7-3add-4718-b854-51e785705109,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Motor,g pk,NDE,Horizontal,Ch09 10 KHz Acceleration,9,Bridle3a2,uBridge
+505,60e801e4-e6f2-4e82-af24-6e2f8cdae48d,"RMS, Acc. Wave RMS  [RMS]",TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Motor, RMS,NDE,Horizontal,Ch09 10 KHz Acceleration,9,Bridle3a2,uBridge
+506,4869f76a-460d-4a10-b991-554848068337,Acc. FFT RMS (0  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Motor,g RMS,DE,Horizontal,Ch10 1000 Hz Enveloped,10,Bridle3a2,uBridge
+507,cabe75a6-bad3-434d-9e21-47c0eb20839f,Acc. FFT RMS (0  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Motor,g RMS,DE,Horizontal,Ch10 1000 Hz Enveloped,10,Bridle3a2,uBridge
+508,a4f816bb-aaeb-4bd0-9c9d-48e51bf2b4fd,Acc. FFT RMS (0  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Motor,g RMS,DE,Axial,Ch11 1000 Hz Enveloped,11,Bridle3a2,uBridge
+509,2d242016-d94e-47d9-94d5-a816a7f63840,Acc. FFT RMS (0  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Motor,g RMS,DE,Axial,Ch11 1000 Hz Enveloped,11,Bridle3a2,uBridge
+510,b2abf88c-6980-4eae-934f-0cf4db9199d8,Acc. FFT RMS (0  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Motor,g RMS,NDE,Horizontal,Ch09 1000 Hz Enveloped,9,Bridle3a2,uBridge
+511,d4981645-028b-411e-8060-457f3fad228c,Acc. FFT RMS (0  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Motor,g RMS,NDE,Horizontal,Ch09 1000 Hz Enveloped,9,Bridle3a2,uBridge
+512,2a012d8c-cba7-4b47-b17b-ef7ca4b720c1,Vel. FFT RMS (10  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Motor,mm/s RMS,DE,Horizontal,Ch10 1000 Hz Velocity,10,Bridle3a2,uBridge
+513,a8715fe4-85c3-49bf-9c04-357aa0221268,"ISO, Vel. FFT Mag (10  - 1000 Hz) [ISO]",TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Motor,mm/s pk,DE,Horizontal,Ch10 1000 Hz Velocity,10,Bridle3a2,uBridge
+514,de18c57b-3d12-4308-8c1d-3b43976da974,Vel. FFT RMS (10  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Motor,mm/s RMS,DE,Axial,Ch11 1000 Hz Velocity,11,Bridle3a2,uBridge
+515,878b7c30-13be-40e7-a0eb-71d86c33c363,"ISO, Vel. FFT Mag (10  - 1000 Hz) [ISO]",TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Motor,mm/s pk,DE,Axial,Ch11 1000 Hz Velocity,11,Bridle3a2,uBridge
+516,5a961c94-1a78-4551-bddf-70845bbf85a4,Vel. FFT RMS (10  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Motor,mm/s RMS,NDE,Horizontal,Ch09 1000 Hz Velocity,9,Bridle3a2,uBridge
+517,a714247a-28f9-4e0c-9259-682d4da2542f,"ISO, Vel. FFT Mag (10  - 1000 Hz) [ISO]",TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Motor,mm/s pk,NDE,Horizontal,Ch09 1000 Hz Velocity,9,Bridle3a2,uBridge
+518,b159fe41-f160-4153-b840-8382a55ac3d4,Acceleration FFT RMS (4 -10 KHz) (Stats),TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Tandwielkast,g RMS,,Horizontal,Ch12 10 KHz Acceleration,12,Bridle3a2,uBridge
+519,47e634f4-b1e0-40b4-b66e-a8847e71e54e,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Tandwielkast,g pk,,Horizontal,Ch12 10 KHz Acceleration,12,Bridle3a2,uBridge
+520,9e960863-fad6-4807-ab04-bbf5e8f9fe38,"RMS, Acc. Wave RMS  [RMS]",TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Tandwielkast, RMS,,Horizontal,Ch12 10 KHz Acceleration,12,Bridle3a2,uBridge
+521,5a30e615-521f-4092-93a4-c0eb4ed194c2,Acc. FFT RMS (4  - 10 KHz),TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Tandwielkast,g RMS,DE,Horizontal,Ch13 10 KHz Acceleration,13,Bridle3a2,uBridge
+522,5bca3471-1c13-413b-84df-bd197399bbd9,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Tandwielkast,g pk,DE,Horizontal,Ch13 10 KHz Acceleration,13,Bridle3a2,uBridge
+523,9d42f29b-47c6-4bf9-a4c5-bc7d1f113ccc,"RMS, Acc. Wave RMS  [RMS]",TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Tandwielkast, RMS,DE,Horizontal,Ch13 10 KHz Acceleration,13,Bridle3a2,uBridge
+524,6103722a-82c9-4331-92d1-6b5496f5ec32,Acc. FFT RMS (0  - 500 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Tandwielkast,g RMS,,Horizontal,Ch12 500 Hz Enveloped,12,Bridle3a2,uBridge
+525,79cb86e8-63f6-4263-b057-9753a0f51ac9,Acc. FFT RMS (0  - 500 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Tandwielkast,g RMS,,Horizontal,Ch12 500 Hz Enveloped,12,Bridle3a2,uBridge
+526,6da25601-c187-42d2-bcc3-e0a11e0142cd,Acc. FFT RMS (0  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Tandwielkast,g RMS,DE,Horizontal,Ch13 1000 Hz Enveloped,13,Bridle3a2,uBridge
+527,8da17f38-8ad2-4e98-9606-663c54aeadc8,Acc. FFT RMS (0  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Tandwielkast,g RMS,DE,Horizontal,Ch13 1000 Hz Enveloped,13,Bridle3a2,uBridge
+528,bf90eb94-929a-46f2-9c89-07244e0b6a99,Vel. FFT RMS (10  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Tandwielkast,mm/s RMS,,Horizontal,Ch12 1000 Hz Velocity,12,Bridle3a2,uBridge
+529,0090814a-317a-4bb5-a61e-82951b8d40c6,"ISO, Vel. FFT Mag (10  - 1000 Hz) [ISO]",TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Tandwielkast,mm/s pk,,Horizontal,Ch12 1000 Hz Velocity,12,Bridle3a2,uBridge
+530,83f9e879-2384-42af-ac65-f44f3b98371b,Vel. FFT RMS (10  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Tandwielkast,mm/s RMS,DE,Horizontal,Ch13 1000 Hz Velocity,13,Bridle3a2,uBridge
+531,9afde859-be69-4dda-8df6-5e4ffbd4f405,"ISO, Vel. FFT Mag (10  - 1000 Hz) [ISO]",TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Tandwielkast,mm/s pk,DE,Horizontal,Ch13 1000 Hz Velocity,13,Bridle3a2,uBridge
+532,2d06ef88-8ad7-422c-a06f-48c8a8afe968,FFT Ovr (10  to 2 KHz) mm/s PS (W:6.5 A:6.8),TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Tandwielkast,mm/s RMS,,Horizontal,Ch04 2 KHz Velocity,12,Bridle3a2,uBridge
+533,b247b40b-4be3-43b8-a4d4-fb6fa656dec7,FFT Ovr (10  to 2 KHz) mm/s PS,TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Tandwielkast,mm/s RMS,,Horizontal,Ch04 2 KHz Velocity,12,Bridle3a2,uBridge
+534,283be26d-a608-40ab-8cff-9ffec92f4a0d,FFT Ovr (10  to 2 KHz) mm/s PS (W:7 A:8),TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Tandwielkast,mm/s RMS,DE,Horizontal,Ch05 2 KHz Velocity,13,Bridle3a2,uBridge
+535,f871efed-4144-4058-b310-14c8ffb10f43,FFT Ovr (10  to 2 KHz) mm/s PS,TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Tandwielkast,mm/s RMS,DE,Horizontal,Ch05 2 KHz Velocity,13,Bridle3a2,uBridge
+536,807d1345-762f-4ab3-bf29-39f8cceb20b2,Vel. FFT RMS (10  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Tandwielkast,mm/s RMS,,Axial,Ch14 1000 Hz Velocity,14,Bridle3a2,uBridge
+537,36e360f8-c282-4de3-9946-abe95e1d88aa,"ISO, Vel. FFT Mag (10  - 1000 Hz) [ISO]",TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Tandwielkast,mm/s pk,,Axial,Ch14 1000 Hz Velocity,14,Bridle3a2,uBridge
+538,f14dab82-2c7a-4bc1-af6a-31f8980c5fbd,Acc. FFT RMS (4  - 10 KHz),TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Bridlerol,g RMS,DE,Horizontal,Ch15 10 KHz Acceleration,15,Bridle3a2,uBridge
+539,80c6ef7b-b63e-4a76-b46f-3a0fc20e7ebb,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Bridlerol,g pk,DE,Horizontal,Ch15 10 KHz Acceleration,15,Bridle3a2,uBridge
+540,19641ffd-6439-4605-9c0d-0447cc646a20,"RMS, Acc. Wave RMS  [RMS]",TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Bridlerol, RMS,DE,Horizontal,Ch15 10 KHz Acceleration,15,Bridle3a2,uBridge
+541,00404697-c3ae-438e-a24d-d7b983938830,Acc. FFT RMS (4  - 10 KHz),TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Bridlerol,g RMS,NDE,Horizontal,Ch16 10 KHz Acceleration,16,Bridle3a2,uBridge
+542,35e01fb7-1712-4df7-b507-c3a9d4574063,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Bridlerol,g pk,NDE,Horizontal,Ch16 10 KHz Acceleration,16,Bridle3a2,uBridge
+543,19262181-467c-4293-bd6e-78933b426adc,"RMS, Acc. Wave RMS  [RMS]",TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Bridlerol, RMS,NDE,Horizontal,Ch16 10 KHz Acceleration,16,Bridle3a2,uBridge
+544,8d80e184-6005-4a64-872a-4b4fe72d6c83,Toerental ,TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Bridlerol,rpm,,,Toerental ,2,Bridle3a2,uBridge
+545,03a53961-cf4b-4f43-a804-32199b0feecd,Acc. FFT RMS (0  - 500 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Bridlerol,g RMS,DE,Horizontal,Ch15 500 Hz Enveloped,15,Bridle3a2,uBridge
+546,8a6049c0-8cf5-4df4-93d8-a49d8ed37614,Acc. FFT RMS (0  - 500 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Bridlerol,g RMS,DE,Horizontal,Ch15 500 Hz Enveloped,15,Bridle3a2,uBridge
+547,0cd1e904-e623-4474-b2a0-34f7ec62bd88,Acc. FFT RMS (0  - 500 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Bridlerol,g RMS,NDE,Horizontal,Ch16 500 Hz Enveloped,16,Bridle3a2,uBridge
+548,14f503ba-b608-48da-b176-e404cd2a3200,Acc. FFT RMS (0  - 500 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Bridlerol,g RMS,NDE,Horizontal,Ch16 500 Hz Enveloped,16,Bridle3a2,uBridge
+549,007e34c9-d82f-403c-9495-abe0c89dccaf,Vel. FFT RMS (10  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Bridlerol,mm/s RMS,DE,Horizontal,Ch15 1000 Hz Velocity,15,Bridle3a2,uBridge
+550,ddcf57f9-c5d7-4674-9890-dac28f19b2f7,"ISO, Velocity FFT Mag (10 -1000 Hz) (W:1.2 A:1.5)",TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Bridlerol,mm/s pk,DE,Horizontal,Ch15 1000 Hz Velocity,15,Bridle3a2,uBridge
+551,3ddd00c1-1821-4849-9f69-b0d9758e4d4b,Vel. FFT RMS (10  - 1000 Hz),TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Bridlerol,mm/s RMS,NDE,Horizontal,Ch16 1000 Hz Velocity,16,Bridle3a2,uBridge
+552,0feac20a-4b83-4571-8c91-411b4d54d022,"ISO, Vel. FFT Mag (10  - 1000 Hz) [ISO]",TSP,,Bridle 3a,,Bridle 3a_rol 4,,Bridle 3a_rol 4,Bridlerol,mm/s pk,NDE,Horizontal,Ch16 1000 Hz Velocity,16,Bridle3a2,uBridge
+553,771056e4-87f3-4918-b78b-165b6eee64e0,ASCO Productspeed,TSP,,Bridle 3a,,Slipmeting,,Slipmeting,,,,,,,,Manual
+554,3c36959b-a556-4d26-b055-ca2e32e0dddd,Acceleration FFT RMS (4 -10 KHz) (W:2 A:4),GSL,,GSL,,A330,Transportband,A330,Motor,g RMS,DE,Horizontal,Ch02 10 KHz Acceleration,2,A330,uBridge
+555,1d8aa6f4-af20-4fdb-a2bf-d360f669542b,CF [CF],GSL,,GSL,,A330,Transportband,A330,Motor,CF,DE,Horizontal,Ch02 10 KHz Acceleration,2,A330,uBridge
+556,dbc17030-3568-4b57-8fe6-6d5acf5268ce,K [K],GSL,,GSL,,A330,Transportband,A330,Motor,K,DE,Horizontal,Ch02 10 KHz Acceleration,2,A330,uBridge
+557,4be9892e-4fd0-4b9e-8f04-c7bff35801bc,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",GSL,,GSL,,A330,Transportband,A330,Motor,g pk,DE,Horizontal,Ch02 10 KHz Acceleration,2,A330,uBridge
+558,e2cb981f-bb1d-409a-85a5-3f029794d64d,"RMS, Acc. Wave RMS  [RMS]",GSL,,GSL,,A330,Transportband,A330,Motor, RMS,DE,Horizontal,Ch02 10 KHz Acceleration,2,A330,uBridge
+559,77ebe89f-e126-4029-9bc7-ad7188e2ba7a,Temperatuur,GSL,,GSL,,A330,Transportband,A330,Motor,V,,,,,,Manual
+560,56cf136c-f03c-49e5-8392-b5bff45ec853,Acc. FFT RMS (0  - 1000 Hz),GSL,,GSL,,A330,Transportband,A330,Motor,g RMS,DE,Horizontal,Ch02 1000 Hz Enveloped,2,A330,uBridge
+561,885b9599-fc8e-46ba-a7f0-bd9a7cf1ca7f,Acc. FFT RMS (0  - 1000 Hz),GSL,,GSL,,A330,Transportband,A330,Motor,g RMS,DE,Horizontal,Ch02 1000 Hz Enveloped,2,A330,uBridge
+562,5fda05e3-1d9c-4046-829c-697daf6fc44e,Vel. FFT RMS (10  - 1000 Hz),GSL,,GSL,,A330,Transportband,A330,Motor,mm/s RMS,DE,Horizontal,Ch02 1000 Hz Velocity,2,A330,uBridge
+563,062315af-5fb8-41fc-b6c9-cca666acb827,"ISO, Velocity FFT RMS (10 -1000 Hz) (W:2.8 A:4.5)",GSL,,GSL,,A330,Transportband,A330,Motor,mm/s rms,DE,Horizontal,Ch02 1000 Hz Velocity,2,A330,uBridge
+564,d7f67153-e2c4-40fd-baa6-3bc5000a7384,Velocity FFT Mag (1 -200 Hz),GSL,,GSL,,A330,Transportband,A330,Motor,mm/s pk,DE,Horizontal,Ch02 200 Hz Velocity,2,A330,uBridge
+565,0e1f2087-bd4f-40b5-acf2-cbf1f0fccce7,Acceleration FFT RMS (4 -10 KHz) (W:2 A:4),GSL,,GSL,,A330,Transportband,A330,Motor,g RMS,NDE,Horizontal,Ch01 10 KHz Acceleration,1,A330,uBridge
+566,8abc73f7-287b-4525-9698-3356af547ad6,Acceleration FFT RMS (4 -10 KHz) (Stats),GSL,,GSL,,A330,Transportband,A330,Motor,g RMS,NDE,Horizontal,Ch01 10 KHz Acceleration,1,A330,uBridge
+567,049a4f5d-68db-465e-8d93-b825f485f548,CF [CF],GSL,,GSL,,A330,Transportband,A330,Motor,CF,NDE,Horizontal,Ch01 10 KHz Acceleration,1,A330,uBridge
+568,05e91a79-21e0-4e10-bdbd-a481cb7e55c4,K [K],GSL,,GSL,,A330,Transportband,A330,Motor,K,NDE,Horizontal,Ch01 10 KHz Acceleration,1,A330,uBridge
+569,35ad625f-6c44-485c-83c7-a59f6628c5b0,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",GSL,,GSL,,A330,Transportband,A330,Motor,g pk,NDE,Horizontal,Ch01 10 KHz Acceleration,1,A330,uBridge
+570,673c8893-c050-42da-be83-e0d3a22451c5,"RMS, Acc. Wave RMS  [RMS]",GSL,,GSL,,A330,Transportband,A330,Motor, RMS,NDE,Horizontal,Ch01 10 KHz Acceleration,1,A330,uBridge
+571,a4700051-e7b5-4250-bdec-63f779080678,Acc. FFT RMS (0  - 1000 Hz),GSL,,GSL,,A330,Transportband,A330,Motor,g RMS,NDE,Horizontal,Ch01 1000 Hz Enveloped,1,A330,uBridge
+572,d1bf8ebd-ca26-42dd-86e2-20b159f6e94a,Acc. FFT RMS (0  - 1000 Hz),GSL,,GSL,,A330,Transportband,A330,Motor,g RMS,NDE,Horizontal,Ch01 1000 Hz Enveloped,1,A330,uBridge
+573,8e1d7ed0-1a57-406f-84aa-06ef5294c65b,Vel. FFT RMS (10  - 1000 Hz),GSL,,GSL,,A330,Transportband,A330,Motor,mm/s RMS,DE,Axial,Ch03 1000 Hz Velocity,3,A330,uBridge
+574,c0bc6fb0-08f3-420c-835b-9d2e162955f0,"ISO, Velocity FFT RMS (10 -1000 Hz) (W:2.8 A:4.5)",GSL,,GSL,,A330,Transportband,A330,Motor,mm/s rms,DE,Axial,Ch03 1000 Hz Velocity,3,A330,uBridge
+575,f00befab-2c60-4973-b7ff-d261bffc7e6d,Velocity FFT RMS (10 -1000 Hz) (W:10 A:12),GSL,,GSL,,A330,Transportband,A330,Motor,mm/s RMS,NDE,Horizontal,Ch01 1000 Hz Velocity,1,A330,uBridge
+576,22591ac9-b2c4-402e-8c4c-0e37f5727c73,"ISO, Velocity FFT RMS (10 -1000 Hz) (W:7 A:10)",GSL,,GSL,,A330,Transportband,A330,Motor,mm/s rms,NDE,Horizontal,Ch01 1000 Hz Velocity,1,A330,uBridge
+577,ed57ad33-58ec-4707-83c4-08e6c131cfc8,Acc. FFT RMS (4  - 10 KHz),GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,g RMS,,Horizontal,Ch06 10 KHz Acceleration,6,A330,uBridge
+578,121137eb-f7d4-45cc-911d-aa8f12658579,CF [CF],GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,CF,,Horizontal,Ch06 10 KHz Acceleration,6,A330,uBridge
+579,a3766fcc-9bf4-4b07-a907-0bef64260532,K [K],GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,K,,Horizontal,Ch06 10 KHz Acceleration,6,A330,uBridge
+580,c0b2df93-2bf0-4398-a298-3e531e288a65,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,g pk,,Horizontal,Ch06 10 KHz Acceleration,6,A330,uBridge
+581,d260c3cc-4203-445a-ab6c-d13c5a122782,"RMS, Acc. Wave RMS  [RMS]",GSL,,GSL,,A330,Transportband,*A330,Tandwielkast, RMS,,Horizontal,Ch06 10 KHz Acceleration,6,A330,uBridge
+582,f68ac294-5c04-4f21-b827-10d2631dd104,Acc. FFT RMS (4  - 10 KHz),GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,g RMS,DE,Horizontal,Ch05 10 KHz Acceleration,5,A330,uBridge
+583,b690beb3-a6e3-431e-a4df-342a12a902f6,CF [CF],GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,CF,DE,Horizontal,Ch05 10 KHz Acceleration,5,A330,uBridge
+584,97cae984-50e4-4fa7-9b2e-cd0baaefcbd4,K [K],GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,K,DE,Horizontal,Ch05 10 KHz Acceleration,5,A330,uBridge
+585,b9b7af37-377c-4fbc-b328-4c3530afd200,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,g pk,DE,Horizontal,Ch05 10 KHz Acceleration,5,A330,uBridge
+586,cf9c0f85-4d16-4fa4-bd5e-917750cdfdff,"RMS, Acc. Wave RMS  [RMS]",GSL,,GSL,,A330,Transportband,*A330,Tandwielkast, RMS,DE,Horizontal,Ch05 10 KHz Acceleration,5,A330,uBridge
+587,87768cc8-98ea-45d8-9cb9-16da2ff9af70,Acc. FFT RMS (4  - 10 KHz),GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,g RMS,DE,Horizontal,Ch08 10 KHz Acceleration,8,A330,uBridge
+588,54dc94e0-f6ac-440b-bc06-138059f21445,CF [CF],GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,CF,DE,Horizontal,Ch08 10 KHz Acceleration,8,A330,uBridge
+589,0d318f99-d3b7-4915-a24d-c153db11edc5,K [K],GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,K,DE,Horizontal,Ch08 10 KHz Acceleration,8,A330,uBridge
+590,68f75995-aa4f-402c-bffa-b62ed96695c7,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,g pk,DE,Horizontal,Ch08 10 KHz Acceleration,8,A330,uBridge
+591,c08db209-14b1-472b-8cba-d6fdecf3a774,"RMS, Acc. Wave RMS  [RMS]",GSL,,GSL,,A330,Transportband,*A330,Tandwielkast, RMS,DE,Horizontal,Ch08 10 KHz Acceleration,8,A330,uBridge
+592,3bc27dec-5618-473e-9474-769a7ca1bdbc,FFT Ovr (1  to 10 KHz) g PS (W:0.4 A:0.8),GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,g RMS,NDE,Horizontal,Ch07 10 KHz Acceleration,7,A330,uBridge
+593,8712f6b8-704f-4084-9286-9697519ee357,CF,GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,CF,NDE,Horizontal,Ch07 10 KHz Acceleration,7,A330,uBridge
+594,ff17f041-f776-4675-86df-21eb48af0ee0,K,GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,K,NDE,Horizontal,Ch07 10 KHz Acceleration,7,A330,uBridge
+595,3f39747a-e3ba-441c-b4d9-0b26915c3639,Mag (W:0.3 A:0.5),GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,g pk,NDE,Horizontal,Ch07 10 KHz Acceleration,7,A330,uBridge
+596,721eb4c2-a54a-45dd-b7c3-8db2dd539899,RMS (W:0.5 A:0.6),GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,g RMS,NDE,Horizontal,Ch07 10 KHz Acceleration,7,A330,uBridge
+597,446955af-1aa6-4878-a196-1860528377ec,Acc. FFT RMS (0  - 1000 Hz),GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,g RMS,,Horizontal,Ch06 1000 Hz Enveloped,6,A330,uBridge
+598,abc1c944-a08d-4b9a-b3bd-3dd7aac95138,Acc. FFT RMS (0  - 1000 Hz),GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,g RMS,,Horizontal,Ch06 1000 Hz Enveloped,6,A330,uBridge
+599,60855cf1-e68f-4d9e-ac19-6fe86301ea2c,Acc. FFT RMS (0  - 1000 Hz),GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,g RMS,DE,Horizontal,Ch05 1000 Hz Enveloped,5,A330,uBridge
+600,a814783a-cd40-4673-a41a-e77e418f587e,Acc. FFT RMS (0  - 1000 Hz),GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,g RMS,DE,Horizontal,Ch05 1000 Hz Enveloped,5,A330,uBridge
+601,1340cff0-56a2-44b1-a179-438c7f309159,Acc. FFT RMS (0  - 500 Hz),GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,g RMS,DE,Horizontal,Ch08 500 Hz Enveloped,8,A330,uBridge
+602,56c90fa4-9685-4e66-9e2c-fa5d3c1566e0,Acc. FFT RMS (0  - 500 Hz),GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,g RMS,DE,Horizontal,Ch08 500 Hz Enveloped,8,A330,uBridge
+603,244ae64e-eae9-4d12-b560-b65872ba2f4e,Acc. FFT RMS (0  - 500 Hz),GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,g RMS,NDE,Horizontal,Ch07 500 Hz Enveloped,7,A330,uBridge
+604,dc7c3a63-cb6f-4871-991d-819f161a1006,Acc. FFT RMS (0  - 500 Hz),GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,g RMS,NDE,Horizontal,Ch07 500 Hz Enveloped,7,A330,uBridge
+605,1a9e88e5-9f38-40bc-a7c8-ffc0c7f187c4,Vel. FFT RMS (10  - 1000 Hz),GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,mm/s RMS,,Horizontal,Ch06 1000 Hz Velocity,6,A330,uBridge
+606,86b41661-8063-47c1-b84a-9d219f227f78,"ISO, Vel. FFT RMS (10  - 1000 Hz) [ISO]",GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,mm/s rms,,Horizontal,Ch06 1000 Hz Velocity,6,A330,uBridge
+607,b1017b04-a7e2-48f0-a1b2-2a83cbdcf15f,Vel. FFT RMS (10  - 1000 Hz),GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,mm/s RMS,DE,Horizontal,Ch05 1000 Hz Velocity,5,A330,uBridge
+608,f860b850-082f-400e-a37e-cd852f875ccf,"ISO, Vel. FFT RMS (10  - 1000 Hz) [ISO]",GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,mm/s rms,DE,Horizontal,Ch05 1000 Hz Velocity,5,A330,uBridge
+609,70b6b61d-d1ff-41a7-aff8-773526f78ff3,Vel. FFT RMS (10  - 1000 Hz),GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,mm/s RMS,DE,Horizontal,Ch08 1000 Hz Velocity,8,A330,uBridge
+610,fcd8b171-247f-4516-88e1-c0aaaeee5e92,"ISO, Velocity FFT RMS (10 -1000 Hz) (W:2.8 A:4.5)",GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,mm/s rms,DE,Horizontal,Ch08 1000 Hz Velocity,8,A330,uBridge
+611,e4b1c280-66cc-470a-9830-52a32638b81c,Vel. FFT RMS (10  - 1000 Hz),GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,mm/s RMS,NDE,Horizontal,Ch07 1000 Hz Velocity,7,A330,uBridge
+612,2b7a754d-11ff-4e62-95ee-de4e90ce95ae,"ISO, Vel. FFT RMS (10  - 1000 Hz) [ISO]",GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,mm/s rms,NDE,Horizontal,Ch07 1000 Hz Velocity,7,A330,uBridge
+613,1b569e22-b082-4cf7-ab9b-797df820bf13,Velocity FFT RMS (1 -200 Hz) (W:2.1 A:2.6),GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,mm/s RMS,,Horizontal,Ch06 200 Hz Velocity,6,A330,uBridge
+614,b4ee62be-6d57-4a15-b27c-59c7ec439a44,Velocity FFT RMS (1 -200 Hz),GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,mm/s RMS,,Horizontal,Ch06 200 Hz Velocity,6,A330,uBridge
+615,b2a0e9ed-3820-4219-a680-bec2dc8aa98a,Velocity FFT RMS (1 -200 Hz) (W:3.5 A:4),GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,mm/s RMS,DE,Horizontal,Ch05 200 Hz Velocity,5,A330,uBridge
+616,2cbc9f66-c958-4395-a1ca-d3a97d340576,Velocity FFT RMS (1 -200 Hz),GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,mm/s RMS,DE,Horizontal,Ch05 200 Hz Velocity,5,A330,uBridge
+617,2ca05af0-3e2d-4596-9788-fa27289f2a60,Velocity FFT RMS (1 -200 Hz) (W:2.9 A:3.3),GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,mm/s RMS,DE,Horizontal,Ch08 200 Hz Velocity,8,A330,uBridge
+618,909d36c9-73a7-427b-8506-b189d5371c12,Velocity FFT RMS (1 -200 Hz),GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,mm/s RMS,DE,Horizontal,Ch08 200 Hz Velocity,8,A330,uBridge
+619,de342814-a91a-4ad8-9f37-09b7c0761691,Velocity FFT RMS (1 -200 Hz) (W:4.5 A:5),GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,mm/s RMS,NDE,Horizontal,Ch07 200 Hz Velocity,7,A330,uBridge
+620,087e44cd-d94c-4c68-8c73-74305e9cca01,Velocity FFT RMS (1 -200 Hz),GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,mm/s RMS,NDE,Horizontal,Ch07 200 Hz Velocity,7,A330,uBridge
+621,373e2a54-8271-4c58-bd40-24ff8e2301d8,Vel. FFT RMS (10  - 1000 Hz),GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,mm/s RMS,,Horizontal,Ch04 1000 Hz Velocity,4,A330,uBridge
+622,c48b2706-7b21-405f-ac77-2bde6284aa54,"ISO, Velocity FFT RMS (10 -1000 Hz) (W:2.8 A:4.5)",GSL,,GSL,,A330,Transportband,*A330,Tandwielkast,mm/s rms,,Horizontal,Ch04 1000 Hz Velocity,4,A330,uBridge
+623,23a09ef4-0abb-4ae2-b9f3-53a230ea41a7,Acc. FFT RMS (4  - 10 KHz),GSL,,GSL,,A330,Transportband,*A330,Aandrijfrol,g RMS,DE,Horizontal,Ch09 10 KHz Acceleration,9,A330,uBridge
+624,2b112920-dff6-478d-af85-b4181df8bc27,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",GSL,,GSL,,A330,Transportband,*A330,Aandrijfrol,g pk,DE,Horizontal,Ch09 10 KHz Acceleration,9,A330,uBridge
+625,c053ce47-7ac0-4a4b-9ea8-f5866b4b523e,"RMS, Acc. Wave RMS  [RMS]",GSL,,GSL,,A330,Transportband,*A330,Aandrijfrol, RMS,DE,Horizontal,Ch09 10 KHz Acceleration,9,A330,uBridge
+626,1718a456-7891-4511-a8f0-8d0e51e1c825,Acc. FFT RMS (4  - 10 KHz),GSL,,GSL,,A330,Transportband,*A330,Aandrijfrol,g RMS,NDE,Horizontal,Ch10 10 KHz Acceleration,10,A330,uBridge
+627,91c1e8aa-d83a-4aba-8e7b-ddcca5d8647c,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",GSL,,GSL,,A330,Transportband,*A330,Aandrijfrol,g pk,NDE,Horizontal,Ch10 10 KHz Acceleration,10,A330,uBridge
+628,b634bcba-acd1-4521-92d9-960eab35f254,"RMS, Acc. Wave RMS  [RMS]",GSL,,GSL,,A330,Transportband,*A330,Aandrijfrol, RMS,NDE,Horizontal,Ch10 10 KHz Acceleration,10,A330,uBridge
+629,cc40eb5b-654e-4148-b67e-8cb3fc2b6a3d,Acc. FFT RMS (0  - 500 Hz),GSL,,GSL,,A330,Transportband,*A330,Aandrijfrol,g RMS,DE,Horizontal,Ch09 500 Hz Enveloped,9,A330,uBridge
+630,15c3b3a2-996d-48cb-8e5d-eaacd74f5689,Acc. FFT RMS (0  - 500 Hz),GSL,,GSL,,A330,Transportband,*A330,Aandrijfrol,g RMS,DE,Horizontal,Ch09 500 Hz Enveloped,9,A330,uBridge
+631,439553f0-07aa-4c75-a60d-26d890690c6b,Acc. FFT RMS (0  - 500 Hz),GSL,,GSL,,A330,Transportband,*A330,Aandrijfrol,g RMS,NDE,Horizontal,Ch10 500 Hz Enveloped,10,A330,uBridge
+632,e7d2eeee-ba3c-4172-9af6-4f41f0c3d12c,Acc. FFT RMS (0  - 500 Hz),GSL,,GSL,,A330,Transportband,*A330,Aandrijfrol,g RMS,NDE,Horizontal,Ch10 500 Hz Enveloped,10,A330,uBridge
+633,16ed9468-9365-4b29-8aa5-e4097ad03df7,Vel. FFT RMS (10  - 1000 Hz),GSL,,GSL,,A330,Transportband,*A330,Aandrijfrol,mm/s RMS,DE,Horizontal,Ch09 1000 Hz Velocity,9,A330,uBridge
+634,c6f23f0c-7908-49fc-92a0-69d2ab8320f5,"ISO, Vel. FFT RMS (10  - 1000 Hz) [ISO]",GSL,,GSL,,A330,Transportband,*A330,Aandrijfrol,mm/s rms,DE,Horizontal,Ch09 1000 Hz Velocity,9,A330,uBridge
+635,7f65427b-797b-4f0a-8571-02ec13e421b6,Vel. FFT RMS (10  - 1000 Hz),GSL,,GSL,,A330,Transportband,*A330,Aandrijfrol,mm/s RMS,NDE,Horizontal,Ch10 1000 Hz Velocity,10,A330,uBridge
+636,c52d34e0-ba1b-4a75-b891-7eb82f7dd707,"ISO, Vel. FFT RMS (10  - 1000 Hz) [ISO]",GSL,,GSL,,A330,Transportband,*A330,Aandrijfrol,mm/s rms,NDE,Horizontal,Ch10 1000 Hz Velocity,10,A330,uBridge
+637,48412d29-6327-4c18-851f-853f36096a70,Velocity FFT Mag (1 -200 Hz),GSL,,GSL,,A330,Transportband,*A330,Aandrijfrol,mm/s pk,DE,Horizontal,Ch09 200 Hz Velocity,9,A330,uBridge
+638,60391cd5-7945-4ba0-a329-a8e87f5d98bb,Acceleration FFT RMS (4 -10 KHz) (W:0.1 A:0.25),GSL,,GSL,,A330,Transportband,*A330,Spanrol,g RMS,DE,Horizontal,Ch11 10 KHz Acceleration,11,A330,uBridge
+639,2c3076f5-d892-45af-a651-84c0f609f7f4,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",GSL,,GSL,,A330,Transportband,*A330,Spanrol,g pk,DE,Horizontal,Ch11 10 KHz Acceleration,11,A330,uBridge
+640,1dc5516c-f1aa-436c-82c6-b74c06cf1a22,"RMS, Acc. Wave RMS  [RMS]",GSL,,GSL,,A330,Transportband,*A330,Spanrol, RMS,DE,Horizontal,Ch11 10 KHz Acceleration,11,A330,uBridge
+641,ba6e87f9-3251-4647-9ab0-958c0868a3a7,Acceleration FFT RMS (4 -10 KHz) (W:0.1 A:0.25),GSL,,GSL,,A330,Transportband,*A330,Spanrol,g RMS,NDE,Horizontal,Ch12 10 KHz Acceleration,12,A330,uBridge
+642,30f620cd-82c9-4ca8-95e2-2cb225d0d479,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",GSL,,GSL,,A330,Transportband,*A330,Spanrol,g pk,NDE,Horizontal,Ch12 10 KHz Acceleration,12,A330,uBridge
+643,054db427-53c9-4e11-a6fa-7d85a2ed37e2,"RMS, Acc. Wave RMS  [RMS]",GSL,,GSL,,A330,Transportband,*A330,Spanrol, RMS,NDE,Horizontal,Ch12 10 KHz Acceleration,12,A330,uBridge
+644,73fcb375-2346-4120-b3a1-0d6522dadb6b,Acc. FFT RMS (0  - 500 Hz),GSL,,GSL,,A330,Transportband,*A330,Spanrol,g RMS,DE,Horizontal,Ch11 500 Hz Enveloped,11,A330,uBridge
+645,02681986-68a2-4b3d-b6c7-b74e76f5b198,Acc. FFT RMS (0  - 500 Hz),GSL,,GSL,,A330,Transportband,*A330,Spanrol,g RMS,DE,Horizontal,Ch11 500 Hz Enveloped,11,A330,uBridge
+646,1759bda7-8c0d-4ea1-8763-7a293aed5432,Acc. FFT RMS (0  - 500 Hz),GSL,,GSL,,A330,Transportband,*A330,Spanrol,g RMS,NDE,Horizontal,Ch12 500 Hz Enveloped,12,A330,uBridge
+647,1b12a833-ba71-4d20-9f3e-fd4d1a13d837,Acc. FFT RMS (0  - 500 Hz),GSL,,GSL,,A330,Transportband,*A330,Spanrol,g RMS,NDE,Horizontal,Ch12 500 Hz Enveloped,12,A330,uBridge
+648,38ea8297-2d03-4121-b6d3-fb35ed3acd4d,Vel. FFT RMS (10  - 1000 Hz),GSL,,GSL,,A330,Transportband,*A330,Spanrol,mm/s RMS,DE,Horizontal,Ch11 1000 Hz Velocity,11,A330,uBridge
+649,f5f5dc3e-39f6-42f5-bfad-405c2ad9f159,"ISO, Velocity FFT RMS (10 -1000 Hz)",GSL,,GSL,,A330,Transportband,*A330,Spanrol,mm/s rms,DE,Horizontal,Ch11 1000 Hz Velocity,11,A330,uBridge
+650,34557868-27b0-4142-a40c-e085dc5a4bd3,Vel. FFT RMS (10  - 1000 Hz),GSL,,GSL,,A330,Transportband,*A330,Spanrol,mm/s RMS,NDE,Horizontal,Ch12 1000 Hz Velocity,12,A330,uBridge
+651,c06ac5b0-0a0c-4de6-b4b7-6e1f4352d096,"ISO, Vel. FFT RMS (10  - 1000 Hz) [ISO]",GSL,,GSL,,A330,Transportband,*A330,Spanrol,mm/s rms,NDE,Horizontal,Ch12 1000 Hz Velocity,12,A330,uBridge
+652,ef23707b-33a4-43c3-ba50-3e5f101e7e0c,Velocity FFT Mag (1 -200 Hz),GSL,,GSL,,A330,Transportband,*A330,Spanrol,mm/s pk,DE,Horizontal,Ch11 200 Hz Velocity,11,A330,uBridge
+653,3d3448a9-e175-4fd9-af53-ad021693b625,Acc. FFT RMS (1  - 10 KHz),GSL,,GSL,,A330,Transportband,*A330,Stortrol,g RMS,DE,Horizontal,Ch13 10 KHz Acceleration,13,A330,uBridge
+654,0e4ca265-0c52-480d-b7ba-5c7d7277c6cf,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",GSL,,GSL,,A330,Transportband,*A330,Stortrol,g pk,DE,Horizontal,Ch13 10 KHz Acceleration,13,A330,uBridge
+655,02e46b54-520b-4fd9-bb0f-d731deef57f8,"RMS, Acc. Wave RMS  [RMS]",GSL,,GSL,,A330,Transportband,*A330,Stortrol, RMS,DE,Horizontal,Ch13 10 KHz Acceleration,13,A330,uBridge
+656,677cbc1e-72a5-49d7-8a92-03b444cc7c2c,Acceleration FFT RMS (4 -10 KHz) (W:1 A:2),GSL,,GSL,,A330,Transportband,*A330,Stortrol,g RMS,NDE,Horizontal,Ch14 10 KHz Acceleration,14,A330,uBridge
+657,1d683099-58be-49e6-8d93-d5448901a7be,"Mag, Acc. FFT Mag (4  - 10 KHz) [Mag]",GSL,,GSL,,A330,Transportband,*A330,Stortrol,g pk,NDE,Horizontal,Ch14 10 KHz Acceleration,14,A330,uBridge
+658,6defc725-df95-418d-b4a9-f554be009544,"RMS, Acc. Wave RMS  [RMS]",GSL,,GSL,,A330,Transportband,*A330,Stortrol, RMS,NDE,Horizontal,Ch14 10 KHz Acceleration,14,A330,uBridge
+659,a5cb73fd-3a4c-4a50-9d1e-cc76881d0451,Acceleration FFT RMS (0 -500 Hz) (W:0.02 A:0.02),GSL,,GSL,,A330,Transportband,*A330,Stortrol,g RMS,DE,Horizontal,Ch13 500 Hz Enveloped,13,A330,uBridge
+660,92d49645-d823-472a-a720-6ce54c3df776,Acc. FFT RMS (0  - 500 Hz),GSL,,GSL,,A330,Transportband,*A330,Stortrol,g RMS,DE,Horizontal,Ch13 500 Hz Enveloped,13,A330,uBridge
+661,3b315108-90d4-414f-8c05-6bbdef382c8a,Acc. FFT RMS (0  - 500 Hz),GSL,,GSL,,A330,Transportband,*A330,Stortrol,g RMS,NDE,Horizontal,Ch14 500 Hz Enveloped,14,A330,uBridge
+662,57555ab0-df3a-41bc-bd93-689ab4a2ce31,Acc. FFT RMS (0  - 500 Hz),GSL,,GSL,,A330,Transportband,*A330,Stortrol,g RMS,NDE,Horizontal,Ch14 500 Hz Enveloped,14,A330,uBridge
+663,2eaf6a19-a16d-412f-bc92-6135a78d52bb,Vel. FFT RMS (10  - 1000 Hz),GSL,,GSL,,A330,Transportband,*A330,Stortrol,mm/s RMS,DE,Horizontal,Ch13 1000 Hz Velocity,13,A330,uBridge
+664,fc1f375e-97f4-4281-a1dc-7cd489d9a757,"ISO, Vel. FFT RMS (10  - 1000 Hz) [ISO]",GSL,,GSL,,A330,Transportband,*A330,Stortrol,mm/s rms,DE,Horizontal,Ch13 1000 Hz Velocity,13,A330,uBridge
+665,40fa6c35-bf71-45a7-b88e-c5b125a95048,Vel. FFT RMS (10  - 1000 Hz),GSL,,GSL,,A330,Transportband,*A330,Stortrol,mm/s RMS,NDE,Horizontal,Ch14 1000 Hz Velocity,14,A330,uBridge
+666,64302a21-cdea-4c61-881c-19b864c767ab,"ISO, Vel. FFT RMS (10  - 1000 Hz) [ISO]",GSL,,GSL,,A330,Transportband,*A330,Stortrol,mm/s rms,NDE,Horizontal,Ch14 1000 Hz Velocity,14,A330,uBridge
+667,9f0d5903-fa70-451d-a146-9e84b1d1bb72,Velocity FFT Mag (1 -200 Hz),GSL,,GSL,,A330,Transportband,*A330,Stortrol,mm/s pk,DE,Horizontal,Ch13 200 Hz Velocity,13,A330,uBridge
+668,1de6519d-5c54-40cc-8752-73d5d86cfda7,Temperatuur,GSL,,GSL,,A330,Transportband,*A330,Band,°Celsius,,,Temperatuur,1,A330,uBridge
+669,dd266aaf-289d-467a-96c3-6e9889c0a4d5,#CF,GSL,,GSL,,Test / voorbeeld,,Motor,,CF,,,Ch01 10 KHz Acceleration,1,Deze stap voegt niks toe,uBridge
+670,a7ba6cc4-dc9b-4951-bb33-d0a3f34dafe7,#K,GSL,,GSL,,Test / voorbeeld,,Motor,,K,,,Ch01 10 KHz Acceleration,1,Deze stap voegt niks toe,uBridge
+671,7c6942a0-607c-4e67-b254-5ef10a5bbbb9,#Mag,GSL,,GSL,,Test / voorbeeld,,Motor,,g pk,,,Ch01 10 KHz Acceleration,1,Deze stap voegt niks toe,uBridge
+672,12db98ad-b7dc-4972-8cf0-6def76500f9a,#RMS,GSL,,GSL,,Test / voorbeeld,,Motor,, RMS,,,Ch01 10 KHz Acceleration,1,Deze stap voegt niks toe,uBridge
+673,92d7ebab-fed0-4ee8-9a89-a407f7353b31,#ISO,GSL,,GSL,,Test / voorbeeld,,Motor,,mm/s RMS,,,Ch01 1KHz Velocity,1,Deze stap voegt niks toe,uBridge
+674,a662f0b5-9bce-4bcc-91ff-e2fc030cf1a2,#ISO,GSL,,GSL,,Test / voorbeeld,,Motor,,mm/s RMS,,,Ch02 1KHz Velocity,2,Deze stap voegt niks toe,uBridge
+675,6b9c45e8-c762-4e01-93f5-429575efcc22,#ISO,GSL,,GSL,,Test / voorbeeld,,Motor,,mm/s RMS,,,Ch03 1KHz Velocity,3,Deze stap voegt niks toe,uBridge
+676,f9f22416-4647-4f46-9d6e-a1c9ffb71a03,#CF,GSL,,GSL,,Test / voorbeeld,,Motor,,CF,,,Ch02 10 KHz Acceleration,2,Deze stap voegt niks toe,uBridge
+677,60c6942b-7738-499d-aaba-267aea54f7e3,#K,GSL,,GSL,,Test / voorbeeld,,Motor,,K,,,Ch02 10 KHz Acceleration,2,Deze stap voegt niks toe,uBridge
+678,a6f144d7-aa7d-4c0c-a435-0518f2b539cd,#Mag,GSL,,GSL,,Test / voorbeeld,,Motor,,g pk,,,Ch02 10 KHz Acceleration,2,Deze stap voegt niks toe,uBridge
+679,cc995986-cdb5-46ea-a30a-a1c20cf75d8e,#RMS,GSL,,GSL,,Test / voorbeeld,,Motor,, RMS,,,Ch02 10 KHz Acceleration,2,Deze stap voegt niks toe,uBridge
+680,c886c11c-95a2-4ab8-871c-bdad870de00b,#CF,GSL,,GSL,,Test / voorbeeld,,Motor,,CF,,,Ch03 10 KHz Acceleration,3,Deze stap voegt niks toe,uBridge
+681,8d089d2f-8ceb-426b-8f4f-929c592858a4,#K,GSL,,GSL,,Test / voorbeeld,,Motor,,K,,,Ch03 10 KHz Acceleration,3,Deze stap voegt niks toe,uBridge
+682,6b0a846b-06c6-4ef2-a51c-2b299bbcff1e,#Mag,GSL,,GSL,,Test / voorbeeld,,Motor,,g pk,,,Ch03 10 KHz Acceleration,3,Deze stap voegt niks toe,uBridge
+683,1438f99b-f410-4852-81a0-c910bd866424,#RMS,GSL,,GSL,,Test / voorbeeld,,Motor,, RMS,,,Ch03 10 KHz Acceleration,3,Deze stap voegt niks toe,uBridge
+684,e665a803-7d3a-4c26-8583-0257d39ceb2f,Wave  g RMS,GSL,,GSL,,Test / voorbeeld,,Motor,, RMS,,,Ch01 1000 Hz Enveloped,1,Deze stap voegt niks toe,uBridge
+685,8f6143eb-5cc9-4621-9015-f44a1723f279,Wave  g RMS,GSL,,GSL,,Test / voorbeeld,,Motor,, RMS,,,Ch02 1000 Hz Enveloped,2,Deze stap voegt niks toe,uBridge
+686,cec4864e-cbf9-42cd-bff2-45420923f2d5,Wave  g RMS,GSL,,GSL,,Test / voorbeeld,,Motor,, RMS,,,Ch03 1000 Hz Enveloped,3,Deze stap voegt niks toe,uBridge
+687,454fd5b2-16da-42b1-9d7f-6a1815c45a83,Motor NDE temperatuur,GSL,,GSL,,U700 Oost,Transportband,U700,Motor,°Celsius,NDE,,Temperatuur,1,U700,uBridge
+688,ba8852c4-3318-4b16-af9d-98482ebb1e8a,Temperatuur,GSL,,GSL,,U700 Oost,Transportband,U700,Motor,V,,,,,,Manual
+689,5cda80cf-5fb4-4e31-9fe6-03a710dca285,Motor DE temperatuur,GSL,,GSL,,U700 Oost,Transportband,U700,Motor,°Celsius,DE,,Temperatuur,2,U700,uBridge
+690,3f3690fe-2d7d-4294-9c2e-27d8dd25c5e1,FFT Ovr (1  to 10 KHz) g PS,GSL,,GSL,,U700 Oost,Transportband,U700,Motor,g RMS,DE,Horizontal,Ch03 10 KHz Acceleration,3,U700,uBridge
+691,685c141a-39e0-4541-b029-80641c37501d,CF (W:13 A:16),GSL,,GSL,,U700 Oost,Transportband,U700,Motor,CF,DE,Horizontal,Ch03 10 KHz Acceleration,3,U700,uBridge
+692,7638ccd3-09fc-420b-8755-7f6cf0a49c18,K (W:6 A:8),GSL,,GSL,,U700 Oost,Transportband,U700,Motor,K,DE,Horizontal,Ch03 10 KHz Acceleration,3,U700,uBridge
+693,9156b896-7477-482f-82cb-44b3d441d919,Mag (W:0.16 A:0.2),GSL,,GSL,,U700 Oost,Transportband,U700,Motor,g pk,DE,Horizontal,Ch03 10 KHz Acceleration,3,U700,uBridge
+694,2693deef-0cef-45a2-bf7a-d0fc9a749947,RMS (W:0.6 A:0.8),GSL,,GSL,,U700 Oost,Transportband,U700,Motor,g RMS,DE,Horizontal,Ch03 10 KHz Acceleration,3,U700,uBridge
+695,dbf49c2b-d0c9-45fa-8f7c-04d9a05055f1,FFT Ovr (1  to 10 KHz) g PS,GSL,,GSL,,U700 Oost,Transportband,U700,Motor,g RMS,DE,Horizontal,Ch02 10 KHz Acceleration,2,U700,uBridge
+696,7cb67c3a-c70f-4afb-8926-7611e5bd4ef6,CF (W:12 A:15),GSL,,GSL,,U700 Oost,Transportband,U700,Motor,CF,DE,Horizontal,Ch02 10 KHz Acceleration,2,U700,uBridge
+697,167ea4c7-b60f-4240-98f1-a56e40687ccc,K (W:5 A:6),GSL,,GSL,,U700 Oost,Transportband,U700,Motor,K,DE,Horizontal,Ch02 10 KHz Acceleration,2,U700,uBridge
+698,82106d52-e402-4228-8d39-94c3beb057c8,Mag (W:0.12 A:0.16),GSL,,GSL,,U700 Oost,Transportband,U700,Motor,g pk,DE,Horizontal,Ch02 10 KHz Acceleration,2,U700,uBridge
+699,bc6a8432-de5a-4fef-a2dd-cad6fc19abc1,RMS (W:0.65 A:0.85),GSL,,GSL,,U700 Oost,Transportband,U700,Motor,g RMS,DE,Horizontal,Ch02 10 KHz Acceleration,2,U700,uBridge
+700,176fd7ee-8506-4af3-b9e1-beadf623ed4c,FFT Ovr (1  to 10 KHz) g PS (Stats),GSL,,GSL,,U700 Oost,Transportband,U700,Motor,g RMS,NDE,,Ch01 10 KHz Acceleration,1,U700,uBridge
+701,ba868e37-f5ce-467c-8ba9-1474f3d94352,CF (W:8 A:10),GSL,,GSL,,U700 Oost,Transportband,U700,Motor,CF,NDE,Horizontal,Ch01 10 KHz Acceleration,1,U700,uBridge
+702,7126f9cf-4e09-4e86-ba4d-cfac8e7c2391,K (W:4.5 A:5),GSL,,GSL,,U700 Oost,Transportband,U700,Motor,K,NDE,Horizontal,Ch01 10 KHz Acceleration,1,U700,uBridge
+703,8ca97921-59c3-4dd5-87ec-d3a540822442,Mag (W:0.18 A:0.22),GSL,,GSL,,U700 Oost,Transportband,U700,Motor,g pk,NDE,Horizontal,Ch01 10 KHz Acceleration,1,U700,uBridge
+704,f05df0b1-a7b8-4ea2-a601-bfbddcaf5b7f,RMS (W:0.25 A:0.3),GSL,,GSL,,U700 Oost,Transportband,U700,Motor,g RMS,NDE,Horizontal,Ch01 10 KHz Acceleration,1,U700,uBridge
+705,026d2cd8-a17a-4f53-b48b-5b30d51fd411,FFT Ovr (0  to 1000 Hz) g PS (W:0.5 A:0.7),GSL,,GSL,,U700 Oost,Transportband,U700,Motor,g RMS,DE,Horizontal,Ch03 1000 Hz Enveloped,3,U700,uBridge
+706,70e61cbd-ce60-49ee-b6fc-b652ef835089,FFT Ovr (0  to 1000 Hz) g PS,GSL,,GSL,,U700 Oost,Transportband,U700,Motor,g RMS,DE,Horizontal,Ch03 1000 Hz Enveloped,3,U700,uBridge
+707,26e9493c-bdb9-4edf-8bf1-ed6108273559,FFT Ovr (0  to 1000 Hz) g PS (W:0.45 A:0.55),GSL,,GSL,,U700 Oost,Transportband,U700,Motor,g RMS,DE,Horizontal,Ch02 1000 Hz Enveloped,2,U700,uBridge
+708,89890edc-50e1-4ff6-a8de-8de365119f07,FFT Ovr (0  to 1000 Hz) g PS,GSL,,GSL,,U700 Oost,Transportband,U700,Motor,g RMS,DE,Horizontal,Ch02 1000 Hz Enveloped,2,U700,uBridge
+709,1ae54396-70a8-4cfb-81bf-8e75b46cf155,FFT Ovr (0  to 1000 Hz) g PS (Stats),GSL,,GSL,,U700 Oost,Transportband,U700,Motor,g RMS,NDE,,Ch01 1000 Hz Enveloped,1,U700,uBridge
+710,5807f45e-9af7-4be4-9b56-29a2fbdeacec,FFT Ovr (0  to 1000 Hz) g PS (W:0.12 A:0.16),GSL,,GSL,,U700 Oost,Transportband,U700,Motor,g RMS,NDE,Horizontal,Ch01 1000 Hz Enveloped,1,U700,uBridge
+711,495e3331-0feb-4a93-baf0-3fbd48213e70,FFT Ovr (10  to 1000 Hz) mm/s PS (Stats),GSL,,GSL,,U700 Oost,Transportband,U700,Motor,mm/s RMS,DE,Horizontal,Ch02 1000 Hz Velocity,2,U700,uBridge
+712,cfd6f631-305a-4e8d-8221-22e0ea542f89,ISO (W:0.5 A:0.7),GSL,,GSL,,U700 Oost,Transportband,U700,Motor,mm/s RMS,DE,Horizontal,Ch02 1000 Hz Velocity,2,U700,uBridge
+713,eea746a5-82ca-4309-821c-b022b033613e,FFT Ovr (10  to 1000 Hz) mm/s PS (Stats),GSL,,GSL,,U700 Oost,Transportband,U700,Motor,mm/s RMS,DE,Horizontal,Ch02 1000 Hz Velocity,3,U700,uBridge
+714,22b8515d-0afb-41b9-ba21-4ba6d7d0f8dd,ISO (W:0.4 A:0.6),GSL,,GSL,,U700 Oost,Transportband,U700,Motor,mm/s RMS,DE,Horizontal,Ch02 1000 Hz Velocity,3,U700,uBridge
+715,0ad3b2cb-53f1-4470-bd63-4b1469599e44,FFT Ovr (10  to 1000 Hz) mm/s PS (Stats),GSL,,GSL,,U700 Oost,Transportband,U700,Motor,mm/s RMS,NDE,,Ch01 1KHz Velocity,1,U700,uBridge
+716,88e10590-ab8d-4cd8-99ae-baae71bf9738,ISO (W:0.3 A:0.4),GSL,,GSL,,U700 Oost,Transportband,U700,Motor,mm/s RMS,NDE,,Ch01 1KHz Velocity,1,U700,uBridge
+717,5356dd54-96a4-4b80-87ed-71f84c4708a0,FFT Ovr (1  to 10 KHz) g PS,GSL,,GSL,,U700 Oost,Transportband,U700,Tandwielkast,g RMS,DE,Horizontal,Ch04 10 KHz Acceleration,4,U700,uBridge
+718,28314bc0-20aa-421b-9faa-20f847ab99aa,#CF,GSL,,GSL,,U700 Oost,Transportband,U700,Tandwielkast,CF,DE,Horizontal,Ch04 10 KHz Acceleration,4,U700,uBridge
+719,ddb1f201-19bd-47fd-acbb-27875b51700f,#K,GSL,,GSL,,U700 Oost,Transportband,U700,Tandwielkast,K,DE,Horizontal,Ch04 10 KHz Acceleration,4,U700,uBridge
+720,12e0814a-e381-4ec4-99f3-33c98546ed5a,#Mag,GSL,,GSL,,U700 Oost,Transportband,U700,Tandwielkast,g pk,DE,Horizontal,Ch04 10 KHz Acceleration,4,U700,uBridge
+721,990e02c3-216e-46f8-8275-e10022028b55,#RMS,GSL,,GSL,,U700 Oost,Transportband,U700,Tandwielkast,g RMS,DE,Horizontal,Ch04 10 KHz Acceleration,4,U700,uBridge
+722,579aa949-99e9-4b6c-9e1e-073f1c14d46e,FFT Ovr (1  to 10 KHz) g PS,GSL,,GSL,,U700 Oost,Transportband,U700,Tandwielkast,g RMS,NDE,Horizontal,Ch06 10 KHz Acceleration,6,U700,uBridge
+723,ecb31854-9c7c-4408-89eb-6e18e6aecf60,#CF,GSL,,GSL,,U700 Oost,Transportband,U700,Tandwielkast,CF,NDE,Horizontal,Ch06 10 KHz Acceleration,6,U700,uBridge
+724,ab720cba-7cb1-48e1-aff8-3fed7d51c49c,#K,GSL,,GSL,,U700 Oost,Transportband,U700,Tandwielkast,K,NDE,Horizontal,Ch06 10 KHz Acceleration,6,U700,uBridge
+725,b4b5d062-590e-43a1-ac63-8900c6b65711,#Mag,GSL,,GSL,,U700 Oost,Transportband,U700,Tandwielkast,g pk,NDE,Horizontal,Ch06 10 KHz Acceleration,6,U700,uBridge
+726,706d4497-d360-4636-a7ee-80db2d993380,#RMS,GSL,,GSL,,U700 Oost,Transportband,U700,Tandwielkast,g RMS,NDE,Horizontal,Ch06 10 KHz Acceleration,6,U700,uBridge
+727,7bde5fbb-be95-49b6-b0a6-0dcee796fed5,Temperatuur,GSL,,GSL,,U700 Oost,Transportband,U700,Tandwielkast,V,,,,,,Manual
+728,8eb1e1d5-9d7a-43b6-89d5-37f2b4d5eca1,FFT Ovr (0  to 1000 Hz) g PS,GSL,,GSL,,U700 Oost,Transportband,U700,Tandwielkast,g RMS,DE,Horizontal,Ch04 1000 Hz Enveloped,4,U700,uBridge
+729,5465f933-c124-4ad8-9442-e726a55b8a26,FFT Ovr (0  to 1000 Hz) g PS,GSL,,GSL,,U700 Oost,Transportband,U700,Tandwielkast,g RMS,DE,Horizontal,Ch04 1000 Hz Enveloped,4,U700,uBridge
+730,bcec608f-38e3-47f0-bdf2-df9373347039,Tandwielkast DE temperatuur,GSL,,GSL,,U700 Oost,Transportband,U700,Tandwielkast,°Celsius,DE,,Temperatuur,3,U700,uBridge
+731,85a13de4-e013-41d0-9e57-a8696b012dc1,FFT Ovr (0  to 1000 Hz) g PS,GSL,,GSL,,U700 Oost,Transportband,U700,Tandwielkast,g RMS,NDE,Horizontal,Ch06 1000 Hz Enveloped,6,U700,uBridge
+732,8b5a6e71-edac-49e7-b3af-6ca3de412247,FFT Ovr (0  to 1000 Hz) g PS,GSL,,GSL,,U700 Oost,Transportband,U700,Tandwielkast,g RMS,NDE,Horizontal,Ch06 1000 Hz Enveloped,6,U700,uBridge
+733,46939906-2974-414b-9ccb-b0d79abd4368,Tandwielkast NDE temperatuur,GSL,,GSL,,U700 Oost,Transportband,U700,Tandwielkast,°Celsius,NDE,,Temperatuur,4,U700,uBridge
+734,13f5f7c1-0476-4904-a93f-dc45862c6f34,FFT Ovr (10  to 1000 Hz) mm/s PS,GSL,,GSL,,U700 Oost,Transportband,U700,Tandwielkast,mm/s RMS,DE,Horizontal,Ch04 1000 Hz Velocity,4,U700,uBridge
+735,62c42b6f-2733-4074-9d7a-39f68e1433fe,#ISO,GSL,,GSL,,U700 Oost,Transportband,U700,Tandwielkast,mm/s RMS,DE,Horizontal,Ch04 1000 Hz Velocity,4,U700,uBridge
+736,c6bf6cc4-984b-47b3-8a9a-14fca2046866,FFT Ovr (10  to 1000 Hz) mm/s PS (Stats),GSL,,GSL,,U700 Oost,Transportband,U700,Tandwielkast,mm/s RMS,NDE,Horizontal,Ch06 1000 Hz Velocity,6,U700,uBridge
+737,5181be69-6c5e-4b70-becc-95e4497911ae,#ISO,GSL,,GSL,,U700 Oost,Transportband,U700,Tandwielkast,mm/s RMS,NDE,Horizontal,Ch06 1000 Hz Velocity,6,U700,uBridge
+738,c168b84f-6a51-4b5d-8e49-1b2d87d6257d,FFT Ovr (10  to 2 KHz) mm/s PS,GSL,,GSL,,U700 Oost,Transportband,U700,Tandwielkast,mm/s RMS,DE,Horizontal,Ch04 2 KHz Velocity,4,U700,uBridge
+739,be19787f-1fd1-4453-91e1-c00626fc0456,FFT Ovr (10  to 2 KHz) mm/s PS (Stats),GSL,,GSL,,U700 Oost,Transportband,U700,Tandwielkast,mm/s RMS,DE,,Ch04 2 KHz Velocity,4,U700,uBridge
+740,b60264aa-75da-4657-9cb3-a1610859c719,FFT Ovr (10  to 2 KHz) mm/s PS,GSL,,GSL,,U700 Oost,Transportband,U700,Tandwielkast,mm/s RMS,NDE,Horizontal,Ch06 2 KHz Velocity,6,U700,uBridge
+741,3dfc12a1-332a-4488-9111-cd225553cc47,FFT Ovr (10  to 2 KHz) mm/s PS (Stats),GSL,,GSL,,U700 Oost,Transportband,U700,Tandwielkast,mm/s RMS,NDE,,Ch06 2 KHz Velocity,6,U700,uBridge
+742,349bdb7e-e93c-42fb-92ea-58ae6687f2d0,FFT Ovr (10  to 1000 Hz) mm/s PS (Stats),GSL,,GSL,,U700 Oost,Transportband,U700,Tandwielkast,mm/s RMS,DE,Axial,Ch05 1000 Hz Velocity,5,U700,uBridge
+743,624a9218-742e-4416-bbfa-f73c52c1c219,#ISO,GSL,,GSL,,U700 Oost,Transportband,U700,Tandwielkast,mm/s RMS,DE,Axial,Ch05 1000 Hz Velocity,5,U700,uBridge
+744,82bc627a-e78e-479a-991c-177010541eda,#ISO,GSL,,GSL,,U700_West ,Transportband,Motor,,mm/s RMS,,Vertical,uMote OA temp8,0,um820-100140,uMote
+745,360ef68b-c919-4659-b05b-828f2e4b9de1,#Mag,GSL,,GSL,,U700_West ,Transportband,Motor,,g pk,,Vertical,uMote OA temp8,0,um820-100140,uMote
+746,add7c5a1-9db3-483c-9a66-71f72f7a0f66,#RMS,GSL,,GSL,,U700_West ,Transportband,Motor,,g RMS,,Vertical,uMote OA temp8,0,um820-100140,uMote
+747,0519e924-c7bd-401d-8d1e-7170e6632dc8,Battery,GSL,,GSL,,U700_West ,Transportband,Motor,,,,Vertical,uMote OA temp8,0,um820-100140,uMote
+748,7aabe8c9-3b7b-4694-afa5-f407bc550b53,ERMS,GSL,,GSL,,U700_West ,Transportband,Motor,,g RMS,,Vertical,uMote OA temp8,0,um820-100140,uMote
+749,b1f76ecc-3d8f-49e8-97f3-f6d9a6fc1afc,#ISO,GSL,,GSL,,U700_West ,Transportband,Gearbox,,mm/s RMS,,Vertical,uMote OA,0,um820-100188,uMote
+750,04a262c8-2391-4aa9-8119-c975820d988b,#Mag,GSL,,GSL,,U700_West ,Transportband,Gearbox,,g pk,,Vertical,uMote OA,0,um820-100188,uMote
+751,63ee70b1-cb45-444d-89ea-5a33e1ce1b66,#RMS,GSL,,GSL,,U700_West ,Transportband,Gearbox,,g RMS,,Vertical,uMote OA,0,um820-100188,uMote
+752,e0440329-6185-42d2-9dc8-dcf3ac62883e,Battery,GSL,,GSL,,U700_West ,Transportband,Gearbox,,,,Vertical,uMote OA,0,um820-100188,uMote
+753,bfc26011-37b1-49f8-a6b2-3813aed94e31,VPS1,GSL,,GSL,,U700_West ,Transportband,Gearbox,,mm/s RMS,,Vertical,uMote OA,0,um820-100188,uMote
+754,b3b6ad9a-59a3-43b2-be09-d430e2e55582,VPS2,GSL,,GSL,,U700_West ,Transportband,Gearbox,,mm/s RMS,,Vertical,uMote OA,0,um820-100188,uMote
+755,0b313da9-ef4c-4638-942c-a05add9ac8ff,ERMS,GSL,,GSL,,U700_West ,Transportband,Gearbox,,g RMS,,Vertical,uMote OA,0,um820-100188,uMote
+756,68e20e91-296d-4af5-9375-65ded0bb1d27,#ISO,GSL,,GSL,,U701_Oost,Transportband,U701,Motor,mm/s RMS,,Vertical,uMote OA U701(m),0,um820-100164,uMote
+757,d7ec9ca6-2dfe-4299-8955-b3aaab273fb8,#Mag,GSL,,GSL,,U701_Oost,Transportband,U701,Motor,g pk,,Vertical,uMote OA U701(m),0,um820-100164,uMote
+758,971a6912-cad5-4b85-bbf6-358b7460e921,#RMS,GSL,,GSL,,U701_Oost,Transportband,U701,Motor,g RMS,,Vertical,uMote OA U701(m),0,um820-100164,uMote
+759,2d43c17b-279f-417a-a967-753eec33fb25,Battery,GSL,,GSL,,U701_Oost,Transportband,U701,Motor,,,Vertical,uMote OA U701(m),0,um820-100164,uMote
+760,1004ed12-673d-4229-92b7-98a5a7e2e332,ERMS,GSL,,GSL,,U701_Oost,Transportband,U701,Motor,g RMS,,Vertical,uMote OA U701(m),0,um820-100164,uMote
+761,b3f4ec5c-4382-4de8-9b11-fe07cb9e62a3,#ISO,GSL,,GSL,,U701_Oost,Transportband,U701,Tandwielkast,mm/s RMS,,Vertical,uMote OA temp5,0,um820-100484,uMote
+762,ba0b64a8-ec39-4963-b422-ad811cb487a7,#Mag,GSL,,GSL,,U701_Oost,Transportband,U701,Tandwielkast,g pk,,Vertical,uMote OA temp5,0,um820-100484,uMote
+763,3a19e98f-a829-4a68-a3f6-10300b62c130,#RMS,GSL,,GSL,,U701_Oost,Transportband,U701,Tandwielkast,g RMS,,Vertical,uMote OA temp5,0,um820-100484,uMote
+764,13f11c05-64a0-437b-ab4e-0897a26b1518,Battery,GSL,,GSL,,U701_Oost,Transportband,U701,Tandwielkast,,,Vertical,uMote OA temp5,0,um820-100484,uMote
+765,8159535c-ad87-4ddd-8cf0-ff52b60d77a4,VPS1,GSL,,GSL,,U701_Oost,Transportband,U701,Tandwielkast,mm/s RMS,,Vertical,uMote OA temp5,0,um820-100484,uMote
+766,04211a15-fe38-4c75-bf5a-d8756288783a,VPS2,GSL,,GSL,,U701_Oost,Transportband,U701,Tandwielkast,mm/s RMS,,Vertical,uMote OA temp5,0,um820-100484,uMote
+767,2fdb699e-b2f1-4d71-94e8-8e373d13df73,ERMS,GSL,,GSL,,U701_Oost,Transportband,U701,Tandwielkast,g RMS,,Vertical,uMote OA temp5,0,um820-100484,uMote
+768,a14798b9-eea7-4f40-a933-28716bd4e00c,#ISO,GSL,,GSL,,U701_West,Transportband,Motor,,mm/s RMS,,Vertical,uMote OA temp6,0,um820-100150,uMote
+769,aeefea9c-97cb-4233-90de-6f07fbdb82cc,#Mag,GSL,,GSL,,U701_West,Transportband,Motor,,g pk,,Vertical,uMote OA temp6,0,um820-100150,uMote
+770,cba63628-28cf-49b6-bb76-607e32322d26,#RMS,GSL,,GSL,,U701_West,Transportband,Motor,,g RMS,,Vertical,uMote OA temp6,0,um820-100150,uMote
+771,8632330b-7b37-48b4-9726-7e1322d6d892,Battery,GSL,,GSL,,U701_West,Transportband,Motor,,,,Vertical,uMote OA temp6,0,um820-100150,uMote
+772,0dd68582-ab9d-4614-8ad0-6cce0bb284d3,ERMS,GSL,,GSL,,U701_West,Transportband,Motor,,g RMS,,Vertical,uMote OA temp6,0,um820-100150,uMote
+773,cedec4fb-a8de-4272-92da-dc928d6d903f,#ISO,GSL,,GSL,,U701_West,Transportband,Gearbox,,mm/s RMS,,Vertical,uMote OA temp 9,0,um820-100152,uMote
+774,fce9b76d-510c-4537-b116-189195097dd4,#Mag,GSL,,GSL,,U701_West,Transportband,Gearbox,,g pk,,Vertical,uMote OA temp 9,0,um820-100152,uMote
+775,a7ab08e8-ff21-4fc1-845e-597e6851045d,#RMS,GSL,,GSL,,U701_West,Transportband,Gearbox,,g RMS,,Vertical,uMote OA temp 9,0,um820-100152,uMote
+776,7b3f6fc9-ec57-4af4-9be7-44d9703f7b59,Battery,GSL,,GSL,,U701_West,Transportband,Gearbox,,,,Vertical,uMote OA temp 9,0,um820-100152,uMote
+777,7704dd31-7f92-492d-a0c2-90f3bc45bc5c,VPS1,GSL,,GSL,,U701_West,Transportband,Gearbox,,mm/s RMS,,Vertical,uMote OA temp 9,0,um820-100152,uMote
+778,ddd4e873-2460-4c70-b210-29344e600485,VPS2,GSL,,GSL,,U701_West,Transportband,Gearbox,,mm/s RMS,,Vertical,uMote OA temp 9,0,um820-100152,uMote
+779,98b0af15-6a3e-42a5-bd0d-262a5de0fc65,ERMS,GSL,,GSL,,U701_West,Transportband,Gearbox,,g RMS,,Vertical,uMote OA temp 9,0,um820-100152,uMote
+780,743056e2-af2a-4547-9fd3-09dbcac22bc2,"ISO, Velocity FFT RMS (10 -10 KHz)",GSL,,GSL,,E101_Oost,Transportband,Motor,,mm/s RMS,,Vertical,uMote OA,0,um820-100182,uMote
+781,1d629135-ea9f-406c-b175-829536440efd,"Mag, Acceleration FFT Mag (4 -10 KHz)",GSL,,GSL,,E101_Oost,Transportband,Motor,,g pk,,Vertical,uMote OA,0,um820-100182,uMote
+782,99a6976c-1f2c-4477-9973-3c7c4f789312,"RMS, Acceleration Wave RMS  (W:1.2 A:2.2)",GSL,,GSL,,E101_Oost,Transportband,Motor,,g RMS,,Vertical,uMote OA,0,um820-100182,uMote
+783,798f58a6-1ff2-4dca-8e63-3c1c45dbb2c1,Battery,GSL,,GSL,,E101_Oost,Transportband,Motor,,,,Vertical,uMote OA,0,um820-100182,uMote
+784,858b31ff-3499-4496-b3c8-c8125a33a105,"ERMS, Acceleration Wave RMS ",GSL,,GSL,,E101_Oost,Transportband,Motor,,g RMS,,Vertical,uMote OA,0,um820-100182,uMote
+785,699e6db8-468a-43c0-95a2-891b272c377a,"ISO, Velocity FFT RMS (10 -10 KHz)",GSL,,GSL,,E101_Oost,Transportband,Gearbox,,mm/s RMS,,Vertical,uMote OA,0,um820-100143,uMote
+786,8a2b8ee5-f133-4d06-a14c-acb7a98756d6,"Mag, Acceleration FFT Mag (4 -10 KHz) (W:3.7 A:4)",GSL,,GSL,,E101_Oost,Transportband,Gearbox,,g pk,,Vertical,uMote OA,0,um820-100143,uMote
+787,56a23d00-d877-4558-ad7a-5eea9e9d8c36,RMS,GSL,,GSL,,E101_Oost,Transportband,Gearbox,,g RMS,,Vertical,uMote OA,0,um820-100143,uMote
+788,3bc28a1b-b8c2-4e50-94b6-1c43d207abb7,Battery,GSL,,GSL,,E101_Oost,Transportband,Gearbox,,,,Vertical,uMote OA,0,um820-100143,uMote
+789,b4ee5418-3345-4a34-82a3-f85b8d7eca98,VPS1,GSL,,GSL,,E101_Oost,Transportband,Gearbox,,mm/s RMS,,Vertical,uMote OA,0,um820-100143,uMote
+790,4fb71b61-03e6-44e1-a8f6-c694e9d23689,VPS2,GSL,,GSL,,E101_Oost,Transportband,Gearbox,,mm/s RMS,,Vertical,uMote OA,0,um820-100143,uMote
+791,2f816c46-7d94-497b-94e5-d2b2fa9ad1df,ERMS,GSL,,GSL,,E101_Oost,Transportband,Gearbox,,g RMS,,Vertical,uMote OA,0,um820-100143,uMote
+792,b97a561b-c492-4626-9c69-5461ba922c4b,ISO (W:2.2 A:2.5),GSL,,GSL,,E101_West,Transportband,Motor,,mm/s RMS,,Vertical,uMote OA temp1,0,um820-100161,uMote
+793,c63c5a39-9fc1-4e01-8842-620200c0c6e3,Mag (W:3.2 A:3.7),GSL,,GSL,,E101_West,Transportband,Motor,,g pk,,Vertical,uMote OA temp1,0,um820-100161,uMote
+794,e20199cc-f9e3-4833-872a-91d15b4f7b99,RMS (W:1 A:1.2),GSL,,GSL,,E101_West,Transportband,Motor,,g RMS,,Vertical,uMote OA temp1,0,um820-100161,uMote
+795,4f2be955-70fc-4f6c-a136-248e5369fe2f,Battery,GSL,,GSL,,E101_West,Transportband,Motor,,,,Vertical,uMote OA temp1,0,um820-100161,uMote
+796,d36f4cd7-0e17-4917-83d6-fecf3cbabdea,ERMS (W:1 A:2),GSL,,GSL,,E101_West,Transportband,Motor,,g RMS,,Vertical,uMote OA temp1,0,um820-100161,uMote
+797,5a065ab9-fe29-4f58-8b11-7085c1ef72b5,ISO (W:1.8 A:2.1),GSL,,GSL,,E101_West,Transportband,Gearbox,,mm/s RMS,,Vertical,uMote OA temp4,0,um820-100158,uMote
+798,f7c30e00-f699-43d9-9a78-b4de625e584e,RMS (W:0.5 A:0.6),GSL,,GSL,,E101_West,Transportband,Gearbox,,g RMS,,Vertical,uMote OA temp4,0,um820-100158,uMote
+799,312a3f73-6280-4ae6-a76b-8b11776aefaa,Battery,GSL,,GSL,,E101_West,Transportband,Gearbox,,,,Vertical,uMote OA temp4,0,um820-100158,uMote
+800,e2e78e44-11cf-4010-87be-8055d2e6165c,VPS2 (W:0.5 A:0.6),GSL,,GSL,,E101_West,Transportband,Gearbox,,mm/s RMS,,Vertical,uMote OA temp4,0,um820-100158,uMote
+801,e71cc66c-947e-4900-afe1-ecf451fce403,ERMS (W:0.01 A:0.02),GSL,,GSL,,E101_West,Transportband,Gearbox,,g RMS,,Vertical,uMote OA temp4,0,um820-100158,uMote
+802,83139de4-7764-4aa8-84b6-53e27ed51ded,Mag (W:2.1 A:2.3),GSL,,GSL,,E101_West,Transportband,Gearbox,,g pk,,Vertical,uMote OA temp4,0,um820-100158,uMote
+803,a8d9909e-c32b-452a-84d3-8219605ced4d,VPS1 (W:0.4 A:0.5),GSL,,GSL,,E101_West,Transportband,Gearbox,,mm/s RMS,,Vertical,uMote OA temp4,0,um820-100158,uMote
+804,bd4c8f5f-a47d-4fcd-a57c-d8a50210a59e,"ISO, Velocity FFT RMS (10 -10 KHz) (W:7 A:8)",GSL,,GSL,,E100_Noord-Oost,Transportband,Motor,,mm/s RMS,,Vertical,uMote OA Measurement ,0,um820-100316,uMote
+805,c66d654b-248b-4bda-a04b-e37b09f93478,Mag (W:3.5 A:4.5),GSL,,GSL,,E100_Noord-Oost,Transportband,Motor,,g pk,,Vertical,uMote OA Measurement ,0,um820-100316,uMote
+806,37185e4c-30e6-427b-af60-cbe8d93f6be2,"RMS, Acceleration Wave RMS  (W:1.2 A:4.5)",GSL,,GSL,,E100_Noord-Oost,Transportband,Motor,,g RMS,,Vertical,uMote OA Measurement ,0,um820-100316,uMote
+807,bd778ecb-6284-4126-a584-edb511e3e723,Battery,GSL,,GSL,,E100_Noord-Oost,Transportband,Motor,,,,Vertical,uMote OA Measurement ,0,um820-100316,uMote
+808,ebeecfa2-7ff9-4a18-92ea-792837f5a9bd,"ERMS, Acceleration Wave RMS  (W:0.2 A:0.4)",GSL,,GSL,,E100_Noord-Oost,Transportband,Motor,,g RMS,,Vertical,uMote OA Measurement ,0,um820-100316,uMote
+809,d4d88e74-a1ec-4ab6-9088-7cb844a7b445,#ISO,GSL,,GSL,,E100_Noord-Oost,Transportband,Gearbox,,mm/s RMS,,,IOT,0,um820-101499,uMote
+810,693bdeee-b743-42b4-8d20-1128b4d52b84,#Mag,GSL,,GSL,,E100_Noord-Oost,Transportband,Gearbox,,g pk,,,IOT,0,um820-101499,uMote
+811,c95a8869-84b5-449b-88af-8ab5e36ff895,#RMS,GSL,,GSL,,E100_Noord-Oost,Transportband,Gearbox,, RMS,,,IOT,0,um820-101499,uMote
+812,afa24f08-6303-4d20-8e07-1ec6e0547fc6,Battery,GSL,,GSL,,E100_Noord-Oost,Transportband,Gearbox,,,,,IOT,0,um820-101499,uMote
+813,6a090652-9438-4593-8b5a-17ce03dc8b46,VPS1,GSL,,GSL,,E100_Noord-Oost,Transportband,Gearbox,,mm/s RMS,,,IOT,0,um820-101499,uMote
+814,dc922474-40a6-4387-9819-35713fd50d83,VPS2,GSL,,GSL,,E100_Noord-Oost,Transportband,Gearbox,,mm/s RMS,,,IOT,0,um820-101499,uMote
+815,008a62ce-244d-414b-8e9b-c101156a47ad,ERMS,GSL,,GSL,,E100_Noord-Oost,Transportband,Gearbox,, RMS,,,IOT,0,um820-101499,uMote
+816,88bc5898-bbc6-4c8f-b197-3fcddde1941c,EMag,GSL,,GSL,,E100_Noord-Oost,Transportband,Gearbox,,g pk,,,IOT,0,um820-101499,uMote
+817,92cb8cd6-5f97-4e5b-b27f-ccc762bc079e,"ISO, Velocity FFT RMS (10 -10 KHz) (W:3.7 A:4.5)",GSL,,GSL,,E100_Noord-West,Transportband,Motor,,mm/s RMS,,Vertical,uMote OA,0,um820-100337,uMote
+818,695e8853-9733-41e5-9a2f-72f7896a49f7,Mag (W:6 A:7),GSL,,GSL,,E100_Noord-West,Transportband,Motor,,g pk,,Vertical,uMote OA,0,um820-100337,uMote
+819,c57b59f2-be61-44ae-85a5-adea1767b7ba,"RMS, Acceleration Wave RMS  (W:1.2 A:3.3)",GSL,,GSL,,E100_Noord-West,Transportband,Motor,,g RMS,,Vertical,uMote OA,0,um820-100337,uMote
+820,79566d8f-9c27-4643-a65e-7f5ae88f9073,Battery,GSL,,GSL,,E100_Noord-West,Transportband,Motor,,,,Vertical,uMote OA,0,um820-100337,uMote
+821,d34e0877-f991-4888-9f0c-2c8ca8cca7c1,"ERMS, Acceleration Wave RMS  (W:0.1 A:0.2)",GSL,,GSL,,E100_Noord-West,Transportband,Motor,,g RMS,,Vertical,uMote OA,0,um820-100337,uMote
+822,cdbc5a82-9707-4a74-b218-1c03202c0e48,"ISO, Velocity FFT RMS (10 -10 KHz)",GSL,,GSL,,E100_Noord-West,Transportband,Gearbox,,mm/s RMS,,Vertical,IOT,0,um820-100247,uMote
+823,54e57329-b7cb-459c-b73a-aeb9d11c79bb,#Mag,GSL,,GSL,,E100_Noord-West,Transportband,Gearbox,,g pk,,Vertical,IOT,0,um820-100247,uMote
+824,52515f07-4e1d-4640-9db6-19ea4f436416,#RMS,GSL,,GSL,,E100_Noord-West,Transportband,Gearbox,, RMS,,Vertical,IOT,0,um820-100247,uMote
+825,11a486ac-3420-445b-af8f-47f7ce3581c4,Battery,GSL,,GSL,,E100_Noord-West,Transportband,Gearbox,,,,Vertical,IOT,0,um820-100247,uMote
+826,04efeefb-ff7b-4ced-a3ef-c16cd16e9da9,VPS1,GSL,,GSL,,E100_Noord-West,Transportband,Gearbox,,mm/s RMS,,Vertical,IOT,0,um820-100247,uMote
+827,90bbcb5f-4106-42f6-a1e8-65ac5cc4fe45,VPS2,GSL,,GSL,,E100_Noord-West,Transportband,Gearbox,,mm/s RMS,,Vertical,IOT,0,um820-100247,uMote
+828,29787336-d5f3-45a7-a410-ec0c96a0efd5,ERMS,GSL,,GSL,,E100_Noord-West,Transportband,Gearbox,, RMS,,Vertical,IOT,0,um820-100247,uMote
+829,bc5a5119-7148-4378-8d0c-cc526695f37f,"ISO, Velocity FFT RMS (10 -10 KHz)",GSL,,GSL,,E100_Zuid,Transportband,Motor,,mm/s RMS,,Vertical,uMote OA E100 Zuid (twk),0,um820-100165,uMote
+830,946236a7-3b02-4ad2-a050-e22a763d162c,#Mag,GSL,,GSL,,E100_Zuid,Transportband,Motor,,g pk,,Vertical,uMote OA E100 Zuid (twk),0,um820-100165,uMote
+831,0152238b-f25c-4ca0-8ee6-cd7f5411ba08,#RMS,GSL,,GSL,,E100_Zuid,Transportband,Motor,,g RMS,,Vertical,uMote OA E100 Zuid (twk),0,um820-100165,uMote
+832,d9213f9f-3521-4ef4-8a8b-0431d3e6384b,Battery,GSL,,GSL,,E100_Zuid,Transportband,Motor,,,,Vertical,uMote OA E100 Zuid (twk),0,um820-100165,uMote
+833,1fc21d37-45d6-4545-a9e5-ef1931d83d3d,ERMS,GSL,,GSL,,E100_Zuid,Transportband,Motor,,g RMS,,Vertical,uMote OA E100 Zuid (twk),0,um820-100165,uMote
+834,40ef95cd-96ac-46d8-b550-a28d1ad09faf,"ISO, Velocity FFT RMS (10 -10 KHz)",GSL,,GSL,,E100_Zuid,Transportband,Gearbox,,mm/s RMS,,Vertical,uMote OA temp2,0,um820-100382,uMote
+835,772f5af0-0d77-41b4-960f-2f434291e3d4,Mag (W:8 A:10),GSL,,GSL,,E100_Zuid,Transportband,Gearbox,,g pk,,Vertical,uMote OA temp2,0,um820-100382,uMote
+836,3bd26540-7366-4095-8f16-6c5906c266e9,RMS (W:2.2 A:2.4),GSL,,GSL,,E100_Zuid,Transportband,Gearbox,,g RMS,,Vertical,uMote OA temp2,0,um820-100382,uMote
+837,96f04188-94a6-461a-9850-606b952c93f0,Battery,GSL,,GSL,,E100_Zuid,Transportband,Gearbox,,,,Vertical,uMote OA temp2,0,um820-100382,uMote
+838,05b48a4b-e1e8-4369-b8f3-f9fc00dc06ca,VPS1 (W:2.6 A:3),GSL,,GSL,,E100_Zuid,Transportband,Gearbox,,mm/s RMS,,Vertical,uMote OA temp2,0,um820-100382,uMote
+839,40e6702f-85a5-4522-bd28-3d1c0dc28ec4,VPS2 (W:1.4 A:1.6),GSL,,GSL,,E100_Zuid,Transportband,Gearbox,,mm/s RMS,,Vertical,uMote OA temp2,0,um820-100382,uMote
+840,e8c0ee34-6ddc-485e-bf83-36e47ec3b69a,ERMS (W:0.05 A:0.07),GSL,,GSL,,E100_Zuid,Transportband,Gearbox,,g RMS,,Vertical,uMote OA temp2,0,um820-100382,uMote
+841,a3c96cae-8d01-478c-b1f1-0d56132d950e,#ISO,GSL,,GSL,,A415,Transportband,Motor,,mm/s RMS,,Vertical,IOT,0,um820-100311,uMote
+842,6d94b443-1bdb-41bb-97f3-4d5610c5d935,#Mag,GSL,,GSL,,A415,Transportband,Motor,,g pk,,Vertical,IOT,0,um820-100311,uMote
+843,03d18914-8dee-424c-8279-47bc57a8a3ca,#RMS,GSL,,GSL,,A415,Transportband,Motor,, RMS,,Vertical,IOT,0,um820-100311,uMote
+844,9f12dcd4-017a-4a2c-85c3-97241ea3d0b4,Battery,GSL,,GSL,,A415,Transportband,Motor,,,,Vertical,IOT,0,um820-100311,uMote
+845,c66ff411-7301-4284-9d0f-eef5eebbba7a,VPS1,GSL,,GSL,,A415,Transportband,Motor,,mm/s RMS,,Vertical,IOT,0,um820-100311,uMote
+846,b31ab31b-2760-492b-9f4e-5dbcae77f75a,VPS2,GSL,,GSL,,A415,Transportband,Motor,,mm/s RMS,,Vertical,IOT,0,um820-100311,uMote
+847,1709326e-4415-4d71-9cc2-23858a6f1377,ERMS,GSL,,GSL,,A415,Transportband,Motor,, RMS,,Vertical,IOT,0,um820-100311,uMote
+848,ad92bf84-43b6-4344-9ba9-b3914ae2e52e,#ISO,GSL,,GSL,,A415,Transportband,Gearbox,,mm/s RMS,,Vertical,IOT,0,um820-100181,uMote
+849,23f1ae37-41b7-4336-b092-31d62921591b,#Mag,GSL,,GSL,,A415,Transportband,Gearbox,,g pk,,Vertical,IOT,0,um820-100181,uMote
+850,bd9e5000-d236-4802-bb79-394dc5c71f5b,#RMS,GSL,,GSL,,A415,Transportband,Gearbox,, RMS,,Vertical,IOT,0,um820-100181,uMote
+851,f8a9ee05-dd1a-4657-ac93-7748d37a4345,Battery,GSL,,GSL,,A415,Transportband,Gearbox,,,,Vertical,IOT,0,um820-100181,uMote
+852,2b46bfed-530c-4650-b37c-cbdd8fea5e6f,VPS1,GSL,,GSL,,A415,Transportband,Gearbox,,mm/s RMS,,Vertical,IOT,0,um820-100181,uMote
+853,6ced7691-c3b2-41b3-80eb-9ed29d6eb807,VPS2,GSL,,GSL,,A415,Transportband,Gearbox,,mm/s RMS,,Vertical,IOT,0,um820-100181,uMote
+854,eeda0dd8-145c-4d6a-8354-f3249a73a280,ERMS,GSL,,GSL,,A415,Transportband,Gearbox,, RMS,,Vertical,IOT,0,um820-100181,uMote
+855,d96958a4-b599-414a-9384-6ce6cdb5843b,"ISO, Velocity FFT RMS (10 -10 KHz)",GSL,,GSL,,A425,Transportband,Motor,,mm/s RMS,,Vertical,uMote OA,0,um820-100492,uMote
+856,ad1225ef-bb75-46f8-b520-e6c058db47c4,"Mag, Acceleration FFT Mag (4 -10 KHz)",GSL,,GSL,,A425,Transportband,Motor,,g pk,,Vertical,uMote OA,0,um820-100492,uMote
+857,e0563608-3573-4819-ae1e-39b68c34eb19,"RMS, Acceleration Wave RMS ",GSL,,GSL,,A425,Transportband,Motor,,g RMS,,Vertical,uMote OA,0,um820-100492,uMote
+858,e686dd4a-171d-4525-b121-d3fdf2f7b10c,Battery,GSL,,GSL,,A425,Transportband,Motor,,,,Vertical,uMote OA,0,um820-100492,uMote
+859,ea67a126-5a28-4659-b3fb-6139ef1188da,"ERMS, Acceleration Wave RMS ",GSL,,GSL,,A425,Transportband,Motor,,g RMS,,Vertical,uMote OA,0,um820-100492,uMote
+860,23944a76-117b-44c7-b56f-3f6294ef9334,#ISO,GSL,,GSL,,A425,Transportband,Gearbox,,mm/s RMS,,Vertical,IOT,0,um820-100205,uMote
+861,a1a4a117-d262-4b68-b2fd-ea516a04a5a2,#Mag,GSL,,GSL,,A425,Transportband,Gearbox,,g pk,,Vertical,IOT,0,um820-100205,uMote
+862,e360a206-4bc4-46b8-9c72-6547edcdecd9,#RMS,GSL,,GSL,,A425,Transportband,Gearbox,, RMS,,Vertical,IOT,0,um820-100205,uMote
+863,a11b7a0b-e12d-4c38-9503-d943860c5b40,Battery,GSL,,GSL,,A425,Transportband,Gearbox,,,,Vertical,IOT,0,um820-100205,uMote
+864,948e5181-2193-4a95-b78b-a5c07e991c0c,VPS1,GSL,,GSL,,A425,Transportband,Gearbox,,mm/s RMS,,Vertical,IOT,0,um820-100205,uMote
+865,d6e76646-e5bc-4f40-b10f-911111399047,VPS2,GSL,,GSL,,A425,Transportband,Gearbox,,mm/s RMS,,Vertical,IOT,0,um820-100205,uMote
+866,2cefac09-8703-481f-9880-7b5d6035bba5,ERMS,GSL,,GSL,,A425,Transportband,Gearbox,, RMS,,Vertical,IOT,0,um820-100205,uMote
+867,7c1ae68c-f278-444c-9a1d-7b82d7b99b83,#ISO,GSL,,GSL,,A221 (motorreductor),,Motor,,mm/s RMS,,Vertical,uMote OA,0,um820-100447,uMote
+868,a9d9aef0-3ada-48a2-bb7b-67b1d1a85e6d,#Mag,GSL,,GSL,,A221 (motorreductor),,Motor,,g pk,,Vertical,uMote OA,0,um820-100447,uMote
+869,c43139a4-4bcc-46b2-999b-055b2bb66a6f,#RMS,GSL,,GSL,,A221 (motorreductor),,Motor,,g RMS,,Vertical,uMote OA,0,um820-100447,uMote
+870,449fe875-f86c-4bf1-aae3-d3f836fe66f5,Battery,GSL,,GSL,,A221 (motorreductor),,Motor,,,,Vertical,uMote OA,0,um820-100447,uMote
+871,8d395cd3-c154-434a-8e31-b955fa3ea580,ERMS,GSL,,GSL,,A221 (motorreductor),,Motor,,g RMS,,Vertical,uMote OA,0,um820-100447,uMote
+872,abdbd957-2779-4a40-9536-f88f367a8f33,#ISO,GSL,,GSL,,A221 (motorreductor),,Gearbox,,mm/s RMS,,Vertical,uMote OA,0,um820-100142,uMote
+873,f2462678-f455-49b1-9a36-313bef0759da,#Mag,GSL,,GSL,,A221 (motorreductor),,Gearbox,,g pk,,Vertical,uMote OA,0,um820-100142,uMote
+874,bf2f9214-2cb3-492a-8ce8-39677fdf7852,#RMS,GSL,,GSL,,A221 (motorreductor),,Gearbox,,g RMS,,Vertical,uMote OA,0,um820-100142,uMote
+875,20f7f962-1cc7-47c1-ad55-2fe3e75acd29,Battery,GSL,,GSL,,A221 (motorreductor),,Gearbox,,,,Vertical,uMote OA,0,um820-100142,uMote
+876,0d362f75-e4fa-46c9-a12e-0fba20cb5c7f,VPS1,GSL,,GSL,,A221 (motorreductor),,Gearbox,,mm/s RMS,,Vertical,uMote OA,0,um820-100142,uMote
+877,5cc455af-0f59-4195-8ac0-8d73000230f8,VPS2,GSL,,GSL,,A221 (motorreductor),,Gearbox,,mm/s RMS,,Vertical,uMote OA,0,um820-100142,uMote
+878,cdd3286d-3740-4570-be0c-6d0e3989604a,ERMS,GSL,,GSL,,A221 (motorreductor),,Gearbox,,g RMS,,Vertical,uMote OA,0,um820-100142,uMote
+879,e442d875-b710-43b1-9d47-8ed4cf2661f1,#ISO,GSL,,GSL,,WG071 opvoerband,,Motor,,mm/s RMS,,,IOT,0,um820-100478,uMote
+880,2538666e-f901-4b39-b0ad-3b00d5e021b7,#Mag,GSL,,GSL,,WG071 opvoerband,,Motor,,g pk,,,IOT,0,um820-100478,uMote
+881,97f1fca9-82b0-4193-b543-280146ef3f97,#RMS,GSL,,GSL,,WG071 opvoerband,,Motor,, RMS,,,IOT,0,um820-100478,uMote
+882,509972ff-3b4f-411e-a9b6-5d871229cd5a,Battery,GSL,,GSL,,WG071 opvoerband,,Motor,,,,,IOT,0,um820-100478,uMote
+883,0084d7d8-da70-4807-8765-8cd494378464,VPS1,GSL,,GSL,,WG071 opvoerband,,Motor,,mm/s RMS,,,IOT,0,um820-100478,uMote
+884,5896f06f-999a-4473-8c9c-2314a6988c85,VPS2,GSL,,GSL,,WG071 opvoerband,,Motor,,mm/s RMS,,,IOT,0,um820-100478,uMote
+885,a6c54436-de12-4995-97d2-649660e9f3c2,ERMS,GSL,,GSL,,WG071 opvoerband,,Motor,, RMS,,,IOT,0,um820-100478,uMote
+886,cd6a2503-2384-4ee5-b46e-790bf083d1bd,EMag,GSL,,GSL,,WG071 opvoerband,,Motor,,g pk,,,IOT,0,um820-100478,uMote
+887,353b93c4-54fe-4146-9eb6-05fdecc7d63e,#ISO,GSL,,GSL,,WG071 opvoerband,,Gearbox,,mm/s RMS,,,IOT,0,um820-100428,uMote
+888,e92c9cb3-f8ef-4fa7-bd82-ace9d6cab7fd,#Mag,GSL,,GSL,,WG071 opvoerband,,Gearbox,,g pk,,,IOT,0,um820-100428,uMote
+889,1e556a70-22f9-4957-ba77-a24ca0c39fa3,#RMS,GSL,,GSL,,WG071 opvoerband,,Gearbox,, RMS,,,IOT,0,um820-100428,uMote
+890,103f0498-8d04-47a5-a931-0d8fca755d8a,Battery,GSL,,GSL,,WG071 opvoerband,,Gearbox,,,,,IOT,0,um820-100428,uMote
+891,4b85dea0-aeda-4f0f-b470-7fb3363334b3,VPS1,GSL,,GSL,,WG071 opvoerband,,Gearbox,,mm/s RMS,,,IOT,0,um820-100428,uMote
+892,435f831a-d013-41ef-a5d1-7b3fd5174f95,VPS2,GSL,,GSL,,WG071 opvoerband,,Gearbox,,mm/s RMS,,,IOT,0,um820-100428,uMote
+893,1d145b33-1c9b-4a07-b639-8601ea818fea,ERMS,GSL,,GSL,,WG071 opvoerband,,Gearbox,, RMS,,,IOT,0,um820-100428,uMote
+894,6f9d9b8a-1bb9-498d-98aa-5373d21ab89e,EMag,GSL,,GSL,,WG071 opvoerband,,Gearbox,,g pk,,,IOT,0,um820-100428,uMote
+895,7885aebd-f39f-4fdb-a481-bfc50d8d0d98,#ISO,GSL,,GSL,,WG071 uithouderband,,Motor,,mm/s RMS,,,IOT,0,um820-100440,uMote
+896,8d39f17a-99ab-42b4-b971-513776963cf2,#Mag,GSL,,GSL,,WG071 uithouderband,,Motor,,g pk,,,IOT,0,um820-100440,uMote
+897,3c4ca863-7850-4ba0-a501-fbd3e6c2642b,#RMS,GSL,,GSL,,WG071 uithouderband,,Motor,, RMS,,,IOT,0,um820-100440,uMote
+898,8e8f55bd-bb68-4846-9e6b-21bf454bcf90,Battery,GSL,,GSL,,WG071 uithouderband,,Motor,,,,,IOT,0,um820-100440,uMote
+899,7339784f-bfc0-42bc-9c19-a4bc56cb94f8,VPS1,GSL,,GSL,,WG071 uithouderband,,Motor,,mm/s RMS,,,IOT,0,um820-100440,uMote
+900,07c87bf8-5aa9-4748-b0fc-8092a8f30030,VPS2,GSL,,GSL,,WG071 uithouderband,,Motor,,mm/s RMS,,,IOT,0,um820-100440,uMote
+901,15c36a35-b84a-4b8a-b005-cb18a944b559,ERMS,GSL,,GSL,,WG071 uithouderband,,Motor,, RMS,,,IOT,0,um820-100440,uMote
+902,3314fc34-3261-4ac2-a892-9066f11ece3d,EMag,GSL,,GSL,,WG071 uithouderband,,Motor,,g pk,,,IOT,0,um820-100440,uMote
+903,24a98c0e-0bd6-4f0a-a285-b187cc37265b,#ISO,GSL,,GSL,,WG071 uithouderband,,Gearbox,,mm/s RMS,,,IOT,0,um820-100468,uMote
+904,f17dbb7f-8e4e-4749-9be1-8d8d7db9583d,#Mag,GSL,,GSL,,WG071 uithouderband,,Gearbox,,g pk,,,IOT,0,um820-100468,uMote
+905,347c7ec0-c066-41b7-9167-e72e21b22c51,#RMS,GSL,,GSL,,WG071 uithouderband,,Gearbox,, RMS,,,IOT,0,um820-100468,uMote
+906,b3cfe5b7-c1e4-4c02-ae88-b447bdbac0ba,Battery,GSL,,GSL,,WG071 uithouderband,,Gearbox,,,,,IOT,0,um820-100468,uMote
+907,a6952742-c377-44bc-a17f-99e96794d046,VPS1,GSL,,GSL,,WG071 uithouderband,,Gearbox,,mm/s RMS,,,IOT,0,um820-100468,uMote
+908,5a1c989d-6ca2-4f61-b6e1-c238e71266af,VPS2,GSL,,GSL,,WG071 uithouderband,,Gearbox,,mm/s RMS,,,IOT,0,um820-100468,uMote
+909,b8b43719-e399-42ff-80e7-97484a1fbd3e,ERMS,GSL,,GSL,,WG071 uithouderband,,Gearbox,, RMS,,,IOT,0,um820-100468,uMote
+910,adf7bb6f-0de5-404c-9dae-29c631ed55c3,EMag,GSL,,GSL,,WG071 uithouderband,,Gearbox,,g pk,,,IOT,0,um820-100468,uMote
+911,5ad06fdb-4de1-4858-8609-bd3dc9d7dc3e,#ISO,GSL,,GSL,,LK121 kopdraad,,Motor,,mm/s RMS,,Vertical,uMote OA,0,um820-100398,uMote
+912,1cc49253-44b2-400e-a4e5-0f10dd7c3a26,#Mag,GSL,,GSL,,LK121 kopdraad,,Motor,,g pk,,Vertical,uMote OA,0,um820-100398,uMote
+913,2443a620-8ca1-4cf5-8061-0a6db1360866,#RMS,GSL,,GSL,,LK121 kopdraad,,Motor,,g RMS,,Vertical,uMote OA,0,um820-100398,uMote
+914,5d876b67-8acc-47ed-a2a1-e4513d14980a,Battery,GSL,,GSL,,LK121 kopdraad,,Motor,,,,Vertical,uMote OA,0,um820-100398,uMote
+915,cc07978a-b108-4398-9f38-57fd831567aa,ERMS,GSL,,GSL,,LK121 kopdraad,,Motor,,g RMS,,Vertical,uMote OA,0,um820-100398,uMote
+916,26aaab04-2aaf-460a-9de7-0ae7378867fa,#ISO,GSL,,GSL,,LK121 kopdraad,,Gearbox,,mm/s RMS,,Vertical,uMote OA,0,um820-100421,uMote
+917,3bdbec5c-e373-4cce-bea6-e972de8db1bc,#Mag,GSL,,GSL,,LK121 kopdraad,,Gearbox,,g pk,,Vertical,uMote OA,0,um820-100421,uMote
+918,97f22b18-7798-4480-a056-2773719aed39,#RMS,GSL,,GSL,,LK121 kopdraad,,Gearbox,,g RMS,,Vertical,uMote OA,0,um820-100421,uMote
+919,2bcfe223-f6ff-4211-be7a-d9b1f004e98b,Battery,GSL,,GSL,,LK121 kopdraad,,Gearbox,,,,Vertical,uMote OA,0,um820-100421,uMote
+920,987ce3b7-ff88-4761-b2f6-6966451d9c52,VPS1,GSL,,GSL,,LK121 kopdraad,,Gearbox,,mm/s RMS,,Vertical,uMote OA,0,um820-100421,uMote
+921,e6b7e528-7d3b-47eb-93a5-e512c6e06204,VPS2,GSL,,GSL,,LK121 kopdraad,,Gearbox,,mm/s RMS,,Vertical,uMote OA,0,um820-100421,uMote
+922,4ac298f9-a150-436d-bf2c-1000e0605bdf,ERMS,GSL,,GSL,,LK121 kopdraad,,Gearbox,,g RMS,,Vertical,uMote OA,0,um820-100421,uMote
+923,5591e924-595f-4c79-a414-b2a147f312ae,#ISO,GSL,,GSL,,LK121 kat,,Motor,,mm/s RMS,,Vertical,uMote OA,0,um820-100239,uMote
+924,c3b338e1-20df-469a-a624-b861f5842987,#Mag,GSL,,GSL,,LK121 kat,,Motor,,g pk,,Vertical,uMote OA,0,um820-100239,uMote
+925,5e2c47cf-aad9-465e-8061-94aefd678a67,#RMS,GSL,,GSL,,LK121 kat,,Motor,,g RMS,,Vertical,uMote OA,0,um820-100239,uMote
+926,ee8a8d84-ead6-4eb3-84ee-2292d5008a3b,Battery,GSL,,GSL,,LK121 kat,,Motor,,,,Vertical,uMote OA,0,um820-100239,uMote
+927,41d601e4-9da4-4d82-ae86-b6fb2baa4341,ERMS,GSL,,GSL,,LK121 kat,,Motor,,g RMS,,Vertical,uMote OA,0,um820-100239,uMote
+928,75a58183-1870-4178-ba5c-4507c4c0e81f,#ISO,GSL,,GSL,,LK121 kat,,Gearbox,,mm/s RMS,,Vertical,uMote OA,0,um820-100362,uMote
+929,0bfda014-a95c-489b-9caf-d95885324fff,#Mag,GSL,,GSL,,LK121 kat,,Gearbox,,g pk,,Vertical,uMote OA,0,um820-100362,uMote
+930,d2ada95b-81bb-49c6-840a-ffb9c91ca73a,#RMS,GSL,,GSL,,LK121 kat,,Gearbox,,g RMS,,Vertical,uMote OA,0,um820-100362,uMote
+931,93a2571f-5e27-4aea-98b7-fc8e57953bc0,Battery,GSL,,GSL,,LK121 kat,,Gearbox,,,,Vertical,uMote OA,0,um820-100362,uMote
+932,ee18dbee-4cd6-4dac-9f50-abdd1348721e,VPS1,GSL,,GSL,,LK121 kat,,Gearbox,,mm/s RMS,,Vertical,uMote OA,0,um820-100362,uMote
+933,1af11948-deba-4d30-bdea-ef7e70e8b37e,VPS2,GSL,,GSL,,LK121 kat,,Gearbox,,mm/s RMS,,Vertical,uMote OA,0,um820-100362,uMote
+934,37e1b2ff-4e7b-4682-b029-d07be7138568,ERMS,GSL,,GSL,,LK121 kat,,Gearbox,,g RMS,,Vertical,uMote OA,0,um820-100362,uMote
+935,d24b5ed7-e949-4f82-a2d5-77326671daa4,#ISO,GSL,,GSL,,LK121 sluitdraad ,,Motor,,mm/s RMS,,Vertical,uMote OA,0,um820-100194,uMote
+936,9eea601f-7da5-49b1-ba2b-98d932caac1e,#Mag,GSL,,GSL,,LK121 sluitdraad ,,Motor,,g pk,,Vertical,uMote OA,0,um820-100194,uMote
+937,1b0b3d2d-583f-41fa-ac24-a02e7e5ccbb3,#RMS,GSL,,GSL,,LK121 sluitdraad ,,Motor,,g RMS,,Vertical,uMote OA,0,um820-100194,uMote
+938,d2bb712c-df95-423a-bcc0-b5e71bc1b2c7,Battery,GSL,,GSL,,LK121 sluitdraad ,,Motor,,,,Vertical,uMote OA,0,um820-100194,uMote
+939,6520d025-acbd-42cf-8ab6-4c75c33a5014,ERMS,GSL,,GSL,,LK121 sluitdraad ,,Motor,,g RMS,,Vertical,uMote OA,0,um820-100194,uMote
+940,16ca7fb1-562c-4de6-8d9e-1d23fd5d348e,#ISO,GSL,,GSL,,LK121 sluitdraad ,,Gearbox,,mm/s RMS,,Vertical,uMote OA,0,um820-100180,uMote
+941,fcd9b777-564b-4b60-b281-76be293ed082,#Mag,GSL,,GSL,,LK121 sluitdraad ,,Gearbox,,g pk,,Vertical,uMote OA,0,um820-100180,uMote
+942,1f94e10c-00d1-4645-8b26-64ecb057f2c6,#RMS,GSL,,GSL,,LK121 sluitdraad ,,Gearbox,,g RMS,,Vertical,uMote OA,0,um820-100180,uMote
+943,9d0d3005-7812-4ac8-bf26-ad7cbbce8d28,Battery,GSL,,GSL,,LK121 sluitdraad ,,Gearbox,,,,Vertical,uMote OA,0,um820-100180,uMote
+944,ab35ac27-4b42-47e5-98b1-b3dc11dfb4e6,VPS1,GSL,,GSL,,LK121 sluitdraad ,,Gearbox,,mm/s RMS,,Vertical,uMote OA,0,um820-100180,uMote
+945,69eb28bf-008d-469f-a0dd-44ddb061c43b,VPS2,GSL,,GSL,,LK121 sluitdraad ,,Gearbox,,mm/s RMS,,Vertical,uMote OA,0,um820-100180,uMote
+946,d3b10ae7-96bd-4415-b74b-5213bbfb4145,ERMS,GSL,,GSL,,LK121 sluitdraad ,,Gearbox,,g RMS,,Vertical,uMote OA,0,um820-100180,uMote
